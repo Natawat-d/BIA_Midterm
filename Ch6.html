@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.6 — Text, Web & Social Media Analytics · Full Detail</title>
+<style>
+  :root{--teal:#1a7a96;--teal-dark:#0f5a70;--red:#c0392b;--orange:#c0622b;--green:#2e8b57;--purple:#7a5ca8;--bg:#f7f9fa;--card:#fff;--ink:#1f2d33;--muted:#5c6b72;--border:#d9e2e6;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;}
+  a{color:var(--teal-dark);}
+  header.hero{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:34px 26px 26px;}
+  header.hero .home{font-size:.82rem;color:#d7eef4;text-decoration:none;}
+  header.hero .chip{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 10px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin:10px 0 8px;}
+  header.hero h1{margin:0;font-size:1.7rem;line-height:1.25;max-width:900px;}
+  header.hero .cite{margin-top:10px;font-size:.9rem;opacity:.92;max-width:900px;}
+  .layout{display:flex;max-width:1140px;margin:0 auto;gap:28px;padding:26px 22px 48px;align-items:flex-start;}
+  nav.toc{position:sticky;top:16px;flex:0 0 215px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:.84rem;max-height:calc(100vh - 32px);overflow-y:auto;}
+  nav.toc h2{font-size:.7rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:0 0 8px;}
+  nav.toc a{display:block;color:var(--teal-dark);text-decoration:none;padding:3px 0;}
+  nav.toc a:hover{text-decoration:underline;}
+  main{flex:1 1 auto;min-width:0;}
+  section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  section.card>h2{color:var(--teal);margin-top:0;border-bottom:3px solid var(--teal);padding-bottom:8px;font-size:1.3rem;}
+  h3{color:var(--teal-dark);font-size:1.07rem;margin:20px 0 6px;border-left:4px solid var(--teal);padding-left:9px;}
+  h4{color:var(--teal-dark);margin:14px 0 4px;font-size:.98rem;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef4f6;color:var(--teal-dark);}
+  code{background:#eef4f6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  .idea{background:#fdf3ea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .idea b{color:var(--red);}
+  .ex{background:#eef7fa;border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.95rem;}
+  .ex b{color:var(--teal-dark);}
+  .exam{background:#fbf4ec;border-left:4px solid var(--orange);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .exam b{color:var(--orange);}
+  .spectrum{display:flex;flex-wrap:wrap;align-items:center;gap:7px;background:#eef4f6;border-radius:10px;padding:12px;margin:12px 0;font-weight:600;color:var(--teal-dark);font-size:.85rem;}
+  .spectrum .step{background:#fff;border:1px solid var(--border);border-radius:8px;padding:5px 9px;text-align:center;}
+  .spectrum .arrow{color:var(--teal);}
+  .red{color:var(--red);font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:22px;border-top:1px solid var(--border);}
+  @media(max-width:860px){.layout{flex-direction:column;}nav.toc{position:static;width:100%;max-height:none;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="home" href="index.html">← Midterm Prep Hub</a>
+  <div class="chip">CHAPTER 6 · FULL DETAIL · PREDICTIVE ANALYTICS II</div>
+  <h1>Text, Web &amp; Social Media Analytics</h1>
+  <div class="cite">Sharda, Delen &amp; Turban — Chapter 6. Mining the ~85–90% of corporate data that is unstructured text, plus web &amp; social analytics.</div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>On this page</h2>
+    <a href="#glance">Key idea</a>
+    <a href="#vs">Text analytics vs mining</a>
+    <a href="#terms">Terminology &amp; NLP</a>
+    <a href="#process">3-step process &amp; TF-IDF</a>
+    <a href="#topic">Topic modelling</a>
+    <a href="#sentiment">Sentiment analysis</a>
+    <a href="#web">Web mining</a>
+    <a href="#sna">Social network analysis</a>
+    <a href="#cases">Application cases</a>
+    <a href="#exam">Exam focus</a>
+  </nav>
+  <main>
+
+  <section class="card" id="glance">
+    <h2>Key idea</h2>
+    <div class="idea"><b>Core message:</b> ~<b>85–90% of corporate data is unstructured text</b>. The whole game is to <b>impose structure</b> on it (the term-document matrix) and then mine that structure for topics, sentiment and web/social patterns.</div>
+  </section>
+
+  <section class="card" id="vs">
+    <h2>Text analytics vs text mining vs data mining</h2>
+    <ul>
+      <li><b>Text Analytics</b> = Information Retrieval + Information Extraction + Data Mining + Web Mining (or simply <em>IR + Text Mining</em>).</li>
+      <li><b>Text mining</b> = a semi-automated process of extracting knowledge from <b>unstructured</b> sources (knowledge discovery in textual databases).</li>
+      <li><b>Data mining vs text mining</b> — both find novel patterns &amp; are semi-automated; the difference is <b>structured</b> (databases) vs <b>unstructured</b> (Word/PDF/XML/HTML) data.</li>
+    </ul>
+    <p><b>Application areas:</b> information extraction · topic tracking · summarization · categorization · clustering · concept linking · question answering. <b>Domains:</b> law, research, finance, medicine, marketing; email spam filtering &amp; prioritisation.</p>
+  </section>
+
+  <section class="card" id="terms">
+    <h2>Terminology &amp; NLP</h2>
+    <table>
+      <tr><th>Term</th><th>Meaning</th></tr>
+      <tr><td>Corpus / terms / concepts</td><td>The document collection; the words; higher-level ideas.</td></tr>
+      <tr><td>Stemming</td><td>Reduce words to root (running→run) — shrinks vocabulary.</td></tr>
+      <tr><td>Lemmatization</td><td>Map to dictionary form (better→good).</td></tr>
+      <tr><td>Stop words</td><td>Common low-information words (the, is, and) removed.</td></tr>
+      <tr><td>Tokenizing</td><td>Split text into terms/tokens (+ POS tagging, morphology).</td></tr>
+      <tr><td>Term-by-Document Matrix (TDM)</td><td>Rows = documents, cols = terms, cells = weights — the structure that lets text be mined.</td></tr>
+      <tr><td>SVD / LSI</td><td>Reduce the sparse TDM's dimensionality (like PCA for text).</td></tr>
+    </table>
+    <p><b>NLP</b> (subfield of AI &amp; computational linguistics) moves from the old <b>bag-of-words</b> to "understanding." Challenges: POS tagging, segmentation, <b>word-sense disambiguation</b>, syntactic ambiguity. Resources: <b>WordNet</b>, <b>SentiWordNet</b>.</p>
+  </section>
+
+  <section class="card" id="process">
+    <h2>The three-step text-mining process &amp; TF-IDF</h2>
+    <div class="spectrum"><span class="step">1 Establish the Corpus<br><small>collect &amp; digitize</small></span><span class="arrow">→</span><span class="step">2 Create the TDM<br><small>introduce structure</small></span><span class="arrow">→</span><span class="step">3 Extract Knowledge<br><small>classify/cluster/associate</small></span></div>
+    <p>TDM cell values can be raw counts, binary, log frequencies, or <b>TF-IDF</b>:</p>
+    <ul>
+      <li><b>TF</b> (term frequency) — how often a term appears in a document.</li>
+      <li><b>IDF</b> = <code>log(N / dfₜ)</code> — down-weights terms common across <em>all</em> documents.</li>
+      <li><b>TF-IDF = TF × IDF</b> — high when a term is frequent <em>here</em> but rare overall ⇒ distinctive. Reduce the huge sparse TDM with <b>SVD</b>.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="topic">
+    <h2>Topic modeling</h2>
+    <p>Unsupervised discovery of themes. Methods: frequency clustering, <b>LSI/LSA</b> (TF-IDF + SVD, algebraic), and the most popular — <b>LDA (Latent Dirichlet Allocation)</b>, a <b>probabilistic generative</b> model: each document = a mixture of topics, each topic = a distribution over words (topics are "latent"). You set the number of topics <code>k</code> (often chosen by a coherence score).</p>
+  </section>
+
+  <section class="card" id="sentiment">
+    <h2>Sentiment analysis</h2>
+    <p>Answers "<em>what do people feel about a topic?</em>" Especially valuable in CRM. Applications: <b>Voice of the Customer / Market / Employee</b>, brand management, financial markets, politics, government intelligence.</p>
+    <h4>Lexicon vs machine learning</h4>
+    <table>
+      <tr><th>Approach</th><th>How</th><th>Trade-off</th></tr>
+      <tr><td>Lexicon-based</td><td>Score words vs a polarity dictionary (SentiWordNet, VADER)</td><td>No training data; weak on context/sarcasm</td></tr>
+      <tr><td>Machine-learning</td><td>Train a classifier (NB, SVM, or <b>deep learning / BERT</b>)</td><td>Accurate &amp; context-aware; needs labelled data</td></tr>
+    </table>
+    <h4>Four-step process</h4>
+    <div class="spectrum"><span class="step">1 Sentiment detection<br><small>fact vs opinion (S–O)</small></span><span class="arrow">→</span><span class="step">2 N–P polarity<br><small>negative…positive</small></span><span class="arrow">→</span><span class="step">3 Target identification<br><small>aspect-based</small></span><span class="arrow">→</span><span class="step">4 Aggregation</span></div>
+    <div class="ex"><b>Polarity example:</b> "The screen is gorgeous but battery life is terrible." → two targets: <em>screen</em> (P), <em>battery</em> (N). Aggregation rolls word→statement→paragraph→document.</div>
+  </section>
+
+  <section class="card" id="web">
+    <h2>Web mining — three branches</h2>
+    <table>
+      <tr><th>Branch</th><th>Source</th><th>Techniques / usage</th></tr>
+      <tr><td><b>Web content mining</b></td><td>Page text (HTML)</td><td>Search engines, IR, sentiment analysis.</td></tr>
+      <tr><td><b>Web structure mining</b></td><td>URL/hyperlinks</td><td><b>PageRank</b>, <b>HITS</b> (hubs &amp; authorities), graph mining.</td></tr>
+      <tr><td><b>Web usage mining</b></td><td>Clicks &amp; sessions (logs/cookies)</td><td><b>Clickstream analysis</b>, web analytics, lifetime value.</td></tr>
+    </table>
+    <ul>
+      <li><b>PageRank</b> (Google) — a page is important if important pages link to it; importance flows along links (random-surfer model).</li>
+      <li><b>HITS</b> — separates <b>hubs</b> (link to many good pages) from <b>authorities</b> (pointed to by many good hubs).</li>
+    </ul>
+    <p><b>Web analytics metrics:</b> page views, time on site, click paths, traffic sources, visitor profiles, conversion statistics.</p>
+  </section>
+
+  <section class="card" id="sna">
+    <h2>Social network analysis (SNA) &amp; social media analytics</h2>
+    <p><b>SNA</b> = a social structure of actors linked to each other (graph theory + sociology + statistics).</p>
+    <table>
+      <tr><th>Metric</th><th>Captures</th></tr>
+      <tr><td>Degree centrality</td><td>Number of direct connections (popularity)</td></tr>
+      <tr><td>Betweenness</td><td>How often on shortest paths (broker/bridge)</td></tr>
+      <tr><td>Closeness</td><td>Nearness to all others (reach)</td></tr>
+      <tr><td>Eigenvector</td><td>Connected to well-connected nodes (influence)</td></tr>
+      <tr><td>Density / clustering coefficient</td><td>Ties present vs possible / how tightly neighbours interconnect</td></tr>
+    </table>
+    <p><b>Social media analytics</b> turns Web-2.0 content into competitive insight; engagement ladder: Inactives → Spectators → Joiners → Collectors → Critics → Creators.</p>
+  </section>
+
+  <section class="card" id="cases">
+    <h2>Application cases</h2>
+    <p><b>Insurance group</b> — text mining of bodily-injury claims; <b>AMC Networks</b> — dashboard to predict ratings; <b>"Mining for Lies"</b> — deception detection on 371 statements, 31 cues (LR 67.3%, DT 71.6%, <b>NN 73.5%</b>); <b>Lenovo</b> — customer sentiment + warranty + call-center analysis to redesign products; <b>Tito's Vodka</b> — social-media brand loyalty.</p>
+  </section>
+
+  <section class="card" id="exam">
+    <h2>Exam focus</h2>
+    <div class="exam"><b>Most-tested:</b> text analytics = IR + text mining; structured vs unstructured (85–90% is text); 3-step process (corpus→TDM→knowledge); TF-IDF &amp; SVD; sentiment-analysis 4 steps + S–O / N–P polarity + lexicon vs ML; LDA topic modeling; web mining content/structure/usage; PageRank/HITS; SNA metrics.</div>
+    <p><b>↔ Readings:</b> <a href="R10.html">R10</a> (LDA + OCR Instagram), <a href="R11.html">R11</a> (sentiment + web mining → adoption), <a href="R12.html">R12</a> (BERT + CEEMDAN preferences).</p>
+  </section>
+
+  </main>
+</div>
+<footer>Ch.6 · Text, Web &amp; Social Media Analytics · BIA midterm full-detail page · <a href="index.html">back to hub</a></footer>
+</body>
+</html>

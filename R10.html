@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R10 — Text-Based Content Analysis on Social Media using Topic Modelling (Buana et al., 2024) · Full Detail</title>
+<style>
+  :root{--teal:#1a7a96;--teal-dark:#0f5a70;--red:#c0392b;--orange:#c0622b;--green:#2e8b57;--purple:#7a5ca8;--bg:#f7f9fa;--card:#fff;--ink:#1f2d33;--muted:#5c6b72;--border:#d9e2e6;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;}
+  a{color:var(--teal-dark);}
+  header.hero{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:34px 26px 26px;}
+  header.hero .home{font-size:.82rem;color:#d7eef4;text-decoration:none;}
+  header.hero .chip{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 10px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin:10px 0 8px;}
+  header.hero h1{margin:0;font-size:1.7rem;line-height:1.25;max-width:900px;}
+  header.hero .cite{margin-top:10px;font-size:.9rem;opacity:.92;max-width:900px;}
+  .layout{display:flex;max-width:1140px;margin:0 auto;gap:28px;padding:26px 22px 48px;align-items:flex-start;}
+  nav.toc{position:sticky;top:16px;flex:0 0 210px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:.84rem;max-height:calc(100vh - 32px);overflow-y:auto;}
+  nav.toc h2{font-size:.7rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:0 0 8px;}
+  nav.toc a{display:block;color:var(--teal-dark);text-decoration:none;padding:3px 0;}
+  nav.toc a:hover{text-decoration:underline;}
+  main{flex:1 1 auto;min-width:0;}
+  section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  section.card>h2{color:var(--teal);margin-top:0;border-bottom:3px solid var(--teal);padding-bottom:8px;font-size:1.3rem;}
+  h3{color:var(--teal-dark);font-size:1.07rem;margin:20px 0 6px;border-left:4px solid var(--teal);padding-left:9px;}
+  h4{color:var(--teal-dark);margin:14px 0 4px;font-size:.98rem;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef4f6;color:var(--teal-dark);}
+  code{background:#eef4f6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  .idea{background:#fdf3ea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .idea b{color:var(--red);}
+  .ex{background:#eef7fa;border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.95rem;}
+  .ex b{color:var(--teal-dark);}
+  .exam{background:#fbf4ec;border-left:4px solid var(--orange);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .exam b{color:var(--orange);}
+  .meta-grid{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:.92rem;}
+  .meta-grid dt{font-weight:700;color:var(--teal-dark);}
+  .meta-grid dd{margin:0;}
+  .red{color:var(--red);font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:22px;border-top:1px solid var(--border);}
+  @media(max-width:860px){.layout{flex-direction:column;}nav.toc{position:static;width:100%;max-height:none;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="home" href="index.html">← Midterm Prep Hub</a>
+  <div class="chip">READING 10 · FULL DETAIL</div>
+  <h1>Text-Based Content Analysis on Social Media Using Topic Modelling to Support Digital Marketing</h1>
+  <div class="cite">Gandhi Surya Buana, Raras Tyasnurita, Nindita Cahya Puspita, Retno Aulia Vinarti &amp; Faizal Mahananto, Institut Teknologi Sepuluh Nopember (ITS), Surabaya, Indonesia · <em>JOIV</em>, 8(1), Mar 2024, pp. 88–95.</div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>On this page</h2>
+    <a href="#glance">At a glance</a>
+    <a href="#problem">Problem &amp; aim</a>
+    <a href="#concepts">Key concepts (OCR, LDA)</a>
+    <a href="#data">Data &amp; pipeline</a>
+    <a href="#method">Method (3 classes)</a>
+    <a href="#results">Results</a>
+    <a href="#eval">Evaluation</a>
+    <a href="#concl">Conclusions &amp; limits</a>
+    <a href="#course">Course link &amp; exam</a>
+  </nav>
+  <main>
+
+  <section class="card" id="glance">
+    <h2>At a glance</h2>
+    <dl class="meta-grid">
+      <dt>Authors</dt><dd>Buana, Tyasnurita, Puspita, Vinarti &amp; Mahananto (ITS Surabaya)</dd>
+      <dt>Venue / year</dt><dd>JOIV 8(1), March 2024</dd>
+      <dt>Type</dt><dd>Applied study — build a Social Media Analytics (SMA) tool</dd>
+      <dt>Domain</dt><dd>Digital marketing — <b>text-based Instagram</b> content ideation</dd>
+      <dt>Methods</dt><dd><b>OCR</b> (text from images) + <b>LDA topic modelling</b>; Python (Instaloader)</dd>
+      <dt>Key results</dt><dd>OCR accuracy <b>82.3%</b>; optimal <b>4 topics</b>; expert test <b>93%</b>, SUS acceptance <b>85%</b></dd>
+      <dt>Course link</dt><dd><b>Ch.6</b> — text mining, topic modelling (LDA), social media analytics</dd>
+    </dl>
+    <div class="idea"><b>One-sentence takeaway:</b> no existing SMA tool discovers topics for <em>text-in-image</em> Instagram content, so the authors build one that scrapes posts, uses <b>OCR</b> to pull text out of images and <b>LDA</b> to find dominant topics — helping marketers choose content ideas (validated at 93% by experts).</div>
+  </section>
+
+  <section class="card" id="problem">
+    <h2>Problem &amp; aim</h2>
+    <p>Instagram is huge in Indonesia (98M+ users, 2021) and <b>text-based content</b> is trending because audiences distrust traditional marketing. Content creators need an <b>ideation process</b> — choosing a relevant topic. Existing SMA tools (Instagram Insight, SproutSocial, Brandwatch) use metadata/captions/comments but <span class="red">none analyse the text rendered <em>on the image</em></span>. <b>Aim:</b> build an SMA tool that uses <b>OCR + topic modelling</b> to discover topic references from text-based Instagram content, supporting digital-marketing strategy.</p>
+  </section>
+
+  <section class="card" id="concepts">
+    <h2>Key concepts &amp; definitions</h2>
+    <dl class="meta-grid">
+      <dt>Social Media Analytics (SMA)</dt><dd>Tools/systems that turn social content into insight (dashboards, listening, sentiment, topics).</dd>
+      <dt>OCR (Optical Character Recognition)</dt><dd>Converts an image's text into machine-readable characters — image input → pre-processing → segmentation → normalization → extraction → recognition.</dd>
+      <dt>Topic modelling / LDA</dt><dd><b>Latent Dirichlet Allocation</b> — unsupervised modelling that identifies latent topics in a document collection; each document = a mix of topics, each topic = a word distribution.</dd>
+      <dt>Coherence score</dt><dd>A measure used to choose the <b>optimal number of topics</b> (the peak coherence).</dd>
+    </dl>
+  </section>
+
+  <section class="card" id="data">
+    <h2>Data &amp; the retrieval pipeline</h2>
+    <p>Data was scraped from the <b>dibimbing.id</b> Instagram account (<b>2023-01-05 → 2023-04-06</b>) using the <b>Instaloader</b> Python library — collecting likes, comments, captions, upload times and <b>content images</b> (.jpg) + metadata (.json). Pipeline (Fig. 1): <b>scrape target → extract text from images (OCR) + metadata → store in a data frame (CSV)</b>. Caption text and image text were combined (same context) to save memory.</p>
+  </section>
+
+  <section class="card" id="method">
+    <h2>Method — three software classes</h2>
+    <table>
+      <tr><th>Class</th><th>Job</th></tr>
+      <tr><td><b>InstaScrapper</b></td><td>Collect Instagram data (images + metadata) for the target account.</td></tr>
+      <tr><td><b>Clean</b></td><td>Pre-processing: <b>tokenizing</b> → <b>filtering</b> (remove unimportant tokens / stop-words, English + Indonesian) → <b>stemming</b> → remove empty text → build corpus/dictionary.</td></tr>
+      <tr><td><b>TopicModelling</b></td><td>Run <b>LDA</b>; pick the topic count by the highest <b>coherence score</b>; label each post with its dominant topic; visualise.</td></tr>
+    </table>
+    <p>Visualizations used: <b>word cloud + bar chart</b> (topics), <b>scatter plot</b> (content distribution over a period), <b>bar chart</b> (distribution by hour/day).</p>
+  </section>
+
+  <section class="card" id="results">
+    <h2>Results</h2>
+    <h4>OCR performance</h4>
+    <p>Across 6 content images, OCR extracted <b>210 of 255 words = 82.3%</b> accuracy (range 44–97% per image). Misses were brand logos ("dibimbing.id"), graphic text and low contrast.</p>
+    <h4>Topic modelling</h4>
+    <p>The coherence score peaked at <b>4 topics</b> (optimal). The four discovered topics:</p>
+    <ul>
+      <li><b>Topic 0</b> — UI/UX design &amp; website matters.</li>
+      <li><b>Topic 1</b> — SEO, website data, Google-related.</li>
+      <li><b>Topic 2</b> — job listings &amp; portfolio.</li>
+      <li><b>Topic 3</b> — career, classes &amp; skills (web development, data science, business).</li>
+    </ul>
+    <p>Content-performance insight: comments &amp; likes drive topic engagement (virality), separate from sheer upload count. Best upload windows: <b>Wed/Thu/Sat, 17:00–18:00 WIB</b>.</p>
+  </section>
+
+  <section class="card" id="eval">
+    <h2>Expert evaluation</h2>
+    <ul>
+      <li><b>Understanding &amp; usage test</b> — of 15 questions, the average participant answered <b>14 correct (93%)</b> → testers could use the SMA to find topic references.</li>
+      <li><b>User acceptance (SUS, scale 1–5)</b> — average ≈ <b>85%</b> acceptance; lowest scores came from non-IT users needing programming help.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="concl">
+    <h2>Conclusions &amp; limitations</h2>
+    <p>The SMA tool was built with three classes (InstaScrapper, Clean, TopicModelling); success measured by OCR accuracy (82.3%) and LDA topic recommendations; it also yields content-performance &amp; upload-strategy insight. It is useful but needs UX refinement.</p>
+    <div class="idea"><b>Limitations / next steps:</b> the tool <b>requires programming proficiency</b> (a barrier for non-IT marketers); OCR struggles with logos/low contrast. Future work: improve the user experience (a web app) and target users such as <b>Data Analysts / BI Analysts</b>.</div>
+  </section>
+
+  <section class="card" id="course">
+    <h2>Course link &amp; exam angle</h2>
+    <p><b>↔ Ch.6</b> — text mining on unstructured social content, the corpus→TDM→knowledge process, and <b>LDA topic modelling</b>; the OCR step adds image-to-text.</p>
+    <div class="exam"><b>Exam angle:</b> "<i>Describe how topics are identified &amp; the techniques used.</i>" Answer: scrape Instagram → <b>OCR</b> extracts text from images → clean (tokenize/stopword/stem) → <b>LDA</b> finds topics, with the count chosen by <b>coherence score</b> (optimal 4); evaluated by <b>expert test (93%)</b> + <b>SUS (85%)</b> — there's no ground-truth, so human evaluation is used.</div>
+  </section>
+
+  </main>
+</div>
+<footer>R10 · Buana et al. (2024), Topic Modelling for Instagram SMA · BIA midterm full-detail page · <a href="index.html">back to hub</a></footer>
+</body>
+</html>

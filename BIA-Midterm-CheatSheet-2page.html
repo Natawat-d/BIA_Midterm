@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIA Midterm — Detailed Cheat Sheet</title>
+<style>
+  :root { --teal:#1a7a96; --teal-dark:#0f5a70; --red:#b3361f; --green:#2e7d4f; --ink:#161f23; --line:#cbd6da; --bg:#eef4f6; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#8d9aa0; font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink); overflow-wrap:break-word; }
+  .screen-note { max-width:800px; margin:14px auto; background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px 16px; font-size:13px; color:#34474e; }
+  .screen-note b { color:var(--teal-dark); }
+  .sheet { width:100%; max-width:210mm; background:#fff; margin:14px auto; padding:6.5mm 6.5mm 5mm; box-shadow:0 2px 10px rgba(0,0,0,.3); }
+  .doc-head { border-bottom:2px solid var(--teal); padding-bottom:2px; margin-bottom:3px; }
+  .doc-head h1 { font-size:10.5pt; color:var(--teal-dark); margin:0; }
+  .doc-head .meta { font-size:5.8pt; color:#5c6b72; }
+  .cols { column-count:2; column-gap:6mm; }
+  h2 { font-size:7.4pt; text-transform:uppercase; letter-spacing:.3px; color:#fff; background:var(--teal); margin:4px 0 2px; padding:2px 6px; border-radius:2px; break-after:avoid; break-inside:avoid; }
+  h2.alt { background:var(--teal-dark); }
+  h2.red { background:var(--red); }
+  h3 { font-size:6.8pt; color:var(--teal-dark); margin:3px 0 1px; text-transform:uppercase; letter-spacing:.3px; break-after:avoid; }
+  p.t { font-size:6.75pt; line-height:1.2; margin:0 0 1.6px; break-inside:avoid; text-align:justify; }
+  p.t b { color:var(--ink); }
+  p.t .k { color:var(--red); font-weight:700; }
+  p.idea { font-size:6.75pt; line-height:1.18; margin:0 0 2px; padding:2.5px 5px; background:#fdf3ea; border-left:3px solid var(--red); border-radius:0 3px 3px 0; break-inside:avoid; }
+  p.idea b { color:var(--red); text-transform:uppercase; letter-spacing:.2px; font-size:6pt; }
+  p.ex { font-size:6.7pt; line-height:1.18; margin:0 0 1.6px; padding:2.5px 5px; background:#eef7fa; border-left:3px solid var(--teal); border-radius:0 3px 3px 0; break-inside:avoid; }
+  p.ex b { color:var(--teal-dark); }
+  p.case { font-size:6.6pt; line-height:1.18; margin:0 0 1.6px; padding:2.5px 5px; background:#f1f6f1; border-left:3px solid var(--green); border-radius:0 3px 3px 0; break-inside:avoid; }
+  p.case b { color:var(--green); }
+  table { width:100%; border-collapse:collapse; margin:2px 0 3px; font-size:6.2pt; break-inside:avoid; table-layout:fixed; }
+  th,td { border:1px solid var(--line); padding:1.5px 3px; text-align:left; vertical-align:top; line-height:1.15; overflow-wrap:break-word; word-break:break-word; }
+  th { background:var(--bg); color:var(--teal-dark); }
+  code { background:var(--bg); padding:0 3px; border-radius:3px; font-size:.95em; overflow-wrap:break-word; word-break:break-word; }
+  @media print {
+    html, body { background:#fff; margin:0; padding:0; }
+    .screen-note { display:none; }
+    .sheet { width:auto; max-width:none; margin:0; padding:0; box-shadow:none; }
+    @page { size:A4 portrait; margin:7mm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <div class="cols">
+    <!-- ===================== CH.1 ===================== -->
+    <h2>Ch.1 · Overview of BI &amp; Analytics</h2>
+    <p class="idea"><b>Key idea ·</b> BI is the modern evolution of DSS; its job is to turn data into managerial action, and every method is descriptive, predictive or prescriptive.</p>
+    <p class="t"><b>DSS</b> — interactive computer system that uses <b>data + models</b> to solve <span class="k">semi/unstructured</span> problems (Gorry &amp; Scott-Morton 1971). 4 components: <b>data mgmt · model mgmt · knowledge subsystem · UI</b>. Usage: couple human judgment + computing to raise decision quality.</p>
+    <p class="t"><b>Simon's 4 phases</b> — <b>Intelligence</b> (find problem) → <b>Design</b> (build model/options) → <b>Choice</b> (pick) → <b>Implementation</b> (act+monitor). Usage: structure <em>any</em> decision.</p>
+    <p class="t"><b>Gorry–Scott-Morton grid</b> — decisions by <b>structure</b> (structured/semi/unstructured) × <b>control</b> (operational/managerial/strategic). E.g. order-entry=structured-operational; hiring exec=unstructured-managerial; R&amp;D=unstructured-strategic.</p>
+    <p class="t"><b>Evolution</b> — 1970s MIS/DSS → 1980s EIS → 1990s OLAP &amp; the term <span class="k">"BI" (coined by Gartner)</span> → 2010s+ AI, mining, Big Data, social.</p>
+    <p class="t"><b>BI</b> — <span class="k">umbrella term</span> (architectures+tools+DB+apps+methods); "content-free expression". Goal: <b>easy data access so managers act</b>. 4 parts: data warehouse, business analytics, BPM, UI.</p>
+    <p class="t"><b>OLTP vs OLAP</b> — OLTP = transaction capture (ERP/CRM/SCM/POS), normalized, fast. OLAP = analysis on the warehouse, multidimensional, decision support.</p>
+    <table>
+      <tr><th></th><th>Descriptive</th><th>Predictive</th><th>Prescriptive</th></tr>
+      <tr><td>Q</td><td>What happened?</td><td>What will? Why?</td><td>What to do? Why?</td></tr>
+      <tr><td>Enabler</td><td>reports, dashboards, scorecards, DW</td><td>data/text/web mining, forecasting</td><td>optimization, simulation, expert sys</td></tr>
+      <tr><td>Out</td><td>defined problems</td><td>projections</td><td>best decisions</td></tr>
+    </table>
+    <p class="t">Prescriptive <b>uses descriptive + predictive results</b> to build &amp; pick the best alternative.</p>
+    <p class="t"><b>Big Data — 3 Vs</b> — <b>Volume, Variety, Velocity</b>; too big/fast for traditional tools; <span class="k">worthless until analysed</span>. Ecosystem = 11 player types (infrastructure, DW, middleware, data-service, descriptive/predictive/prescriptive software, app developers, analysts, academia, regulators, users).</p>
+    <p class="t"><b>BI applications</b> — customer segmentation, propensity-to-buy, profitability, fraud detection, attrition/churn, channel optimization.</p>
+    <p class="case"><b>Cases ·</b> Sabre &amp; Siemens (Dundas BI dashboards cut cost); specialty steel (available-to-promise dates); CenterPoint Energy (real-time Big Data + sentiment → outage prediction).</p>
+
+    <!-- ===================== CH.3 ===================== -->
+    <h2>Ch.3 · Data, Statistics &amp; Visualization</h2>
+    <p class="idea"><b>Key idea ·</b> Descriptive analytics = "what happened?"; first know the <b>nature of data</b> (types/scales) and <b>clean</b> it, then summarise (stats) and communicate (viz).</p>
+    <p class="t"><b>Data taxonomy</b> — <b>Structured</b> (categorical: nominal/ordinal; numerical: interval/ratio) vs <b>Unstructured/semi</b> (text, multimedia, XML/JSON, HTML, logs). Data = lowest abstraction; <span class="k">quality &amp; integrity critical</span>.</p>
+    <table>
+      <tr><th>Scale</th><th>Names</th><th>Order</th><th>=gaps</th><th>true 0</th></tr>
+      <tr><td>Nominal</td><td>✓</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>Ordinal</td><td>✓</td><td>✓</td><td>—</td><td>—</td></tr>
+      <tr><td>Interval</td><td>✓</td><td>✓</td><td>✓</td><td>—</td></tr>
+      <tr><td>Ratio</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    </table>
+    <p class="ex"><b>Scale eg ·</b> jersey #=nominal; rank 1–5=ordinal; °C=interval (0° ≠ none, so 20°≠2×10°); kg=ratio (true 0 → 20kg=2×10kg). Scale picks valid stats/charts.</p>
+    <p class="t"><b>Preprocessing (4 tasks)</b> — <b>Consolidation</b> (access/select/integrate) → <b>Cleaning</b> (impute mean/median/mode, remove noise/outliers) → <b>Transformation</b> (normalize 0–1, binning, new attrs) → <b>Reduction</b> (PCA/correlation, sampling, balance skew via over/under-sample).</p>
+    <p class="t"><b>Stats branches</b> — <b>Descriptive</b> (describe data) vs <b>Inferential</b> (infer population from sample). Central tendency: mean/median/mode; dispersion: range/variance/SD/quartiles/box-plot; shape: <b>skewness</b> (asymmetry), <b>kurtosis</b> (peak).</p>
+    <p class="t"><b>Regression</b> — <code>y=β₀+β₁x</code> (multiple: +β₂x₂…); fit by <b>OLS</b> (min squared error); for <b>explanation</b> &amp; <b>forecasting</b>. Quality: <b>R²</b>, <b>p-value</b>, MSE/MAD/RMSE. 5 assumptions: <span class="k">linearity, independence, normality, constant variance, no multicollinearity</span>.</p>
+    <p class="t"><b>Logistic regression</b> — supervised <b>classification</b>; binary target via sigmoid <code>f(y)=1/(1+e^−(β₀+β₁x))</code> → probability. <b>Time series</b> models trend+seasonality over time.</p>
+    <p class="t"><b>Reports</b> — metric mgmt (KPI/SLA), dashboard (many indicators/1 page), balanced-scorecard. <b>Visualization</b> = "<span class="k">insight, not pictures</span>" (Shneiderman). Playfair=line/pie (1801); Minard=Napoleon march (multivariate). <b>Visual analytics = info viz + predictive analytics</b>. Dashboard layers: <b>Monitoring · Analysis · Management</b> (drill-down, show exceptions).</p>
+    <table>
+      <tr><th>Purpose</th><th>Charts</th></tr>
+      <tr><td>Comparison</td><td>bar/column, bullet, pictogram</td></tr>
+      <tr><td>Part-to-whole</td><td>pie, treemap, Sankey</td></tr>
+      <tr><td>Distribution</td><td>histogram, box-plot, heat map</td></tr>
+      <tr><td>Trend</td><td>line/area, Gantt, waterfall</td></tr>
+      <tr><td>Relationship</td><td>scatter, correlation matrix, network</td></tr>
+      <tr><td>Geospatial</td><td>choropleth map</td></tr>
+    </table>
+    <p class="case"><b>Cases ·</b> Student retention — <span class="k">data imbalance</span> (80/20 set → 90% accuracy but 50% precision on minority; balancing fixes it); compares ANN/DT/SVM/LR/ensembles. NCAA bowl — same target as <em>classification</em> (win/loss) vs <em>regression</em> (point-diff); DT best ~86%.</p>
+
+    <!-- ===================== CH.4 ===================== -->
+    <h2>Ch.4 · Data Warehousing &amp; BPM</h2>
+    <p class="idea"><b>Key idea ·</b> The data warehouse is BI's cleansed, integrated, historical backbone; ETL feeds it, OLAP makes it fast, BPM/scorecards turn analysis into managed action.</p>
+    <p class="t"><b>Data warehouse</b> — <b>integrated, subject-oriented, time-variant, non-volatile</b>, summarized, <span class="k">NOT normalized</span>, metadata-rich repository for DSS.</p>
+    <p class="t"><b>Marts/parts</b> — dependent mart (from DW) · independent mart (standalone) · <b>ODS</b> (staging) · <b>EDW</b> (enterprise-wide) · <b>metadata</b> ("data about data").</p>
+    <p class="t"><b>Architecture</b> — <b>3-tier</b> (acquisition back-end → DW → client front-end). 5 alternatives: independent marts · data-mart bus (conformed dimensions) · hub-and-spoke · centralized · federated.</p>
+    <table>
+      <tr><th>Effort</th><th>Kimball mart (bottom-up)</th><th>Inmon EDW (top-down)</th></tr>
+      <tr><td>Scope</td><td>1 subject</td><td>several</td></tr>
+      <tr><td>Time/Cost</td><td>months / $10–100K+</td><td>years / $1M+</td></tr>
+      <tr><td>Size/Users</td><td>MB–GB / 10s</td><td>GB–PB / 100s–1000s</td></tr>
+    </table>
+    <p class="t">3rd option = <b>cloud/hosted DW</b> (low infra). <b>ETL</b> (Extract-Transform-Load) = integration backbone; <b>EAI</b> pushes source→DW; <b>EII</b> real-time multi-source.</p>
+    <p class="t"><b>Schemas</b> — <b>Star</b> = central fact table + dimension tables (simplest). <b>Snowflake</b> = dimensions <span class="k">normalized</span> into sub-tables. Multidimensionality = dimensions (product/region/time) × measures (revenue/volume) = OLAP cube.</p>
+    <p class="t"><b>OLAP ops</b> — <b>Slice</b> (1 dim subset) · <b>Dice</b> (multi-dim subset) · <b>Drill down/up</b> (detail↔summary) · <b>Roll-up</b> (aggregate) · <b>Pivot</b> (rotate).</p>
+    <table>
+      <tr><th></th><th>OLTP</th><th>OLAP</th></tr>
+      <tr><td>Purpose</td><td>transactions</td><td>decision support</td></tr>
+      <tr><td>Source</td><td>txn DB (normalized)</td><td>DW/mart (non-norm)</td></tr>
+      <tr><td>Query</td><td>routine, narrow, fast</td><td>ad-hoc, broad, slow</td></tr>
+    </table>
+    <p class="t"><b>DW vs Data Lake</b> — structured + schema-on-write (SQL) + business users vs raw/native + schema-on-read (NoSQL) + data scientists.</p>
+    <p class="t"><b>BPM</b> (also CPM/EPM/SEM) closed loop: <b>Strategize→Plan→Monitor/Analyze→Act</b>. <b>KPI</b>: outcome=lagging (revenue), driver=leading (sales leads).</p>
+    <p class="t"><b>Balanced Scorecard</b> (Kaplan&amp;Norton 1992): <b>Financial · Customer · Internal Process · Learning&amp;Growth</b> around Vision/Strategy. <b>Six Sigma</b>: cut defects (DPMO) via <b>DMAIC</b> (Define-Measure-Analyze-Improve-Control). BSC = strategic <em>management</em>; Six Sigma = performance <em>measurement</em>.</p>
+    <p class="case"><b>Cases ·</b> Maryland (tax fraud via BI+DW); AARP (BI transformation, 347% ROI/3yr); Expedia (customer-satisfaction scorecard); BP Lubricants "BIGS".</p>
+
+    <!-- ===================== CH.5 ===================== -->
+    <h2 class="alt">Ch.5 · Data Mining (Predictive I)</h2>
+    <p class="idea"><b>Key idea ·</b> Data mining is a disciplined process (CRISP-DM), not a crystal ball — find valid, useful patterns in <b>structured</b> data: predict (classify/regress) &amp; group (cluster/associate).</p>
+    <p class="t"><b>Data mining</b> (Fayyad 1996) — nontrivial discovery of <b>valid, novel, useful, understandable patterns</b>. A.k.a. knowledge discovery/extraction, pattern analysis. <b>Blend</b> of stats+ML+AI+DB+viz. Source often a DW. <span class="k">DM ≠ statistics</span> (pattern discovery on large data, by an end user). Patterns: association, prediction, cluster, sequential.</p>
+    <table>
+      <tr><th>Task</th><th>Method → algorithms</th><th>Learning</th></tr>
+      <tr><td rowspan=3>Predict</td><td>Classification → DT, ANN, SVM, kNN, NB</td><td>Superv.</td></tr>
+      <tr><td>Regression → lin/nonlin, reg-tree, SVM</td><td>Superv.</td></tr>
+      <tr><td>Time series → smoothing, ARIMA</td><td>Superv.</td></tr>
+      <tr><td rowspan=2>Assoc.</td><td>Market-basket → Apriori, Eclat, FP-Growth</td><td>Unsup.</td></tr>
+      <tr><td>Link/sequence → Apriori, graph match</td><td>Unsup.</td></tr>
+      <tr><td rowspan=2>Segment</td><td>Clustering → K-means, EM</td><td>Unsup.</td></tr>
+      <tr><td>Outlier → K-means, EM</td><td>Unsup.</td></tr>
+    </table>
+    <p class="t"><b>Two contrasts</b> — Classification vs Regression = categorical vs numeric output. Classification vs Clustering = supervised (labelled target) vs unsupervised (no target).</p>
+    <p class="t"><b>CRISP-DM (6)</b> — Business Understanding → Data Understanding → Data Prep → Model → Test/Eval → Deploy; first 3 ≈ <span class="k">85% of effort</span>; iterative. Others: <b>SEMMA</b> (SAS: Sample-Explore-Modify-Model-Assess), <b>KDD</b>. Assess models on accuracy, speed, robustness, scalability, interpretability.</p>
+    <p class="t"><b>Confusion matrix</b> — Accuracy=(TP+TN)/all; <b>Precision</b>=TP/(TP+FP); <b>Recall/TPR</b>=TP/(TP+FN); TNR=TN/(TN+FP).</p>
+    <p class="ex"><b>Eg ·</b> TP80,FP20,FN10,TN90 → Acc=170/200=85%, Prec=80/100=80%, Recall=80/90≈89%.</p>
+    <p class="t"><b>Validation</b> — holdout train⅔/test⅓ (NN 60/20/20); <b>k-fold CV</b>; leave-one-out (k=n); bootstrap (sample w/ replacement); jackknife; <b>AUC/ROC</b> (0.5=chance, 1=perfect, good for skew).</p>
+    <p class="t"><b>Decision tree</b> — divide-and-conquer; recursively split until each leaf=1 class; differs by <b>splitting / stopping / pruning</b> (pre vs post). Algos: <b>ID3, C4.5, C5, CART, CHAID, M5</b>. Other classifiers: NN, SVM, Bayesian/NB, kNN, GA, rough sets, case-based reasoning.</p>
+    <p class="t"><b>Ensembles</b> — combine models → robust: <b>bagging</b> (→ random forest), <b>boosting</b>, info fusion.</p>
+    <p class="t"><b>Clustering</b> — unsupervised, no target, = <b>segmentation</b>. Methods: k-means/k-modes, SOM &amp; ART (neural), fuzzy c-means, GA. <b>k-Means</b>: pick k → random centers → assign nearest → recompute → repeat till stable.</p>
+    <p class="t"><b>Association rules</b> <code>X→Y [S,C]</code> — <b>Support</b>=P(X∩Y) (how often together); <b>Confidence</b>=P(Y|X) (Y given X). Algos: <b>Apriori</b> (bottom-up frequent itemsets ≥ min support), Eclat, FP-Growth. = market-basket.</p>
+    <p class="ex"><b>Eg ·</b> {Laptop, Antivirus}→{Service Plan} [30%,70%]: trio in 30% of baskets; 70% of laptop+AV buyers add the plan → bundle/place together (or apart to force a walk-by).</p>
+    <p class="t"><b>Myths/mistakes</b> — DM is <span class="k">not</span> instant prediction (it's a deliberate multistep process), needs no dedicated DB or advanced degree, works for any firm size. Top mistake: starting without the end in mind / too little time for data prep.</p>
+    <p class="case"><b>Cases ·</b> Visa (predictive + <b>in-memory analytics</b> cut fraud, keep service); movie financial success (9-class classification, IBM SPSS Modeler); cancer research (ANN vs LR vs RF + variable importance); Miami-Dade Police (predictive policing).</p>
+
+    <!-- ===================== CH.6 ===================== -->
+    <h2 class="alt">Ch.6 · Text / Web / Social (Predictive II)</h2>
+    <p class="idea"><b>Key idea ·</b> ~85–90% of corporate data is unstructured text; the trick is to <b>impose structure</b> (term-document matrix) then mine it for topics, sentiment &amp; web/social patterns.</p>
+    <p class="t"><b>Text analytics</b> = IR + Information Extraction + DM + Web mining (or simply <b>IR + Text Mining</b>). <b>Text mining</b> = semi-auto knowledge extraction from <b>unstructured</b> data. <b>DM vs TM</b> = structured (DB) vs unstructured (Word/PDF/XML); both find novel patterns, semi-automated.</p>
+    <p class="t"><b>TM application areas</b> — info extraction, topic tracking, summarization, categorization, clustering, concept linking, question answering; domains: law/finance/medicine/marketing; email spam filter.</p>
+    <p class="t"><b>Terms</b> — corpus/corpora; <b>stemming</b> (running→run); <b>stop words</b> (remove the/is/and); tokenizing; POS tagging; morphology; <b>TDM</b> (term-by-document matrix); <b>SVD/LSI</b> (reduce sparse matrix, like PCA).</p>
+    <p class="t"><b>NLP</b> — bag-of-words → "understanding" (AI + comp. linguistics). Challenges: POS tagging, text segmentation, <b>word-sense disambiguation</b>, syntactic ambiguity. Resources: <b>WordNet, SentiWordNet</b>.</p>
+    <p class="t"><b>Text-mining 3 steps</b> — <b>1 Establish corpus</b> (collect/digitize) → <b>2 Create TDM</b> (impose structure; cells = counts/binary/log/<b>TF-IDF</b>; reduce via <b>SVD</b>) → <b>3 Extract knowledge</b> (classify/cluster/associate/trend).</p>
+    <p class="t"><b>Topic modeling</b> — unsupervised theme discovery: freq clustering, <b>LSI/LSA</b> (TF-IDF+SVD), <b>LDA</b> (most popular: doc=mix of topics, topic=word distribution).</p>
+    <p class="t"><b>Sentiment analysis</b> — "what do people feel?"; apps: <b>VOC/VOM/VOE</b>, brand, financial, politics, gov intelligence. <b>4 steps</b>: (1) detect objectivity <b>S–O</b> (fact vs opinion) → (2) <b>N–P</b> polarity (neg/pos) → (3) target identification → (4) aggregation (word→stmt→para→doc).</p>
+    <p class="ex"><b>Eg ·</b> "screen gorgeous but battery terrible" → screen=P, battery=N (two targets).</p>
+    <table>
+      <tr><th>Web mining</th><th>Source → technique</th></tr>
+      <tr><td>Content</td><td>page text → search, IR, sentiment</td></tr>
+      <tr><td>Structure</td><td>links → <b>PageRank, HITS</b> (hubs/authorities)</td></tr>
+      <tr><td>Usage</td><td>clicks/sessions → <b>clickstream</b>, web analytics</td></tr>
+    </table>
+    <p class="t"><b>Web analytics metrics</b> — usability (page views, time on site, click paths), traffic sources, visitor profiles, conversion stats. <b>SNA</b> = graph of actors; metrics: centrality, density, betweenness/bridge, structural holes, cliques, clustering coefficient, cohesion. <b>Social media analytics</b> = Web-2.0 content → competitive insight; ladder Inactives→Spectators→Joiners→Collectors→Critics→Creators.</p>
+    <p class="case"><b>Cases ·</b> "Mining for Lies" deception detection (371 statements, 31 cues → LR 67.3%, DT 71.6%, <b>NN 73.5%</b>); AMC Networks (predict ratings); Lenovo (sentiment+warranty+call-center redesign); IS literature (901 abstracts → 9 clusters); Tito's Vodka (social brand loyalty).</p>
+
+    <!-- ===================== CH.9 ===================== -->
+    <h2 class="alt">Ch.9 · Tools &amp; Languages</h2>
+    <p class="idea"><b>Key idea ·</b> No single tool is best at everything — assemble a toolbox, choosing per task along 4 dimensions.</p>
+    <p class="t"><b>4 dimensions</b> — (1) Free vs Paid; (2) Open vs Closed source; (3) Local vs Server/Cloud; (4) <b>Visual</b> (workflow GUI) vs <b>Syntactic</b> (code). Tool success factors: rapid prototyping, cost of ownership, flexibility/expandability, ease of deployment, security.</p>
+    <table>
+      <tr><th>Tool</th><th>Free/Paid</th><th>Open</th><th>Loc/Srv</th><th>Vis/Prog</th></tr>
+      <tr><td>Python</td><td>F</td><td>O</td><td>L+S</td><td>P</td></tr>
+      <tr><td>R</td><td>F</td><td>O</td><td>L</td><td>P</td></tr>
+      <tr><td>KNIME</td><td>F</td><td>O</td><td>L+S</td><td>V</td></tr>
+      <tr><td>RapidMiner</td><td>F/P</td><td>O</td><td>L+S</td><td>V</td></tr>
+      <tr><td>Orange/Weka</td><td>F</td><td>O</td><td>L</td><td>V</td></tr>
+      <tr><td>Tableau</td><td>P</td><td>C</td><td>L+S</td><td>V</td></tr>
+      <tr><td>Power BI</td><td>F/P</td><td>C</td><td>L+S</td><td>V</td></tr>
+      <tr><td>SAS EM/Viya</td><td>P</td><td>C</td><td>L/S</td><td>V</td></tr>
+      <tr><td>IBM Modeler/Watson</td><td>P</td><td>C</td><td>L/S</td><td>V</td></tr>
+    </table>
+    <p class="t"><b>R</b> — stats+graphics language via <b>CRAN</b>; GUI Rattle. <b>Python</b> — general-purpose, full ML/DL; IDEs Anaconda/Jupyter/Colab/VS Code.</p>
+    <p class="t"><b>Visual/open</b> — <b>KNIME</b> (2000+ nodes, free for everything, expandable via Py/R/JS); <b>Orange</b> (Python widgets, U.Ljubljana); <b>Weka</b> (Waikato, rich ML); <b>RapidMiner</b> (ex-YALE, now Altair, free tier). <b>Commercial</b> — Alteryx, IBM SPSS Modeler+Watson, SAS EM+Viya, TIBCO Statistica+Spotfire, JMP, Teradata Vantage.</p>
+    <p class="t"><b>Why KNIME</b> — easy GUI, open source, free, strong community, 2000+ nodes, platform-agnostic, connects to any source, expandable, modular, deployable to cloud.</p>
+    <p class="case"><b>Cases ·</b> Seagate used KNIME (descriptive→predictive, demos in 3 days, saved $1M+, 150+ users); KNIME+R prevented <b>$1.3M</b> medical-supply waste (demand forecasting).</p>
+
+    <!-- ===================== READINGS ===================== -->
+    <h2 class="red">Readings · DSS &amp; BI Foundations</h2>
+    <p class="t"><b>R1 · Taxonomy of DSS</b> (Alter 1977) — analysed <b>56 systems</b>; classify by <span class="k">degree of action implication</span> into <b>7 types</b>: File Drawer, Data Analysis, Analysis Info (data-oriented) → Accounting, Representational, Optimization, Suggestion (model-oriented). Type predicts users/risks. Use: design, implementation &amp; communication of DSS. <b>↔Ch.1</b></p>
+    <p class="t"><b>R2 · BI &amp; Org Performance</b> (Moussas 2024) — <b>systematic literature review</b>; themes = BI components, strategic decisions, operational efficiency, KPIs. Result: BI → competitive advantage, "indispensable". <b>↔Ch.1/4</b></p>
+    <p class="t"><b>R9 · Integrated DSS for DM Tools</b> (Salah 2025) — DSS using <b>association rules + forecasting</b>; compares <b>Naïve Bayes, Logistic Regression, C4.5</b> for economic intelligence. Result: proposed algo beats LR accuracy by <span class="k">2.76%</span>. <b>↔Ch.1/5</b></p>
+
+    <h2 class="red">Readings · Visualization &amp; Visual Analytics</h2>
+    <p class="t"><b>R3 · Visual Data Mining of Inventory</b> (Yanto 2025) — <b>VDM + EDA in Tableau</b>, 3 phases (plan/prep/analysis); 98 skincare products, 2019–20. Result: 3 efficient / 3 inefficient products; peak turnover +12.86% (Jan 2020); dashboards validated. <b>↔Ch.3</b></p>
+    <p class="t"><b>R4 · Visual Analytic for Traffic</b> (Chan 2024) — spatial+temporal <b>heat maps, parallel coordinates, bar plots</b>; 3 intersections. Result: peak/off-peak patterns; <b>Level of Service</b> via volume-to-capacity ratio → congested junctions; basis for predictive control. <b>↔Ch.3</b></p>
+
+    <h2 class="red">Readings · DW &amp; Data Mining (structured)</h2>
+    <p class="t"><b>R5 · DW &amp; DM for BI</b> (Kumar 2024) — review: DW architecture (star/snowflake) + DM (supervised/unsupervised/semi). Use: retail/health/finance (behavior, diagnosis, fraud). Challenges: quality, scalability, privacy. <b>↔Ch.4/5</b></p>
+    <p class="t"><b>R6 · Predict Student Performance</b> (Zahruddin 2023) — <b>classification</b> (decision tree, neural net, kNN) in <b>WEKA</b>; demographic attrs. Result: gender/age/status matter; <b>NN best (lowest RMSE)</b>, tree worst. <b>↔Ch.5</b></p>
+    <p class="t"><b>R7 · Customer Segmentation</b> (William 2025) — <b>K-Means vs DBSCAN</b>, <b>CRISP-DM</b>, PCA; fashion e-commerce (Shopee). Eval by <b>Silhouette / Davies-Bouldin</b>. Result: K-Means wins, <b>k=7</b> (0.549 / 0.593 vs 0.29 / 0.92); dashboard (FastAPI+React). <b>↔Ch.5</b></p>
+    <p class="t"><b>R8 · Cardiovascular Risk + Stimulants</b> (Yan 2025) — <b>predictive ML + association rule mining</b> on EHR (219,965 adults, 46.4% on stimulants, 4 age groups). Result: <b>AUC 0.77–0.84</b>; comorbidity watch-list. <b>↔Ch.5</b></p>
+
+    <h2 class="red">Readings · Text / Web / Social (unstructured)</h2>
+    <p class="t"><b>R10 · Text-Based Social Media Analysis</b> (Buana 2024) — <b>topic modeling (LDA)</b> + <b>OCR</b> on Instagram images; built SMA tool. Result: 93% of testers found topic refs (85% usable); digital marketing. <b>↔Ch.6</b></p>
+    <p class="t"><b>R11 · Social Intelligence + Web Mining</b> (Mwafaq 2025) — <b>sentiment analysis + web mining + multivariate regression</b>; 12 mo. social/forum/news on renewable energy. Result: mostly positive (EU/N.America); top themes = economic benefit &amp; tech advances; sentiment predicts regional adoption. <b>↔Ch.6</b></p>
+    <p class="t"><b>R12 · Sentiment + CEEMDAN</b> (Wang 2026) — <b>BERT</b> fine-grained sentiment → <b>CEEMDAN</b> trend → <b>UTA</b> preference model; hotel reviews. Result: interpretable consumer-group preferences → evidence-based management. <b>↔Ch.6</b></p>
+
+    <!-- ===================== FORMULAS ===================== -->
+    <h2>Formulas, Metrics &amp; Quick-Pick</h2>
+    <p class="t"><b>Classification</b> — Accuracy=(TP+TN)/(TP+TN+FP+FN); Precision=TP/(TP+FP); Recall/TPR=TP/(TP+FN); TNR=TN/(TN+FP); <b>F1</b>=2·P·R/(P+R) (best for imbalance); AUC 0.5=random, 1=perfect.</p>
+    <p class="t"><b>Regression</b> — <code>y=β₀+β₁x</code>; fit=OLS; quality=R², p-value, RMSE/MAD/MSE. <b>Logistic</b> <code>1/(1+e^−(β₀+β₁x))</code> → P(class). Tree split = <b>Gini / info-gain(entropy)</b>; ensembles = bagging(→RF) / boosting.</p>
+    <p class="t"><b>Association</b> — Support=P(X∩Y); Confidence=P(Y|X); <b>Lift</b>=Conf/P(Y); >1 positive, =1 independent, &lt;1 negative. <b>Clustering quality</b> — Silhouette ↑ better, Davies-Bouldin ↓ better.</p>
+    <p class="t"><b>Text</b> — <b>TF-IDF</b>=TF×log(N/dfₜ) (high = frequent here, rare overall); reduce TDM via <b>SVD</b>. <b>DPMO</b>=defects/(units×opportunities)×10⁶; Six Sigma=3.4 DPMO.</p>
+    <p class="t"><b>Which technique?</b> — categorical target+labels → classification (tree/NN/SVM/NB); numeric target → regression; no target, find groups → clustering (k-means); items bought together → association (Apriori); unstructured text → text mining/LDA/sentiment; "what happened?" → descriptive/viz; "best action?" → prescriptive/optimization.</p>
+  </div>
+</div>
+
+</body>
+</html>

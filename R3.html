@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R3 — Visualization of Data Inventory using VDM & EDA (Yanto & Handayani, 2025) · Full Detail</title>
+<style>
+  :root{--teal:#1a7a96;--teal-dark:#0f5a70;--red:#c0392b;--orange:#c0622b;--green:#2e8b57;--purple:#7a5ca8;--bg:#f7f9fa;--card:#fff;--ink:#1f2d33;--muted:#5c6b72;--border:#d9e2e6;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;}
+  a{color:var(--teal-dark);}
+  header.hero{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:34px 26px 26px;}
+  header.hero .home{font-size:.82rem;color:#d7eef4;text-decoration:none;}
+  header.hero .chip{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 10px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin:10px 0 8px;}
+  header.hero h1{margin:0;font-size:1.7rem;line-height:1.25;max-width:900px;}
+  header.hero .cite{margin-top:10px;font-size:.9rem;opacity:.92;max-width:900px;}
+  .layout{display:flex;max-width:1140px;margin:0 auto;gap:28px;padding:26px 22px 48px;align-items:flex-start;}
+  nav.toc{position:sticky;top:16px;flex:0 0 210px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:.84rem;max-height:calc(100vh - 32px);overflow-y:auto;}
+  nav.toc h2{font-size:.7rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:0 0 8px;}
+  nav.toc a{display:block;color:var(--teal-dark);text-decoration:none;padding:3px 0;}
+  nav.toc a:hover{text-decoration:underline;}
+  main{flex:1 1 auto;min-width:0;}
+  section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  section.card>h2{color:var(--teal);margin-top:0;border-bottom:3px solid var(--teal);padding-bottom:8px;font-size:1.3rem;}
+  h3{color:var(--teal-dark);font-size:1.07rem;margin:20px 0 6px;border-left:4px solid var(--teal);padding-left:9px;}
+  h4{color:var(--teal-dark);margin:14px 0 4px;font-size:.98rem;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef4f6;color:var(--teal-dark);}
+  code{background:#eef4f6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  .idea{background:#fdf3ea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .idea b{color:var(--red);}
+  .ex{background:#eef7fa;border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.95rem;}
+  .ex b{color:var(--teal-dark);}
+  .exam{background:#fbf4ec;border-left:4px solid var(--orange);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .exam b{color:var(--orange);}
+  .meta-grid{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:.92rem;}
+  .meta-grid dt{font-weight:700;color:var(--teal-dark);}
+  .meta-grid dd{margin:0;}
+  .red{color:var(--red);font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:22px;border-top:1px solid var(--border);}
+  @media(max-width:860px){.layout{flex-direction:column;}nav.toc{position:static;width:100%;max-height:none;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="home" href="index.html">← Midterm Prep Hub</a>
+  <div class="chip">READING 3 · FULL DETAIL</div>
+  <h1>Visualization of Data Inventory Using Visual Data Mining (VDM) and Exploratory Data Analysis (EDA) Methods</h1>
+  <div class="cite">Iwan Tri Riyadi Yanto &amp; Ossie Purwanti Handayani, Ahmad Dahlan University, Indonesia · <em>JOIV: Int. J. Informatics Visualization</em>, 9(5), Sep 2025, pp. 1808–1815.</div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>On this page</h2>
+    <a href="#glance">At a glance</a>
+    <a href="#problem">Problem &amp; questions</a>
+    <a href="#concepts">Key concepts</a>
+    <a href="#method">VDM method — 3 phases, 8 steps</a>
+    <a href="#data">Data</a>
+    <a href="#results">Results</a>
+    <a href="#eff">Efficient vs inefficient</a>
+    <a href="#concl">Conclusions &amp; limitations</a>
+    <a href="#course">Course link &amp; exam</a>
+  </nav>
+  <main>
+
+  <section class="card" id="glance">
+    <h2>At a glance</h2>
+    <dl class="meta-grid">
+      <dt>Authors</dt><dd>Yanto &amp; Handayani (Information System Dept., Ahmad Dahlan University)</dd>
+      <dt>Venue / year</dt><dd>JOIV 9(5), September 2025</dd>
+      <dt>Type</dt><dd>Applied case study (descriptive analytics / visualization)</dd>
+      <dt>Domain</dt><dd>Retail inventory — Naavagreen Sriwijaya Skincare Clinic, Semarang, Indonesia</dd>
+      <dt>Methods / tools</dt><dd><b>Visual Data Mining (VDM)</b> + <b>Exploratory Data Analysis (EDA)</b> in <b>Tableau</b></dd>
+      <dt>Data</dt><dd>Inventory records, <b>98 product items</b>, Jan 2019 – Dec 2020 (Excel)</dd>
+      <dt>Course link</dt><dd><b>Ch.3 / Ch.4</b> — descriptive analytics, business reporting &amp; data visualization</dd>
+    </dl>
+    <div class="idea"><b>One-sentence takeaway:</b> the clinic could not interpret its inventory data (stock imbalance, lost sales), so the authors used VDM + EDA in Tableau to build dashboards that reveal product patterns, sales turnover and efficiency — identifying <b>3 efficient and 3 inefficient products</b> out of ~98 to guide reorder/stocking decisions.</div>
+  </section>
+
+  <section class="card" id="problem">
+    <h2>Problem &amp; research questions</h2>
+    <p>Inventory is a set of policies to control company property (materials/goods for production or resale). The Naavagreen clinic's chief admin reported <b>difficulty understanding inventory data</b>, causing operational disruptions: accumulation of goods, unguaranteed product availability/quality, and losses from decreased sales turnover. Raw data needed to be transformed into comprehensible visual information for decision-making.</p>
+    <p>The study poses <b>two research questions</b>:</p>
+    <ol>
+      <li>How can the inventory data from <b>Jan 2019 – Dec 2020</b> be visualized using <b>Tableau</b>?</li>
+      <li>What <b>insights</b> can be gained from the visualization analysis of this data?</li>
+    </ol>
+  </section>
+
+  <section class="card" id="concepts">
+    <h2>Key concepts &amp; definitions</h2>
+    <dl class="meta-grid">
+      <dt>Inventory / stock</dt><dd>An asset of goods to be sold in the regular business period (plus goods in process / awaiting use). Inventory data monitors available &amp; remaining products.</dd>
+      <dt>Data visualization</dt><dd>Transforming data into visual graphs/tables to enable analysis &amp; reporting — "the core of data analysis activities." Stages: acquire, parse, filter, mine, represent, refine, interact.</dd>
+      <dt>Visual Data Mining (VDM)</dt><dd>Comprehensible, well-structured process that combines data mining + graphic design + statistics + information visualization to extract patterns visually. Has <b>3 phases, 8 steps</b>.</dd>
+      <dt>Exploratory Data Analysis (EDA)</dt><dd>Analysing/visualizing data to find its properties, distribution and description (as raw data or easy graphs) so the right analytical method can be chosen — "understand the content and look for patterns."</dd>
+      <dt>Tableau</dt><dd>A Business Intelligence software for drag-and-drop visualization, analysis and report creation of large datasets.</dd>
+    </dl>
+  </section>
+
+  <section class="card" id="method">
+    <h2>The VDM method — 3 phases / 8 steps</h2>
+    <p>(Fig. 1 in the paper.) The work is divided into three main stages:</p>
+    <table>
+      <tr><th>Phase</th><th>Steps</th><th>What happens</th></tr>
+      <tr><td><b>1 · Project Planning</b></td><td>Step 1 Justify &amp; plan the project · Step 2 Identify the top business question</td><td>Show how to justify/plan a VDM project; map business questions &amp; objectives answerable by visualization/mining.</td></tr>
+      <tr><td><b>2 · Data Preparation</b></td><td>Step 3 Choose the dataset · Step 4 Transform the dataset · Step 5 Verify the dataset</td><td>Select data; clean/transform to remove bias (filter, add/reduce columns, group balance/incoming/sales by month into Excel files); re-check for errors.</td></tr>
+      <tr><td><b>3 · Data Analysis</b></td><td>Step 6 Choose visualization/mining tool · Step 7 Analyze the model · Step 8 Verify &amp; present</td><td>Pick the tool (Tableau), design visualizations to answer the business questions using EDA, then verify the dashboard with stakeholders &amp; present.</td></tr>
+    </table>
+    <h4>The "top business questions" defined</h4>
+    <ul>
+      <li>Find the <b>sales trend</b> for the last 2 years.</li>
+      <li>Show standard deviation, average, minimum &amp; maximum sales and incoming goods.</li>
+      <li>Show <b>efficient and inefficient products</b>.</li>
+      <li>Show <b>product patterns</b> based on time series.</li>
+    </ul>
+    <p><b>Tool choice was deliberate:</b> the authors compared <b>Tableau vs Microsoft Power BI</b> (weighing benefits/drawbacks) before choosing Tableau for accurate results.</p>
+  </section>
+
+  <section class="card" id="data">
+    <h2>Data</h2>
+    <p>Inventory data of the Naavagreen Sriwijaya Clinic, Semarang, <b>Jan 2019 – Dec 2020</b>, comprising <b>98 product items</b> in Excel format, obtained from the clinic's admin. Each record carries <b>beginning balance, incoming goods, and actual sales</b> per product per month (Table I shows an example: products like "Ng anti acne", "Cream natural", "Cream beige", "Project scrub", "Two-way cake with UV"). Transformation grouped these columns by month into separate Excel files for Tableau.</p>
+  </section>
+
+  <section class="card" id="results">
+    <h2>Results &amp; discussion — three dashboards</h2>
+    <h3>1 · Product pattern (time series)</h3>
+    <p>Of the <b>95 products</b> charted, <b>8 showed the highest fluctuations</b> and <b>87 had a stable average pattern</b> (incoming goods balanced with sales). The 8 high-fluctuation products: <b>Ng Facial Wash, Ng Skin Toner, Naavagreen Micellar Water, Naavagreen Acne Sunscreen, Naavagreen Brightening Day Serum AP, Ng Moisturizing Sunscreen 1, Naavagreen Silky Loose Powder</b>. Example: <b>Ng Facial Wash</b> had inconsistent incoming goods (Apr 2019–Dec 2020) while sales stayed stable → goods accumulated; 710 pcs leftover stock from 2018, 1,559 pcs leftover from 2019, 995 pcs leftover in 2020.</p>
+    <h3>2 · Sales turnover exploration (2019–2020)</h3>
+    <p>Line chart of sales turnover by standard deviation, average, maximum. After switching the measure to <b>standard deviation</b>, 2020 sales tended to be <b>stable</b>; 2019 was inconsistent. Highest deviation in 2020 was <b>January</b> (4,127,799), with sales turnover 140,134,000, average 1,688,361, maximum 29,348,000. Lowest 2020 deviation in June (2,625,898). In 2019 the highest deviation was May (4,786,526).</p>
+    <h3>3 · Sales turnover pattern (time series)</h3>
+    <p>No consistent pattern. Highest sales in <b>May 2019</b> at 133,578,500 (+21.82%); lowest in June 2019 at 92,413,000 (−30.82%). In 2020, the highest sales occurred in <b>January at 140,134,000 (+12.86%)</b>; lowest in April at 84,147,500 (−28.09%).</p>
+  </section>
+
+  <section class="card" id="eff">
+    <h2>Product efficiency — efficient vs inefficient</h2>
+    <p><b>Efficiency</b> = comparison between output (expenditure) and input (income), i.e. how balanced incoming goods are vs sales. A product is <b>efficient</b> when incoming goods and sales show <b>no significant / balanced difference</b>; <b>inefficient</b> when there is a large discrepancy (over-ordering vs sales).</p>
+    <table>
+      <tr><th></th><th>Products</th><th>Evidence</th></tr>
+      <tr><td><b>3 inefficient</b></td><td>Ng Facial Wash · Ng Skin Toner · Ng Moisturizing Sunscreen 1</td><td>Largest stock-vs-sales gaps → recommendation to <b>reduce orders</b> in specific months (e.g., reduce Ng Facial Wash incoming in May/Jul/Aug; Ng Skin Toner in Aug/Nov/Dec).</td></tr>
+      <tr><td><b>3 efficient</b></td><td>Ng-Leher Pagi · Ng Badan Pagi · Naavagreen Moist Aha Cream</td><td>Small discrepancies — e.g. Ng Leher Pagi: total stock 1,089 vs sales 476 (diff 613); Ng Badan Pagi: 1,043 vs 393 (diff 643); Moist Aha Cream: 1,332 vs 637 (diff 695).</td></tr>
+    </table>
+    <p>The dashboards give <b>month-by-month reorder recommendations</b> (minimum stock to hold) to prevent accumulation.</p>
+  </section>
+
+  <section class="card" id="concl">
+    <h2>Conclusions &amp; limitations</h2>
+    <p>Three dashboards were produced (product patterns, sales turnover, sales efficiency). Of 95 products, <b>87 were stable</b> and <b>8 highly fluctuating</b>; the highest percentage increase was <b>January 2020 at 12.86%</b> (turnover IDR 140,134,000); three products were inefficient (Ng Facial Wash, Ng Skin Toner, Ng Moisturizing Sunscreen 1) and three most efficient (Ng-Neher/Leher Pagi, Ng Badan Pagi, Naavagreen Moist Aha Cream). The analysis supports <b>data-driven decisions on stock management and future sales strategy</b>, validated by the clinic's administrative team.</p>
+    <div class="idea"><b>Limitation / next step:</b> the work is purely <b>descriptive</b> (it explains the past). It points toward adding <b>predictive</b> demand forecasting on top of the visual analytics. The "efficient/inefficient" highest-fluctuation selection was done <b>manually</b> by comparing initial balance, incoming goods and sales.</div>
+  </section>
+
+  <section class="card" id="course">
+    <h2>Course link &amp; exam angle</h2>
+    <p><b>↔ Ch.3 / Ch.4</b> — descriptive analytics, "report = information → decision", dashboards, and "the purpose of visualization is insight, not pictures." VDM = visualization-driven pattern discovery; EDA = the explore-and-summarise front end.</p>
+    <div class="exam"><b>Exam angle:</b> "<i>Describe the three phases of the VDM approach and what the analysis revealed.</i>" Answer: (1) project planning, (2) data preparation, (3) data analysis (8 steps total); revealed 3 efficient + 3 inefficient products from ~98, stable vs fluctuating patterns, and month-level reorder recommendations — a Tableau dashboard built on inventory data.</div>
+  </section>
+
+  </main>
+</div>
+<footer>R3 · Yanto &amp; Handayani (2025), VDM + EDA for Inventory Visualization · BIA midterm full-detail page · <a href="index.html">back to hub</a></footer>
+</body>
+</html>

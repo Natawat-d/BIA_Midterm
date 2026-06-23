@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIA Midterm — Exam-Format Prep &amp; Model Answers</title>
+<style>
+  :root {
+    --teal:#1a7a96; --teal-dark:#0f5a70; --red:#c0392b; --bg:#f7f9fa; --card:#fff;
+    --ink:#1f2d33; --muted:#5c6b72; --border:#d9e2e6;
+    --blue:#2e6da4; --green:#2e8b57; --amber:#d99100; --orange:#c0622b; --purple:#7a5ca8;
+    --good:#2e8b57; --warn:#d99100; --bad:#c0392b;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
+  header.hero { background:linear-gradient(135deg,var(--teal),var(--teal-dark)); color:#fff; padding:46px 32px 34px; text-align:center; }
+  header.hero .eyebrow { text-transform:uppercase; letter-spacing:3px; font-size:.78rem; opacity:.85; margin-bottom:10px; }
+  header.hero h1 { margin:0 auto; max-width:900px; font-size:2rem; line-height:1.25; }
+  header.hero p.sub { margin-top:12px; opacity:.92; font-size:1rem; max-width:820px; margin-left:auto; margin-right:auto; }
+
+  .layout { display:flex; max-width:1180px; margin:0 auto; gap:30px; padding:30px; align-items:flex-start; }
+  nav.toc { position:sticky; top:18px; flex:0 0 240px; background:var(--card); border:1px solid var(--border); border-radius:12px; padding:18px; font-size:.85rem; max-height:calc(100vh - 36px); overflow-y:auto; }
+  nav.toc h2 { font-size:.74rem; text-transform:uppercase; letter-spacing:1.4px; color:var(--muted); margin:0 0 10px; }
+  nav.toc a { color:var(--teal-dark); text-decoration:none; display:block; padding:2px 0; }
+  nav.toc a:hover { text-decoration:underline; }
+  nav.toc a.active { font-weight:700; color:var(--red); }
+  nav.toc .grp { margin-top:12px; font-size:.68rem; text-transform:uppercase; letter-spacing:1px; color:var(--muted); border-top:1px solid var(--border); padding-top:8px; }
+  main { flex:1 1 auto; min-width:0; }
+
+  section.card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:26px 30px; margin-bottom:24px; box-shadow:0 1px 3px rgba(0,0,0,.04); scroll-margin-top:16px; }
+  section.card > h2 { color:var(--teal); margin-top:0; border-bottom:3px solid var(--teal); padding-bottom:9px; font-size:1.45rem; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .chip { background:var(--teal); color:#fff; font-size:.7rem; border-radius:6px; padding:3px 9px; font-weight:700; letter-spacing:.5px; }
+  .chip.r { background:var(--orange); }
+  .chip.q { background:var(--red); }
+  section.card h3 { color:var(--teal-dark); font-size:1.14rem; margin-top:24px; border-left:4px solid var(--teal); padding-left:10px; }
+  section.card h4 { color:var(--teal-dark); margin:16px 0 5px; font-size:1rem; }
+  p { margin:8px 0; }
+  .idea { background:#fdf3ea; border-left:4px solid var(--red); padding:12px 16px; border-radius:0 8px 8px 0; margin:6px 0 14px; font-size:.97rem; }
+  .idea b { color:var(--red); }
+  .red { color:var(--red); font-weight:600; }
+  code { background:#eef4f6; padding:1px 6px; border-radius:5px; font-size:.9em; }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:.9rem; }
+  th,td { border:1px solid var(--border); padding:8px 11px; text-align:left; vertical-align:top; }
+  th { background:#eef4f6; color:var(--teal-dark); }
+  ul.clean { list-style:none; padding-left:0; }
+  ul.clean li { padding:4px 0 4px 24px; position:relative; }
+  ul.clean li::before { content:"▸"; color:var(--teal); position:absolute; left:4px; }
+  .ex { background:#eef7fa; border-left:4px solid var(--teal); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0; font-size:.93rem; }
+  .ex b { color:var(--teal-dark); }
+  .toplink { text-align:right; margin-top:8px; }
+  .toplink a { font-size:.78rem; color:var(--muted); text-decoration:none; }
+  footer { text-align:center; padding:26px; color:var(--muted); font-size:.84rem; }
+
+  /* exam-format question / answer blocks */
+  .qa { border:1px solid var(--border); border-radius:10px; overflow:hidden; margin:10px 0 4px; }
+  .qa .q { background:#fbeef0; border-left:4px solid var(--red); padding:11px 15px; font-size:.96rem; }
+  .qa .q b { color:var(--red); }
+  .qa .a { padding:12px 15px; font-size:.94rem; }
+  .qa .a b { color:var(--teal-dark); }
+  .tag { display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.4px; text-transform:uppercase; color:#fff; background:var(--teal); border-radius:5px; padding:2px 7px; margin-right:6px; vertical-align:middle; }
+  .tag.skip { background:var(--muted); }
+  .pill { display:inline-block; font-size:.74rem; background:#eef4f6; color:var(--teal-dark); border:1px solid var(--border); border-radius:20px; padding:2px 10px; margin:2px 3px 2px 0; }
+  .excluded { opacity:.62; }
+
+  /* banner */
+  .banner { background:linear-gradient(135deg,#fbeee9,#f6f1ea); border:1px solid #e7d4c5; border-left:5px solid var(--orange); border-radius:12px; padding:18px 22px; margin-bottom:24px; }
+  .banner h2 { margin:0 0 6px; color:var(--orange); font-size:1.2rem; }
+  .examgrid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:8px; }
+  .examgrid .box { background:#fff; border:1px solid var(--border); border-radius:10px; padding:14px 16px; }
+  .examgrid .box h4 { margin:0 0 6px; color:var(--teal-dark); }
+  .strat { background:#f4f7f4; border:1px solid var(--border); border-left:4px solid var(--green); border-radius:0 8px 8px 0; padding:12px 16px; margin:12px 0; font-size:.93rem; }
+  .strat b { color:var(--green); }
+
+  /* ===== Executive dashboard mock ===== */
+  .dash { background:#0f2c38; border-radius:14px; padding:18px 18px 22px; color:#eaf3f6; box-shadow:0 6px 22px rgba(0,0,0,.18); margin:16px 0; }
+  .dash .dhead { display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:8px; border-bottom:1px solid rgba(255,255,255,.16); padding-bottom:10px; margin-bottom:14px; }
+  .dash .dhead .t { font-size:1.05rem; font-weight:700; letter-spacing:.3px; }
+  .dash .dhead .t small { display:block; font-weight:400; opacity:.7; font-size:.72rem; letter-spacing:1px; text-transform:uppercase; }
+  .dash .dhead .period { font-size:.74rem; opacity:.75; }
+  .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:14px; }
+  .kpi { background:#133a49; border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:10px 12px; position:relative; }
+  .kpi .lab { font-size:.68rem; text-transform:uppercase; letter-spacing:.6px; opacity:.72; }
+  .kpi .val { font-size:1.5rem; font-weight:800; line-height:1.1; margin:3px 0 1px; }
+  .kpi .sub { font-size:.7rem; opacity:.7; }
+  .kpi .dot { position:absolute; top:11px; right:11px; width:10px; height:10px; border-radius:50%; }
+  .dot.g{ background:#3ad29f; } .dot.a{ background:#ffcf5c; } .dot.r{ background:#ff6b6b; }
+  .trend { font-size:.7rem; font-weight:700; }
+  .trend.up{ color:#3ad29f; } .trend.dn{ color:#ff6b6b; } .trend.fl{ color:#ffcf5c; }
+  .quad { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .perspective { background:#133a49; border:1px solid rgba(255,255,255,.08); border-radius:10px; padding:11px 13px; }
+  .perspective h5 { margin:0 0 8px; font-size:.78rem; letter-spacing:.5px; text-transform:uppercase; color:#8fd3e6; display:flex; align-items:center; gap:6px; }
+  .perspective .row { display:flex; justify-content:space-between; align-items:center; font-size:.8rem; padding:3px 0; border-bottom:1px dotted rgba(255,255,255,.10); }
+  .perspective .row:last-child{ border-bottom:none; }
+  .perspective .row .m { opacity:.85; }
+  .perspective .row .v { font-weight:700; }
+  .bar { height:7px; border-radius:4px; background:rgba(255,255,255,.12); overflow:hidden; margin-top:2px; }
+  .bar > i { display:block; height:100%; border-radius:4px; }
+  .legend { font-size:.72rem; opacity:.8; margin-top:12px; display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
+  .legend .dot{ position:static; display:inline-block; margin-right:5px; vertical-align:middle; }
+  .mocknote { font-size:.78rem; color:var(--muted); font-style:italic; margin-top:6px; }
+
+  @media (max-width:920px){ .layout{flex-direction:column;} nav.toc{position:static; flex:1 1 auto; width:100%; max-height:none;} .examgrid{grid-template-columns:1fr;} .kpis{grid-template-columns:repeat(2,1fr);} .quad{grid-template-columns:1fr;} }
+  @media print {
+    body{background:#fff;} header.hero{padding:24px;} nav.toc{display:none;}
+    .layout{display:block; max-width:none; padding:0;} section.card{break-inside:avoid; box-shadow:none; border:none; border-bottom:1px solid var(--border); border-radius:0; padding:14px 4px;}
+    .dash{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    @page{size:A4; margin:13mm;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">AT82.04 · Business Intelligence &amp; Analytics · Mid-sem Exam Prep</div>
+  <h1>Midterm — Exam-Format Prep &amp; Model Answers</h1>
+  <p class="sub">Built to mirror the <strong>actual exam structure</strong> from the sample paper: <strong>Q1</strong> = Performance Dashboards + Balanced Scorecard applied to AIT (with an executive-dashboard sketch); <strong>Q2</strong> = answer <strong>one of four</strong> readings the instructor selects from <strong>R1–R12</strong>. Prepare a ready answer for every reading except your own presentation (R2).</p>
+</header>
+
+<div class="layout">
+  <nav class="toc" id="toc">
+    <h2>Contents</h2>
+    <a href="#format">★ Exam format &amp; strategy</a>
+    <div class="grp">Q1 · Guaranteed</div>
+    <a href="#q1">Dashboards + BSC for AIT</a>
+    <a href="#q1-bsc">BSC — 4 perspectives → AIT</a>
+    <a href="#q1-dash">Executive dashboard sketch</a>
+    <div class="grp">Q2 · One of four (R1–R12)</div>
+    <a href="#r1">R1 · DSS Taxonomy</a>
+    <a href="#r2">R2 · BI &amp; Performance (your reading)</a>
+    <a href="#r3">R3 · Visual Data Mining</a>
+    <a href="#r4">R4 · Traffic Visual Analytics</a>
+    <a href="#r5">R5 · DW + DM for BI</a>
+    <a href="#r6">R6 · Predict Student Perf.</a>
+    <a href="#r7">R7 · K-Means Segmentation</a>
+    <a href="#r8">R8 · Cardiovascular Risk</a>
+    <a href="#r9">R9 · DSS for DM Tools</a>
+    <a href="#r10">R10 · Topic Modelling</a>
+    <a href="#r11">R11 · Web Mining Energy</a>
+    <a href="#r12">R12 · BERT + CEEMDAN</a>
+  </nav>
+
+  <main>
+
+  <!-- ============== EXAM FORMAT ============== -->
+  <section class="card" id="format">
+    <h2><span class="chip">★</span> Exam Format &amp; Strategy</h2>
+    <div class="idea"><b>How this exam is shaped</b> (from the sample paper). Two questions. <b>Q1 is fixed in topic</b> — Performance Dashboards &amp; Balanced Scorecards, applied to a real organisation (AIT). <b>Q2 gives you four readings and you answer only ONE.</b> The instructor will pick the four from <b>R1–R12</b>, and you may <span class="red">not</span> answer your own presentation reading (that's <b>R2</b> for you).</div>
+
+    <div class="examgrid">
+      <div class="box">
+        <h4>Question 1 — always answer</h4>
+        <p>"Suggest how <b>dashboards and BSC</b> can be used as performance measurement for AIT. Also <b>sketch an executive dashboard</b> for the AIT President. You may make any assumptions."</p>
+        <p style="margin-bottom:0"><span class="pill">applied / essay</span><span class="pill">make assumptions</span><span class="pill">must include a sketch</span></p>
+      </div>
+      <div class="box">
+        <h4>Question 2 — choose ONE of four</h4>
+        <p>Four readings are listed (selected from R1–R12); each has a specific question about its <b>method, model, or findings</b>. Answer one only — <b>not</b> your presentation reading.</p>
+        <p style="margin-bottom:0"><span class="pill">pick your strongest</span><span class="pill">be specific</span><span class="pill">name techniques</span></p>
+      </div>
+    </div>
+
+    <div class="strat"><b>Strategy.</b> (1) Q1 is guaranteed — walk in with the BSC-for-AIT table and a dashboard sketch memorised. (2) For Q2, you can't predict <em>which</em> four, so prepare a <b>3–5 sentence model answer for each of R1, R3–R12</b> (skip R2). Pre-pick your 2–3 strongest readings so that if any appears you're set. (3) Mirror the sample's verbs — "<i>describe</i> the N aspects / phases", "<i>explain how</i> X works", "<i>discuss how</i> X is developed, what are its layers" — answers should <b>name the technique, list the steps/components, and give the concrete result/number</b>.</div>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  <!-- ============== Q1 ============== -->
+  <section class="card" id="q1">
+    <h2><span class="chip q">Q1</span> Performance Dashboards &amp; Balanced Scorecards for AIT</h2>
+    <div class="idea"><b>Model answer — opening frame.</b> AIT is a <b>mission-driven, non-profit postgraduate institute</b>, so performance is multi-dimensional and cannot be judged by finance alone. Two complementary tools handle this: the <b>Balanced Scorecard (BSC)</b> translates AIT's vision/strategy into balanced objectives + KPIs across several perspectives (the <em>management</em> system — "are we doing the right things?"), and <b>dashboards</b> visualise those KPIs in real time for monitoring, analysis and drill-down (the <em>measurement &amp; display</em> system — "how are we doing right now?"). BSC defines <em>what</em> to measure; the dashboard <em>shows</em> it.</div>
+
+    <h3>Why both, and how they fit together</h3>
+    <ul class="clean">
+      <li><b>Balanced Scorecard (Kaplan &amp; Norton, 1992)</b> — a strategic <b>management</b> system. It forces balance between financial and non-financial, lagging (outcome) and leading (driver) measures, linked by cause-and-effect to the strategy.</li>
+      <li><b>Dashboard</b> — a single-screen visual display of the most important KPIs, with three layers: <b>monitoring</b> (at-a-glance KPIs + status), <b>analysis</b> (drill-down, trends, comparisons), <b>management</b> (link to actions/accountability). Good dashboards highlight exceptions, allow drill-down, unify sources, need little training.</li>
+      <li><b>Linkage:</b> BSC perspectives &amp; KPIs become the <em>contents</em> of the dashboard; the dashboard is the BSC made live and visual. AIT would run a <b>cascade</b>: a strategic dashboard for the President (institute-wide BSC), tactical dashboards for each School/Dean, operational dashboards for offices (Admissions, Finance, Research).</li>
+    </ul>
+    <div class="ex"><b>Public/non-profit twist (worth a mark):</b> in a university the classic BSC is re-ordered — <b>Mission &amp; Stakeholders sit on top</b> (not Financial), because finance is an <em>enabler</em> of the mission, not the goal. State this assumption explicitly.</div>
+
+    <h3 id="q1-bsc">The four BSC perspectives mapped to AIT</h3>
+    <table>
+      <tr><th>Perspective (AIT framing)</th><th>Strategic question</th><th>Example objectives</th><th>Example KPIs (assumed)</th></tr>
+      <tr>
+        <td><b>Stakeholder / Customer</b><br><small>students, employers, sponsors, society</small></td>
+        <td>"To achieve our mission, how must we look to students &amp; society?"</td>
+        <td>Produce employable graduates; satisfy students &amp; sponsors; serve regional development</td>
+        <td>Graduate employment rate; student satisfaction; employer satisfaction; alumni engagement; intake quality &amp; diversity (# nationalities)</td>
+      </tr>
+      <tr>
+        <td><b>Financial / Stewardship</b><br><small>sustainability, not profit</small></td>
+        <td>"How do we steward funds to stay sustainable?"</td>
+        <td>Diversify income; control cost per student; grow research funding &amp; endowment</td>
+        <td>Budget utilisation %; external research income; tuition revenue; cost per student; reserve / sustainability ratio</td>
+      </tr>
+      <tr>
+        <td><b>Internal Business Process</b><br><small>teaching, research, admin</small></td>
+        <td>"What processes must we excel at?"</td>
+        <td>High-quality teaching &amp; research; efficient admissions; strong industry links; accreditation</td>
+        <td>Research output (publications/citations); on-time graduation rate; time-to-degree; admission cycle time; # active MOUs / industry projects</td>
+      </tr>
+      <tr>
+        <td><b>Learning &amp; Growth</b><br><small>faculty, staff, infrastructure</small></td>
+        <td>"How do we sustain our ability to improve?"</td>
+        <td>Develop faculty &amp; staff; modern digital infrastructure; healthy work climate</td>
+        <td>% faculty with PhD; student-faculty ratio; faculty development / training hours; staff satisfaction &amp; retention; IT &amp; e-learning investment</td>
+      </tr>
+    </table>
+    <p><b>KPI logic to mention:</b> each KPI = <em>strategic objective + a metric measured against a target</em>; mix <b>outcome (lagging)</b> KPIs like graduate employment with <b>driver (leading)</b> KPIs like applications received or faculty hires that <em>predict</em> the outcomes.</p>
+
+    <h3 id="q1-dash">Sketch — executive dashboard for the AIT President</h3>
+    <p>A one-screen <b>strategic dashboard</b>: a headline KPI strip on top, then the four BSC perspectives as quadrants, each with 3 KPIs showing <b>actual vs target</b>, a <b>RAG status light</b> (Red/Amber/Green), and a trend arrow. Exceptions stand out; every tile drills down to a Dean/office dashboard.</p>
+
+    <div class="dash" role="img" aria-label="Mock executive dashboard for the AIT President">
+      <div class="dhead">
+        <div class="t">AIT President · Institute Performance Cockpit <small>Balanced-Scorecard strategic dashboard</small></div>
+        <div class="period">AY 2025–26 · as of Q2 · ▾ filter: Institute / School / Office</div>
+      </div>
+
+      <!-- headline KPI strip -->
+      <div class="kpis">
+        <div class="kpi"><span class="dot g"></span><div class="lab">Total enrolment</div><div class="val">2,180</div><div class="sub">target 2,300 · <span class="trend up">▲ 4%</span></div></div>
+        <div class="kpi"><span class="dot g"></span><div class="lab">Graduate employment</div><div class="val">88%</div><div class="sub">target 85% · <span class="trend up">▲ 3pp</span></div></div>
+        <div class="kpi"><span class="dot a"></span><div class="lab">Research income</div><div class="val">฿612M</div><div class="sub">target ฿700M · <span class="trend up">▲ 6%</span></div></div>
+        <div class="kpi"><span class="dot r"></span><div class="lab">Budget sustainability</div><div class="val">0.96</div><div class="sub">target ≥1.00 · <span class="trend dn">▼ deficit</span></div></div>
+      </div>
+
+      <!-- four BSC quadrants -->
+      <div class="quad">
+        <div class="perspective">
+          <h5>◆ Stakeholder / Student</h5>
+          <div class="row"><span class="m">Student satisfaction</span><span class="v">4.2/5 <span class="dot g"></span></span></div>
+          <div class="bar"><i style="width:84%;background:#3ad29f"></i></div>
+          <div class="row"><span class="m">Employer satisfaction</span><span class="v">4.0/5 <span class="dot g"></span></span></div>
+          <div class="bar"><i style="width:80%;background:#3ad29f"></i></div>
+          <div class="row"><span class="m">Internationalisation (nationalities)</span><span class="v">38 <span class="dot a"></span></span></div>
+          <div class="bar"><i style="width:63%;background:#ffcf5c"></i></div>
+        </div>
+
+        <div class="perspective">
+          <h5>◆ Financial / Stewardship</h5>
+          <div class="row"><span class="m">Budget utilisation</span><span class="v">93% <span class="dot g"></span></span></div>
+          <div class="bar"><i style="width:93%;background:#3ad29f"></i></div>
+          <div class="row"><span class="m">External research income</span><span class="v">87% of target <span class="dot a"></span></span></div>
+          <div class="bar"><i style="width:87%;background:#ffcf5c"></i></div>
+          <div class="row"><span class="m">Cost per student vs target</span><span class="v">+8% over <span class="dot r"></span></span></div>
+          <div class="bar"><i style="width:108%;background:#ff6b6b"></i></div>
+        </div>
+
+        <div class="perspective">
+          <h5>◆ Internal Process</h5>
+          <div class="row"><span class="m">Publications (YTD vs plan)</span><span class="v">102% <span class="dot g"></span></span></div>
+          <div class="bar"><i style="width:100%;background:#3ad29f"></i></div>
+          <div class="row"><span class="m">On-time graduation rate</span><span class="v">79% <span class="dot a"></span></span></div>
+          <div class="bar"><i style="width:79%;background:#ffcf5c"></i></div>
+          <div class="row"><span class="m">Active industry MOUs</span><span class="v">64 <span class="dot g"></span></span></div>
+          <div class="bar"><i style="width:88%;background:#3ad29f"></i></div>
+        </div>
+
+        <div class="perspective">
+          <h5>◆ Learning &amp; Growth</h5>
+          <div class="row"><span class="m">Faculty with PhD</span><span class="v">96% <span class="dot g"></span></span></div>
+          <div class="bar"><i style="width:96%;background:#3ad29f"></i></div>
+          <div class="row"><span class="m">Student : faculty ratio</span><span class="v">14:1 <span class="dot a"></span></span></div>
+          <div class="bar"><i style="width:70%;background:#ffcf5c"></i></div>
+          <div class="row"><span class="m">Staff training hours / FTE</span><span class="v">22h <span class="dot g"></span></span></div>
+          <div class="bar"><i style="width:82%;background:#3ad29f"></i></div>
+        </div>
+      </div>
+
+      <div class="legend">
+        <span><span class="dot g"></span>On / above target</span>
+        <span><span class="dot a"></span>Watch (within 10%)</span>
+        <span><span class="dot r"></span>Off target — act</span>
+        <span>▲ improving · ▼ declining vs last period</span>
+        <span>Every tile → drill-down to School / Office</span>
+      </div>
+    </div>
+    <p class="mocknote">Figures are illustrative assumptions (the exam invites "any assumptions as needed"). In the written exam, draw this as four labelled quadrants + a top KPI strip, mark each KPI with target vs actual and a R/A/G light — the President needs <b>exceptions and trends at a glance</b>, with drill-down for detail.</p>
+
+    <div class="strat"><b>Mark-grabbing points to state:</b> (1) BSC = strategic <em>management</em> vs dashboard = performance <em>measurement/display</em>; (2) re-order perspectives so <em>mission/stakeholder</em> leads for a non-profit institute; (3) KPI = objective + metric + target, mixing leading/lagging; (4) dashboard cascade President → Dean → Office; (5) the sketch must show RAG status, target-vs-actual, trend, and drill-down.</div>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  <!-- ============== Q2 READINGS ============== -->
+  <section class="card" id="r1">
+    <h2><span class="chip r">R1</span> A Taxonomy of Decision Support Systems — Alter (1977)</h2>
+    <div class="qa">
+      <div class="q"><span class="tag">Likely Q</span><b>Alter classifies DSS by the "degree of action implication of system outputs." Describe the seven types of DSS in their two families, from least to most action-oriented.</b></div>
+      <div class="a"><b>Model answer.</b> From 56 systems, Alter ordered DSS by how directly the output drives the decision, giving <b>two families</b>. <b>Data-oriented</b> (3 types): <b>(1) File-drawer systems</b> — online access to individual data items; <b>(2) Data-analysis systems</b> — ad-hoc manipulation of current/historical data (e.g. variance analysis); <b>(3) Analysis-information systems</b> — databases + small models + external data (e.g. a marketing IS). <b>Model-oriented</b> (4 types): <b>(4) Accounting models</b> — consequences via definitional/accounting relationships ("what-if"); <b>(5) Representational models</b> — consequences via causal/simulation relationships; <b>(6) Optimization models</b> — best solution under constraints (LP); <b>(7) Suggestion models</b> — compute a specific suggested decision. Takeaway: "DSS" is not one thing — support ranges from <em>retrieving facts</em> to <em>recommending the decision</em>, and the type predicts the users, the technical problem, and the implementation risk.</div>
+    </div>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  <section class="card excluded" id="r2">
+    <h2><span class="chip r">R2</span> BI &amp; its Pivotal Role in Organizational Performance — Moussas et al. (2024) <span class="tag skip">your presentation — not examinable for you</span></h2>
+    <p>This is <b>your own reading presentation</b>, so per the exam rules it will <span class="red">not</span> be offered to you in Q2 — don't prepare it for the choose-one question. (You still know it best; it's also the most useful backing for <b>Q1</b>, since it's all about BI's role in <b>organisational performance, metrics &amp; KPIs</b>.) For reference: it's a <b>systematic literature review</b> (14 sections, 64 refs) arguing BI is multi-dimensional (technologies + processes + applications) and is "indispensable" for strategic decision-making, operational efficiency, and KPI improvement across sectors — delivering competitive advantage.</p>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  <section class="card" id="r3">
+    <h2><span class="chip r">R3</span> Visualization of Data Inventory using VDM &amp; EDA — Yanto &amp; Handayani (2025)</h2>
+    <div class="qa">
+      <div class="q"><span class="tag">Likely Q</span><b>Describe how Visual Data Mining was applied to the clinic's inventory problem. What are the three phases of the approach, and what did the analysis reveal?</b></div>
+      <div class="a"><b>Model answer.</b> A skincare clinic could not interpret its inventory data, causing stock imbalance and lost sales. The authors combined <b>Visual Data Mining (VDM)</b> with <b>Exploratory Data Analysis (EDA)</b> in <b>Tableau</b> over <b>three phases</b>: <b>(1) Project planning</b> — justify the work and define the business questions; <b>(2) Data preparation</b> — choose, transform and verify the inventory records (98 products, Jan 2019–Dec 2020); <b>(3) Data analysis</b> — choose visualisation/mining tools, analyse stock-vs-sales behaviour, then verify and present via dashboards. <b>Findings:</b> of 98 products, <b>3 were efficient and 3 inefficient</b> (overstocked vs fast-moving), with a peak turnover spike in Jan 2020; staff validated the dashboards, which then guided reorder/stocking decisions. It applies Ch.3/Ch.4 <em>descriptive analytics &amp; visualisation</em> to a concrete inventory problem.</div>
+    </div>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  <section class="card" id="r4">
+    <h2><span class="chip r">R4</span> Visual Analytic for Traffic Impact Assessment — Chan et al. (2024)</h2>
+    <div class="qa">
+      <div class="q"><span class="tag">Likely Q</span><b>Explain how visual analytics was used for Traffic Impact Assessment. Which visualisations were applied, and how was the Level of Service determined?</b></div>
+      <div class="a"><b>Model answer.</b> To tackle congestion, the study built a <b>spatial + temporal visual-analytics</b> workflow on traffic-flow data from <b>three major intersections</b>. After data <b>cleaning, integration and transformation</b>, it used <b>heat maps, parallel-coordinate charts and bar plots</b> to show daily/hourly volumes by lane and vehicle type, plus saturation flow rates. <b>Level of Service (LOS)</b> — the congestion grade — was derived from the <b>volume-to-capacity (V/C) ratio</b>: the higher the ratio, the worse the LOS, flagging congested junctions. <b>Findings:</b> clear peak vs off-peak and weekday vs weekend differences, identification of the most congested intersections, and a recommendation to layer <em>predictive</em> models on top of the visual analytics for proactive traffic control. Demonstrates Ch.3 visual analytics supporting a transport-planning DSS.</div>
+    </div>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  <section class="card" id="r5">
+    <h2><span class="chip r">R5</span> Data Warehouse and Data Mining for Business Intelligence — Kumar et al. (2024)</h2>
+    <div class="qa">
+      <div class="q"><span class="tag">Likely Q</span><b>Discuss how data warehousing and data mining work together to support BI. How is data mining categorised, and in which industries is it applied?</b></div>
+      <div class="a"><b>Model answer.</b> This review argues BI rests on two pillars: a <b>data warehouse</b> provides the integrated, cleansed, historical data (organised via star/snowflake schemas), and <b>data mining</b> extracts patterns from it for prediction and decision support. Data mining is categorised by learning type — <b>supervised, unsupervised and semi-supervised</b> — supporting tasks like classification, clustering, segmentation and market analysis. <b>Industry cases:</b> <b>retail</b> (customer-behaviour analysis), <b>healthcare</b> (disease diagnosis), and <b>finance</b> (fraud detection). <b>Challenges:</b> data quality, scalability, and privacy/ethics; <b>future:</b> big-data integration and ML automation. It is the cleanest bridge between Ch.4 (data warehousing) and Ch.5 (data mining).</div>
+    </div>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  <section class="card" id="r6">
+    <h2><span class="chip r">R6</span> Using Data Mining to Predict Student Performance — Zahruddin et al. (2023)</h2>
+    <div class="qa">
+      <div class="q"><span class="tag">Likely Q</span><b>Describe how data mining was used to predict student performance from demographic attributes. Which algorithms were compared and which performed best and worst?</b></div>
+      <div class="a"><b>Model answer.</b> At UPNM (Malaysia), the study predicted student performance from <b>socio-demographic attributes</b> (gender, age, marital/student status, rural/urban) using the <b>KDD</b> process in <b>WEKA</b>. It framed the task as <b>classification</b> and compared three algorithms — <b>Decision Tree, Neural Network and k-Nearest Neighbour</b> — evaluated by error (RMSE). <b>Findings:</b> the most influential attributes were <b>gender, age and student status</b>; the <b>Neural Network performed best</b> (lowest RMSE / best at identifying influential variables), <b>k-NN gave the most accurate predictions</b> (k≈44), while the <b>Decision Tree performed worst</b> on this data. Purpose: help the university plan teaching interventions. A direct Ch.5 application of supervised classification and model comparison in education data mining (EDM).</div>
+    </div>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  <section class="card" id="r7">
+    <h2><span class="chip r">R7</span> Customer Segmentation using K-Means &amp; DBSCAN — William &amp; Johan (2025)</h2>
+    <div class="qa">
+      <div class="q"><span class="tag">Likely Q</span><b>Explain how customer segmentation was carried out using K-Means and DBSCAN. Which evaluation metrics were used and which method performed better?</b></div>
+      <div class="a"><b>Model answer.</b> For a fashion e-commerce firm ("XYZ"), the study segmented customers from purchase-transaction data following the <b>CRISP-DM</b> framework. Preprocessing used <b>StandardScaler + PCA</b>; the data was then clustered with <b>K-Means vs DBSCAN</b> and evaluated using two <em>cluster-validity</em> metrics — the <b>Silhouette Score</b> (higher = better separation) and the <b>Davies–Bouldin Index</b> (lower = better). <b>Findings:</b> <b>K-Means outperformed DBSCAN</b> (Davies–Bouldin ≈ 0.593 vs 0.92), with an optimal <b>k = 7</b> clusters; the result was deployed as a dashboard (FastAPI + ReactJS) to drive targeted marketing. The canonical Ch.5 lesson: clustering = <em>segmentation</em>, judged by cluster-quality metrics, <b>not</b> accuracy (there is no labelled target).</div>
+    </div>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  <section class="card" id="r8">
+    <h2><span class="chip r">R8</span> Characterizing Patients at Higher Cardiovascular Risk — Yan et al. (2025)</h2>
+    <div class="qa">
+      <div class="q"><span class="tag">Likely Q</span><b>Explain how the study identified patients at higher cardiovascular risk from prescription stimulants. How were prediction and association-rule mining combined?</b></div>
+      <div class="a"><b>Model answer.</b> Using <b>electronic health records</b> (TriNetX; ~219,965 adults with ADHD, 2010–2020, four age groups), the study addressed the cardiovascular (CV) risk of prescription stimulants via <b>two data-mining approaches working together</b>. First, several <b>predictive machine-learning models</b> estimated each patient's <b>1-year CV risk</b> from stimulant use + demographics + comorbidities, reaching <b>AUC ≈ 0.77–0.84</b>. Second, <b>association-rule mining</b> characterised <em>which</em> patients are adversely affected, surfacing risk features (prior CV events, substance-use and psychological disorders) and building a per-age-group comorbidity "watch list." <b>Findings:</b> it quantifies the added CV risk and profiles high-risk subgroups to guide safer prescribing, calling for external validation. A Ch.5 example combining <em>prediction</em> (AUC) with <em>association rules</em> on real structured data.</div>
+    </div>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  <section class="card" id="r9">
+    <h2><span class="chip r">R9</span> Integrated DSS for Evaluating Data-Mining Tools — Salah et al. (2025)</h2>
+    <div class="qa">
+      <div class="q"><span class="tag">Likely Q</span><b>Discuss how the integrated DSS supports an economic-intelligence system. Which data-mining methods and classifiers does it use, and what was the result?</b></div>
+      <div class="a"><b>Model answer.</b> The paper builds a socioeconomic-intelligence database plus an <b>integrated, multi-criteria DSS</b> to retrieve economic/financial intelligence quickly and to <b>evaluate and select among data-mining tools</b> (considering tasks, data models, visualisation, interfaces, import/export, authorisation). Methodologically it combines <b>association-rule mining</b> (an optimised Apriori) with <b>forecasting/classification</b>, comparing classifiers such as <b>Naïve Bayes, Logistic Regression and a C4.5 decision tree</b> (with WEKA). <b>Result:</b> the proposed approach beats Logistic Regression's classification accuracy by about <b>2.76%</b>, demonstrating an effective economic-intelligence DSS. It pairs with Ch.1 (DSS) and Ch.9 (how to <em>systematically evaluate</em> analytics tools rather than just list them).</div>
+    </div>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  <section class="card" id="r10">
+    <h2><span class="chip r">R10</span> Text-Based Content Analysis on Social Media using Topic Modelling — Buana et al. (2024)</h2>
+    <div class="qa">
+      <div class="q"><span class="tag">Likely Q</span><b>Describe how the social-media-analytics tool helps marketers find topics for Instagram content. Which techniques are used, and how was the tool evaluated?</b></div>
+      <div class="a"><b>Model answer.</b> Digital marketers needed help choosing topics for <b>text-based Instagram</b> content, but no existing tool did this. The authors built a <b>Social Media Analytics (SMA) tool</b> that scrapes Instagram data (text, captions, likes, comments, upload time, category) via Instascraper, uses <b>OCR</b> to pull text out of content images, and then runs <b>LDA (Latent Dirichlet Allocation) topic modelling</b> to discover the dominant topics. <b>Evaluation:</b> expert testing showed <b>93%</b> could identify relevant topic references, and user acceptance (SUS-based) was ≈ <b>85%</b>; the main weakness is that it needs some programming proficiency. A direct Ch.6 application of <em>topic modelling on unstructured social text</em> for marketing.</div>
+    </div>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  <section class="card" id="r11">
+    <h2><span class="chip r">R11</span> Social Intelligence and Web Mining for Renewable Energy Insights — Mwafaq et al. (2025)</h2>
+    <div class="qa">
+      <div class="q"><span class="tag">Likely Q</span><b>Describe how social intelligence and web mining were used to derive renewable-energy insights. What major techniques were used, and how were they turned into a prediction?</b></div>
+      <div class="a"><b>Model answer.</b> Over <b>12 months</b> of social-media, forum and news data on renewable energy, the study applied <b>web mining + NLP/ML</b>: <b>sentiment analysis</b>, <b>topic modelling</b>, and <b>geotagged region-specific theme analysis</b> (e.g. economic-gain vs technological-advancement framing; complaints about misinformation, malfunctions, cost). It then built a <b>predictive model of regional adoption</b> — combining sentiment scores + theme prevalence + a socioeconomic index to estimate ~5-year adoption likelihood. <b>Findings:</b> sentiment was largely positive (especially Europe/North America), the dominant themes were economic benefit and technological advances, and large <b>regional variations</b> imply targeted policy and capacity-building. A Ch.6 example turning <em>web mining + sentiment</em> into a forward-looking policy signal.</div>
+    </div>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  <section class="card" id="r12">
+    <h2><span class="chip r">R12</span> Sentiment Analysis &amp; CEEMDAN to Learn Consumer-Group Preferences — Wang et al. (2026)</h2>
+    <div class="qa">
+      <div class="q"><span class="tag">Likely Q</span><b>Explain how the model learns consumer-group preferences from online hotel reviews. Describe the roles of BERT, CEEMDAN, and preference disaggregation.</b></div>
+      <div class="a"><b>Model answer.</b> The goal is to learn and <em>interpret</em> consumer-group preferences from unstructured, time-varying, ambiguous online reviews — done in three stages. <b>(1) BERT</b> (BERT-Base-Chinese, deep learning) performs <b>fine-grained sentiment analysis</b> of hotel reviews, with <b>BERTopic</b> extracting the latent criteria/topics. <b>(2) CEEMDAN</b> (Complete Ensemble Empirical Mode Decomposition with Adaptive Noise) <b>decomposes the sentiment time series</b> to separate noise from the residual <em>trend</em>, capturing the group-consistent sentiment signal. <b>(3) Preference disaggregation (a UTA-type method)</b> infers the group's <b>classification value system</b> — i.e. how much each criterion matters. <b>Findings:</b> validated on real hotel reviews, it markedly improves the <b>interpretability</b> of group preferences and supports evidence-based managerial decisions. The most advanced Ch.6 reading — deep-learning sentiment feeding a decision/preference model.</div>
+    </div>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  <section class="card">
+    <h2><span class="chip">✓</span> One-glance revision checklist</h2>
+    <h4>Q1 (write every time)</h4>
+    <ul class="clean">
+      <li>BSC = strategic <b>management</b> system (4 perspectives, cause-effect, leading+lagging KPIs); dashboard = <b>measurement/display</b> (monitoring → analysis → management layers).</li>
+      <li>Re-order for AIT: <b>Stakeholder/Mission on top</b>, Financial as enabler. Map all 4 perspectives to AIT KPIs.</li>
+      <li>Sketch: top KPI strip + 4 quadrants, each KPI with <b>target vs actual + RAG light + trend</b>, drill-down President → Dean → Office.</li>
+    </ul>
+    <h4>Q2 (one of four from R1–R12, not R2)</h4>
+    <ul class="clean">
+      <li>For each paper, be able to state: <b>problem → method/technique → key result/number → which chapter it illustrates</b>.</li>
+      <li>Strongest, safest picks to pre-memorise: <b>R1</b> (7 DSS types — pure recall), <b>R7</b> (K-Means vs DBSCAN + metrics), <b>R6</b> (algorithm comparison), <b>R8</b> (prediction + association rules).</li>
+      <li>Match the question's verb — <i>describe / explain how / discuss how + list the N parts</i>.</li>
+    </ul>
+    <div class="toplink"><a href="#toc">↑ top</a></div>
+  </section>
+
+  </main>
+</div>
+
+<footer>
+  Midterm exam-format prep — AT82.04 BIA. Q1 = Dashboards + Balanced Scorecard applied to AIT (+ executive-dashboard sketch); Q2 = one of four readings selected from R1–R12 (your presentation R2 excluded). Dashboard figures are illustrative assumptions. Companion to the detailed study guide &amp; 2-page cheat sheet.
+</footer>
+
+<script>
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('nav.toc a'));
+    var map = {};
+    links.forEach(function (a){ var id=a.getAttribute('href').slice(1); var el=document.getElementById(id); if(el) map[id]=a; });
+    var sections = Object.keys(map).map(function(id){ return document.getElementById(id); });
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ links.forEach(function(l){l.classList.remove('active');}); var a=map[e.target.id]; if(a) a.classList.add('active'); }
+      });
+    }, { rootMargin:'-8% 0px -80% 0px', threshold:0 });
+    sections.forEach(function(s){ obs.observe(s); });
+  })();
+</script>
+
+</body>
+</html>

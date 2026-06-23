@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading 1 — A Taxonomy of Decision Support Systems (Alter, 1977) | Summary</title>
+<style>
+  :root {
+    --teal: #1a7a96;
+    --teal-dark: #0f5a70;
+    --red: #c0392b;
+    --bg: #f7f9fa;
+    --card: #ffffff;
+    --ink: #1f2d33;
+    --muted: #5c6b72;
+    --border: #d9e2e6;
+    --data: #2e6da4;
+    --model: #c0622b;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header.hero {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    color: #fff;
+    padding: 56px 32px 44px;
+    text-align: center;
+  }
+  header.hero .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    opacity: 0.85;
+    margin-bottom: 12px;
+  }
+  header.hero h1 {
+    margin: 0 auto;
+    max-width: 900px;
+    font-size: 2.2rem;
+    line-height: 1.25;
+  }
+  header.hero p.sub {
+    margin-top: 16px;
+    opacity: 0.9;
+    font-size: 1.05rem;
+  }
+  .layout { display: flex; max-width: 1180px; margin: 0 auto; gap: 32px; padding: 32px; align-items: flex-start; }
+  nav.toc {
+    position: sticky;
+    top: 24px;
+    flex: 0 0 240px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 0.92rem;
+  }
+  nav.toc h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin: 0 0 12px; }
+  nav.toc ol { margin: 0; padding-left: 20px; }
+  nav.toc li { margin-bottom: 8px; }
+  nav.toc a { color: var(--teal-dark); text-decoration: none; }
+  nav.toc a:hover { text-decoration: underline; }
+  main { flex: 1 1 auto; min-width: 0; }
+  section.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  section.card h2 {
+    color: var(--teal);
+    margin-top: 0;
+    border-bottom: 3px solid var(--teal);
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  section.card h3 { color: var(--teal-dark); font-size: 1.15rem; margin-top: 26px; }
+  .lead { font-size: 1.05rem; color: var(--muted); }
+  .red { color: var(--red); font-weight: 600; }
+  .badge {
+    display: inline-block;
+    background: var(--teal);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 999px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.95rem; }
+  th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+  th { background: #eef4f6; color: var(--teal-dark); }
+  ul.clean { list-style: none; padding-left: 0; }
+  ul.clean li { padding: 6px 0 6px 26px; position: relative; }
+  ul.clean li::before { content: "▸"; color: var(--teal); position: absolute; left: 4px; }
+  .callout {
+    background: #fff7f5; border-left: 4px solid var(--model);
+    padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 18px 0;
+  }
+  .callout.teal { background: #eef7fa; border-left-color: var(--teal); }
+  .spectrum {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+    background: #eef4f6; border-radius: 10px; padding: 16px; margin: 18px 0;
+    font-weight: 600; color: var(--teal-dark);
+  }
+  .spectrum span.step { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; }
+  .spectrum span.arrow { color: var(--teal); font-size: 1.2rem; }
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; }
+  .orient { border-radius: 10px; padding: 18px; color: #fff; }
+  .orient h4 { margin: 0 0 8px; font-size: 1.15rem; }
+  .orient.data { background: var(--data); }
+  .orient.model { background: var(--model); }
+  .orient ul { margin: 8px 0 0; padding-left: 18px; font-size: 0.92rem; }
+  .typecard {
+    border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px;
+    margin-bottom: 12px; background: #fafcfc;
+  }
+  .typecard h4 { margin: 0 0 4px; color: var(--teal-dark); }
+  .typecard .tag {
+    display: inline-block; font-size: 0.7rem; font-weight: 700; color: #fff;
+    border-radius: 999px; padding: 2px 10px; margin-left: 8px; vertical-align: middle;
+  }
+  .typecard .tag.data { background: var(--data); }
+  .typecard .tag.model { background: var(--model); }
+  .typecard .ex { font-size: 0.88rem; color: var(--muted); margin-top: 4px; }
+  .num {
+    display: inline-block; width: 26px; height: 26px; line-height: 26px; text-align: center;
+    background: var(--teal); color: #fff; border-radius: 50%; font-weight: 700; margin-right: 8px;
+  }
+  footer { text-align: center; padding: 28px; color: var(--muted); font-size: 0.85rem; }
+  @media (max-width: 880px) {
+    .layout { flex-direction: column; }
+    nav.toc { position: static; flex: 1 1 auto; width: 100%; }
+    .twocol { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">Business Intelligence &amp; Analytics · Reading 1</div>
+  <h1>A Taxonomy of Decision Support Systems</h1>
+  <p class="sub">Steven Alter · <em>Sloan Management Review</em>, Fall 1977 — seven distinct types of DSS, from data-oriented to model-oriented</p>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#thesis">Core Thesis</a></li>
+      <li><a href="#dssedp">DSS vs. EDP</a></li>
+      <li><a href="#principle">Organizing Principle</a></li>
+      <li><a href="#types">The Seven Types</a></li>
+      <li><a href="#orient">Data vs. Model</a></li>
+      <li><a href="#findings">Comparative Findings</a></li>
+      <li><a href="#why">Why It Matters</a></li>
+      <li><a href="#takeaways">Key Takeaways</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section class="card" id="thesis">
+      <h2>1. Core Thesis</h2>
+      <p class="lead">The term <strong>"decision support system" (DSS) is <span class="red">not a homogeneous category</span></strong>.</p>
+      <p>Systems labeled DSS differ enormously in <em>what</em> they do and <em>how</em> they do it. Drawing on detailed case studies of <strong>56 decision support systems</strong> — distilled from a structured analysis of 8 in-depth cases — Alter builds a taxonomy of <strong>seven distinct DSS types</strong> to give the emerging field a shared vocabulary and a practical framework.</p>
+      <div class="callout teal">
+        <strong>The motivating puzzle:</strong> people kept talking about "DSS in general," but the systems in the sample had little in common — like discussing "pets in general" without distinguishing dogs, cats, piranhas, and turtles.
+      </div>
+    </section>
+
+    <section class="card" id="dssedp">
+      <h2>2. DSS vs. EDP</h2>
+      <p>Business computer applications were stereotyped into two categories. The main difference lies in the <strong>orientation of the system</strong> and the <strong>manner of use</strong>.</p>
+      <table>
+        <tr><th></th><th>EDP — Electronic Data Processing</th><th>DSS — Decision Support Systems</th></tr>
+        <tr><td>Purpose</td><td>Automate/expedite transaction processing, recordkeeping, business reporting</td><td>Aid decision making and planning</td></tr>
+        <tr><td>Emphasis</td><td>Mechanical / clerical efficiency</td><td>Overall effectiveness of individuals or organizations</td></tr>
+        <tr><td>Manner of use</td><td>Receives reports on a periodic basis</td><td>User initiates each instance of use — directly or via a staff intermediary</td></tr>
+      </table>
+    </section>
+
+    <section class="card" id="principle">
+      <h2>3. The Organizing Principle</h2>
+      <p>Alter first tested — and rejected — common labeling schemes because they did not cleanly separate the sample:</p>
+      <ul class="clean">
+        <li>Functional area (marketing, production, finance)</li>
+        <li>Decision perspective (operational / managerial control · strategic planning)</li>
+        <li>Problem type (structured vs. unstructured)</li>
+        <li>Computer technology (interactive vs. batch)</li>
+        <li>Modeling approach (simulation vs. optimization)</li>
+      </ul>
+      <p>The scheme that <em>worked</em> classifies systems by the <span class="red">degree of action implication of system outputs</span> — how directly the output determines the decision. This runs along a single dimension:</p>
+      <div class="spectrum">
+        <span class="step">Retrieve a single data item</span><span class="arrow">→</span>
+        <span class="step">Ad hoc data analysis</span><span class="arrow">→</span>
+        <span class="step">Prespecified reports</span><span class="arrow">→</span>
+        <span class="step">Estimate consequences</span><span class="arrow">→</span>
+        <span class="step">Propose decisions</span><span class="arrow">→</span>
+        <span class="step">Make decisions</span>
+      </div>
+    </section>
+
+    <section class="card" id="types">
+      <h2>4. The Seven Types of DSS</h2>
+      <p>The 56 systems fell into seven types, ordered from most data-oriented to most model-oriented:</p>
+
+      <div class="typecard">
+        <h4>A · File Drawer Systems <span class="tag data">Data</span></h4>
+        <div>Mechanized versions of manual filing — immediate online access to individual data items.</div>
+        <div class="ex">e.g., real-time inventory / stock-status enquiry on the shop floor.</div>
+      </div>
+      <div class="typecard">
+        <h4>B · Data Analysis Systems <span class="tag data">Data</span></h4>
+        <div>Manipulate current or historical data with task-tailored or general operators.</div>
+        <div class="ex">e.g., budget-control variance analysis; financial-analysis language for investment decisions.</div>
+      </div>
+      <div class="typecard">
+        <h4>C · Analysis Information Systems <span class="tag data">Data</span></h4>
+        <div>Access to a <em>series</em> of databases plus small models, augmenting internal data with external data.</div>
+        <div class="ex">e.g., a marketing information system forecasting sales and analyzing competitor actions.</div>
+      </div>
+      <div class="typecard">
+        <h4>D · Accounting Models <span class="tag model">Model</span></h4>
+        <div>Calculate consequences of planned actions using <strong>accounting definitions</strong> (definitional relationships).</div>
+        <div class="ex">e.g., voyage-profitability estimator; sources-and-uses-of-funds budget.</div>
+      </div>
+      <div class="typecard">
+        <h4>E · Representational Models <span class="tag model">Model</span></h4>
+        <div>Estimate consequences via partly <strong>non-definitional / causal</strong> relationships (e.g., simulation).</div>
+        <div class="ex">e.g., plant production simulation; market-response model relating ad spend to sales.</div>
+      </div>
+      <div class="typecard">
+        <h4>F · Optimization Models <span class="tag model">Model</span></h4>
+        <div>Generate <strong>optimal solutions</strong> consistent with a set of constraints.</div>
+        <div class="ex">e.g., scheduling training classes; linear-programming production-recipe planning.</div>
+      </div>
+      <div class="typecard">
+        <h4>G · Suggestion Models <span class="tag model">Model</span></h4>
+        <div>Perform mechanical work leading to a <strong>specific suggested decision</strong> for a structured task.</div>
+        <div class="ex">e.g., insurance renewal-rate calculation; automated circuit-board assembly planning.</div>
+      </div>
+    </section>
+
+    <section class="card" id="orient">
+      <h2>5. Two Broad Families</h2>
+      <p>The seven types collapse into a simpler — if information-losing — dichotomy (Alter's Figure 1):</p>
+      <div class="twocol">
+        <div class="orient data">
+          <h4>Data-Oriented</h4>
+          <p>Operations on data: retrieval and analysis.</p>
+          <ul>
+            <li>A · File Drawer</li>
+            <li>B · Data Analysis</li>
+            <li>C · Analysis Information</li>
+          </ul>
+        </div>
+        <div class="orient model">
+          <h4>Model-Oriented</h4>
+          <p>Simulation, optimization, and suggestion.</p>
+          <ul>
+            <li>D · Accounting <span style="opacity:.85">(simulation)</span></li>
+            <li>E · Representational <span style="opacity:.85">(simulation)</span></li>
+            <li>F · Optimization</li>
+            <li>G · Suggestion</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" id="findings">
+      <h2>6. Comparative Findings (Figure 2)</h2>
+      <p>Systems of different types differed systematically across key characteristics:</p>
+      <table>
+        <tr><th>Dimension</th><th>Pattern across the types</th></tr>
+        <tr>
+          <td><strong>Users &amp; the key role</strong></td>
+          <td>Data-oriented (A) and suggestion (G) systems are often run <em>hands-on</em> by nonmanagerial line/operational staff. In analysis and model systems (C–F), a <strong>staff analyst acts as an intermediary</strong> for the manager — so intermediary–manager communication is decisive.</td>
+        </tr>
+        <tr>
+          <td><strong>Key usage problem</strong></td>
+          <td>Operational systems (A, G): user motivation and training. Data analysis (B): getting users to apply the system in novel situations. Models (E, F): users not <em>understanding</em> what the model means.</td>
+        </tr>
+        <tr>
+          <td><strong>System initiator</strong></td>
+          <td>Data analysis &amp; analysis information systems (B, C) were typically initiated by enterprising internal <em>users/staff</em>; file-drawer &amp; accounting systems (A, D) more often pushed top-down by <em>superiors</em>.</td>
+        </tr>
+        <tr>
+          <td><strong>Key technical problem</strong></td>
+          <td>Data-oriented systems: flexible, efficient <em>retrieval</em> from large data bases. Model-oriented systems: developing the <em>model itself</em>, since existing modeling methods were often insufficient.</td>
+        </tr>
+        <tr>
+          <td><strong>Implementation challenge</strong></td>
+          <td>File-drawer/accounting (A, D): defining data &amp; handling <em>procedural change</em> affecting many people. Representational/optimization (E, F): credibility and users grasping the model. Suggestion (G): agreeing a standard computation method.</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="card" id="why">
+      <h2>7. Why the Taxonomy Is Useful</h2>
+      <p>Alter argues a type-based taxonomy serves three concrete purposes:</p>
+      <ul class="clean">
+        <li><span class="num">1</span><strong>A guideline for designing systems</strong> — sketch a candidate of each type as a possible solution to surface alternative approaches before committing to one.</li>
+        <li><span class="num">2</span><strong>A guideline for implementing systems</strong> — anticipate the <em>type-specific</em> risks and early warning signals rather than generic ones.</li>
+        <li><span class="num">3</span><strong>A framework for communication &amp; research</strong> — give a shared language so "DSS" stops meaning wildly different things to different people, and so researchers <em>expect</em> taxonomic contingencies in their findings.</li>
+      </ul>
+      <div class="callout">
+        <strong>Bottom line:</strong> "Decision support system" is an <span class="red">umbrella term</span>. Knowing <em>which</em> of the seven types you are building fundamentally changes the right design choices, the likely users, and the implementation pitfalls.
+      </div>
+    </section>
+
+    <section class="card" id="takeaways">
+      <h2>8. Key Takeaways</h2>
+      <ul class="clean">
+        <li><span class="badge">1</span> DSS is <strong>not one thing</strong> — across 56 real systems, "DSS in general" proved nearly meaningless.</li>
+        <li><span class="badge">2</span> The useful axis is the <strong>degree of action implication of outputs</strong>, spanning data-oriented to model-oriented.</li>
+        <li><span class="badge">3</span> Seven types: <strong>File Drawer · Data Analysis · Analysis Information · Accounting · Representational · Optimization · Suggestion</strong>.</li>
+        <li><span class="badge">4</span> Type predicts the <strong>users, key role, technical problem, and implementation risk</strong> — intermediaries matter most for analysis/model systems.</li>
+        <li><span class="badge">5</span> The taxonomy is a practical tool for <strong>design, implementation, and communication/research</strong>, not just classification.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  Summary of <strong>Reading 1 — Steven Alter, "A Taxonomy of Decision Support Systems," <em>Sloan Management Review</em>, Fall 1977</strong>.<br>
+  Generated for study purposes · BIA course.
+</footer>
+
+</body>
+</html>

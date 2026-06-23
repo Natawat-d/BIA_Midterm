@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R1 — A Taxonomy of Decision Support Systems (Alter, 1977) · Full Detail</title>
+<style>
+  :root{--teal:#1a7a96;--teal-dark:#0f5a70;--red:#c0392b;--orange:#c0622b;--green:#2e8b57;--purple:#7a5ca8;--bg:#f7f9fa;--card:#fff;--ink:#1f2d33;--muted:#5c6b72;--border:#d9e2e6;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;}
+  a{color:var(--teal-dark);}
+  header.hero{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:34px 26px 26px;}
+  header.hero .home{font-size:.82rem;color:#d7eef4;text-decoration:none;}
+  header.hero .chip{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 10px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin:10px 0 8px;}
+  header.hero h1{margin:0;font-size:1.7rem;line-height:1.25;max-width:900px;}
+  header.hero .cite{margin-top:10px;font-size:.9rem;opacity:.92;max-width:900px;}
+  .layout{display:flex;max-width:1140px;margin:0 auto;gap:28px;padding:26px 22px 48px;align-items:flex-start;}
+  nav.toc{position:sticky;top:16px;flex:0 0 210px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:.84rem;max-height:calc(100vh - 32px);overflow-y:auto;}
+  nav.toc h2{font-size:.7rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:0 0 8px;}
+  nav.toc a{display:block;color:var(--teal-dark);text-decoration:none;padding:3px 0;}
+  nav.toc a:hover{text-decoration:underline;}
+  main{flex:1 1 auto;min-width:0;}
+  section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  section.card>h2{color:var(--teal);margin-top:0;border-bottom:3px solid var(--teal);padding-bottom:8px;font-size:1.3rem;}
+  h3{color:var(--teal-dark);font-size:1.07rem;margin:20px 0 6px;border-left:4px solid var(--teal);padding-left:9px;}
+  h4{color:var(--teal-dark);margin:14px 0 4px;font-size:.98rem;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef4f6;color:var(--teal-dark);}
+  code{background:#eef4f6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  .idea{background:#fdf3ea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .idea b{color:var(--red);}
+  .ex{background:#eef7fa;border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.95rem;}
+  .ex b{color:var(--teal-dark);}
+  .exam{background:#fbf4ec;border-left:4px solid var(--orange);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .exam b{color:var(--orange);}
+  .meta-grid{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:.92rem;}
+  .meta-grid dt{font-weight:700;color:var(--teal-dark);}
+  .meta-grid dd{margin:0;}
+  .red{color:var(--red);font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:22px;border-top:1px solid var(--border);}
+  @media(max-width:860px){.layout{flex-direction:column;}nav.toc{position:static;width:100%;max-height:none;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="home" href="index.html">← Midterm Prep Hub</a>
+  <div class="chip">READING 1 · FULL DETAIL</div>
+  <h1>A Taxonomy of Decision Support Systems</h1>
+  <div class="cite">Steven Alter, University of Southern California · <em>Sloan Management Review</em>, Fall 1977, 19(1), pp. 39–56.</div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>On this page</h2>
+    <a href="#glance">At a glance</a>
+    <a href="#problem">Problem &amp; motivation</a>
+    <a href="#dss-edp">DSS vs EDP</a>
+    <a href="#principle">Organizing principle</a>
+    <a href="#types">The seven types</a>
+    <a href="#examples">Example systems</a>
+    <a href="#findings">Comparative findings</a>
+    <a href="#implications">Conclusions &amp; uses</a>
+    <a href="#terms">Key terms</a>
+    <a href="#course">Course link &amp; exam</a>
+  </nav>
+  <main>
+
+  <section class="card" id="glance">
+    <h2>At a glance</h2>
+    <dl class="meta-grid">
+      <dt>Author</dt><dd>Steven Alter (USC)</dd>
+      <dt>Venue / year</dt><dd>Sloan Management Review, Fall 1977</dd>
+      <dt>Type</dt><dd>Conceptual / empirical taxonomy paper (no algorithm)</dd>
+      <dt>Evidence base</dt><dd>Field study of <b>56 decision support systems</b>, distilled from <b>8 in-depth case studies</b></dd>
+      <dt>Core contribution</dt><dd>A taxonomy of <b>7 distinct DSS types</b> organised by the <b>degree of action implication</b> of system outputs</dd>
+      <dt>Course link</dt><dd>Foundational DSS theory — pairs with <b>Ch.1</b> (decision support, descriptive→prescriptive spectrum)</dd>
+    </dl>
+    <div class="idea"><b>One-sentence takeaway:</b> "DSS" is <span class="red">not a homogeneous category</span>; the systems labelled DSS differ greatly in <em>what they do and how</em>, so Alter classifies them along a single spectrum from <b>data-oriented</b> (retrieve/analyse facts) to <b>model-oriented</b> (recommend or make decisions) — and that type predicts the users, the key intermediary role, the technical challenge and the implementation risk.</div>
+  </section>
+
+  <section class="card" id="problem">
+    <h2>Problem &amp; motivation</h2>
+    <p>Despite a "growing pains" surge of interest in decision support systems (the term was a 1970s buzzword), there was <b>little organised knowledge about DSS</b>. Systems carrying the DSS label had so little in common that, as Alter puts it, talking about "the decision support system in general" was like "talking about pets in general… distinguishing between dogs and cats and piranha fish and turtles." A great deal of conjecture had been generated about the nature of DSS, often contradictory.</p>
+    <p>The article reports a taxonomic scheme built from an <b>exploratory field study</b> to (1) gain a better understanding of the dynamics of these systems and (2) identify the key issues behind their success or failure — issues that differ <em>across types</em> of DSS.</p>
+  </section>
+
+  <section class="card" id="dss-edp">
+    <h2>DSS vs EDP — the founding distinction</h2>
+    <p>A definitional question arose immediately: <em>what are decision support systems?</em> Business computer applications are stereotyped into two categories:</p>
+    <table>
+      <tr><th></th><th>EDP (Electronic Data Processing)</th><th>DSS (Decision Support Systems)</th></tr>
+      <tr><td>Designed to</td><td>Automate / expedite transaction processing, record keeping, business reporting</td><td>Aid in decision making &amp; decision implementation</td></tr>
+      <tr><td>Orientation</td><td>Mechanical efficiency of clerical activities</td><td>Overall <b>effectiveness</b> of individuals / organisations</td></tr>
+      <tr><td>Usage pattern</td><td>User receives reports periodically</td><td>User <b>initiates</b> each instance of use — directly or via an intermediary</td></tr>
+    </table>
+    <p>Alter notes the DSS/EDP dichotomy is <b>weakened by overlaps</b>, because many systems serve multiple purposes and orientations.</p>
+  </section>
+
+  <section class="card" id="principle">
+    <h2>The organizing principle — "degree of action implication"</h2>
+    <p>Alter first <b>tested and rejected</b> several obvious labelling schemes because they failed to group similar systems meaningfully:</p>
+    <ul>
+      <li><b>Functional area</b> (marketing, production, finance)</li>
+      <li><b>Decision perspective</b> (operational control, management control, strategic planning)</li>
+      <li><b>Problem type</b> (structured vs unstructured)</li>
+      <li><b>Computer technology</b> (interactive vs batch)</li>
+      <li><b>Modeling approach</b> (simulation vs optimization)</li>
+    </ul>
+    <p>Few significant conclusions emerged from these. The scheme that proved most useful classified systems by the <b>degree of action implication of system outputs</b> — i.e., <em>how directly the system's outputs determine the decision</em>. This forms a single spectrum of generic operations, from extremely data-oriented to extremely model-oriented:</p>
+    <ol>
+      <li>Retrieving a single item of information</li>
+      <li>Providing a mechanism for ad-hoc data analysis</li>
+      <li>Providing prespecified aggregations of data in the form of reports</li>
+      <li>Estimating the consequences of proposed decisions</li>
+      <li>Proposing decisions</li>
+      <li>Making decisions</li>
+    </ol>
+  </section>
+
+  <section class="card" id="types">
+    <h2>The seven types of DSS</h2>
+    <p>The 56 systems fell into seven types, grouped into two families. <b>Figure 1</b> collapses the taxonomy into a data-oriented vs model-oriented dichotomy (with sub-bands: Data Retrieval, Data Analysis, Simulation, Suggestion).</p>
+    <table>
+      <tr><th>Family</th><th>#</th><th>Type</th><th>What it does</th></tr>
+      <tr><td rowspan="3"><b>Data-oriented</b></td>
+        <td>1</td><td><b>File Drawer systems</b></td><td>Mechanised versions of manual filing — immediate <b>on-line access to particular data items</b> (e.g., inventory status, stock portfolios).</td></tr>
+      <tr><td>2</td><td><b>Data Analysis systems</b></td><td>Manipulation of current/historical data by operators tailored to the task or of a general nature (e.g., variance reports, financial analysis).</td></tr>
+      <tr><td>3</td><td><b>Analysis Information systems</b></td><td>Access to a <b>series of databases + small models</b> + relevant external data, to support a particular decision (e.g., marketing information systems).</td></tr>
+      <tr><td rowspan="4"><b>Model-oriented</b></td>
+        <td>4</td><td><b>Accounting Models</b></td><td>Calculate the consequences of planned actions using <b>definitional (accounting) relationships</b> — "what-if" on income statements, budgets, balance sheets.</td></tr>
+      <tr><td>5</td><td><b>Representational Models</b></td><td>Estimate consequences of actions using models that are <b>partially non-definitional</b> (causal / simulation relationships).</td></tr>
+      <tr><td>6</td><td><b>Optimization Models</b></td><td>Provide guidelines for action by <b>generating optimal solutions</b> consistent with a series of constraints (e.g., linear programming).</td></tr>
+      <tr><td>7</td><td><b>Suggestion Models</b></td><td>Perform <b>mechanical work leading to a specific suggested decision</b> for a fairly structured task.</td></tr>
+    </table>
+    <div class="idea"><b>Key contrast:</b> data-oriented systems <em>retrieve and analyse data</em>; model-oriented systems <em>compute consequences, propose, or decide</em>. The seven types form a ladder of increasing "action implication."</div>
+  </section>
+
+  <section class="card" id="examples">
+    <h2>The example systems (the 8 in-depth cases &amp; others)</h2>
+    <p>Alter illustrates each type with real, anonymised systems — useful concrete anchors:</p>
+    <h3>A · File Drawer</h3>
+    <ul>
+      <li><b>A1</b> — CRT-based inventory control in complex manufacturing; a missing part halts assembly, so knowing location/status of all parts is vital (13 standard retrieval commands).</li>
+      <li><b>A2</b> — Shop-floor information system tracking integrated-circuit production through ~50 steps to detect yield problems.</li>
+    </ul>
+    <h3>B · Data Analysis</h3>
+    <ul>
+      <li><b>B1</b> — Bank system letting division comptrollers generate &amp; annotate customised monthly variance reports (vs budget).</li>
+      <li><b>B2</b> — Generalised financial-analysis "interpretive language" for analysts to evaluate investment opportunities / consolidate plans.</li>
+    </ul>
+    <h3>C · Analysis Information</h3>
+    <ul>
+      <li><b>C1</b> — Growing marketing information system in consumer products (internal sales + purchased competitive data via report generator + stats package) for forecasting &amp; competitive analysis.</li>
+      <li><b>C2</b> — Sales-analysis system at an industrial-equipment company adding purchased external info + industry-sector growth forecasts to support planning.</li>
+    </ul>
+    <h3>D · Accounting Models</h3>
+    <ul>
+      <li><b>D1</b> — Voyage-profitability estimator (shipping) computing standard profit for a voyage to decide what charter rate to charge.</li>
+      <li><b>D2</b> — On-line source &amp; application of funds budget over a one-year horizon (insurance), minimising idle cash.</li>
+    </ul>
+    <h3>E · Representational Models</h3>
+    <ul>
+      <li><b>E1</b> — Chemical company simulates cost flows through a hierarchy of mining sites / production facilities to evaluate yearly budgeting alternatives.</li>
+      <li><b>E2</b> — Aggregate market-response model relating advertising/promotion/pricing to sales for a consumer brand.</li>
+    </ul>
+    <h3>F · Optimization Models</h3>
+    <ul>
+      <li><b>F1</b> — Determines start dates of training classes under high attrition to meet forecasted staffing needs (smoothing algorithm).</li>
+      <li><b>F2</b> — Linear-programming model generating optimal product recipes at minimum cost as raw-material availability/supply fluctuates.</li>
+    </ul>
+    <h3>G · Suggestion Models</h3>
+    <ul>
+      <li><b>G1</b> — Computes group-insurance renewal rates from historical premium/claim relationships, replacing manual underwriting (underwriter reviews &amp; can override).</li>
+      <li><b>G2</b> — Expedites assembly of electronic equipment: with 200 diode resonant frequencies and millions of combinations, LP maximises units built and auto-generates circuit diagrams.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="findings">
+    <h2>Comparative findings (Figure 2)</h2>
+    <p>By asking <em>what type of operation</em> a system performs, Alter sorts the 56 systems and characterises each type along several dimensions. Patterns:</p>
+    <table>
+      <tr><th>Dimension</th><th>Pattern across the types</th></tr>
+      <tr><td>Type of task</td><td>Operational (File Drawer, Suggestion) → planning/analysis (most model types).</td></tr>
+      <tr><td>Hands-on user</td><td>Nonmanagerial line/staff personnel for data &amp; suggestion systems; staff analysts / managers for analysis &amp; model systems.</td></tr>
+      <tr><td>Key role</td><td>Direct hands-on use for A &amp; G; <b>intermediaries</b> (structured, performed by staff) are central to types C–F → effective communication with the decision maker matters most there.</td></tr>
+      <tr><td>Key usage problem</td><td>Operational systems (A, G): user motivation &amp; training (development often initiated by superiors). Data-analysis (B): a recurrent problem is assuming users will "figure out" how to apply the system.</td></tr>
+      <tr><td>Key design/implementation issue</td><td>File-drawer (A): defining the data &amp; handling day-to-day procedural changes. Representational/optimization (E, F): <b>lack of understanding of how the model works</b> → must be well represented to intermediaries.</td></tr>
+      <tr><td>Key technical problem</td><td>Data-oriented: attaining flexibility &amp; efficiency in retrieval from a data base. Model-oriented: <b>developing the model itself</b> (modeling methods were still insufficient for many analyses).</td></tr>
+    </table>
+    <p>Crucially, <b>taxonomic contingencies (not noise) explain much of the variation</b> in success — i.e., the <em>type</em> drives which issues dominate.</p>
+  </section>
+
+  <section class="card" id="implications">
+    <h2>Conclusions &amp; the three uses of the taxonomy</h2>
+    <p>Alter argues a taxonomy is appropriate &amp; useful, having proceeded by: choosing an organising principle (generic operations) → describing the taxonomy → giving examples of each type → comparing types by characteristics. He claims the taxonomy is useful in three ways:</p>
+    <ol>
+      <li><b>A guideline for designing systems</b> — a designer can sketch a system of each type as a potential solution and then combine the most useful features (generating <em>alternative designs</em>) before settling on a final design.</li>
+      <li><b>A guideline for implementing systems</b> — because implementation issues vary by type, the taxonomy gives advance warning of the difficulties symptomatic of each type.</li>
+      <li><b>A framework for communication &amp; research</b> — it reduces confusion around overloaded terms (MIS, "interactive processing", DSS) by making the connotations type-specific; e.g., a File-Drawer user and a large optimization-model user have very different views of what "DSS" means.</li>
+    </ol>
+    <div class="idea"><b>Why it still matters:</b> Alter's "degree of action implication" spectrum is an early ancestor of today's <b>descriptive → predictive → prescriptive</b> analytics ladder — support that ranges from <em>retrieving facts</em> to <em>recommending the decision</em>.</div>
+  </section>
+
+  <section class="card" id="terms">
+    <h2>Key terms</h2>
+    <dl class="meta-grid">
+      <dt>DSS</dt><dd>Interactive computer-based system that aids decision making/implementation; user initiates each use.</dd>
+      <dt>EDP</dt><dd>Electronic Data Processing — automates transactions/record-keeping for efficiency.</dd>
+      <dt>Action implication</dt><dd>How directly a system's output determines the decision — the taxonomy's axis.</dd>
+      <dt>Intermediary</dt><dd>A staff person who operates the system on the decision maker's behalf (central to types C–F).</dd>
+      <dt>Definitional vs non-definitional model</dt><dd>Accounting models use definitional (identity) relationships; representational models use causal/simulation relationships.</dd>
+    </dl>
+  </section>
+
+  <section class="card" id="course">
+    <h2>Course link &amp; exam angle</h2>
+    <p><b>↔ Ch.1</b> — DSS definition &amp; components, the structured/semistructured/unstructured idea, and the descriptive→prescriptive spectrum all trace back to this paper.</p>
+    <div class="exam"><b>Exam angle:</b> be able to (1) name &amp; order the <b>seven types</b> in their two families, (2) give one example system per type, (3) state the organising axis (<b>degree of action implication</b>) and why functional-area / problem-type schemes were rejected, and (4) list the <b>three uses</b> of the taxonomy (design, implementation, communication/research).</div>
+  </section>
+
+  </main>
+</div>
+<footer>R1 · Alter (1977), A Taxonomy of Decision Support Systems · BIA midterm full-detail page · <a href="index.html">back to hub</a></footer>
+</body>
+</html>

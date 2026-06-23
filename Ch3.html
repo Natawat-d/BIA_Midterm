@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.3 — Nature of Data, Statistical Modeling & Visualization · Full Detail</title>
+<style>
+  :root{--teal:#1a7a96;--teal-dark:#0f5a70;--red:#c0392b;--orange:#c0622b;--green:#2e8b57;--purple:#7a5ca8;--bg:#f7f9fa;--card:#fff;--ink:#1f2d33;--muted:#5c6b72;--border:#d9e2e6;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;}
+  a{color:var(--teal-dark);}
+  header.hero{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:34px 26px 26px;}
+  header.hero .home{font-size:.82rem;color:#d7eef4;text-decoration:none;}
+  header.hero .chip{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 10px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin:10px 0 8px;}
+  header.hero h1{margin:0;font-size:1.7rem;line-height:1.25;max-width:900px;}
+  header.hero .cite{margin-top:10px;font-size:.9rem;opacity:.92;max-width:900px;}
+  .layout{display:flex;max-width:1140px;margin:0 auto;gap:28px;padding:26px 22px 48px;align-items:flex-start;}
+  nav.toc{position:sticky;top:16px;flex:0 0 215px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:.84rem;max-height:calc(100vh - 32px);overflow-y:auto;}
+  nav.toc h2{font-size:.7rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:0 0 8px;}
+  nav.toc a{display:block;color:var(--teal-dark);text-decoration:none;padding:3px 0;}
+  nav.toc a:hover{text-decoration:underline;}
+  main{flex:1 1 auto;min-width:0;}
+  section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  section.card>h2{color:var(--teal);margin-top:0;border-bottom:3px solid var(--teal);padding-bottom:8px;font-size:1.3rem;}
+  h3{color:var(--teal-dark);font-size:1.07rem;margin:20px 0 6px;border-left:4px solid var(--teal);padding-left:9px;}
+  h4{color:var(--teal-dark);margin:14px 0 4px;font-size:.98rem;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef4f6;color:var(--teal-dark);}
+  code{background:#eef4f6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  .idea{background:#fdf3ea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .idea b{color:var(--red);}
+  .ex{background:#eef7fa;border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.95rem;}
+  .ex b{color:var(--teal-dark);}
+  .exam{background:#fbf4ec;border-left:4px solid var(--orange);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .exam b{color:var(--orange);}
+  .red{color:var(--red);font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:22px;border-top:1px solid var(--border);}
+  @media(max-width:860px){.layout{flex-direction:column;}nav.toc{position:static;width:100%;max-height:none;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="home" href="index.html">← Midterm Prep Hub</a>
+  <div class="chip">CHAPTER 3 · FULL DETAIL · DESCRIPTIVE ANALYTICS I</div>
+  <h1>Nature of Data, Statistical Modeling &amp; Visualization</h1>
+  <div class="cite">Sharda, Delen &amp; Turban — Chapter 3. The first descriptive-analytics chapter: data types, cleaning, statistics, regression &amp; visualization.</div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>On this page</h2>
+    <a href="#glance">Key idea</a>
+    <a href="#nature">Nature &amp; taxonomy of data</a>
+    <a href="#scales">Measurement scales</a>
+    <a href="#quality">Data quality</a>
+    <a href="#preproc">Data preprocessing</a>
+    <a href="#stats">Descriptive statistics</a>
+    <a href="#regression">Regression</a>
+    <a href="#logistic">Logistic &amp; time series</a>
+    <a href="#viz">Visualization &amp; dashboards</a>
+    <a href="#charts">Chart cookbook</a>
+    <a href="#cases">Application cases</a>
+    <a href="#exam">Exam focus</a>
+  </nav>
+  <main>
+
+  <section class="card" id="glance">
+    <h2>Key idea</h2>
+    <div class="idea"><b>Core message:</b> Descriptive analytics answers "<b>what happened?</b>" — but you must first understand the <b>nature of the data</b> (types &amp; measurement scales) and <b>clean</b> it. Statistics summarise the data; visualization communicates it for <b>insight, not pictures</b>.</div>
+  </section>
+
+  <section class="card" id="nature">
+    <h2>Nature &amp; taxonomy of data</h2>
+    <p>Data is the <b>lowest level of abstraction</b> from which information and knowledge derive. <span class="red">Quality &amp; integrity are critical</span> — "garbage in, garbage out."</p>
+    <table>
+      <tr><th>Structured (for computers)</th><th>Unstructured / semi-structured (for humans)</th></tr>
+      <tr><td><b>Categorical:</b> nominal, ordinal · <b>Numerical:</b> interval, ratio</td><td>Text, multimedia (image/audio/video), XML/JSON, HTML, log files</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="scales">
+    <h2>Scales of measurement (cumulative properties)</h2>
+    <table>
+      <tr><th>Scale</th><th>Names?</th><th>Order?</th><th>Equal gaps?</th><th>True zero / ratios?</th></tr>
+      <tr><td>Nominal</td><td>✓</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td>Ordinal</td><td>✓</td><td>✓</td><td>—</td><td>—</td></tr>
+      <tr><td>Interval</td><td>✓</td><td>✓</td><td>✓</td><td>—</td></tr>
+      <tr><td>Ratio</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
+    </table>
+    <div class="ex"><b>Example:</b> jersey numbers = <b>nominal</b> (labels). Survey rank 1–5 = <b>ordinal</b> (order, but gaps not equal). Temperature in °C = <b>interval</b> (0° isn't "no temperature", so 20° ≠ twice 10°). Weight/kg = <b>ratio</b> (true zero → 20 kg <em>is</em> twice 10 kg). <em>The scale dictates which statistics &amp; chart types are valid.</em></div>
+  </section>
+
+  <section class="card" id="quality">
+    <h2>Data quality — the dimensions that matter</h2>
+    <table>
+      <tr><th>Dimension</th><th>Question</th></tr>
+      <tr><td><b>Accuracy</b></td><td>Do values match reality?</td></tr>
+      <tr><td><b>Completeness</b></td><td>Are required values present?</td></tr>
+      <tr><td><b>Consistency</b></td><td>Do values agree across systems?</td></tr>
+      <tr><td><b>Timeliness</b></td><td>Is the data current enough?</td></tr>
+      <tr><td><b>Validity</b></td><td>Do values follow the defined format/range/type?</td></tr>
+      <tr><td><b>Uniqueness</b></td><td>No unintended duplicates?</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="preproc">
+    <h2>Data preprocessing — the "art &amp; science"</h2>
+    <p>Real-world data is <b>dirty, misaligned, complex, inaccurate</b>. Four tasks (with feedback loops) make it analytics-ready:</p>
+    <table>
+      <tr><th>Task</th><th>Methods / usage</th></tr>
+      <tr><td><b>Consolidation</b></td><td>Access, select, integrate (SQL, web services, ontology mapping).</td></tr>
+      <tr><td><b>Cleaning</b></td><td>Impute missing values (mean/median/mode/regression/kNN); reduce noise/outliers (binning, IQR/z-score); remove erroneous records.</td></tr>
+      <tr><td><b>Transformation</b></td><td>Normalize — <b>min-max</b> <code>x'=(x−min)/(max−min)</code> or <b>z-score</b> <code>x'=(x−μ)/σ</code>; discretize/aggregate (binning); construct new attributes.</td></tr>
+      <tr><td><b>Reduction</b></td><td>Reduce attributes (<b>PCA</b>, correlation), reduce records (sampling), balance skewed data (over/under-sample, SMOTE).</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="stats">
+    <h2>Statistical modeling — the measures</h2>
+    <p><b>Statistics</b> = techniques to characterise &amp; interpret data. Two branches: <b>descriptive</b> (describe the sample) and <b>inferential</b> (conclude about a population from a sample, via confidence intervals &amp; hypothesis tests).</p>
+    <table>
+      <tr><th>Aspect</th><th>Measures</th></tr>
+      <tr><td>Central tendency</td><td>Mean (outlier-sensitive), median (robust), mode (only valid for nominal)</td></tr>
+      <tr><td>Dispersion</td><td>Range, <b>IQR = Q3−Q1</b> (box-plot fences ±1.5·IQR), variance, SD = √variance, quartiles</td></tr>
+      <tr><td>Shape</td><td>Histogram; <b>skewness</b> (asymmetry); <b>kurtosis</b> (peakedness/tails)</td></tr>
+    </table>
+    <p><b>Correlation</b> (Pearson <code>r</code>, −1…+1) = strength &amp; direction of a linear relationship — <span class="red">correlation ≠ causation</span>.</p>
+  </section>
+
+  <section class="card" id="regression">
+    <h2>Regression — the most widely used technique</h2>
+    <ul>
+      <li>Simple linear <code>y = β₀ + β₁x</code>; multiple linear <code>y = β₀ + β₁x₁ + … + βₙxₙ</code>.</li>
+      <li>Fit by <b>ordinary least squares (OLS)</b> — minimise the sum of squared errors.</li>
+      <li>Used for <b>explanation</b> (hypothesis testing) and <b>forecasting</b> (prediction).</li>
+      <li>Quality: <b>R²</b> (variance explained), <b>p-values</b> (significance, &lt;0.05), errors <b>MAE/MAD · MSE · RMSE</b>.</li>
+    </ul>
+    <p><b>Five assumptions (LINEN):</b> Linearity · Independence of errors · Normality of residuals · Equal variance (homoscedasticity) · No multicollinearity.</p>
+  </section>
+
+  <section class="card" id="logistic">
+    <h2>Logistic regression &amp; time series</h2>
+    <p><b>Logistic regression</b> — a statistics-based <b>classification</b> algorithm (supervised) with a <b>binary</b> target. Models the log-odds: <code>ln(p/(1−p)) = β₀ + β₁x</code> → <code>p = 1/(1+e<sup>−(β₀+β₁x)</sup>)</code> (sigmoid, output 0–1); a threshold (e.g. 0.5) turns probability into a class. A frequent exam contrast with linear regression (numeric output).</p>
+    <p><b>Time-series forecasting</b> models a series over time (level + trend + seasonality + cyclical + noise) — methods: moving average, <b>exponential smoothing</b>, <b>ARIMA</b>. Regression maps inputs→output; time series maps past→future of one series.</p>
+  </section>
+
+  <section class="card" id="viz">
+    <h2>Business reporting &amp; data visualization</h2>
+    <p><b>Report = Information → Decision.</b> Report types: <b>metric management</b> (KPIs internal / SLAs external), <b>dashboard</b> (many indicators on one page), <b>balanced scorecard</b>.</p>
+    <div class="idea" style="background:#eef7fa;border-left-color:var(--teal)">"The purpose of visualization is <b>insight, not pictures</b>." — Ben Shneiderman.</div>
+    <ul>
+      <li><b>William Playfair</b> invented the line &amp; pie chart (1801); <b>Minard's</b> map of Napoleon's 1812 march = classic multivariate chart.</li>
+      <li><b>Visual analytics = information visualization + predictive analytics.</b> Leaders: Tableau, Qlik, Microsoft Power BI, SAS.</li>
+      <li><b>Dashboard</b> layers: <b>Monitoring · Analysis · Management</b>; good dashboards highlight exceptions, allow drill-down, unify systems, need little training.</li>
+      <li>Avoid chart-junk, 3-D distortion, truncated/dual axes, misleading area scaling.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="charts">
+    <h2>Chart → purpose (cookbook)</h2>
+    <table>
+      <tr><th>Purpose</th><th>Charts</th></tr>
+      <tr><td>Comparison</td><td>Bar / column, bullet graph, pictogram</td></tr>
+      <tr><td>Part-to-whole</td><td>Pie, treemap, Sankey</td></tr>
+      <tr><td>Distribution</td><td>Histogram, box-and-whisker, heat map</td></tr>
+      <tr><td>Trend / time</td><td>Line / area, Gantt, waterfall, timeline</td></tr>
+      <tr><td>Relationship</td><td>Scatter plot (regression), correlation matrix, network diagram</td></tr>
+      <tr><td>Geospatial</td><td>Choropleth map</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="cases">
+    <h2>Application cases</h2>
+    <p><b>Student retention (3.2)</b> — predicting freshman attrition; highlights the <span class="red">data-imbalance problem</span> (an 80/20 set can score 90% accuracy yet 50% precision on the minority class; balancing fixes it); compares ANN, decision tree, SVM, logistic regression, ensembles. <b>NCAA bowl games (3.4)</b> — the same outcome modelled as <em>classification</em> (win/loss) vs <em>regression</em> (point-difference); direct classification with a decision tree scored best (~86%).</p>
+  </section>
+
+  <section class="card" id="exam">
+    <h2>Exam focus</h2>
+    <div class="exam"><b>Most-tested:</b> measurement scales (interval vs ratio trap); the 4 preprocessing tasks; regression equation, OLS, R²/p-value, the 5 assumptions; logistic regression = binary classification; "insight not pictures"; matching chart to purpose; data-imbalance (accuracy vs precision).</div>
+    <p><b>↔ Readings:</b> <a href="R3.html">R3</a> (VDM inventory visualization), <a href="R4.html">R4</a> (traffic visual analytics).</p>
+  </section>
+
+  </main>
+</div>
+<footer>Ch.3 · Nature of Data, Statistics &amp; Visualization · BIA midterm full-detail page · <a href="index.html">back to hub</a></footer>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R2 BI Quiz — All Questions &amp; Answer Key</title>
+<style>
+  :root {
+    --purple: #46178f;
+    --purple-2: #2d0d63;
+    --red: #e21b3c;
+    --blue: #1368ce;
+    --gold: #d89e00;
+    --green: #26890c;
+    --ink: #1f2330;
+    --muted: #5c6b72;
+    --border: #e4e6ef;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f4f5fb;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  header.hero {
+    background: linear-gradient(160deg, var(--purple) 0%, var(--purple-2) 100%);
+    color: #fff;
+    padding: 40px 24px 34px;
+    text-align: center;
+  }
+  header.hero .eyebrow {
+    text-transform: uppercase; letter-spacing: 3px; font-size: 0.75rem; opacity: 0.85; margin-bottom: 10px;
+  }
+  header.hero h1 { margin: 0; font-size: clamp(1.6rem, 4vw, 2.4rem); }
+  header.hero p { margin: 12px auto 0; max-width: 640px; opacity: 0.92; font-size: 0.98rem; }
+  .badges { margin-top: 16px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .pill { background: rgba(255,255,255,0.15); border-radius: 999px; padding: 6px 14px; font-size: 0.82rem; font-weight: 700; }
+
+  .toolbar {
+    position: sticky; top: 0; z-index: 10;
+    background: #fff; border-bottom: 1px solid var(--border);
+    padding: 12px 24px; display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap;
+  }
+  .toolbar button {
+    font: inherit; font-weight: 700; font-size: 0.9rem; cursor: pointer;
+    border: 1px solid var(--border); background: #fff; color: var(--purple);
+    padding: 9px 16px; border-radius: 8px; transition: all 0.15s;
+  }
+  .toolbar button:hover { background: #f1f2f7; }
+  .toolbar button.primary { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .toolbar .note { font-size: 0.82rem; color: var(--muted); }
+
+  main { max-width: 880px; margin: 0 auto; padding: 28px 20px 60px; }
+
+  .q {
+    background: #fff; border: 1px solid var(--border); border-radius: 14px;
+    padding: 22px 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .q-head { display: flex; gap: 14px; align-items: flex-start; }
+  .q-num {
+    flex: 0 0 auto; width: 36px; height: 36px; border-radius: 10px;
+    background: var(--purple); color: #fff; font-weight: 800; font-size: 1.05rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .q-text { font-size: clamp(1.02rem, 2.2vw, 1.2rem); font-weight: 700; margin: 4px 0 0; }
+  .q-tag {
+    display: inline-block; margin-top: 8px; font-size: 0.72rem; font-weight: 700;
+    color: var(--purple); background: #efe9fb; border-radius: 999px; padding: 3px 11px;
+  }
+
+  .answers { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+  .answer {
+    display: flex; align-items: center; gap: 12px;
+    border-radius: 10px; padding: 12px 14px; color: #fff; font-weight: 600; font-size: 0.98rem;
+    position: relative;
+  }
+  .answer .shape { font-size: 1.15rem; width: 22px; text-align: center; flex: 0 0 auto; }
+  .answer .atext { flex: 1; }
+  .answer .mark { font-size: 1.2rem; font-weight: 900; opacity: 0; }
+  .a-red { background: var(--red); }
+  .a-blue { background: var(--blue); }
+  .a-gold { background: var(--gold); }
+  .a-green { background: var(--green); }
+
+  /* answer-key state (default): correct highlighted, wrong dimmed, explanation shown */
+  .answer.correct { outline: 3px solid #16331a; }
+  .answer.correct .mark { opacity: 1; }
+  .answer:not(.correct) { opacity: 0.55; }
+  .explain {
+    margin-top: 14px; background: #f6f7fb; border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0; padding: 11px 15px; font-size: 0.9rem; color: #3a4750;
+  }
+  .explain b { color: var(--purple); }
+
+  /* practice state: hide which one is correct + explanations */
+  body.practice .answer.correct { outline: none; }
+  body.practice .answer.correct .mark { opacity: 0; }
+  body.practice .answer:not(.correct) { opacity: 1; }
+  body.practice .explain { display: none; }
+
+  footer { text-align: center; color: var(--muted); font-size: 0.82rem; padding: 10px 20px 40px; }
+
+  @media (max-width: 600px) { .answers { grid-template-columns: 1fr; } }
+
+  @media print {
+    .toolbar { display: none; }
+    header.hero { background: var(--purple) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .answer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body.practice .answer.correct { outline: 3px solid #16331a; }   /* always show key in print */
+    body.practice .answer.correct .mark { opacity: 1; }
+    body.practice .explain { display: block; }
+    .q { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">Reading 2 · Business Intelligence</div>
+  <h1>BI Quiz — All Questions &amp; Answer Key</h1>
+  <p>The 10 questions from the live quiz. Every question is covered on a slide in the R2-BI-role presentation; the green tag shows which section.</p>
+  <div class="badges">
+    <span class="pill">10 questions</span>
+    <span class="pill">✓ correct answer marked</span>
+    <span class="pill">🎮 r2-bi-quiz.vercel.app</span>
+  </div>
+</header>
+
+<div class="toolbar">
+  <button id="toggle" class="primary">Hide answers (practice mode)</button>
+  <button onclick="window.print()">🖨 Print / Save PDF</button>
+  <span class="note">Answer shapes match the quiz: 🔺 red · 🔷 blue · 🟡 gold · 🟩 green</span>
+</div>
+
+<main id="quiz"></main>
+
+<footer>
+  Answer key for the R2-BI-quiz · BIA course. Edit the live set in <code>R2-BI-quiz/public/questions.json</code>.
+</footer>
+
+<script>
+  const SHAPES = ["▲", "◆", "●", "■"];
+  const COLORS = ["a-red", "a-blue", "a-gold", "a-green"];
+
+  const questions = [
+    {
+      q: "According to the paper, a good decision depends most on what?",
+      answers: ["The number of people involved", "The clarity and quality of the information", "The brand of software used", "How fast the computer is"],
+      correct: 1,
+      explain: "§1 Introduction — Jordan & Ellen: the potency of a decision is directly proportionate to the clarity and quality of the information behind it."
+    },
+    {
+      q: "In the 1980s–1990s, what did 'Business Intelligence' mostly mean?",
+      answers: ["An encompassing, integrated discipline", "Technological tools for collecting and analyzing data", "A leadership style", "Competitor spying only"],
+      correct: 1,
+      explain: "§2 Evolution — in the initial stage BI meant technological tools, data-centricity, and data collection/analysis."
+    },
+    {
+      q: "The paper concludes that BI is best understood as…",
+      answers: ["Only the software tools (a product)", "Only methods and practices (a process)", "An intricate blend of both product and process", "Neither — purely strategy"],
+      correct: 2,
+      explain: "§3 Process or product? — BI is a blend of both; tools are only as valuable as the strategies and processes that govern their use."
+    },
+    {
+      q: "Which related concept is 'outward-facing,' focused on competitors and the external market?",
+      answers: ["Competitive Intelligence (CI)", "Knowledge Management (KM)", "Data Warehouse", "ETL"],
+      correct: 0,
+      explain: "§4 Related concepts — CI is outward-facing; some argue it is a specialized subset of BI."
+    },
+    {
+      q: "In the BI data pipeline, what does ETL stand for / do?",
+      answers: ["Encrypt, Transmit, Log — secures the network", "Extract, Transform, Load — integrates data from various sources", "Evaluate, Test, Launch — ships software", "Export, Transfer, Link — moves files"],
+      correct: 1,
+      explain: "§5 Technological components — ETL (Extract, Transform, Load) integrates data from various sources into the BI system."
+    },
+    {
+      q: "How does BI enhance the quality of strategic decisions?",
+      answers: ["By relying only on gut feeling", "By grounding decisions in empirical evidence and patterns, not just intuition", "By removing all human input", "By slowing decisions down"],
+      correct: 1,
+      explain: "§6 The role of BI in strategic decision-making — quality decisions blend intuition with empirical evidence; BI surfaces patterns and pinpoints discrepancies."
+    },
+    {
+      q: "Why is BI especially valuable in manufacturing?",
+      answers: ["It replaces all workers", "It bridges data gaps in Computer Integrated Manufacturing (CIM) and boosts responsiveness", "It only prints invoices", "It hides data from managers"],
+      correct: 1,
+      explain: "§7 Operational efficiency — Business Intelligence Software sharpens responsiveness and bridges data gaps in Computer Integrated Manufacturing (CIM)."
+    },
+    {
+      q: "In Maghsoudi & Nezafati's study, self-service BI raised organizational acceptance by about…",
+      answers: ["5%", "30%", "50%", "0%"],
+      correct: 1,
+      explain: "§8 Case studies — self-service BI raised organizational acceptance by 30% vs. the traditional approach; addressing skill gaps added 17–25%."
+    },
+    {
+      q: "Customer Acquisition Cost and Customer Lifetime Value are KPIs for which area?",
+      answers: ["Marketing", "Finance", "Manufacturing", "Customer service"],
+      correct: 0,
+      explain: "§9 Metrics and KPIs — for marketing, BI sharpens KPIs like Customer Acquisition Cost and Customer Lifetime Value."
+    },
+    {
+      q: "What does combining BI, AI and Big Data enable?",
+      answers: ["Only looking at past performance", "Looking at the past AND predicting future trends, in real time", "Replacing the internet", "Making data harder to use"],
+      correct: 1,
+      explain: "§12 The integration of BI, AI and big data — together they let businesses look at the past and predict the future, responding proactively in real time."
+    }
+  ];
+
+  const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+  document.getElementById("quiz").innerHTML = questions.map((q, i) => {
+    const tag = q.explain.split("—")[0].trim();
+    const answers = q.answers.map((a, j) => `
+      <div class="answer ${COLORS[j]}${j === q.correct ? " correct" : ""}">
+        <span class="shape">${SHAPES[j]}</span>
+        <span class="atext">${esc(a)}</span>
+        <span class="mark">✓</span>
+      </div>`).join("");
+    return `
+      <section class="q">
+        <div class="q-head">
+          <div class="q-num">${i + 1}</div>
+          <div>
+            <p class="q-text">${esc(q.q)}</p>
+            <span class="q-tag">${esc(tag)}</span>
+          </div>
+        </div>
+        <div class="answers">${answers}</div>
+        <div class="explain"><b>Why:</b> ${esc(q.explain)}</div>
+      </section>`;
+  }).join("");
+
+  const btn = document.getElementById("toggle");
+  btn.addEventListener("click", () => {
+    const practice = document.body.classList.toggle("practice");
+    btn.textContent = practice ? "Show answers (answer key)" : "Hide answers (practice mode)";
+  });
+</script>
+
+</body>
+</html>

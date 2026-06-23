@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R4 — Visual Analytic for Traffic Impact Assessment (Chan et al., 2024) · Full Detail</title>
+<style>
+  :root{--teal:#1a7a96;--teal-dark:#0f5a70;--red:#c0392b;--orange:#c0622b;--green:#2e8b57;--purple:#7a5ca8;--bg:#f7f9fa;--card:#fff;--ink:#1f2d33;--muted:#5c6b72;--border:#d9e2e6;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;}
+  a{color:var(--teal-dark);}
+  header.hero{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:34px 26px 26px;}
+  header.hero .home{font-size:.82rem;color:#d7eef4;text-decoration:none;}
+  header.hero .chip{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 10px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin:10px 0 8px;}
+  header.hero h1{margin:0;font-size:1.7rem;line-height:1.25;max-width:900px;}
+  header.hero .cite{margin-top:10px;font-size:.9rem;opacity:.92;max-width:900px;}
+  .layout{display:flex;max-width:1140px;margin:0 auto;gap:28px;padding:26px 22px 48px;align-items:flex-start;}
+  nav.toc{position:sticky;top:16px;flex:0 0 210px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:.84rem;max-height:calc(100vh - 32px);overflow-y:auto;}
+  nav.toc h2{font-size:.7rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:0 0 8px;}
+  nav.toc a{display:block;color:var(--teal-dark);text-decoration:none;padding:3px 0;}
+  nav.toc a:hover{text-decoration:underline;}
+  main{flex:1 1 auto;min-width:0;}
+  section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  section.card>h2{color:var(--teal);margin-top:0;border-bottom:3px solid var(--teal);padding-bottom:8px;font-size:1.3rem;}
+  h3{color:var(--teal-dark);font-size:1.07rem;margin:20px 0 6px;border-left:4px solid var(--teal);padding-left:9px;}
+  h4{color:var(--teal-dark);margin:14px 0 4px;font-size:.98rem;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef4f6;color:var(--teal-dark);}
+  code{background:#eef4f6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  .idea{background:#fdf3ea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .idea b{color:var(--red);}
+  .ex{background:#eef7fa;border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.95rem;}
+  .ex b{color:var(--teal-dark);}
+  .exam{background:#fbf4ec;border-left:4px solid var(--orange);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .exam b{color:var(--orange);}
+  .meta-grid{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:.92rem;}
+  .meta-grid dt{font-weight:700;color:var(--teal-dark);}
+  .meta-grid dd{margin:0;}
+  .red{color:var(--red);font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:22px;border-top:1px solid var(--border);}
+  @media(max-width:860px){.layout{flex-direction:column;}nav.toc{position:static;width:100%;max-height:none;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="home" href="index.html">← Midterm Prep Hub</a>
+  <div class="chip">READING 4 · FULL DETAIL</div>
+  <h1>Visual Analytic for Traffic Impact Assessment</h1>
+  <div class="cite">Jia Chun Chan, Nafiz Fahad, Kah Ong Michael Goh &amp; Connie Tee, Multimedia University, Melaka, Malaysia · <em>JOIV: Int. J. Informatics Visualization</em>, 8(3), Sep 2024, pp. 1176–1184.</div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>On this page</h2>
+    <a href="#glance">At a glance</a>
+    <a href="#problem">Problem &amp; aim</a>
+    <a href="#concepts">Key concepts (LOS, PCU)</a>
+    <a href="#method">Data &amp; method</a>
+    <a href="#los">Computing LOS</a>
+    <a href="#charts">The visualizations</a>
+    <a href="#incidents">Traffic incidents</a>
+    <a href="#eval">Evaluation</a>
+    <a href="#concl">Conclusions &amp; limits</a>
+    <a href="#course">Course link &amp; exam</a>
+  </nav>
+  <main>
+
+  <section class="card" id="glance">
+    <h2>At a glance</h2>
+    <dl class="meta-grid">
+      <dt>Authors</dt><dd>Chan, Fahad, Goh &amp; Tee (Multimedia University, Malaysia)</dd>
+      <dt>Venue / year</dt><dd>JOIV 8(3), September 2024</dd>
+      <dt>Type</dt><dd>Applied case study — visual analytics / decision support</dd>
+      <dt>Domain</dt><dd>Traffic Impact Assessment (TIA) at <b>three major intersections</b></dd>
+      <dt>Data</dt><dd>Raw DB of <b>1.8 million documents</b> of traffic flow (junction, lane, vehicle type, saturation flow)</dd>
+      <dt>Methods / tools</dt><dd>Spatial + temporal <b>visual analytics</b> — heat maps, parallel-coordinate charts, bar/scatter/line/ridgeline plots</dd>
+      <dt>Course link</dt><dd><b>Ch.3</b> visual analytics &amp; DSS</dd>
+    </dl>
+    <div class="idea"><b>One-sentence takeaway:</b> rising vehicle ownership causes congestion, so the authors build a visual-analytics dashboard over traffic-flow data from three intersections to expose peak/off-peak &amp; weekday/weekend patterns and grade congestion via the <b>Level of Service (LOS)</b> derived from the <b>volume-to-capacity ratio</b> — a scaffold for proactive, predictive traffic control.</div>
+  </section>
+
+  <section class="card" id="problem">
+    <h2>Problem &amp; aim</h2>
+    <p>Vehicle ownership is rising sharply (a family may own several vehicles) but road capacity is not added, so traffic incidents &amp; congestion appear. <b>Traffic Impact Assessment (TIA)</b> assesses roadway operation/effectiveness; if the <b>LOS</b> at a junction is poor, the authority can design management strategies to reduce congestion. Raw traffic data is in number format and hard to comprehend, so the study <b>processes it with visual analytics</b> to (1) improve TIA, (2) identify traffic patterns, and (3) develop predictive models for proactive control.</p>
+  </section>
+
+  <section class="card" id="concepts">
+    <h2>Key concepts &amp; definitions</h2>
+    <dl class="meta-grid">
+      <dt>Visual analytics</dt><dd>An approach that uses graphics to highlight connections in data &amp; disclose hidden patterns. <b>Four design principles for traffic:</b> spatial, temporal, spatial-temporal, multivariate.</dd>
+      <dt>PCU / PCE</dt><dd><b>Passenger Car Unit</b> — normalises different vehicle types to a common unit. Equipment PCU values (Malaysia, JKR): cars <b>1</b>, motorcycles <b>0.33</b>, light vans <b>1.75</b>, medium lorries <b>1.75</b>, heavy lorries <b>2.25</b>, buses <b>2.25</b>.</dd>
+      <dt>Saturation flow</dt><dd>The maximum number of vehicles a road/junction can handle — the basis of <b>capacity</b>.</dd>
+      <dt>Level of Service (LOS)</dt><dd>A grade (A–F) of road condition derived from the <b>volume-to-capacity (V/C) ratio</b>.</dd>
+    </dl>
+    <p>Vehicle mix in Malaysia (per the cited data): ~51.2% cars, 39.0% motorcycles, 0.5% buses, 6.3% goods vehicles, 3% other.</p>
+  </section>
+
+  <section class="card" id="method">
+    <h2>Data &amp; method (preprocessing)</h2>
+    <p>The raw database held <b>~1.8 million documents</b> (document ID, junction ID, client ID, date, time). Pipeline:</p>
+    <ul>
+      <li>Select the informative feature <b>traffic_count_by_lane</b> (richer than plain "traffic_count") and <b>sat_flow</b> (saturation flow) as the capacity parameter.</li>
+      <li>Export to <b>CSV via aggregation</b>; clean for nulls &amp; duplicates.</li>
+      <li>Convert timestamps from <b>UTC → Malaysian time</b> (+8h offset).</li>
+      <li>Multiply vehicle counts per lane by the equipment PCU value to get total PCU per junction; group by day (Mon–Sun) and time (12 a.m.–12 p.m.) to observe patterns. Lanes split into <b>turn-left / go-straight / turn-right</b> per junction.</li>
+    </ul>
+    <p>Junctions were anonymised as Junction A/B/C (confidentiality).</p>
+  </section>
+
+  <section class="card" id="los">
+    <h2>Computing the Level of Service (the quantitative core)</h2>
+    <p>LOS evaluates congestion at a junction using the <b>volume-to-capacity ratio</b>:</p>
+    <div class="ex"><b>V/C ratio</b> = (total PCU per hour, i.e. <em>volume</em>) ÷ (total saturation flow of the 3 lanes, i.e. <em>capacity</em>). The higher the ratio, the worse the service.</div>
+    <table>
+      <tr><th>V/C ratio</th><th>LOS</th><th>Condition</th></tr>
+      <tr><td>0 – 0.60</td><td><b>A</b></td><td>Free-flowing traffic</td></tr>
+      <tr><td>0.61 – 0.70</td><td><b>B</b></td><td>Reasonably free flow</td></tr>
+      <tr><td>0.71 – 0.80</td><td><b>C</b></td><td>Stable flow</td></tr>
+      <tr><td>0.81 – 0.90</td><td><b>D</b></td><td>Approaching unstable</td></tr>
+      <tr><td>0.91 – 0.99</td><td><b>E</b></td><td>Unstable, near capacity</td></tr>
+      <tr><td>&gt; 0.99</td><td><b>F</b></td><td>Forced flow — traffic slows &amp; may break down (severe congestion)</td></tr>
+    </table>
+    <p>Tables III–V in the paper compute hourly LOS for Junctions A/B/C on 20 Jan 2022 (10:00–20:00). Example: Junction B reached LOS values around 0.63–0.80 (services B–C) at midday.</p>
+  </section>
+
+  <section class="card" id="charts">
+    <h2>The visualizations (which chart, why)</h2>
+    <table>
+      <tr><th>Chart</th><th>Purpose / insight</th></tr>
+      <tr><td><b>Heat map</b> (Fig. 2)</td><td>Average PCU by day×hour — PCU drops ~23:00, lowest 01:00–05:00, rises ~06:00, peaks 12:00–14:00; weekends lower than weekdays.</td></tr>
+      <tr><td><b>Parallel-coordinate chart</b> (Fig. 3)</td><td>Turn-left / go-straight / turn-right counts — most vehicles go straight; Junction A's right-turns ≈ 0 (prohibited).</td></tr>
+      <tr><td><b>Bar plot</b> (Fig. 4)</td><td>LOS per junction (as dots), tooltip shows exact LOS by day/time.</td></tr>
+      <tr><td><b>Connected scatterplot</b> (Fig. 5)</td><td>Daily peak-hour volume trend; stable, drops on holidays/weekends.</td></tr>
+      <tr><td><b>Circular stacked bar</b> (Fig. 6)</td><td>Average distribution of the 6 vehicle types over a day — mostly cars &amp; motorcycles.</td></tr>
+      <tr><td><b>Stacked bar / scatter / lollipop</b> (Figs. 7–9)</td><td>Daily vehicle distribution &amp; per-lane vehicle counts (do lanes need expanding?).</td></tr>
+      <tr><td><b>Line &amp; ridgeline charts</b> (Figs. 10–15)</td><td>Incident counts over time &amp; their distribution.</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="incidents">
+    <h2>Visual analysis of traffic incidents</h2>
+    <p>Three incident types in the TIA: <b>abnormal discharge</b> (a large volume released onto the road in a short period → congestion), <b>offline device</b> (a signal/camera not functioning → no real-time control), and <b>lane block</b> (a lane obstructed by construction/accident/disabled vehicle). Line &amp; ridgeline charts show counts over time per junction (steeper curve = more incidents).</p>
+  </section>
+
+  <section class="card" id="eval">
+    <h2>Evaluation vs existing techniques (Table VI)</h2>
+    <p>Methods were rated on <b>ease of use (1–5)</b>: "Visualization, Selection &amp; Analysis of Traffic Flows" (2015) scored 2 (unclear trajectory, minimal chart selection); urban-road density clustering (2019) scored 3; "How Visual Analytics Unlock Insights" (2017) scored 4; <b>this paper scored 4</b> — traffic volume + incidents visualized with tooltips giving exact values.</p>
+  </section>
+
+  <section class="card" id="concl">
+    <h2>Conclusions &amp; limitations</h2>
+    <p>Visual analytics gives a comprehensive understanding of traffic dynamics, enabling identification of congested areas, evaluation of performance across junctions, and analysis of incident rates &amp; effects. It supports <b>data-driven decisions</b> for transportation planning.</p>
+    <div class="idea"><b>Limitation / next step:</b> the work is descriptive/diagnostic visual analytics; the authors call for layering <b>predictive models</b> on top for <em>proactive</em> traffic control and congestion mitigation — making management more efficient and safer.</div>
+  </section>
+
+  <section class="card" id="course">
+    <h2>Course link &amp; exam angle</h2>
+    <p><b>↔ Ch.3</b> — visual analytics = information visualization + (eventually) predictive analytics; "insight, not pictures"; matching chart to analytical purpose.</p>
+    <div class="exam"><b>Exam angle:</b> "<i>Explain how LOS is derived from the V/C ratio and which visualizations were used.</i>" Answer: LOS = volume (total PCU/hour) ÷ capacity (saturation flow), graded A (≤0.60, free flow) → F (&gt;0.99, breakdown); visualizations = heat maps (spatial-temporal), parallel-coordinate charts (turn movements), bar plots (LOS), each revealing peak/off-peak &amp; weekday/weekend differences.</div>
+  </section>
+
+  </main>
+</div>
+<footer>R4 · Chan et al. (2024), Visual Analytic for Traffic Impact Assessment · BIA midterm full-detail page · <a href="index.html">back to hub</a></footer>
+</body>
+</html>

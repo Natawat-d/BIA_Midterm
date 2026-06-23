@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R6 — Using Data Mining to Predict Student Performance (Zahruddin et al., 2023) · Full Detail</title>
+<style>
+  :root{--teal:#1a7a96;--teal-dark:#0f5a70;--red:#c0392b;--orange:#c0622b;--green:#2e8b57;--purple:#7a5ca8;--bg:#f7f9fa;--card:#fff;--ink:#1f2d33;--muted:#5c6b72;--border:#d9e2e6;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;}
+  a{color:var(--teal-dark);}
+  header.hero{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:34px 26px 26px;}
+  header.hero .home{font-size:.82rem;color:#d7eef4;text-decoration:none;}
+  header.hero .chip{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 10px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin:10px 0 8px;}
+  header.hero h1{margin:0;font-size:1.7rem;line-height:1.25;max-width:900px;}
+  header.hero .cite{margin-top:10px;font-size:.9rem;opacity:.92;max-width:900px;}
+  .layout{display:flex;max-width:1140px;margin:0 auto;gap:28px;padding:26px 22px 48px;align-items:flex-start;}
+  nav.toc{position:sticky;top:16px;flex:0 0 210px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:.84rem;max-height:calc(100vh - 32px);overflow-y:auto;}
+  nav.toc h2{font-size:.7rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:0 0 8px;}
+  nav.toc a{display:block;color:var(--teal-dark);text-decoration:none;padding:3px 0;}
+  nav.toc a:hover{text-decoration:underline;}
+  main{flex:1 1 auto;min-width:0;}
+  section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  section.card>h2{color:var(--teal);margin-top:0;border-bottom:3px solid var(--teal);padding-bottom:8px;font-size:1.3rem;}
+  h3{color:var(--teal-dark);font-size:1.07rem;margin:20px 0 6px;border-left:4px solid var(--teal);padding-left:9px;}
+  h4{color:var(--teal-dark);margin:14px 0 4px;font-size:.98rem;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef4f6;color:var(--teal-dark);}
+  code{background:#eef4f6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  .idea{background:#fdf3ea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .idea b{color:var(--red);}
+  .ex{background:#eef7fa;border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.95rem;}
+  .ex b{color:var(--teal-dark);}
+  .exam{background:#fbf4ec;border-left:4px solid var(--orange);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .exam b{color:var(--orange);}
+  .warn{background:#fdecea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .warn b{color:var(--red);}
+  .meta-grid{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:.92rem;}
+  .meta-grid dt{font-weight:700;color:var(--teal-dark);}
+  .meta-grid dd{margin:0;}
+  .red{color:var(--red);font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:22px;border-top:1px solid var(--border);}
+  @media(max-width:860px){.layout{flex-direction:column;}nav.toc{position:static;width:100%;max-height:none;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="home" href="index.html">← Midterm Prep Hub</a>
+  <div class="chip">READING 6 · FULL DETAIL</div>
+  <h1>Using Data Mining to Predict Student Performance Based on Demographic Attributes</h1>
+  <div class="cite">Nursyuhadah Alghazali binti Muhammad Zahruddin, Nur Diyana Kamarudin, Ruzanna Mat Jusoh, Nur Aisyah Abdul Fataf &amp; Rahmat Hidayat (UPNM, Malaysia &amp; Politeknik Negeri Padang, Indonesia) · <em>JOIV</em>, 7(4), Dec 2023, pp. 2460–2468.</div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>On this page</h2>
+    <a href="#glance">At a glance</a>
+    <a href="#problem">Problem &amp; aim</a>
+    <a href="#concepts">Key concepts (EDM, KDD)</a>
+    <a href="#data">Data &amp; preprocessing</a>
+    <a href="#methods">The three methods</a>
+    <a href="#results">Results (RMSE)</a>
+    <a href="#findings">Demographic findings</a>
+    <a href="#concl">Conclusions &amp; caveats</a>
+    <a href="#course">Course link &amp; exam</a>
+  </nav>
+  <main>
+
+  <section class="card" id="glance">
+    <h2>At a glance</h2>
+    <dl class="meta-grid">
+      <dt>Authors</dt><dd>Zahruddin et al. (National Defense University of Malaysia, UPNM)</dd>
+      <dt>Venue / year</dt><dd>JOIV 7(4), December 2023</dd>
+      <dt>Type</dt><dd>Case study — supervised classification / model comparison (Educational Data Mining)</dd>
+      <dt>Data</dt><dd><b>97 students</b>, Faculty of Science Computer, UPNM; <b>9 demographic attributes</b> + grades</dd>
+      <dt>Methods / tool</dt><dd>Neural Network, Decision Tree, k-Nearest Neighbour — in <b>WEKA</b>, via the <b>KDD</b> process</dd>
+      <dt>Best/worst</dt><dd><b>Neural Network</b> lowest RMSE (best); <b>Decision Tree</b> highest RMSE (worst)</dd>
+      <dt>Course link</dt><dd><b>Ch.5</b> — supervised classification &amp; model evaluation (RMSE)</dd>
+    </dl>
+    <div class="idea"><b>One-sentence takeaway:</b> using 9 socio-demographic attributes of 97 UPNM students, the study compares three data-mining algorithms in WEKA to predict pass/fail — finding <b>gender, age &amp; student status</b> most influential, with the <b>Neural Network most accurate (RMSE 0.0006)</b> and the Decision Tree least (RMSE 5.16) — to help lecturers plan interventions.</div>
+  </section>
+
+  <section class="card" id="problem">
+    <h2>Problem &amp; aim</h2>
+    <p>Higher-education institutions strive to improve achievement so graduates are job-ready. It is <b>impossible to manually observe</b> the main factors raising/lowering grades, so the study uses <b>demographic profiling</b> + data mining to predict performance and identify the most significant attributes. The performance indicator is <b>CGPA</b>; the study uses a <b>3.0 CGPA</b> demographic profile and treats <b>≥ 2.75 CGPA = pass</b>, <b>&lt; 2.75 = fail</b>. The goal: give UPNM management, lecturers &amp; students insight to modify the factors contributing to success (short- and long-term teaching plans).</p>
+  </section>
+
+  <section class="card" id="concepts">
+    <h2>Key concepts &amp; definitions</h2>
+    <dl class="meta-grid">
+      <dt>Educational Data Mining (EDM)</dt><dd>Applying data mining to educational data to discover patterns &amp; enhance the quality of education.</dd>
+      <dt>Demographic analysis</dt><dd>Population research on socioeconomic info — jobs, education, income, marriage, birth, mortality.</dd>
+      <dt>KDD</dt><dd>Knowledge Discovery in Databases: selection → preparation → purification → incorporating prior knowledge → interpretation of solutions.</dd>
+      <dt>CGPA</dt><dd>Cumulative Grade Point Average — the overall achievement indicator across the enrolled session.</dd>
+      <dt>WEKA</dt><dd>Waikato Environment for Knowledge Analysis — the ML software used to build &amp; evaluate the models.</dd>
+    </dl>
+  </section>
+
+  <section class="card" id="data">
+    <h2>Data &amp; preprocessing</h2>
+    <p>Dataset = <b>97 instances</b> of students (Dept. of Science Computer, UPNM). <b>Nine demographic attributes</b>: age, gender, race, marital status, student status (cadet officer vs civilian), residential area (city/rural), study status, geographic location (Peninsular vs Sabah/Sarawak), and CGPA.</p>
+    <h4>Preprocessing (in Excel + WEKA)</h4>
+    <ul>
+      <li><b>Cleaning</b> — remove duplicates, replace missing values with the column average.</li>
+      <li><b>Merging</b> — combine multiple sources for reliable access.</li>
+      <li><b>Selection &amp; transformation</b> — convert demographics to <b>numeric codes</b> for WEKA (e.g. gender male=100/female=200; CGPA &lt;2.75 = 10, &gt;2.75 = 20; study status pass=1001, fail=1002).</li>
+    </ul>
+  </section>
+
+  <section class="card" id="methods">
+    <h2>The three data-mining methods</h2>
+    <table>
+      <tr><th>Method</th><th>How it works here</th></tr>
+      <tr><td><b>Neural Network (MLP)</b></td><td>Layered nodes with weights &amp; thresholds, trained by adjusting weights to minimise error; used 2 and 4 hidden-layer variants with 10-fold cross-validation. Excellent function approximator; can overfit; needs maths/stats to tune.</td></tr>
+      <tr><td><b>Decision Tree (REPTree)</b></td><td>Tree-structured classifier: internal nodes = attributes, branches = rules, leaves = result; test split 20%. Root node = <b>CGPA</b>; tree size 11; key attributes race, gender, age, residential area.</td></tr>
+      <tr><td><b>k-Nearest Neighbour (k-NN)</b></td><td>Classifies by majority class of the <b>k = 3</b> nearest neighbours (Euclidean distance chosen over Hamming/Manhattan/Minkowski). Low k avoids being swamped, but risks overfitting/outlier sensitivity.</td></tr>
+    </table>
+    <p>Accuracy was measured by regression-style error metrics — MAE, MSE and especially <b>RMSE</b> (lower = more accurate; the key fit criterion since prediction is the objective).</p>
+  </section>
+
+  <section class="card" id="results">
+    <h2>Results — RMSE comparison (Table VIII)</h2>
+    <table>
+      <tr><th>Method</th><th>RMSE</th><th>Rank</th></tr>
+      <tr><td><b>Neural Network</b></td><td><b>0.0006</b></td><td>1st (most accurate)</td></tr>
+      <tr><td><b>k-Nearest Neighbour</b></td><td>0.0622</td><td>2nd (correlation coeff. 0.9892)</td></tr>
+      <tr><td><b>Decision Tree</b></td><td>5.1604</td><td>3rd (least accurate)</td></tr>
+    </table>
+    <p>The <b>Neural Network</b> classified most of the influential demographic attributes accurately (gender, age, student status exceeded the node threshold values). The <b>Decision Tree</b> had the highest RMSE because it <em>did not detect all attributes</em> — it only predicted a few demographics and classified selected datatypes at the leaves → lower accuracy.</p>
+  </section>
+
+  <section class="card" id="findings">
+    <h2>Demographic findings (who passes?)</h2>
+    <ul>
+      <li><b>Most influential attributes:</b> gender, age, student status (they exceeded each node's threshold).</li>
+      <li>Students who <b>passed</b> tend to be <b>male, ≤ 21–26 years old, single</b>, and from <b>Peninsular Malaysia</b>; more civilians failed than cadet officers.</li>
+      <li>The 4 students who failed were from rural areas; 3 from urban; most passers were Malay (the largest UPNM group), with most Indian/Chinese &amp; other-race students passing.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="concl">
+    <h2>Conclusions &amp; caveats</h2>
+    <p>Each method classifies differently; <b>Neural Network</b> was most accurate (lowest RMSE), then k-NN, then Decision Tree. The predictions help UPNM modify factors contributing to success and design strategic programs to reduce late-graduation/dropout.</p>
+    <div class="warn"><b>Watch-out (exam accuracy):</b> the paper labels <b>k-NN as "unsupervised"</b> and NN/DT as supervised. In standard ML terminology <b>k-NN is actually a supervised classifier</b> (it uses labelled neighbours). State the paper's framing if quoting it, but know the correct classification for the exam. Also: demographic-only features + a single institution (97 students) limit generalisability, and using demographics to predict outcomes raises <b>ethical/bias</b> concerns (Ch.11).</div>
+  </section>
+
+  <section class="card" id="course">
+    <h2>Course link &amp; exam angle</h2>
+    <p><b>↔ Ch.5</b> — supervised classification, model comparison, and <b>RMSE-based evaluation</b> (vs accuracy); also the CRISP-DM/KDD workflow and data preprocessing (Ch.3).</p>
+    <div class="exam"><b>Exam angle:</b> "<i>Describe the method &amp; name the best/worst algorithm.</i>" Answer: KDD workflow in WEKA on 97 UPNM students × 9 demographics; compared NN, Decision Tree, k-NN by RMSE; <b>NN best (0.0006), Decision Tree worst (5.16)</b>; most influential attributes = gender, age, student status.</div>
+  </section>
+
+  </main>
+</div>
+<footer>R6 · Zahruddin et al. (2023), Predicting Student Performance · BIA midterm full-detail page · <a href="index.html">back to hub</a></footer>
+</body>
+</html>

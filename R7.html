@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R7 — Customer Segmentation using K-Means & DBSCAN (William & Johan, 2025) · Full Detail</title>
+<style>
+  :root{--teal:#1a7a96;--teal-dark:#0f5a70;--red:#c0392b;--orange:#c0622b;--green:#2e8b57;--purple:#7a5ca8;--bg:#f7f9fa;--card:#fff;--ink:#1f2d33;--muted:#5c6b72;--border:#d9e2e6;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;}
+  a{color:var(--teal-dark);}
+  header.hero{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:34px 26px 26px;}
+  header.hero .home{font-size:.82rem;color:#d7eef4;text-decoration:none;}
+  header.hero .chip{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 10px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin:10px 0 8px;}
+  header.hero h1{margin:0;font-size:1.7rem;line-height:1.25;max-width:900px;}
+  header.hero .cite{margin-top:10px;font-size:.9rem;opacity:.92;max-width:900px;}
+  .layout{display:flex;max-width:1140px;margin:0 auto;gap:28px;padding:26px 22px 48px;align-items:flex-start;}
+  nav.toc{position:sticky;top:16px;flex:0 0 210px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:.84rem;max-height:calc(100vh - 32px);overflow-y:auto;}
+  nav.toc h2{font-size:.7rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:0 0 8px;}
+  nav.toc a{display:block;color:var(--teal-dark);text-decoration:none;padding:3px 0;}
+  nav.toc a:hover{text-decoration:underline;}
+  main{flex:1 1 auto;min-width:0;}
+  section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  section.card>h2{color:var(--teal);margin-top:0;border-bottom:3px solid var(--teal);padding-bottom:8px;font-size:1.3rem;}
+  h3{color:var(--teal-dark);font-size:1.07rem;margin:20px 0 6px;border-left:4px solid var(--teal);padding-left:9px;}
+  h4{color:var(--teal-dark);margin:14px 0 4px;font-size:.98rem;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef4f6;color:var(--teal-dark);}
+  code{background:#eef4f6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  .idea{background:#fdf3ea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .idea b{color:var(--red);}
+  .ex{background:#eef7fa;border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.95rem;}
+  .ex b{color:var(--teal-dark);}
+  .exam{background:#fbf4ec;border-left:4px solid var(--orange);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .exam b{color:var(--orange);}
+  .meta-grid{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:.92rem;}
+  .meta-grid dt{font-weight:700;color:var(--teal-dark);}
+  .meta-grid dd{margin:0;}
+  .red{color:var(--red);font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:22px;border-top:1px solid var(--border);}
+  @media(max-width:860px){.layout{flex-direction:column;}nav.toc{position:static;width:100%;max-height:none;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="home" href="index.html">← Midterm Prep Hub</a>
+  <div class="chip">READING 7 · FULL DETAIL</div>
+  <h1>Implementation of Customer Segmentation Model using K-Means and DBSCAN for Fashion Industry Product Transaction</h1>
+  <div class="cite">William &amp; Monika Evelin Johan, Universitas Multimedia Nusantara, Tangerang, Indonesia · <em>JOIV: Int. J. Informatics Visualization</em>, 9(6), Nov 2025, pp. 2559–2568.</div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>On this page</h2>
+    <a href="#glance">At a glance</a>
+    <a href="#problem">Problem &amp; aim</a>
+    <a href="#concepts">Key concepts</a>
+    <a href="#data">Data &amp; CRISP-DM</a>
+    <a href="#preproc">Preprocessing</a>
+    <a href="#eval">Evaluation metrics</a>
+    <a href="#results">Results</a>
+    <a href="#deploy">Deployment</a>
+    <a href="#concl">Conclusions &amp; limits</a>
+    <a href="#course">Course link &amp; exam</a>
+  </nav>
+  <main>
+
+  <section class="card" id="glance">
+    <h2>At a glance</h2>
+    <dl class="meta-grid">
+      <dt>Authors</dt><dd>William &amp; Johan (Universitas Multimedia Nusantara, Indonesia)</dd>
+      <dt>Venue / year</dt><dd>JOIV 9(6), November 2025</dd>
+      <dt>Type</dt><dd>Applied case study — unsupervised clustering / customer segmentation</dd>
+      <dt>Domain</dt><dd>Fashion e-commerce ("XYZ" company) on the <b>Shopee</b> marketplace</dd>
+      <dt>Data</dt><dd><b>10,845 rows × 49 columns</b> of transactions, Aug 2023 – Mar 2024 (scraped from Shopee Seller Center)</dd>
+      <dt>Methods</dt><dd><b>K-Means vs DBSCAN</b>, CRISP-DM framework, Standard Scaler + PCA, Python</dd>
+      <dt>Course link</dt><dd><b>Ch.5</b> — clustering = segmentation; cluster-validity metrics</dd>
+    </dl>
+    <div class="idea"><b>One-sentence takeaway:</b> to sharpen marketing, the study segments fashion-transaction data with <b>K-Means vs DBSCAN</b> (CRISP-DM; PCA + Standard Scaler), evaluating by <b>Silhouette Score</b> &amp; <b>Davies-Bouldin Index</b> — and finds <b>K-Means superior at k = 7</b> (Silhouette 0.549, DBI 0.593) over DBSCAN (0.29 / 0.92), then deploys it as a web dashboard.</div>
+  </section>
+
+  <section class="card" id="problem">
+    <h2>Problem &amp; aim</h2>
+    <p>Indonesian e-commerce is booming (fashion = ~70% of online transactions in 2023). The "XYZ" fashion company wants to <b>understand consumer behaviour</b> to improve marketing &amp; respond to needs, increasing sales. The study builds a <b>customer segmentation model</b> using clustering (K-Means &amp; DBSCAN) on Shopee transaction data to identify customer groups by purchasing pattern, providing a basis for targeted, optimal marketing.</p>
+  </section>
+
+  <section class="card" id="concepts">
+    <h2>Key concepts &amp; definitions</h2>
+    <dl class="meta-grid">
+      <dt>K-Means</dt><dd>Centroid-based partitional clustering — assigns points to the nearest of <b>k</b> centroids, recomputes; you must set k. Objective: minimise within-cluster squared distance <code>J = Σ Σ ‖xᵢ − μ<sub>k</sub>‖²</code>.</dd>
+      <dt>DBSCAN</dt><dd>Density-Based Spatial Clustering of Applications with Noise — finds clusters as dense regions; points in sparse regions are <b>noise</b>. Two parameters: <b>ε (epsilon)</b> = max neighbour distance, <b>minPts</b> = min points for a core. Handles arbitrary shapes &amp; outliers; no preset k.</dd>
+      <dt>Standard Scaler</dt><dd>Standardises features <code>z = (x−μ)/σ</code> so scale doesn't dominate distance-based clustering.</dd>
+      <dt>PCA</dt><dd>Principal Component Analysis — reduces dimensionality by projecting to fewer components, removing redundant columns for cleaner clustering.</dd>
+    </dl>
+  </section>
+
+  <section class="card" id="data">
+    <h2>Data &amp; the CRISP-DM workflow</h2>
+    <p>Data = <b>10,845 rows × 49 columns</b> of Shopee sales (Aug 2023–Mar 2024), gathered by <b>purposive sampling</b> and scraping the Shopee Seller Center, exported to CSV. The study follows the six <b>CRISP-DM</b> phases:</p>
+    <ol>
+      <li><b>Business Understanding</b> — XYZ wants to optimise marketing &amp; find improvement areas.</li>
+      <li><b>Data Understanding</b> — monthly sales volumes (e.g. Nov 2023 = 1,750; Dec = 1,597 rows).</li>
+      <li><b>Data Preparation</b> — clean NaNs, encode categoricals, Standard Scaler + PCA.</li>
+      <li><b>Modeling</b> — K-Means (find optimal k) &amp; DBSCAN (tune ε, minPts).</li>
+      <li><b>Evaluation</b> — Silhouette Score &amp; Davies-Bouldin Index.</li>
+      <li><b>Deployment</b> — a web app (FastAPI + React/TypeScript).</li>
+    </ol>
+  </section>
+
+  <section class="card" id="preproc">
+    <h2>Preprocessing details</h2>
+    <ul>
+      <li><b>Cleaning</b> — remove NaN values; a correlation-matrix heatmap shows e.g. Initial Price, Price After Discount &amp; Total Product Price correlate ~0.74 with total payment.</li>
+      <li><b>Label encoding</b> — convert categorical (object) columns to numeric.</li>
+      <li><b>Standard Scaler</b> — equalise feature contribution.</li>
+      <li><b>PCA</b> — reduce to principal components (2 for visualisation) to overcome high dimensionality.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="eval">
+    <h2>Evaluation metrics (no labels exist → use cluster validity)</h2>
+    <table>
+      <tr><th>Metric</th><th>Range / direction</th><th>Meaning</th></tr>
+      <tr><td><b>Silhouette Score</b></td><td>−1 … +1, <b>higher = better</b></td><td>How well each point fits its cluster vs others <code>s = (b−a)/max(a,b)</code>.</td></tr>
+      <tr><td><b>Davies-Bouldin Index (DBI)</b></td><td>≥ 0, <b>lower = better</b></td><td>Average inter-cluster similarity (homogeneity); lower = cleaner partition.</td></tr>
+    </table>
+    <p>(They also mention the Calinski-Harabasz Index, which agreed with Silhouette on the best DBSCAN ε/minPts.) <span class="red">Accuracy/precision cannot be used — there is no ground-truth label.</span></p>
+  </section>
+
+  <section class="card" id="results">
+    <h2>Results — K-Means beats DBSCAN</h2>
+    <table>
+      <tr><th>Algorithm</th><th>Best setting</th><th>Silhouette ↑</th><th>Davies-Bouldin ↓</th></tr>
+      <tr><td><b>K-Means</b></td><td><b>k = 7</b></td><td><b>0.549</b></td><td><b>0.593</b></td></tr>
+      <tr><td>DBSCAN</td><td>ε = 0.5, minPts = 20</td><td>0.29</td><td>0.92</td></tr>
+    </table>
+    <p>Both Silhouette and DBI agree the optimal K-Means cluster count is <b>k = 7</b>. K-Means won (higher Silhouette, lower DBI) because DBSCAN struggled with the data's varying density. The 7 clusters were profiled by their <b>top-7 best-selling products</b> (pie charts per cluster) to characterise each segment.</p>
+  </section>
+
+  <section class="card" id="deploy">
+    <h2>Deployment</h2>
+    <p>The model became a <b>web application</b>: <b>FastAPI</b> (Python) backend runs the data-processing + ML pipeline; <b>React + TypeScript</b> frontend lets a user upload a CSV, run the model, and view output tables + per-cluster pie charts of best-selling products — turning analytics into an operational marketing tool.</p>
+  </section>
+
+  <section class="card" id="concl">
+    <h2>Conclusions &amp; limitations</h2>
+    <p>Clustering on fashion-transaction data with the CRISP-DM framework, preprocessed by Standard Scaler + PCA and evaluated by Silhouette + DBI, shows <b>K-Means outperforms DBSCAN</b> (0.549/0.593 vs 0.29/0.92) at <b>k = 7</b>; the model was deployed as a web app to support segmentation decisions.</p>
+    <div class="idea"><b>Limitations / next steps:</b> the dataset may not be fully representative; updating with more recent data could improve accuracy; future work should explore <b>Gaussian Mixture Models (GMM)</b> and more robust real-world deployment.</div>
+  </section>
+
+  <section class="card" id="course">
+    <h2>Course link &amp; exam angle</h2>
+    <p><b>↔ Ch.5</b> — clustering as <em>segmentation</em>, the CRISP-DM process, and cluster-validity metrics (Silhouette / Davies-Bouldin) instead of accuracy; also Ch.3 preprocessing (scaling, PCA).</p>
+    <div class="exam"><b>Exam angle:</b> "<i>Explain the method &amp; which metrics decided the winner.</i>" Answer: CRISP-DM + Standard Scaler + PCA; <b>K-Means vs DBSCAN</b>; judged by <b>Silhouette (higher) &amp; Davies-Bouldin (lower)</b>; K-Means won at k = 7 (0.549 / 0.593). Stress that clustering is <b>unsupervised</b> — no accuracy because there's no target.</div>
+  </section>
+
+  </main>
+</div>
+<footer>R7 · William &amp; Johan (2025), Customer Segmentation K-Means vs DBSCAN · BIA midterm full-detail page · <a href="index.html">back to hub</a></footer>
+</body>
+</html>

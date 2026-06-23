@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R12 — Sentiment Analysis & CEEMDAN to Learn Consumer-Group Preferences (Wang et al., 2026) · Full Detail</title>
+<style>
+  :root{--teal:#1a7a96;--teal-dark:#0f5a70;--red:#c0392b;--orange:#c0622b;--green:#2e8b57;--purple:#7a5ca8;--bg:#f7f9fa;--card:#fff;--ink:#1f2d33;--muted:#5c6b72;--border:#d9e2e6;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;}
+  a{color:var(--teal-dark);}
+  header.hero{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:34px 26px 26px;}
+  header.hero .home{font-size:.82rem;color:#d7eef4;text-decoration:none;}
+  header.hero .chip{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 10px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin:10px 0 8px;}
+  header.hero h1{margin:0;font-size:1.65rem;line-height:1.25;max-width:900px;}
+  header.hero .cite{margin-top:10px;font-size:.9rem;opacity:.92;max-width:900px;}
+  .layout{display:flex;max-width:1140px;margin:0 auto;gap:28px;padding:26px 22px 48px;align-items:flex-start;}
+  nav.toc{position:sticky;top:16px;flex:0 0 210px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:.84rem;max-height:calc(100vh - 32px);overflow-y:auto;}
+  nav.toc h2{font-size:.7rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:0 0 8px;}
+  nav.toc a{display:block;color:var(--teal-dark);text-decoration:none;padding:3px 0;}
+  nav.toc a:hover{text-decoration:underline;}
+  main{flex:1 1 auto;min-width:0;}
+  section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  section.card>h2{color:var(--teal);margin-top:0;border-bottom:3px solid var(--teal);padding-bottom:8px;font-size:1.3rem;}
+  h3{color:var(--teal-dark);font-size:1.07rem;margin:20px 0 6px;border-left:4px solid var(--teal);padding-left:9px;}
+  h4{color:var(--teal-dark);margin:14px 0 4px;font-size:.98rem;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef4f6;color:var(--teal-dark);}
+  code{background:#eef4f6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  .idea{background:#fdf3ea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .idea b{color:var(--red);}
+  .ex{background:#eef7fa;border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.95rem;}
+  .ex b{color:var(--teal-dark);}
+  .exam{background:#fbf4ec;border-left:4px solid var(--orange);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .exam b{color:var(--orange);}
+  .meta-grid{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:.92rem;}
+  .meta-grid dt{font-weight:700;color:var(--teal-dark);}
+  .meta-grid dd{margin:0;}
+  .red{color:var(--red);font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:22px;border-top:1px solid var(--border);}
+  @media(max-width:860px){.layout{flex-direction:column;}nav.toc{position:static;width:100%;max-height:none;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="home" href="index.html">← Midterm Prep Hub</a>
+  <div class="chip">READING 12 · FULL DETAIL</div>
+  <h1>Using Sentiment Analysis and CEEMDAN to Learn the Preferences of Consumer Groups: A Case Study of Online Hotel Reviews</h1>
+  <div class="cite">Dan Wang, Zaiwu Gong, Guo Wei, María Ángeles Martínez &amp; Enrique Herrera-Viedma (Nanjing Univ. of Info. Sci. &amp; Tech., China; Univ. of North Carolina at Pembroke; Univ. of Granada, Spain) · <em>Applied Soft Computing</em> 191 (2026) 114625.</div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>On this page</h2>
+    <a href="#glance">At a glance</a>
+    <a href="#problem">Problem &amp; aim</a>
+    <a href="#concepts">Key concepts</a>
+    <a href="#data">Data</a>
+    <a href="#stage1">Stage 1 · BERT</a>
+    <a href="#stage2">Stage 2 · CEEMDAN</a>
+    <a href="#stage3">Stage 3 · Preference (UTA)</a>
+    <a href="#results">Results</a>
+    <a href="#concl">Conclusions &amp; limits</a>
+    <a href="#course">Course link &amp; exam</a>
+  </nav>
+  <main>
+
+  <section class="card" id="glance">
+    <h2>At a glance</h2>
+    <dl class="meta-grid">
+      <dt>Authors</dt><dd>Wang, Gong, Wei, Martínez &amp; Herrera-Viedma (China &amp; Spain)</dd>
+      <dt>Venue / year</dt><dd>Applied Soft Computing, 2026</dd>
+      <dt>Type</dt><dd>Methodological + case study — consumer-group preference learning</dd>
+      <dt>Domain</dt><dd>Online <b>hotel reviews</b> (Ctrip); 15 hotels, Nanjing</dd>
+      <dt>Data</dt><dd>Dec 2023 – Nov 2024; <b>14,133 → 10,505</b> reviews retained</dd>
+      <dt>Methods</dt><dd><b>BERT</b> (sentiment) + <b>BERTopic</b> (20 topics) → <b>CEEMDAN</b> (trend) → <b>UTA</b> preference disaggregation</dd>
+      <dt>Course link</dt><dd><b>Ch.6</b> — most advanced text-analytics reading (deep-learning sentiment feeding an MCDM decision model)</dd>
+    </dl>
+    <div class="idea"><b>One-sentence takeaway:</b> a three-stage model learns a consumer group's preferences from noisy, time-varying hotel reviews — <b>BERT</b> gives fine-grained sentiment per criterion, <b>CEEMDAN</b> extracts the group-consistent <em>trend</em> from the sentiment time series, and <b>UTA preference disaggregation</b> infers the group's <em>classification value system</em> (which criteria matter most).</div>
+  </section>
+
+  <section class="card" id="problem">
+    <h2>Problem &amp; aim</h2>
+    <p>Online reviews are a rich source of consumer preference, but they are <b>unstructured, time-dependent, and implicitly/ambiguously expressed</b>, overloading both consumers and managers. The paper identifies three gaps: (1) most fine-grained sentiment uses <b>discrete</b> classification, losing the <em>continuity</em> of emotion; (2) traditional MCDM uses explicit/fixed preference scales, missing <b>latent, heterogeneous</b> preferences; (3) prior work ignores the <b>time-dependent</b> nature of reviews. <b>Aim:</b> a data-driven model to learn &amp; interpret consumer-group preferences and infer their value system.</p>
+  </section>
+
+  <section class="card" id="concepts">
+    <h2>Key concepts &amp; definitions</h2>
+    <dl class="meta-grid">
+      <dt>BERT</dt><dd>Bidirectional Encoder Representations from Transformers — a Transformer-based deep model that reads context in both directions; here <b>BERT-Base-Chinese</b> (12 encoder layers) for fine-grained sentiment.</dd>
+      <dt>BERTopic</dt><dd>A BERT-embedding topic model (UMAP → K-Means → MMR → c-TF-IDF) — captures semantics better than LDA; extracts the latent <b>criteria</b>.</dd>
+      <dt>CEEMDAN</dt><dd>Complete Ensemble Empirical Mode Decomposition with Adaptive Noise — decomposes a non-stationary <b>time series</b> into Intrinsic Mode Functions (IMFs) + a <b>residual trend</b>; the residual's mean = group-consistent sentiment.</dd>
+      <dt>UTA / preference disaggregation</dt><dd>UTilités Additives — an MCDM method that infers an <b>additive value function</b> (criteria weights + thresholds) from examples; variants used: <b>UTADIS</b>, <b>UTAMSCVF</b>, and a criteria-selection model.</dd>
+    </dl>
+  </section>
+
+  <section class="card" id="data">
+    <h2>Data</h2>
+    <p>Reviews from <b>Ctrip</b> (China's leading OTA) for <b>15 chain-brand hotels (H1–H15)</b> in the Xinjiekou area of Nanjing, over a full 12-month cycle (<b>1 Dec 2023 – 30 Nov 2024</b>). From 14,133 entries, after preprocessing (standardise text, remove special characters, drop reviews &lt;5 characters, drop reviews whose rating contradicts the text) <b>10,505 reviews</b> were retained. Each review carries user info, rating, text and timestamp.</p>
+  </section>
+
+  <section class="card" id="stage1">
+    <h2>Stage 1 — Fine-grained sentiment (BERT + BERTopic)</h2>
+    <p><b>BERTopic</b> extracted <b>20 criteria/topics</b> (Table 7): staff attitude, hotel facilities, room type, noise environment, transport convenience, customer satisfaction, breakfast, luggage/checkout, food delivery, hygiene/housekeeping, location, nearby transport, price, tourism services, intelligent facilities, service quality, elevator usage, room comfort, dining/cuisine, sanitary facilities.</p>
+    <p><b>BERT-Base-Chinese</b> was fine-tuned to classify sentiment into <b>negative (1) / neutral (2) / positive (3) / unrelated (4)</b>. Annotation: 1,500 samples by two experts, inter-annotator <b>kappa 0.82</b>; 9:1 train/test split; Adam optimizer; hyperparameters epoch 10, batch 16, max-seq 48, lr 1e-5. This yields a continuous sentiment score per criterion over time.</p>
+  </section>
+
+  <section class="card" id="stage2">
+    <h2>Stage 2 — Sentiment signal decomposition (CEEMDAN)</h2>
+    <p>Consumer sentiment over time is multi-scale: a steady <b>group trend</b> + random <b>individual fluctuations</b>. For each criterion's sentiment time series, <b>CEEMDAN</b> adds adaptive white noise, performs EMD, and averages to extract <b>IMFs</b> (short-term/random) + a <b>residual trend</b> (long-term, group-consistent). The <b>mean of the residual trend</b> is taken as the criterion's group-consistent sentiment value — eliminating incidental subjective bias. (CEEMDAN improves on EMD/EEMD by reducing mode mixing &amp; residual noise.)</p>
+  </section>
+
+  <section class="card" id="stage3">
+    <h2>Stage 3 — Preference modeling (UTA family)</h2>
+    <p>Treating each topic as a <b>criterion</b> and the group-consistent sentiment as its performance value, <b>preference disaggregation</b> infers the group's additive <b>value function</b> and <b>classification value system</b> (which criteria drive the rating class). Three models:</p>
+    <ul>
+      <li><b>UTADIS</b> — finds a value function (with over-/under-estimation errors) that best restores the preference-ordered classes via a linear program.</li>
+      <li><b>UTAMSCVF</b> — minimises slope changes of the marginal value function → a smoother, more linear (Occam's-razor) value function.</li>
+      <li><b>Criteria selection model</b> — binary variables pick the <em>most important</em> criteria (a regularisation trade-off controlled by λ).</li>
+    </ul>
+    <p>Outputs include chosen <b>criteria weights</b> (e.g. service quality, room comfort, price) and <b>classification thresholds</b>.</p>
+  </section>
+
+  <section class="card" id="results">
+    <h2>Results</h2>
+    <p>BERT sentiment classification: <b>precision 0.83, recall 0.83, F1 0.83, accuracy 0.835</b>, beating <b>LSTM (0.761)</b> and <b>Random Forest (0.568)</b>; Monte-Carlo cross-validation gave a stable mean accuracy ≈ <b>0.846</b>. The full pipeline produces an interpretable, time-aware value system for the consumer group, letting hotel managers identify needs, allocate resources and make evidence-based decisions.</p>
+  </section>
+
+  <section class="card" id="concl">
+    <h2>Conclusions &amp; limitations</h2>
+    <p>The integrated <b>BERT + CEEMDAN + UTA</b> model enhances the <b>interpretability</b> of consumer-group preferences, refines their classification value system, and gives a visual representation of preference structure — more accurate decision support than discrete sentiment + fixed-scale MCDM.</p>
+    <div class="idea"><b>Limitations / next steps (per the paper &amp; method):</b> the residual-trend mean is an <em>assumption-dependent</em> proxy (sensitive to review counts &amp; series length); the approach is computation-heavy. Future directions point to Shapley values &amp; dynamic weighting.</div>
+  </section>
+
+  <section class="card" id="course">
+    <h2>Course link &amp; exam angle</h2>
+    <p><b>↔ Ch.6 (sentiment analysis, text mining) + Ch.7 (deep learning).</b> It is the most advanced reading: contextual deep-learning sentiment feeding a prescriptive-leaning decision/preference model.</p>
+    <div class="exam"><b>Exam angle:</b> "<i>Explain the roles of BERT, CEEMDAN &amp; preference disaggregation.</i>" Answer: <b>BERT</b> (+ BERTopic) gives fine-grained, criterion-level sentiment from reviews; <b>CEEMDAN</b> decomposes the sentiment time series to extract the stable <b>group-consistent trend</b> (noise removed); <b>UTA preference disaggregation</b> infers the group's <b>value system</b> (criteria weights) — a three-stage pipeline from contextual sentiment → trend → inferred preferences.</div>
+  </section>
+
+  </main>
+</div>
+<footer>R12 · Wang et al. (2026), Sentiment + CEEMDAN for Consumer-Group Preferences · BIA midterm full-detail page · <a href="index.html">back to hub</a></footer>
+</body>
+</html>

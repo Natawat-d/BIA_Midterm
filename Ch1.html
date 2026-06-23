@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.1 — Overview of BI, Analytics, Data Science & AI · Full Detail</title>
+<style>
+  :root{--teal:#1a7a96;--teal-dark:#0f5a70;--red:#c0392b;--orange:#c0622b;--green:#2e8b57;--purple:#7a5ca8;--bg:#f7f9fa;--card:#fff;--ink:#1f2d33;--muted:#5c6b72;--border:#d9e2e6;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;}
+  a{color:var(--teal-dark);}
+  header.hero{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:34px 26px 26px;}
+  header.hero .home{font-size:.82rem;color:#d7eef4;text-decoration:none;}
+  header.hero .chip{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 10px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin:10px 0 8px;}
+  header.hero h1{margin:0;font-size:1.7rem;line-height:1.25;max-width:900px;}
+  header.hero .cite{margin-top:10px;font-size:.9rem;opacity:.92;max-width:900px;}
+  .layout{display:flex;max-width:1140px;margin:0 auto;gap:28px;padding:26px 22px 48px;align-items:flex-start;}
+  nav.toc{position:sticky;top:16px;flex:0 0 215px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:.84rem;max-height:calc(100vh - 32px);overflow-y:auto;}
+  nav.toc h2{font-size:.7rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:0 0 8px;}
+  nav.toc a{display:block;color:var(--teal-dark);text-decoration:none;padding:3px 0;}
+  nav.toc a:hover{text-decoration:underline;}
+  main{flex:1 1 auto;min-width:0;}
+  section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  section.card>h2{color:var(--teal);margin-top:0;border-bottom:3px solid var(--teal);padding-bottom:8px;font-size:1.3rem;}
+  h3{color:var(--teal-dark);font-size:1.07rem;margin:20px 0 6px;border-left:4px solid var(--teal);padding-left:9px;}
+  h4{color:var(--teal-dark);margin:14px 0 4px;font-size:.98rem;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef4f6;color:var(--teal-dark);}
+  code{background:#eef4f6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  .idea{background:#fdf3ea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .idea b{color:var(--red);}
+  .ex{background:#eef7fa;border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.95rem;}
+  .ex b{color:var(--teal-dark);}
+  .exam{background:#fbf4ec;border-left:4px solid var(--orange);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .exam b{color:var(--orange);}
+  .spectrum{display:flex;flex-wrap:wrap;align-items:center;gap:7px;background:#eef4f6;border-radius:10px;padding:12px;margin:12px 0;font-weight:600;color:var(--teal-dark);font-size:.9rem;}
+  .spectrum .step{background:#fff;border:1px solid var(--border);border-radius:8px;padding:5px 11px;text-align:center;}
+  .spectrum .arrow{color:var(--teal);}
+  .red{color:var(--red);font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:22px;border-top:1px solid var(--border);}
+  @media(max-width:860px){.layout{flex-direction:column;}nav.toc{position:static;width:100%;max-height:none;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="home" href="index.html">← Midterm Prep Hub</a>
+  <div class="chip">CHAPTER 1 · FULL DETAIL</div>
+  <h1>Overview of Business Intelligence, Analytics, Data Science &amp; AI</h1>
+  <div class="cite">Sharda, Delen &amp; Turban — <em>Business Intelligence, Analytics, Data Science, and AI: A Managerial Perspective</em> (Pearson). Examinable lecture chapter.</div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>On this page</h2>
+    <a href="#glance">Key idea</a>
+    <a href="#env">Changing business environment</a>
+    <a href="#decision">Decision making &amp; Simon</a>
+    <a href="#dss">DSS — definition &amp; components</a>
+    <a href="#gsm">Gorry–Scott-Morton</a>
+    <a href="#evolution">Evolution of decision support</a>
+    <a href="#bi">BI framework &amp; components</a>
+    <a href="#analytics">3 types of analytics</a>
+    <a href="#bigdata">Big Data</a>
+    <a href="#ai">AI, ML &amp; data science</a>
+    <a href="#cases">Application cases</a>
+    <a href="#exam">Exam focus</a>
+  </nav>
+  <main>
+
+  <section class="card" id="glance">
+    <h2>Key idea</h2>
+    <div class="idea"><b>Core message:</b> Business Intelligence is the modern evolution of decision support. Its purpose is to convert <b>data → information → knowledge → decision → action</b>, and every technique in the course slots into one of three analytics types: <b>descriptive, predictive, prescriptive</b>.</div>
+    <p>Chapter 1 sets the vocabulary for the whole course: what decisions are, how computers support them, what BI/analytics/data science/AI mean and how they relate, and the descriptive→predictive→prescriptive ladder.</p>
+  </section>
+
+  <section class="card" id="env">
+    <h2>The changing business environment &amp; the need for analytics</h2>
+    <p>Companies operate in an environment of constant, rapid change (markets, customer demands, technology, regulation, globalisation). Organisations must <b>react quickly, be agile, and make decisions on data, not gut feeling</b>. The pressures–responses–support framework:</p>
+    <ul>
+      <li><b>Pressures</b> — market (competition, globalisation), technology (innovation, obsolescence), societal (regulation, ethics, security).</li>
+      <li><b>Responses</b> — strategy, partnerships, real-time/on-demand operations, customer focus, mass customisation.</li>
+      <li><b>Support</b> — computerised decision support / BI / analytics that turn data into action.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="decision">
+    <h2>Decision making &amp; Simon's process</h2>
+    <p>A <b>decision</b> = choosing among alternatives. Managers' work is decision making; better decisions need data + models. <b>Herbert Simon's four-phase model</b> is the canonical structure:</p>
+    <div class="spectrum"><span class="step">Intelligence<br><small>find/define problem</small></span><span class="arrow">→</span><span class="step">Design<br><small>build model, alternatives</small></span><span class="arrow">→</span><span class="step">Choice<br><small>select best alternative</small></span><span class="arrow">→</span><span class="step">Implementation<br><small>act + monitor</small></span></div>
+    <table>
+      <tr><th>Phase</th><th>What happens</th></tr>
+      <tr><td><b>Intelligence</b></td><td>Scan reality; identify &amp; classify the problem/opportunity; ownership.</td></tr>
+      <tr><td><b>Design</b></td><td>Construct a model; set criteria; generate &amp; evaluate alternatives; predict outcomes.</td></tr>
+      <tr><td><b>Choice</b></td><td>Search/select the recommended solution; sensitivity analysis.</td></tr>
+      <tr><td><b>Implementation</b></td><td>Put the decision to work; monitor; loop back if it fails.</td></tr>
+    </table>
+    <p>The process is <b>iterative</b> — you can return to an earlier phase at any point. Decisions are <b>structured</b> (routine, programmable), <b>unstructured</b> (none of the phases programmable), or <b>semistructured</b> (some are) — BI/DSS targets the semistructured/unstructured middle.</p>
+  </section>
+
+  <section class="card" id="dss">
+    <h2>Decision Support System (DSS) — definition &amp; components</h2>
+    <div class="ex"><b>DSS</b> (Gorry &amp; Scott-Morton, 1971): interactive, computer-based systems that help decision makers use <b>data and models</b> to solve <span class="red">semistructured &amp; unstructured</span> problems. Aim = improve decision <em>effectiveness</em> (quality), with the human always in control.</div>
+    <h4>Four components</h4>
+    <ul>
+      <li><b>Data management</b> — internal &amp; external data (often via a database/DW).</li>
+      <li><b>Model management</b> — quantitative models &amp; the software to run them.</li>
+      <li><b>Knowledge-based subsystem</b> — optional expertise/AI component.</li>
+      <li><b>User interface</b> — dialogue between user and system (e.g. dashboards).</li>
+    </ul>
+    <h4>Capabilities</h4>
+    <p>Supports all managerial levels &amp; all decision phases, individuals &amp; groups, interdependent/sequential decisions; adaptive, flexible, user-controlled; improves effectiveness over efficiency.</p>
+  </section>
+
+  <section class="card" id="gsm">
+    <h2>Gorry–Scott-Morton framework (structure × control)</h2>
+    <p>Decisions are classified on two axes: degree of <b>structure</b> and level of managerial <b>control</b>.</p>
+    <table>
+      <tr><th>Structure ↓ / Control →</th><th>Operational</th><th>Managerial</th><th>Strategic</th></tr>
+      <tr><td><b>Structured</b></td><td>Order entry, A/R</td><td>Budget analysis, short-term forecast</td><td>Warehouse location</td></tr>
+      <tr><td><b>Semistructured</b></td><td>Production scheduling, inventory</td><td>Credit evaluation</td><td>M&amp;A, new products</td></tr>
+      <tr><td><b>Unstructured</b></td><td>Approving loans (cash)</td><td>Hiring an executive</td><td>R&amp;D planning</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="evolution">
+    <h2>Evolution of computerised decision support</h2>
+    <p>Each era <em>adds</em> a capability rather than replacing the last:</p>
+    <table>
+      <tr><th>Era</th><th>What appeared</th></tr>
+      <tr><td>1970s</td><td>MIS / static periodic reports; early <b>DSS</b> for one-off analytical questions.</td></tr>
+      <tr><td>1980s</td><td><b>Executive Information Systems (EIS)</b> — summarised information for senior managers.</td></tr>
+      <tr><td>1990s</td><td><b>OLAP</b>: dynamic, multidimensional, ad-hoc reporting → the term <span class="red">"BI" coined by Gartner (Howard Dresner)</span>.</td></tr>
+      <tr><td>2010s+</td><td>AI, data/text/web mining, dashboards, Big Data, social-media analytics, cloud, real-time.</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="bi">
+    <h2>Business Intelligence — framework &amp; components</h2>
+    <div class="idea" style="background:#eef7fa;border-left-color:var(--teal)"><b>BI (broad definition):</b> an <span class="red">umbrella term</span> combining architectures, tools, databases, analytical tools, applications &amp; methodologies — a "content-free expression." Objective: <b>easy access to data so managers can analyse and act</b>.</div>
+    <h4>Four components of a BI system</h4>
+    <ul>
+      <li><b>Data warehouse</b> — organised, integrated source data (Ch.4).</li>
+      <li><b>Business analytics</b> — tools to manipulate, mine &amp; analyse data.</li>
+      <li><b>Business Performance Management (BPM)</b> — monitor &amp; analyse performance vs goals.</li>
+      <li><b>User interface</b> — e.g. dashboards &amp; scorecards.</li>
+    </ul>
+    <table>
+      <tr><th></th><th>OLTP</th><th>OLAP</th></tr>
+      <tr><td>Goal</td><td>Data capture (transactions)</td><td>Decision support (analysis)</td></tr>
+      <tr><td>Systems</td><td>ERP, SCM, CRM, POS</td><td>Data warehouses / marts</td></tr>
+    </table>
+    <p><b>BI analytical applications:</b> customer segmentation · propensity to buy · customer profitability · fraud detection · attrition (churn) · channel optimisation.</p>
+    <p><b>BI vs Analytics vs Data Science:</b> BI = mostly <em>descriptive</em> (reporting/OLAP/dashboards); Analytics = the science spanning descriptive→predictive→prescriptive; Data Science = knowledge extraction from big/unstructured data via ML/AI + programming.</p>
+  </section>
+
+  <section class="card" id="analytics">
+    <h2>The three types of analytics (the most-tested figure)</h2>
+    <table>
+      <tr><th></th><th>Descriptive (+ Diagnostic)</th><th>Predictive</th><th>Prescriptive</th></tr>
+      <tr><td><b>Question</b></td><td>What happened? Why?</td><td>What will happen?</td><td>What should I do? Why?</td></tr>
+      <tr><td><b>Enablers</b></td><td>Reporting, dashboards, scorecards, OLAP, DW, visualization</td><td>Data/text/web mining, forecasting, ML</td><td>Optimization, simulation, decision modelling, expert systems</td></tr>
+      <tr><td><b>Outcome</b></td><td>Well-defined problems</td><td>Accurate projections</td><td>Best possible decisions</td></tr>
+    </table>
+    <p>They are <b>cumulative</b>: prescriptive <em>uses</em> descriptive + predictive results to generate and choose alternatives. <b>INFORMS</b> defines analytics as combining computer technology, management science and statistics to solve problems. Maturity &amp; value rise from descriptive → prescriptive.</p>
+  </section>
+
+  <section class="card" id="bigdata">
+    <h2>Big Data &amp; the analytics ecosystem</h2>
+    <p><b>Big Data</b> = data too large/fast/varied for traditional tools — the <b>Vs</b>:</p>
+    <table>
+      <tr><td><b>Volume</b></td><td>Scale (TB→PB→ZB)</td></tr>
+      <tr><td><b>Variety</b></td><td>Structured + semi/unstructured (text, image, sensor, clickstream)</td></tr>
+      <tr><td><b>Velocity</b></td><td>Speed of generation/flow (batch → streaming)</td></tr>
+      <tr><td><b>Veracity</b></td><td>Trust / quality / uncertainty</td></tr>
+      <tr><td><b>Value</b></td><td>Worth extracted — data is <span class="red">worthless until analysed</span></td></tr>
+    </table>
+    <p>Enabling tech: <b>Hadoop</b> (HDFS + <b>MapReduce</b>), <b>NoSQL</b>, Hive/Pig, <b>Spark</b> (in-memory), stream processing, the cloud. The <b>analytics ecosystem</b> has 11 player types (infrastructure, DW, middleware, data-service providers; descriptive/predictive/prescriptive software; application developers; user organisations; analysts/influencers; academia; regulators).</p>
+  </section>
+
+  <section class="card" id="ai">
+    <h2>AI, machine learning &amp; the data scientist</h2>
+    <p>The 5th-edition framing adds <b>AI</b> as the engine that goes beyond presenting data to <em>recognising patterns, deriving insight and making autonomous decisions</em>. <b>Machine learning</b> &amp; <b>deep learning</b> are AI subsets that learn from data. The <b>data scientist</b> ("sexiest job of the 21st century") blends domain expertise + statistics + programming/databases + ML + communication — at the intersection of computer science, statistics &amp; business.</p>
+  </section>
+
+  <section class="card" id="cases">
+    <h2>Application cases</h2>
+    <p><b>Sabre</b> &amp; <b>Siemens</b> (Dundas BI) — interactive dashboards cut cost; <b>specialty steel</b> — analytics for available-to-promise dates; <b>CenterPoint Energy</b> — real-time Big Data + customer sentiment for outage prediction; <b>athletic injuries</b> — classification + sequence analysis. Pattern: each names a <em>problem</em>, an <em>analytics type</em>, and a <em>measurable payoff</em>.</p>
+  </section>
+
+  <section class="card" id="exam">
+    <h2>Exam focus</h2>
+    <div class="exam"><b>Most-tested:</b> Simon's 4 phases (name &amp; order); the descriptive/predictive/prescriptive table; the Gorry–Scott-Morton grid; OLTP vs OLAP; "BI is an umbrella/content-free term"; BI's 4 components; the 3 (→5) Vs of Big Data; DSS definition &amp; 4 components; how BI/analytics/data science differ.</div>
+    <p><b>↔ Readings:</b> <a href="R1.html">R1</a> (DSS taxonomy), <a href="R2.html">R2</a> (BI's role in performance), <a href="R9.html">R9</a> (DSS for tool evaluation).</p>
+  </section>
+
+  </main>
+</div>
+<footer>Ch.1 · Overview of BI, Analytics, Data Science &amp; AI · BIA midterm full-detail page · <a href="index.html">back to hub</a></footer>
+</body>
+</html>

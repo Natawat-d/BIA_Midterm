@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 1 — Business Intelligence, Analytics, and Data Science | Comprehensive Summary</title>
+<style>
+  :root {
+    --teal: #1a7a96;
+    --teal-dark: #0f5a70;
+    --red: #c0392b;
+    --bg: #f7f9fa;
+    --card: #ffffff;
+    --ink: #1f2d33;
+    --muted: #5c6b72;
+    --border: #d9e2e6;
+    --descriptive: #2e6da4;
+    --predictive: #27865a;
+    --prescriptive: #c0622b;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  header.hero {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    color: #fff;
+    padding: 56px 32px 44px;
+    text-align: center;
+  }
+  header.hero .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    opacity: 0.85;
+    margin-bottom: 12px;
+  }
+  header.hero h1 {
+    margin: 0 auto;
+    max-width: 900px;
+    font-size: 2.2rem;
+    line-height: 1.25;
+  }
+  header.hero p.sub {
+    margin-top: 16px;
+    opacity: 0.9;
+    font-size: 1.05rem;
+  }
+  .layout { display: flex; max-width: 1180px; margin: 0 auto; gap: 32px; padding: 32px; align-items: flex-start; }
+  nav.toc {
+    position: sticky;
+    top: 24px;
+    flex: 0 0 240px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    font-size: 0.92rem;
+  }
+  nav.toc h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin: 0 0 12px; }
+  nav.toc ol { margin: 0; padding-left: 20px; }
+  nav.toc li { margin-bottom: 8px; }
+  nav.toc a { color: var(--teal-dark); text-decoration: none; }
+  nav.toc a:hover { text-decoration: underline; }
+  main { flex: 1 1 auto; min-width: 0; }
+  section.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 28px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  section.card h2 {
+    color: var(--teal);
+    margin-top: 0;
+    border-bottom: 3px solid var(--teal);
+    padding-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  section.card h3 { color: var(--teal-dark); font-size: 1.15rem; margin-top: 26px; }
+  .lead { font-size: 1.05rem; color: var(--muted); }
+  .red { color: var(--red); font-weight: 600; }
+  .badge {
+    display: inline-block;
+    background: var(--teal);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 9px;
+    border-radius: 999px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.95rem; }
+  th, td { border: 1px solid var(--border); padding: 10px 12px; text-align: left; vertical-align: top; }
+  th { background: #eef4f6; color: var(--teal-dark); }
+  ul.clean { list-style: none; padding-left: 0; }
+  ul.clean li { padding: 6px 0 6px 26px; position: relative; }
+  ul.clean li::before { content: "▸"; color: var(--teal); position: absolute; left: 4px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
+  .atype {
+    border-radius: 10px;
+    padding: 18px;
+    color: #fff;
+  }
+  .atype h4 { margin: 0 0 6px; font-size: 1.1rem; }
+  .atype.descriptive { background: var(--descriptive); }
+  .atype.predictive { background: var(--predictive); }
+  .atype.prescriptive { background: var(--prescriptive); }
+  .atype .q { font-style: italic; opacity: 0.92; margin-bottom: 10px; }
+  .atype ul { margin: 8px 0 0; padding-left: 18px; font-size: 0.9rem; }
+  .flow {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+    background: #eef4f6; border-radius: 10px; padding: 16px; margin: 16px 0;
+    font-weight: 600; color: var(--teal-dark);
+  }
+  .flow span.step { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 6px 12px; }
+  .flow span.arrow { color: var(--teal); font-size: 1.2rem; }
+  .timeline { border-left: 3px solid var(--teal); margin: 18px 0; padding-left: 22px; }
+  .timeline .t-item { margin-bottom: 16px; position: relative; }
+  .timeline .t-item::before {
+    content: ""; width: 12px; height: 12px; background: var(--teal); border-radius: 50%;
+    position: absolute; left: -29px; top: 6px;
+  }
+  .timeline .decade { font-weight: 700; color: var(--teal-dark); }
+  .matrix td.h { background: #eef4f6; font-weight: 600; color: var(--teal-dark); }
+  .callout {
+    background: #fff7f5; border-left: 4px solid var(--prescriptive);
+    padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 18px 0;
+  }
+  .callout.teal { background: #eef7fa; border-left-color: var(--teal); }
+  .pillgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; }
+  .pillgrid div { background: #eef4f6; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-size: 0.9rem; text-align: center; }
+  .case { border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; margin-bottom: 14px; background: #fafcfc; }
+  .case h4 { margin: 0 0 4px; color: var(--teal-dark); }
+  .case .qd { font-size: 0.9rem; color: var(--muted); }
+  /* Analytics in Action visuals */
+  .pipeline { display: flex; flex-direction: column; gap: 10px; margin: 18px 0; }
+  .layer { display: flex; align-items: stretch; gap: 12px; }
+  .layer .tag {
+    flex: 0 0 150px; display: flex; align-items: center; justify-content: center;
+    text-align: center; font-weight: 700; color: #fff; border-radius: 8px; padding: 12px; font-size: 0.9rem;
+  }
+  .layer .body {
+    flex: 1; background: #f3f8fa; border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 16px; font-size: 0.92rem;
+  }
+  .layer .body strong { color: var(--teal-dark); }
+  .layer.l1 .tag { background: #7aa86a; }
+  .layer.l2 .tag { background: #4a8fb0; }
+  .layer.l3 .tag { background: #c0622b; }
+  .layer.l4 .tag { background: #6b5b95; }
+  .layer .arrow-down { text-align: center; color: var(--teal); font-size: 1.3rem; }
+  .ensemble { margin: 18px 0; }
+  .ensemble .stage { margin-bottom: 14px; }
+  .ensemble .stage .num {
+    display: inline-block; width: 26px; height: 26px; line-height: 26px; text-align: center;
+    background: var(--red); color: #fff; border-radius: 50%; font-weight: 700; margin-right: 8px;
+  }
+  .algos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 10px 0; }
+  .algos div { background: #efeaf5; border: 1px solid #d6cce6; border-radius: 8px; padding: 10px; text-align: center; font-size: 0.88rem; font-weight: 600; color: #5b4a7a; }
+  .funnel { text-align: center; background: #eef7fa; border: 1px dashed var(--teal); border-radius: 8px; padding: 12px; font-weight: 600; color: var(--teal-dark); }
+  .inputs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 10px 0; }
+  .inputs div { background: #eef4f6; border: 1px solid var(--border); border-radius: 8px; padding: 10px; text-align: center; font-size: 0.86rem; }
+  footer { text-align: center; padding: 28px; color: var(--muted); font-size: 0.85rem; }
+  @media (max-width: 880px) {
+    .layout { flex-direction: column; }
+    nav.toc { position: static; flex: 1 1 auto; width: 100%; }
+    .grid-3, .pillgrid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">Business Intelligence &amp; Analytics · Chapter 1</div>
+  <h1>An Overview of Business Intelligence, Analytics, and Data Science</h1>
+  <p class="sub">A managerial perspective — from Decision Support Systems to Big Data and the analytics ecosystem</p>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#objectives">Learning Objectives</a></li>
+      <li><a href="#drivers">Evolving Needs</a></li>
+      <li><a href="#dss">Decision Support Systems</a></li>
+      <li><a href="#bi">Business Intelligence</a></li>
+      <li><a href="#dssbi">DSS vs BI &amp; OLTP/OLAP</a></li>
+      <li><a href="#analytics">Types of Analytics</a></li>
+      <li><a href="#bigdata">Big Data</a></li>
+      <li><a href="#ecosystem">Analytics Ecosystem</a></li>
+      <li><a href="#cases">Application Cases</a></li>
+      <li><a href="#inaction">Analytics in Action</a></li>
+      <li><a href="#book">Plan of the Book</a></li>
+      <li><a href="#takeaways">Key Takeaways</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section class="card" id="objectives">
+      <h2>1. Learning Objectives</h2>
+      <p class="lead">By the end of this chapter you should be able to:</p>
+      <ul class="clean">
+        <li><strong>1.1</strong> Understand the need for <span class="red">computerized support of managerial decision making</span>.</li>
+        <li><strong>1.2</strong> Recognize the <strong>evolution</strong> of such support toward <span class="red">analytics / data science</span>.</li>
+        <li><strong>1.3</strong> Describe the <span class="red">business intelligence (BI)</span> methodology and concepts.</li>
+        <li><strong>1.4</strong> Understand the various <span class="red">types of analytics</span> and selected applications.</li>
+        <li><strong>1.5</strong> Understand the <span class="red">analytics ecosystem</span> to identify key players and career opportunities.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="drivers">
+      <h2>2. Changing Business Environments &amp; Evolving Needs</h2>
+      <p>A set of forces is pushing organizations toward stronger decision support and analytics:</p>
+      <ul class="clean">
+        <li>Increased hardware, software, and network capabilities</li>
+        <li>Group communication and collaboration</li>
+        <li>Improved data management</li>
+        <li>Managing giant data warehouses and <strong>Big Data</strong></li>
+        <li>Analytical support for decisions</li>
+        <li>Overcoming human <strong>cognitive limits</strong> in processing and storing information</li>
+        <li>Knowledge management</li>
+        <li>"Anywhere, anytime" support</li>
+      </ul>
+      <div class="callout teal">
+        <strong>Related terminology:</strong> Business Intelligence · Business Analytics · Decision Support Systems.
+        The recurring question of the chapter — <em>Is BI = DSS?</em>
+      </div>
+    </section>
+
+    <section class="card" id="dss">
+      <h2>3. Decision Support Systems (DSS)</h2>
+
+      <h3>Definition</h3>
+      <div class="callout teal">
+        <strong>DSS</strong> = interactive computer-based systems that help decision makers utilize <strong>data and models</strong> to solve <strong>unstructured problems</strong>.
+        <em>(Gorry &amp; Scott-Morton, 1971)</em><br>
+        They <strong>couple the intellectual resources of individuals with the capabilities of the computer</strong> to improve the quality of decisions. "Decision support" is an <strong>umbrella term</strong>, and BI is an evolution of these concepts over time.
+      </div>
+
+      <h3>Simon's Decision-Making Process (1977)</h3>
+      <div class="flow">
+        <span class="step">1. Intelligence</span><span class="arrow">→</span>
+        <span class="step">2. Design</span><span class="arrow">→</span>
+        <span class="step">3. Choice</span><span class="arrow">→</span>
+        <span class="step">4. Implementation</span><span class="arrow">→</span>
+        <span class="step">(5. Monitoring)</span>
+      </div>
+      <table>
+        <tr><th>Phase</th><th>What happens</th></tr>
+        <tr><td><strong>Intelligence</strong></td><td>Define the problem or opportunity.</td></tr>
+        <tr><td><strong>Design</strong></td><td>Construct a model that describes the real-world problem and identify possible solutions.</td></tr>
+        <tr><td><strong>Choice</strong></td><td>Compare, choose, and recommend a potential solution.</td></tr>
+        <tr><td><strong>Implementation</strong></td><td>Put the recommended solution to work.</td></tr>
+        <tr><td><strong>Monitoring</strong></td><td>(Often treated as part of intelligence) — track results.</td></tr>
+      </table>
+      <p class="lead" style="margin-bottom:0;">Classic illustration: the decision to <em>purchase a car</em> walks through all five phases.</p>
+
+      <h3>Early Decision Support Framework (Gorry &amp; Scott-Morton, 1971)</h3>
+      <p>Decisions are classified along two axes — <strong>type of decision</strong> × <strong>type of control</strong>:</p>
+      <table class="matrix">
+        <tr>
+          <td class="h"></td>
+          <th>Operational Control</th>
+          <th>Managerial Control</th>
+          <th>Strategic Planning</th>
+        </tr>
+        <tr>
+          <td class="h">Structured</td>
+          <td>Accounts receivable/payable, order entry</td>
+          <td>Budget analysis, short-term forecasting, make-or-buy</td>
+          <td>Financial management, investment portfolio, warehouse location</td>
+        </tr>
+        <tr>
+          <td class="h">Semistructured</td>
+          <td>Production scheduling, inventory control</td>
+          <td>Credit evaluation, budget prep, project scheduling</td>
+          <td>Building a plant, mergers &amp; acquisitions, new-product planning</td>
+        </tr>
+        <tr>
+          <td class="h">Unstructured</td>
+          <td>Buying software, approving loans, help desk</td>
+          <td>Negotiating, recruiting an executive, buying hardware</td>
+          <td>R&amp;D planning, new tech development, social responsibility</td>
+        </tr>
+      </table>
+
+      <h3>Components of a DSS</h3>
+      <ul class="clean">
+        <li><strong>Data management</strong> — internal/external data (ERP/POS, legacy, web)</li>
+        <li><strong>Model management</strong> — and external models</li>
+        <li><strong>Knowledge-based subsystems</strong> — tied to the organizational knowledgebase</li>
+        <li><strong>User interface</strong> — connecting the manager (user) to the system</li>
+      </ul>
+    </section>
+
+    <section class="card" id="bi">
+      <h2>4. Business Intelligence (BI)</h2>
+
+      <h3>Definition</h3>
+      <div class="callout">
+        <span class="red">Broad definition:</span> BI is an <strong>umbrella term</strong> that combines architectures, tools, databases, analytical tools, applications, and methodologies. It is a <em>content-free expression</em>, so it means different things to different people.
+      </div>
+      <ul class="clean">
+        <li>BI's major objective: <strong>enable easy access to data (and models)</strong> so business managers can conduct analysis.</li>
+        <li>BI helps <strong>transform</strong> data into the action chain below:</li>
+      </ul>
+      <div class="flow">
+        <span class="step">Data</span><span class="arrow">→</span>
+        <span class="step">Information / Knowledge</span><span class="arrow">→</span>
+        <span class="step">Decisions</span><span class="arrow">→</span>
+        <span class="step">Action</span>
+      </div>
+
+      <h3>A Brief History of BI</h3>
+      <p>The term <strong>"BI" was coined by the Gartner Group in the mid-1990s</strong>, but the concept is much older:</p>
+      <div class="timeline">
+        <div class="t-item"><span class="decade">1970s</span> — MIS reporting: static / periodic reports, DSS.</div>
+        <div class="t-item"><span class="decade">1980s</span> — Executive Information Systems (EIS).</div>
+        <div class="t-item"><span class="decade">1990s</span> — OLAP; dynamic, multidimensional, ad-hoc reporting → the term "BI" is coined.</div>
+        <div class="t-item"><span class="decade">2010s</span> — AI &amp; data/text mining; web portals/dashboards, Big Data, social media, analytics.</div>
+        <div class="t-item"><span class="decade">2020s</span> — "Yet to be seen."</div>
+      </div>
+
+      <h3>Architecture of BI — Four Major Components</h3>
+      <table>
+        <tr><th>Component</th><th>Role</th></tr>
+        <tr><td><span class="red">Data warehouse</span></td><td>Holds the source data, organized/summarized/standardized by technical staff.</td></tr>
+        <tr><td><span class="red">Business analytics</span></td><td>A collection of tools for manipulating, mining, and analyzing the data in the warehouse.</td></tr>
+        <tr><td><span class="red">Performance &amp; strategy</span></td><td>Business performance management (BPM) for monitoring and analyzing performance.</td></tr>
+        <tr><td><span class="red">User interface</span></td><td>e.g., dashboards used by managers/executives.</td></tr>
+        <tr><td><em>(Future)</em></td><td><em>An emerging intelligent component.</em></td></tr>
+      </table>
+      <p>Origins &amp; drivers (Fig. 1.9) feeding into BI include querying/reporting, ETL, metadata, data marts, EIS/ESS, financial reporting, OLAP, dashboards &amp; scorecards, workflow, alerts, data &amp; text mining, predictive analytics, broadcasting tools, portals, and spreadsheets.</p>
+
+      <h3>Planning, Alignment &amp; Real-Time BI</h3>
+      <ul class="clean">
+        <li>Planning &amp; execution must align across <strong>Business, Organization, Functionality, and Infrastructure</strong>.</li>
+        <li>A <strong>BI Competency Center</strong> links BI to strategy, encourages user–IS interaction, and acts as a repository of best practices.</li>
+        <li><strong>Real-time / on-demand BI</strong> is enabled by RFID, web services, and intelligent agents — but justify whether real-time is worth the extra expense.</li>
+      </ul>
+
+      <h3>Critical BI System Considerations</h3>
+      <div class="pillgrid">
+        <div>Make vs. Buy / BI shells</div>
+        <div>Justification &amp; cost–benefit</div>
+        <div>Security</div>
+        <div>Protection of privacy</div>
+        <div>Integration with other systems</div>
+        <div>Developing or acquiring</div>
+      </div>
+    </section>
+
+    <section class="card" id="dssbi">
+      <h2>5. DSS–BI Connections &amp; OLTP vs OLAP</h2>
+
+      <h3>Is DSS = BI?</h3>
+      <table>
+        <tr><th>Dimension</th><th>Comparison</th></tr>
+        <tr><td>Similarities</td><td>Similar architectures and data focus.</td></tr>
+        <tr><td>Support</td><td>Direct (DSS) vs. indirect (BI) support.</td></tr>
+        <tr><td>Audience</td><td>Different target audiences.</td></tr>
+        <tr><td>Sourcing</td><td>Commercially available systems (BI) vs. in-house development (DSS).</td></tr>
+        <tr><td>Origin</td><td>Industry (BI) vs. academia (DSS).</td></tr>
+      </table>
+
+      <h3>Transaction vs. Analytic Processing</h3>
+      <table>
+        <tr><th></th><th>OLTP — Online Transaction Processing</th><th>OLAP — Online Analytical Processing</th></tr>
+        <tr><td>Systems</td><td>Operational databases; ERP, SCM, CRM</td><td>Data warehouses</td></tr>
+        <tr><td>Goal</td><td>Data capture</td><td>Decision support</td></tr>
+      </table>
+      <p class="lead" style="margin-bottom:0;">OLTP feeds OLAP: operational systems capture transactions that are later organized into the warehouse for analysis.</p>
+    </section>
+
+    <section class="card" id="analytics">
+      <h2>6. Types of Analytics</h2>
+      <p>Per <strong>INFORMS</strong>, analytics is the combination of <strong>computer technology, management science techniques, and statistics</strong> to solve real problems — the process of developing actionable decisions or recommendations based on insights from historical data.</p>
+
+      <div class="grid-3">
+        <div class="atype descriptive">
+          <h4>Descriptive</h4>
+          <div class="q">"What happened? What is happening?"</div>
+          <strong>Enablers</strong>
+          <ul>
+            <li>Business reporting</li>
+            <li>Dashboards &amp; scorecards</li>
+            <li>Data warehousing / OLAP</li>
+            <li>Descriptive statistics &amp; visualization</li>
+          </ul>
+          <em>Outcome: well-defined problems &amp; opportunities (retrospective analysis of historic data).</em>
+        </div>
+        <div class="atype predictive">
+          <h4>Predictive</h4>
+          <div class="q">"What will happen? Why will it happen?"</div>
+          <strong>Enablers</strong>
+          <ul>
+            <li>Data mining</li>
+            <li>Text mining / web mining</li>
+            <li>Forecasting (time series)</li>
+          </ul>
+          <em>Outcome: accurate projections of future events — using past data to predict the future.</em>
+        </div>
+        <div class="atype prescriptive">
+          <h4>Prescriptive</h4>
+          <div class="q">"What should I do? Why should I do it?"</div>
+          <strong>Enablers</strong>
+          <ul>
+            <li>Optimization</li>
+            <li>Simulation</li>
+            <li>Multi-criteria decision modeling</li>
+            <li>Heuristic programming / expert systems</li>
+          </ul>
+          <em>Outcome: best possible decisions &amp; actions — uses descriptive + predictive to build and choose among alternatives.</em>
+        </div>
+      </div>
+
+      <h3>Analytics Examples in Selected Domains</h3>
+      <p><strong>Healthcare (Humana):</strong> preventing falls in a senior population; predictive models to identify the highest-risk membership in a health insurer.</p>
+      <p><strong>Retail value chain (Table 1.1):</strong></p>
+      <table>
+        <tr><th>Analytic Application</th><th>Business Question</th><th>Business Value</th></tr>
+        <tr>
+          <td>Inventory Optimization</td>
+          <td>Which products have high demand? Which are slow-moving/obsolete?</td>
+          <td>Forecast fast movers to avoid stock-outs; turn over slow movers by bundling with high-demand items.</td>
+        </tr>
+        <tr>
+          <td>Price Elasticity</td>
+          <td>What net margin do I have? How much discount can I give?</td>
+          <td>Optimize markdown prices and bundle pricing to protect margin dollars.</td>
+        </tr>
+        <tr>
+          <td>Market Basket Analysis</td>
+          <td>What products should I bundle? Same or different categories?</td>
+          <td>Affinity analysis reveals hidden correlations to drive cross-sell / up-sell.</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="card" id="bigdata">
+      <h2>7. A Brief Introduction to Big Data Analytics</h2>
+      <ul class="clean">
+        <li>Big Data is data that <strong>cannot be stored or processed easily using traditional tools/means</strong>.</li>
+        <li>It comes in many forms: large, structured, unstructured, continuous.</li>
+        <li>Data — Big or otherwise — is <strong>worthless unless analyzed</strong> to provide business value.</li>
+      </ul>
+      <div class="pillgrid" style="grid-template-columns:repeat(3,1fr);">
+        <div><strong>Volume</strong><br>scale of data</div>
+        <div><strong>Variety</strong><br>forms &amp; sources</div>
+        <div><strong>Velocity</strong><br>speed / continuity</div>
+      </div>
+      <p class="lead" style="margin-bottom:0;">The classic <strong>3 V's</strong> characterize Big Data.</p>
+    </section>
+
+    <section class="card" id="ecosystem">
+      <h2>8. The Analytics Ecosystem</h2>
+      <p>To identify providers, roles, jobs, and investment opportunities, industry participants are classified into clusters (Fig. 1.13), with the <strong>Analytics User Organization</strong> at the center:</p>
+      <ul class="clean">
+        <li>Data Generation Infrastructure Providers</li>
+        <li>Data Management Infrastructure Providers</li>
+        <li>Data Warehouse Providers</li>
+        <li>Middleware Providers</li>
+        <li>Data Service Providers</li>
+        <li>Analytics-Focused Software Developers (Descriptive · Predictive · Prescriptive)</li>
+        <li>Application Developers — Industry-Specific or General</li>
+        <li>Analytics Industry Analysts &amp; Influencers</li>
+        <li>Academic Institutions &amp; Certification Agencies (certificates, master's, undergrad — offered via MIS, engineering, marketing, statistics, computer science)</li>
+        <li>Regulators &amp; Policy Makers</li>
+      </ul>
+      <div class="callout teal">
+        <strong>Career angle:</strong> the ecosystem helps you identify providers (as a consumer), roles (as a provider), job opportunities, entrepreneurial/investment opportunities, and understand the future landscape of computerized decision systems.
+      </div>
+    </section>
+
+    <section class="card" id="cases">
+      <h2>9. Application Cases &amp; Analytics in Action</h2>
+
+      <div class="case">
+        <h4>Case 1.1 — Sabre: Dashboards &amp; Analytics</h4>
+        <div class="qd">Discussion: What is traditional reporting? How can analytics transform it? How does interactive reporting aid decision making?</div>
+      </div>
+      <div class="case">
+        <h4>Case 1.3 — Siemens: Data Visualization</h4>
+        <div class="qd">Challenges faced by Siemens' visual analytics group; how <span class="red">Dundas BI</span> reduced cost via interactive dashboards that detect issues.</div>
+      </div>
+      <div class="case">
+        <h4>Case 1.4 — Analyzing Athletic Injuries</h4>
+        <div class="qd">Which analytics types apply; how visualizations deliver insight; what a classification problem is; what sequence analysis derives.</div>
+      </div>
+      <div class="case">
+        <h4>Case 1.5 — Specialty Steel Bar Co.: Available-to-Promise Dates</h4>
+        <div class="qd">Why reallocating inventory between customers is a major issue; how a DSS/BIS supports those decisions.</div>
+      </div>
+      <div class="case">
+        <h4>Case 1.6 — CenterPoint Energy: Real-Time Big Data</h4>
+        <div class="qd">Predicting outages by location; what customer sentiment analysis is; how it personalizes service.</div>
+      </div>
+
+      <p class="lead" style="margin-bottom:0;">The chapter's flagship end-to-end story — the Purina PANDA platform — gets its own section below. <a href="#inaction">Jump to Analytics in Action →</a></p>
+    </section>
+
+    <section class="card" id="inaction">
+      <h2>10. Analytics in Action — Purina PANDA Platform</h2>
+      <p class="lead"><em>"How Big Will Be the Beef? Understanding Animals' Eating Behavior and Their Final Weight."</em></p>
+      <p>This is the chapter's one fully worked example that ties the whole BI/analytics pipeline together: Purina (a pet/animal nutrition company) built the <strong>PANDA</strong> platform to predict an animal's <strong>final weight after a 63-day feeding trial</strong> from its eating behavior — informing new-product (feed) development.</p>
+
+      <h3>Figure 1 — PANDA Platform Architecture (four layers)</h3>
+      <p>The architecture mirrors the generic BI stack: capture → store/clean → analyze → visualize.</p>
+      <div class="pipeline">
+        <div class="layer l1">
+          <div class="tag">Data Acquisition Layer</div>
+          <div class="body"><strong>Purina Research Facility.</strong> Barns (animals) generate data → data-acquisition software → shared SSD drive → <strong>Cloud Data Gateway</strong> pushes it to the cloud.</div>
+        </div>
+        <div class="arrow-down">↓</div>
+        <div class="layer l2">
+          <div class="tag">Transactional Layer</div>
+          <div class="body"><strong>Microsoft Azure Cloud.</strong> <strong>PANDA Data Governance</strong> + a <strong>Data Quality Manager</strong> route data through an Azure SQL database, splitting <em>errored data</em> (sent back for fixes) from <em>clean data</em>. Azure Repos / Pipelines / Function Apps / DevOps + Blob Storage support the flow.</div>
+        </div>
+        <div class="arrow-down">↓</div>
+        <div class="layer l3">
+          <div class="tag">Analytical Layer</div>
+          <div class="body">Clean data feeds the <strong>Analytics</strong> engine and analytical layers, landing in an <strong>Azure SQL Data Warehouse</strong> ready for modeling and querying.</div>
+        </div>
+        <div class="arrow-down">↓</div>
+        <div class="layer l4">
+          <div class="tag">Visualization Layer</div>
+          <div class="body"><strong>Purina Researchers</strong> consume results through <strong>Power BI</strong> — reporting, dashboarding, monitoring, and statistical analysis.</div>
+        </div>
+      </div>
+      <div class="callout teal">
+        <strong>Notice the mapping:</strong> this is exactly the BI architecture from §4 in practice — data warehouse (Analytical Layer) → business analytics (Analytics engine) → performance/monitoring → user interface (Power BI dashboards).
+      </div>
+
+      <h3>Figure 2 — Analytics Model Development Process (an ML ensemble)</h3>
+      <div class="ensemble">
+        <div class="stage">
+          <span class="num">1</span><strong>Data set assembled</strong> — features combined from multiple sources:
+          <div class="inputs">
+            <div>Initial &amp; intermediate animal weights</div>
+            <div>Daily consumption</div>
+            <div>Other inferred features</div>
+            <div>Weather data (NOAA)</div>
+          </div>
+        </div>
+        <div class="stage">
+          <span class="num">2</span><strong>Multiple ML algorithms applied</strong> in parallel:
+          <div class="algos">
+            <div>Ridge Linear Model</div>
+            <div>Gradient Boosting</div>
+            <div>Random Forests</div>
+            <div>Support Vector Machines</div>
+          </div>
+        </div>
+        <div class="stage">
+          <span class="num">3</span><strong>Results combined intelligently</strong> — the average of all predictions is taken:
+          <div class="funnel">⤵ Average of all predictions → Prediction of final animal weight after 63 days on trial</div>
+        </div>
+      </div>
+      <p class="lead" style="margin-bottom:0;">This is a textbook <strong>predictive-analytics ensemble</strong>: several diverse models are blended (averaged) to produce a more robust forecast than any single model.</p>
+
+      <h3>What can we learn from this story?</h3>
+      <ul class="clean">
+        <li><strong>Data platforms come first.</strong> Most organizations still face data issues; building a platform to share all internal and most external data is <em>expensive but crucial</em> to begin any data-science journey.</li>
+        <li><strong>Communication is critical.</strong> Constant dialogue between business domain experts and data-science teams drives success.</li>
+        <li><strong>EDA &amp; feature engineering are the keys.</strong> Exploratory data analysis and feature engineering matter most for model development.</li>
+        <li><strong>Speed is a payoff.</strong> An analytics platform significantly accelerates product experimentation in new-product development.</li>
+      </ul>
+    </section>
+
+    <section class="card" id="book">
+      <h2>11. Plan of the Book</h2>
+      <p><em>Business Intelligence, Analytics, Data Science and AI: A Managerial Perspective</em> is organized into five parts:</p>
+      <table>
+        <tr><th>Part</th><th>Chapters</th></tr>
+        <tr><td><strong>Introduction</strong></td><td>Ch. 1 — Overview of BI, Analytics &amp; Data Science · Ch. 2 — AI, Robotics &amp; Smart Systems</td></tr>
+        <tr><td><strong>Descriptive Analytics</strong></td><td>Ch. 3 — Nature of Data, Big Data &amp; Statistical Modeling · Ch. 4 — BI, Data Warehousing &amp; Visualization</td></tr>
+        <tr><td><strong>Predictive Analytics</strong></td><td>Ch. 5 — Data Mining · Ch. 6 — Text, Web &amp; Social Media Analytics · Ch. 7 — Deep Learning, Explainable AI &amp; Cognitive Computing</td></tr>
+        <tr><td><strong>Prescriptive Analytics</strong></td><td>Ch. 8 — Optimization &amp; Simulation</td></tr>
+        <tr><td><strong>Software &amp; Trends</strong></td><td>Ch. 9 — Landscape of Software Tools &amp; Languages · Ch. 10 — New AI-Based Trends · Ch. 11 — Ethical, Privacy &amp; Managerial Considerations</td></tr>
+      </table>
+      <h3>Resources</h3>
+      <ul class="clean">
+        <li>The Data Warehousing Institute — tdwi.org</li>
+        <li>Data Science Central — datasciencecentral.com</li>
+        <li>Microsoft Enterprise Consortium — walton.uark.edu/enterprise</li>
+        <li>Teradata University for Academics — learning-academics.teradata.com</li>
+      </ul>
+    </section>
+
+    <section class="card" id="takeaways">
+      <h2>12. Key Takeaways</h2>
+      <ul class="clean">
+        <li><span class="badge">1</span> Decision support has evolved continuously: <strong>DSS → EIS → BI → Analytics → Big Data / Data Science</strong>.</li>
+        <li><span class="badge">2</span> <strong>DSS</strong> couples human intellect with computers to tackle unstructured problems via Simon's Intelligence → Design → Choice → Implementation cycle.</li>
+        <li><span class="badge">3</span> <strong>BI</strong> is an umbrella term; its goal is easy access to data to turn <em>data → information → decisions → action</em>, resting on four components (DW, analytics, performance/strategy, UI).</li>
+        <li><span class="badge">4</span> Analytics comes in three flavors — <strong>Descriptive</strong> (what happened), <strong>Predictive</strong> (what will happen), <strong>Prescriptive</strong> (what to do).</li>
+        <li><span class="badge">5</span> <strong>Big Data</strong> (Volume, Variety, Velocity) is valuable only when analyzed.</li>
+        <li><span class="badge">6</span> The <strong>analytics ecosystem</strong> spans many provider clusters and offers diverse career paths.</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  Comprehensive summary of <strong>Chapter 1 — An Overview of Business Intelligence, Analytics, and Data Science</strong>.<br>
+  Generated for study purposes · BIA course.
+</footer>
+
+</body>
+</html>

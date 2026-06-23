@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R9 — Integrated DSS for Evaluating Data Mining Tools in an Economic Intelligence System (Salah et al., 2025) · Full Detail</title>
+<style>
+  :root{--teal:#1a7a96;--teal-dark:#0f5a70;--red:#c0392b;--orange:#c0622b;--green:#2e8b57;--purple:#7a5ca8;--bg:#f7f9fa;--card:#fff;--ink:#1f2d33;--muted:#5c6b72;--border:#d9e2e6;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;}
+  a{color:var(--teal-dark);}
+  header.hero{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:34px 26px 26px;}
+  header.hero .home{font-size:.82rem;color:#d7eef4;text-decoration:none;}
+  header.hero .chip{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 10px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin:10px 0 8px;}
+  header.hero h1{margin:0;font-size:1.65rem;line-height:1.25;max-width:900px;}
+  header.hero .cite{margin-top:10px;font-size:.9rem;opacity:.92;max-width:900px;}
+  .layout{display:flex;max-width:1140px;margin:0 auto;gap:28px;padding:26px 22px 48px;align-items:flex-start;}
+  nav.toc{position:sticky;top:16px;flex:0 0 210px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:.84rem;max-height:calc(100vh - 32px);overflow-y:auto;}
+  nav.toc h2{font-size:.7rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:0 0 8px;}
+  nav.toc a{display:block;color:var(--teal-dark);text-decoration:none;padding:3px 0;}
+  nav.toc a:hover{text-decoration:underline;}
+  main{flex:1 1 auto;min-width:0;}
+  section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  section.card>h2{color:var(--teal);margin-top:0;border-bottom:3px solid var(--teal);padding-bottom:8px;font-size:1.3rem;}
+  h3{color:var(--teal-dark);font-size:1.07rem;margin:20px 0 6px;border-left:4px solid var(--teal);padding-left:9px;}
+  h4{color:var(--teal-dark);margin:14px 0 4px;font-size:.98rem;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef4f6;color:var(--teal-dark);}
+  code{background:#eef4f6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  .idea{background:#fdf3ea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .idea b{color:var(--red);}
+  .ex{background:#eef7fa;border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.95rem;}
+  .ex b{color:var(--teal-dark);}
+  .exam{background:#fbf4ec;border-left:4px solid var(--orange);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .exam b{color:var(--orange);}
+  .meta-grid{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:.92rem;}
+  .meta-grid dt{font-weight:700;color:var(--teal-dark);}
+  .meta-grid dd{margin:0;}
+  .red{color:var(--red);font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:22px;border-top:1px solid var(--border);}
+  @media(max-width:860px){.layout{flex-direction:column;}nav.toc{position:static;width:100%;max-height:none;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="home" href="index.html">← Midterm Prep Hub</a>
+  <div class="chip">READING 9 · FULL DETAIL</div>
+  <h1>Towards an Integrated Decision Support System for the Evaluation of Data Mining Tools in an Economic Intelligence System</h1>
+  <div class="cite">Hussein Ali Salah (Middle Technical Univ., Iraq), Ahmed Shihab Ahmed (Univ. of Baghdad, Iraq) &amp; Safa Bhar Layeb (Univ. of Tunis El Manar, Tunisia) · <em>JOIV: Int. J. Informatics Visualization</em>, 9(6), Nov 2025, pp. 2487–2502.</div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>On this page</h2>
+    <a href="#glance">At a glance</a>
+    <a href="#problem">Problem &amp; goal</a>
+    <a href="#concepts">Key concepts</a>
+    <a href="#toolcrit">Tool-evaluation criteria</a>
+    <a href="#tools">The tools compared</a>
+    <a href="#method">Method &amp; algorithms</a>
+    <a href="#results">Results (+2.76%)</a>
+    <a href="#why">Why C4.5 beat LR</a>
+    <a href="#concl">Conclusions</a>
+    <a href="#course">Course link &amp; exam</a>
+  </nav>
+  <main>
+
+  <section class="card" id="glance">
+    <h2>At a glance</h2>
+    <dl class="meta-grid">
+      <dt>Authors</dt><dd>Salah, Ahmed &amp; Layeb (Iraq &amp; Tunisia)</dd>
+      <dt>Venue / year</dt><dd>JOIV 9(6), November 2025</dd>
+      <dt>Type</dt><dd>Applied study — an <b>integrated DSS</b> + a methodology to evaluate/select data-mining tools</dd>
+      <dt>Domain</dt><dd><b>Economic intelligence</b> (socioeconomic/financial decision-making)</dd>
+      <dt>Methods</dt><dd>Association rules + forecasting; compares <b>Naïve Bayes, Logistic Regression, C4.5</b> (incremental decision tree); <b>Apriori(T)</b>; WEKA</dd>
+      <dt>Headline result</dt><dd>The proposed <b>C4.5</b> approach beats Logistic Regression classification accuracy by <b>2.76%</b></dd>
+      <dt>Course link</dt><dd><b>Ch.1</b> (DSS) + <b>Ch.5</b> (DM classifiers) + <b>Ch.9</b> (tool evaluation)</dd>
+    </dl>
+    <div class="idea"><b>One-sentence takeaway:</b> the paper builds a socioeconomic-intelligence database and an <b>integrated DSS</b> that systematically <em>evaluates &amp; selects data-mining tools</em>, combining association-rule mining (Apriori) and classification — and shows its incremental <b>C4.5</b> model outperforms Logistic Regression by <b>2.76%</b> on economic intelligence data.</div>
+  </section>
+
+  <section class="card" id="problem">
+    <h2>Problem &amp; goal</h2>
+    <p>Information is critical in the economic world; firms must <b>find valuable knowledge for operations quickly &amp; accurately</b>. Current financial surveillance systems often fail to extract pertinent socioeconomic intelligence at high accuracy, and many contemporary methods (e.g., plain logistic regression) handle complex financial datasets poorly. There are also <b>few integrated frameworks</b> that blend association rules, predictive modeling and incremental learning for high-dimensional economic data. <b>Goal:</b> create a socioeconomic-intelligence database, operationalise it as a system, and use a <b>DSS to evaluate &amp; select the optimal data-mining tools</b> for better economic decisions.</p>
+  </section>
+
+  <section class="card" id="concepts">
+    <h2>Key concepts &amp; definitions</h2>
+    <dl class="meta-grid">
+      <dt>Economic intelligence</dt><dd>Using computer-based data-mining methods/processes for economic research — fusing econometric &amp; data-mining approaches over historical data.</dd>
+      <dt>DSS (data-driven)</dt><dd>Interactive systems that assist decision-making; data-driven DSS prioritise access to large structured/time-series data, with OLAP giving the highest functionality.</dd>
+      <dt>Association rules</dt><dd>Rules <code>X → Y</code> with <b>support</b> (frequency of the itemset) and <b>confidence</b> (P(Y|X)); found by <b>Apriori</b> via level-wise frequent-itemset search (anti-monotone property).</dd>
+      <dt>Incremental learning</dt><dd>Updating a model as new data arrives (here, an incremental C4.5 decision tree) — vital in dynamic economic environments.</dd>
+    </dl>
+  </section>
+
+  <section class="card" id="toolcrit">
+    <h2>The tool-evaluation criteria (the DSS's core)</h2>
+    <p>Because there are many DM algorithms/tools, choosing the right one is hard. The proposed selection methodology evaluates tools against a set of factors:</p>
+    <ul>
+      <li><b>Data mining activities / tasks</b> supported</li>
+      <li><b>Data models &amp; methodologies</b></li>
+      <li><b>Visualization</b> capability</li>
+      <li><b>Interface approaches</b></li>
+      <li><b>Data transfer &amp; import methods / systems</b></li>
+      <li><b>Authorization regulations</b> (security/access)</li>
+    </ul>
+    <p>This turns Ch.9's "no single best tool — use a toolbox" into a <b>systematic, multi-criteria selection process</b>.</p>
+  </section>
+
+  <section class="card" id="tools">
+    <h2>The data-mining tools compared</h2>
+    <table>
+      <tr><th>Tool</th><th>Note from the paper</th></tr>
+      <tr><td><b>WEKA</b></td><td>Good for management; interfaces with R; high-level statistical &amp; DM analysis; visualization could improve.</td></tr>
+      <tr><td><b>KNIME</b></td><td>Ideal for newcomers; most DM &amp; statistical analyses without external libraries; can be hard to practise the vast array of techniques.</td></tr>
+      <tr><td><b>Orange</b></td><td>Best for someone with high programming/DB understanding; limited visualization; outcome-focused.</td></tr>
+      <tr><td><b>JHepWork</b></td><td>Python-based DM tool; good for acquiring fresh knowledge via existing abilities.</td></tr>
+      <tr><td><b>Rattle</b></td><td>Cost- &amp; open-source GUI for the R statistical language → programming-language independent.</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="method">
+    <h2>Method &amp; algorithms</h2>
+    <p>The DSS follows the 5-step DM process: <b>Business Objective → Data Preparation → Mining Method → Evaluation → Integration of Information</b>. The economic-intelligence system for buildings used <b>six main classifications</b>.</p>
+    <ul>
+      <li><b>Algorithms compared:</b> incremental <b>Decision Tree C4.5</b>, <b>Logistic Regression</b>, <b>Naïve Bayes</b> — all in <b>WEKA</b>.</li>
+      <li><b>Association rules:</b> an optimised <b>Apriori(T)</b> for frequent itemsets (level-wise search, minimum support; e.g., a worked market-basket example with OJ/soda/milk and the co-occurrence table).</li>
+      <li><b>Validation:</b> <b>k-fold cross-validation</b> (k = 10); metrics = <b>Accuracy</b> and <b>F1-score</b> (= 2·Precision·Recall / (Precision+Recall)).</li>
+      <li><b>Significance:</b> a <b>paired t-test</b> over multiple runs confirms the 2.76% accuracy improvement is statistically significant (p &lt; 0.05).</li>
+    </ul>
+  </section>
+
+  <section class="card" id="results">
+    <h2>Results</h2>
+    <p>The proposed incremental <b>C4.5</b> algorithm achieved a <b>2.76% higher classification accuracy than Logistic Regression</b> in the incremental-learning scenario, with comparisons also made to Naïve Bayes and non-incremental variants. The DSS plus OLAP analysis (slice/dice/roll-up/drill-down on the economic cube) supports faster, more accurate economic-intelligence retrieval — and OLAP analysis also helps assess <b>Balanced Scorecard objectives</b>.</p>
+  </section>
+
+  <section class="card" id="why">
+    <h2>Why C4.5 outperformed Logistic Regression (5 reasons)</h2>
+    <ol>
+      <li><b>Non-linear relationships</b> — C4.5 models them; LR assumes a linear decision boundary.</li>
+      <li><b>Automatic feature selection</b> — C4.5 splits on <b>information gain</b>; LR needs manual preprocessing/regularisation.</li>
+      <li><b>Robustness to outliers/noise</b> — common in economic data; LR is skewed by extremes.</li>
+      <li><b>Categorical &amp; mixed data</b> — C4.5 handles natively; LR needs one-hot encoding (↑ dimensionality).</li>
+      <li><b>Interpretability</b> — C4.5 yields human-readable decision rules for decision-makers.</li>
+    </ol>
+  </section>
+
+  <section class="card" id="concl">
+    <h2>Conclusions</h2>
+    <p>The study contributes a <b>hybrid data-mining architecture</b> (association rules + classification + incremental learning) inside a <b>cost-effective, scalable DSS</b> for economic intelligence, plus a fresh <b>multi-criteria methodology to evaluate &amp; select DM tools</b>. It demonstrates superior accuracy (+2.76% over LR) and sets benchmarks for real-time, adaptive analysis of high-velocity financial data — a basis for better financial decision-making.</p>
+  </section>
+
+  <section class="card" id="course">
+    <h2>Course link &amp; exam angle</h2>
+    <p><b>↔ Ch.1</b> (DSS), <b>↔ Ch.5</b> (DM classifiers, association rules, evaluation), <b>↔ Ch.9</b> (systematic tool evaluation — "no single best tool"). It also nods to OLAP &amp; the Balanced Scorecard (Ch.4).</p>
+    <div class="exam"><b>Exam angle:</b> "<i>Discuss how the DSS supports economic intelligence and which classifiers it compares.</i>" Answer: an integrated DSS that <b>evaluates/selects DM tools</b> by criteria (tasks, data models, visualization, interfaces, transfer, authorization); combines <b>Apriori(T) association rules + classification</b>, comparing <b>Naïve Bayes, Logistic Regression &amp; C4.5</b> in WEKA; the incremental C4.5 beats LR by <b>2.76%</b>.</div>
+  </section>
+
+  </main>
+</div>
+<footer>R9 · Salah, Ahmed &amp; Layeb (2025), Integrated DSS for Evaluating DM Tools · BIA midterm full-detail page · <a href="index.html">back to hub</a></footer>
+</body>
+</html>

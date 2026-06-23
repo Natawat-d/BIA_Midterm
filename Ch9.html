@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.9 — The Landscape of Analytics Software Tools & Languages · Full Detail</title>
+<style>
+  :root{--teal:#1a7a96;--teal-dark:#0f5a70;--red:#c0392b;--orange:#c0622b;--green:#2e8b57;--purple:#7a5ca8;--bg:#f7f9fa;--card:#fff;--ink:#1f2d33;--muted:#5c6b72;--border:#d9e2e6;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;}
+  a{color:var(--teal-dark);}
+  header.hero{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:34px 26px 26px;}
+  header.hero .home{font-size:.82rem;color:#d7eef4;text-decoration:none;}
+  header.hero .chip{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 10px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin:10px 0 8px;}
+  header.hero h1{margin:0;font-size:1.7rem;line-height:1.25;max-width:900px;}
+  header.hero .cite{margin-top:10px;font-size:.9rem;opacity:.92;max-width:900px;}
+  .layout{display:flex;max-width:1140px;margin:0 auto;gap:28px;padding:26px 22px 48px;align-items:flex-start;}
+  nav.toc{position:sticky;top:16px;flex:0 0 215px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:.84rem;max-height:calc(100vh - 32px);overflow-y:auto;}
+  nav.toc h2{font-size:.7rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:0 0 8px;}
+  nav.toc a{display:block;color:var(--teal-dark);text-decoration:none;padding:3px 0;}
+  nav.toc a:hover{text-decoration:underline;}
+  main{flex:1 1 auto;min-width:0;}
+  section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  section.card>h2{color:var(--teal);margin-top:0;border-bottom:3px solid var(--teal);padding-bottom:8px;font-size:1.3rem;}
+  h3{color:var(--teal-dark);font-size:1.07rem;margin:20px 0 6px;border-left:4px solid var(--teal);padding-left:9px;}
+  h4{color:var(--teal-dark);margin:14px 0 4px;font-size:.98rem;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef4f6;color:var(--teal-dark);}
+  code{background:#eef4f6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  .idea{background:#fdf3ea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .idea b{color:var(--red);}
+  .ex{background:#eef7fa;border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.95rem;}
+  .ex b{color:var(--teal-dark);}
+  .exam{background:#fbf4ec;border-left:4px solid var(--orange);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .exam b{color:var(--orange);}
+  .red{color:var(--red);font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:22px;border-top:1px solid var(--border);}
+  @media(max-width:860px){.layout{flex-direction:column;}nav.toc{position:static;width:100%;max-height:none;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="home" href="index.html">← Midterm Prep Hub</a>
+  <div class="chip">CHAPTER 9 · FULL DETAIL</div>
+  <h1>The Landscape of Analytics Software Tools &amp; Languages</h1>
+  <div class="cite">Sharda, Delen &amp; Turban — Chapter 9. Choosing among the analytics "toolbox" — and the people who run it.</div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>On this page</h2>
+    <a href="#glance">Key idea</a>
+    <a href="#why">Why tools matter</a>
+    <a href="#dims">Four categorization dimensions</a>
+    <a href="#tools">The tools</a>
+    <a href="#choose">Choosing a tool</a>
+    <a href="#cloud">Cloud &amp; AutoML</a>
+    <a href="#roles">Team roles</a>
+    <a href="#cases">Application cases</a>
+    <a href="#exam">Exam focus</a>
+  </nav>
+  <main>
+
+  <section class="card" id="glance">
+    <h2>Key idea</h2>
+    <div class="idea"><b>Core message:</b> <b>No single tool is best at everything</b> — pursue a <b>toolbox approach</b>, choosing tools per task. Classify any tool along four dimensions.</div>
+  </section>
+
+  <section class="card" id="why">
+    <h2>Why tools matter</h2>
+    <p>Tools differ: some excel at preprocessing, others at flexible/powerful modelling, others at ease of learning &amp; deployment. Success factors: <b>rapid prototyping, cost of ownership, flexibility/expandability (open architecture), ease of deployment, security</b>. A data scientist's success depends on the toolbox <em>plus</em> maths/stats knowledge, platform experience, domain wisdom and team skills.</p>
+  </section>
+
+  <section class="card" id="dims">
+    <h2>Four categorization dimensions</h2>
+    <ol>
+      <li><b>Free vs Paid/Commercial</b> — community-free (KNIME, Orange, Weka) &amp; languages (R, Python) vs commercial.</li>
+      <li><b>Open vs Closed source</b> — source public (validate/extend) vs proprietary.</li>
+      <li><b>Local vs Server/Cloud</b> — desktop vs server/cloud-hosted.</li>
+      <li><b>Visual vs Syntactic</b> — workflow/pipeline GUI vs writing code.</li>
+    </ol>
+    <table>
+      <tr><th>Tool</th><th>Free/Paid</th><th>Open/Closed</th><th>Local/Server</th><th>Visual/Program</th></tr>
+      <tr><td>Python</td><td>Free</td><td>Open</td><td>L+S</td><td>Program</td></tr>
+      <tr><td>R</td><td>Free</td><td>Open</td><td>Local</td><td>Program</td></tr>
+      <tr><td>KNIME</td><td>Free</td><td>Open</td><td>L+S</td><td>Visual</td></tr>
+      <tr><td>RapidMiner</td><td>Free/Paid</td><td>Open</td><td>L+S</td><td>Visual</td></tr>
+      <tr><td>Orange / Weka</td><td>Free</td><td>Open</td><td>Local</td><td>Visual</td></tr>
+      <tr><td>Tableau</td><td>Paid</td><td>Closed</td><td>L+S</td><td>Visual</td></tr>
+      <tr><td>Power BI</td><td>Free/Paid</td><td>Closed</td><td>L+S</td><td>Visual</td></tr>
+      <tr><td>SAS EM / Viya</td><td>Paid</td><td>Closed</td><td>L / S</td><td>Visual</td></tr>
+      <tr><td>IBM SPSS Modeler / Watson</td><td>Paid</td><td>Closed</td><td>L / S</td><td>Visual</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="tools">
+    <h2>The tools</h2>
+    <table>
+      <tr><th>Tool</th><th>Note</th></tr>
+      <tr><td><b>R</b></td><td>Statistical computation &amp; graphics; interpreted; distributed via <b>CRAN</b>; GUI = Rattle. Best for stats-heavy analysis.</td></tr>
+      <tr><td><b>Python</b></td><td>General-purpose; full analytics/ML/DL stack (pandas, scikit-learn, TensorFlow/PyTorch). IDEs: Anaconda, Jupyter, Colab, VS Code.</td></tr>
+      <tr><td><b>KNIME</b></td><td>Konstanz Information Miner; 2000+ nodes; visual workflows; free for everything; expandable via Python/R/JS.</td></tr>
+      <tr><td><b>Orange</b></td><td>Python-based widget data/text mining (U. Ljubljana).</td></tr>
+      <tr><td><b>Weka</b></td><td>Waikato; rich ML library (supervised &amp; unsupervised); Explorer / KnowledgeFlow / CLI.</td></tr>
+      <tr><td><b>RapidMiner</b></td><td>Formerly YALE; visual workflow; commercial with a free tier (Altair).</td></tr>
+      <tr><td><b>Commercial</b></td><td>Alteryx, IBM SPSS Modeler + Watson, SAS Enterprise Miner + Viya, TIBCO Statistica + Spotfire, JMP, Teradata Vantage.</td></tr>
+    </table>
+    <p><b>Why KNIME (a frequent exam example):</b> easy GUI, open source, free, strong community, 2000+ nodes, platform-agnostic, connects to any source, expandable, modular, deployable to cloud.</p>
+  </section>
+
+  <section class="card" id="choose">
+    <h2>Choosing a tool — quick decision guide</h2>
+    <ul>
+      <li><b>Fast prototypes / non-coders?</b> Visual workflow — KNIME, RapidMiner, Orange, Alteryx.</li>
+      <li><b>Maximum flexibility / custom models?</b> Code — Python or R.</li>
+      <li><b>Dashboards &amp; BI for business users?</b> Tableau, Power BI, Qlik, Spotfire.</li>
+      <li><b>Enterprise scale / governance?</b> SAS, IBM SPSS, Teradata.</li>
+    </ul>
+    <table>
+      <tr><th></th><th>R</th><th>Python</th></tr>
+      <tr><td>Strength</td><td>Deep statistics &amp; publication-quality graphics</td><td>End-to-end pipeline + deep learning + engineering</td></tr>
+      <tr><td>Best when</td><td>Heavy statistical modelling/research</td><td>ML products &amp; integration</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="cloud">
+    <h2>Cloud platforms &amp; AutoML</h2>
+    <p>The toolbox is increasingly <b>cloud-hosted</b>: AWS SageMaker, Google Vertex AI / BigQuery ML, Azure ML, Databricks. <b>AutoML</b> automates feature engineering, model selection &amp; tuning (H2O.ai, DataRobot, Google AutoML) — lowering the skill barrier while keeping humans for problem framing &amp; interpretation.</p>
+  </section>
+
+  <section class="card" id="roles">
+    <h2>Who runs the tools — analytics team roles</h2>
+    <ul>
+      <li><b>Data engineer</b> — pipelines, warehouses, ETL/ELT (makes data available).</li>
+      <li><b>Data analyst / BI developer</b> — reporting, dashboards, descriptive insight.</li>
+      <li><b>Data scientist</b> — predictive/prescriptive modelling, ML.</li>
+      <li><b>ML engineer</b> — productionising &amp; serving models.</li>
+      <li><b>Domain expert / translator</b> — frames the business problem, interprets results.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="cases">
+    <h2>Application cases</h2>
+    <p><b>Seagate</b> used <b>KNIME</b> to move from descriptive to predictive analytics, build demos in 3 days, save $1M+, with 150+ self-serve users. <b>Predictive analytics</b> with KNIME + R prevented <b>$1.3M</b> of medical-supply waste (demand forecasting).</p>
+  </section>
+
+  <section class="card" id="exam">
+    <h2>Exam focus</h2>
+    <div class="exam"><b>Most-tested:</b> the 4 tool dimensions + place R / Python / KNIME / Tableau on them; "no single best tool — toolbox approach"; free/open vs commercial examples; why KNIME (easy, open, free, community, 2000+ nodes, platform-agnostic, expandable, deployable).</div>
+    <p><b>↔ Reading:</b> <a href="R9.html">R9</a> (an integrated DSS that <em>systematically evaluates &amp; selects</em> DM tools — Ch.9 made practical).</p>
+  </section>
+
+  </main>
+</div>
+<footer>Ch.9 · The Landscape of Analytics Tools &amp; Languages · BIA midterm full-detail page · <a href="index.html">back to hub</a></footer>
+</body>
+</html>

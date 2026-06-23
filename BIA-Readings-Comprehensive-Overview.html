@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BIA Readings — Detailed Comprehensive Overview (R1–R12)</title>
+<style>
+  :root {
+    --teal:#1a7a96; --teal-dark:#0f5a70; --red:#c0392b;
+    --bg:#f7f9fa; --card:#ffffff; --ink:#1f2d33; --muted:#5c6b72; --border:#d9e2e6;
+    --blue:#2e6da4; --green:#2e8b57; --orange:#c0622b; --purple:#7a5ca8;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
+  header.hero { background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%); color:#fff; padding:48px 32px 36px; text-align:center; }
+  header.hero .eyebrow { text-transform:uppercase; letter-spacing:3px; font-size:.8rem; opacity:.85; margin-bottom:12px; }
+  header.hero h1 { margin:0 auto; max-width:960px; font-size:2.1rem; line-height:1.25; }
+  header.hero p.sub { margin-top:14px; opacity:.92; font-size:1.02rem; max-width:820px; margin-left:auto; margin-right:auto; }
+
+  .tabbar { position:sticky; top:0; z-index:20; background:rgba(247,249,250,.96); backdrop-filter:blur(6px); border-bottom:1px solid var(--border); display:flex; flex-wrap:wrap; gap:7px; padding:12px 14px; justify-content:center; }
+  .tabbar button { border:1px solid var(--border); background:#fff; color:var(--teal-dark); border-radius:999px; padding:7px 13px; font-size:.82rem; cursor:pointer; font-weight:600; transition:all .15s ease; white-space:nowrap; }
+  .tabbar button:hover { background:#eef6f9; }
+  .tabbar button.active { background:var(--teal); color:#fff; border-color:var(--teal); box-shadow:0 2px 6px rgba(26,122,150,.3); }
+
+  .wrap { max-width:1020px; margin:0 auto; padding:28px 24px 60px; }
+  .panel { display:none; animation:fade .25s ease; }
+  .panel.active { display:block; }
+  @keyframes fade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+
+  .panel > h2.tabtitle { color:var(--teal-dark); font-size:1.5rem; margin:4px 0 4px; display:flex; align-items:flex-start; gap:12px; line-height:1.3; }
+  .panel > h2.tabtitle .pill { background:var(--teal); color:#fff; font-size:.8rem; border-radius:8px; padding:4px 11px; font-weight:700; letter-spacing:.5px; flex:0 0 auto; margin-top:3px; }
+  p.cite { color:var(--muted); font-size:.9rem; margin:0 0 16px 0; font-style:italic; }
+
+  section.card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px 28px; margin-bottom:22px; box-shadow:0 1px 3px rgba(0,0,0,.04); }
+  section.card > h3 { color:var(--teal); margin-top:0; border-bottom:2px solid var(--teal); padding-bottom:8px; font-size:1.2rem; }
+  h4 { color:var(--teal-dark); margin:18px 0 6px; font-size:1.0rem; border-left:4px solid var(--teal); padding-left:9px; }
+
+  .facets { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:4px 0 4px; }
+  .facet { border:1px solid var(--border); border-radius:10px; padding:14px 16px; background:#fafcfc; }
+  .facet h4 { margin:0 0 6px; font-size:.74rem; text-transform:uppercase; letter-spacing:1px; color:var(--muted); border:0; padding:0; }
+  .facet.problem { border-left:4px solid var(--blue); }
+  .facet.method { border-left:4px solid var(--green); }
+  .facet.data { border-left:4px solid var(--orange); }
+  .facet.findings { border-left:4px solid var(--purple); }
+  .facet p { margin:0; font-size:.92rem; }
+
+  ul.clean { list-style:none; padding-left:0; margin:8px 0; }
+  ul.clean li { padding:4px 0 4px 24px; position:relative; font-size:.93rem; }
+  ul.clean li::before { content:"▸"; color:var(--teal); position:absolute; left:4px; }
+  ol.steps { margin:8px 0; padding-left:22px; font-size:.93rem; }
+  ol.steps li { margin:3px 0; }
+
+  .chips { display:flex; flex-wrap:wrap; gap:6px; margin:12px 0 4px; }
+  .chips span { background:#eef4f6; border:1px solid var(--border); color:var(--teal-dark); border-radius:999px; padding:3px 11px; font-size:.78rem; font-weight:600; }
+
+  .callout { background:#eef7fa; border-left:4px solid var(--teal); padding:12px 16px; border-radius:0 8px 8px 0; margin:14px 0 0; font-size:.93rem; }
+  .callout.exam { background:#fbf4ec; border-left-color:var(--orange); }
+  .callout.exam strong { color:var(--orange); }
+  .lim { background:#fbf3f1; border-left:4px solid var(--red); padding:11px 15px; border-radius:0 8px 8px 0; margin:12px 0 0; font-size:.9rem; }
+  .lim b { color:var(--red); }
+  .res { background:#f3f0f8; border-left:4px solid var(--purple); padding:11px 15px; border-radius:0 8px 8px 0; margin:10px 0 0; font-size:.92rem; }
+  .res b { color:var(--purple); }
+  .red { color:var(--red); font-weight:600; }
+  code { background:#eef4f6; padding:1px 6px; border-radius:5px; font-size:.9em; }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:.9rem; }
+  th,td { border:1px solid var(--border); padding:8px 11px; text-align:left; vertical-align:top; }
+  th { background:#eef4f6; color:var(--teal-dark); }
+  .grp { font-weight:700; color:var(--teal-dark); }
+  footer { text-align:center; padding:24px; color:var(--muted); font-size:.84rem; }
+  @media (max-width:720px){ .facets { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="eyebrow">AT82.04 · Business Intelligence &amp; Analytics · Midterm Revision</div>
+  <h1>Assigned Readings — Detailed Overview</h1>
+  <p class="sub">The twelve examinable papers (R1–R12), each on its own tab with the full story:
+  <strong>background → method/algorithm steps → dataset → results &amp; metrics → limitations → lecture link</strong>. Start with <strong>Themes</strong> for the map.</p>
+</header>
+
+<nav class="tabbar" id="tabbar">
+  <button data-tab="themes" class="active">Themes</button>
+  <button data-tab="r1">R1</button><button data-tab="r2">R2</button><button data-tab="r3">R3</button>
+  <button data-tab="r4">R4</button><button data-tab="r5">R5</button><button data-tab="r6">R6</button>
+  <button data-tab="r7">R7</button><button data-tab="r8">R8</button><button data-tab="r9">R9</button>
+  <button data-tab="r10">R10</button><button data-tab="r11">R11</button><button data-tab="r12">R12</button>
+</nav>
+
+<div class="wrap">
+
+  <!-- ===================== THEMES ===================== -->
+  <div class="panel active" id="themes">
+    <h2 class="tabtitle"><span class="pill">Map</span> How the Twelve Readings Group</h2>
+    <section class="card">
+      <h3>Four themes — mirroring the lecture arc</h3>
+      <p>The papers travel the same path as the lectures: from <em>DSS/BI foundations</em>, through <em>visualization</em> and <em>structured-data mining</em>, to <em>unstructured (text/web/social) analytics</em>.</p>
+      <table>
+        <tr><th>Theme</th><th>Papers</th><th>Core idea</th><th>Lecture link</th></tr>
+        <tr><td class="grp">DSS &amp; BI foundations</td><td>R1, R2, R9</td><td>What DSS/BI are; how they drive performance &amp; economic intelligence</td><td>Ch.1, Ch.4</td></tr>
+        <tr><td class="grp">Visualization &amp; visual analytics</td><td>R3, R4</td><td>Turning raw data into visual insight for decisions</td><td>Ch.3</td></tr>
+        <tr><td class="grp">Data warehouse &amp; data mining (structured)</td><td>R5, R6, R7, R8</td><td>Classification, clustering, association rules on structured data</td><td>Ch.4, Ch.5</td></tr>
+        <tr><td class="grp">Text / web / social / sentiment (unstructured)</td><td>R10, R11, R12</td><td>Topic modeling, sentiment analysis, web mining</td><td>Ch.6</td></tr>
+      </table>
+    </section>
+    <section class="card">
+      <h3>Technique &amp; metric cheat-sheet</h3>
+      <table>
+        <tr><th>Paper</th><th>Headline technique(s)</th><th>How performance was measured</th><th>Domain</th></tr>
+        <tr><td>R1 Alter</td><td>Taxonomy (7 DSS types)</td><td>Conceptual (56-system case analysis)</td><td>DSS theory</td></tr>
+        <tr><td>R2 Moussas</td><td>Systematic literature review</td><td>Qualitative synthesis</td><td>BI &amp; performance</td></tr>
+        <tr><td>R3 Yanto</td><td>Visual Data Mining + EDA (Tableau)</td><td>Stock-vs-sales discrepancy, dashboards</td><td>Retail inventory</td></tr>
+        <tr><td>R4 Chan</td><td>Visual analytics (heat maps, parallel coords)</td><td>Volume-to-capacity ratio → Level of Service</td><td>Urban traffic</td></tr>
+        <tr><td>R5 Kumar</td><td>DW + data mining (review)</td><td>Conceptual + case studies</td><td>Cross-industry</td></tr>
+        <tr><td>R6 Zahruddin</td><td>Decision tree, neural net, kNN (WEKA)</td><td><b>RMSE</b> &amp; correlation</td><td>Education</td></tr>
+        <tr><td>R7 William</td><td>K-Means vs DBSCAN (CRISP-DM)</td><td><b>Silhouette</b> &amp; <b>Davies-Bouldin</b></td><td>Fashion e-commerce</td></tr>
+        <tr><td>R8 Yan</td><td>ML prediction + association rule mining</td><td><b>AUC/ROC</b> (0.77–0.84)</td><td>Healthcare (EHR)</td></tr>
+        <tr><td>R9 Salah</td><td>Naïve Bayes, LR, C4.5 + association rules</td><td>Accuracy / F1 (+2.76% vs LR)</td><td>Economic intelligence</td></tr>
+        <tr><td>R10 Buana</td><td>Topic modeling (LDA) + OCR</td><td>OCR 82.3%; usability testing</td><td>Instagram marketing</td></tr>
+        <tr><td>R11 Mwafaq</td><td>Sentiment + web mining + regression</td><td>Sentiment ↔ adoption correlation</td><td>Renewable energy</td></tr>
+        <tr><td>R12 Wang</td><td>BERT sentiment + CEEMDAN + UTA</td><td>Interpretability + case validation</td><td>Hotel reviews</td></tr>
+      </table>
+      <div class="callout exam"><strong>Exam tip:</strong> for any paper, be ready to state (1) the analytics type, (2) the algorithm, (3) <em>how it was evaluated</em> — prediction uses accuracy/RMSE/AUC; clustering uses Silhouette/Davies-Bouldin; reviews/visual work are qualitative.</div>
+    </section>
+  </div>
+
+  <!-- ===================== R1 ===================== -->
+  <div class="panel" id="r1">
+    <h2 class="tabtitle"><span class="pill">R1</span> A Taxonomy of Decision Support Systems</h2>
+    <p class="cite">Steven Alter · Sloan Management Review, Fall 1977</p>
+    <section class="card">
+      <div class="facets">
+        <div class="facet problem"><h4>Background / question</h4><p>"DSS" was not a homogeneous category — systems labelled DSS had little in common ("like discussing pets in general"). The field needed shared vocabulary &amp; a framework.</p></div>
+        <div class="facet method"><h4>Method</h4><p>Analyzed <b>56 decision support systems</b> (distilled from 8 in-depth cases); tested and rejected common labels; built a type-based taxonomy.</p></div>
+        <div class="facet data"><h4>Organizing principle</h4><p>Classify by the <b>degree of action implication</b> of outputs — from retrieving a data item to making a decision.</p></div>
+        <div class="facet findings"><h4>Key finding</h4><p>Seven DSS types on a <b>data-oriented → model-oriented</b> continuum; type predicts users, risks &amp; design choices.</p></div>
+      </div>
+
+      <h4>The seven types</h4>
+      <table>
+        <tr><th>Family</th><th>Type</th><th>What it does (example)</th></tr>
+        <tr><td rowspan="3" class="grp">Data-oriented</td><td>File Drawer</td><td>Online access to individual data items (stock enquiry)</td></tr>
+        <tr><td>Data Analysis</td><td>Manipulate current/historical data (budget variance analysis)</td></tr>
+        <tr><td>Analysis Information</td><td>Databases + small models + external data (marketing IS)</td></tr>
+        <tr><td rowspan="4" class="grp">Model-oriented</td><td>Accounting Models</td><td>Consequences via definitional relationships (P&amp;L estimate)</td></tr>
+        <tr><td>Representational</td><td>Consequences via causal/simulation relationships</td></tr>
+        <tr><td>Optimization</td><td>Optimal solution under constraints (LP scheduling)</td></tr>
+        <tr><td>Suggestion</td><td>Computes a specific suggested decision (insurance renewal rate)</td></tr>
+      </table>
+
+      <h4>Why the taxonomy is useful (Alter's 3 uses)</h4>
+      <ul class="clean">
+        <li><b>Design</b> — sketch a candidate of each type to surface alternative approaches before committing.</li>
+        <li><b>Implementation</b> — anticipate <em>type-specific</em> risks (e.g. data-oriented = efficient retrieval; model-oriented = model credibility &amp; users grasping the model).</li>
+        <li><b>Communication &amp; research</b> — a shared language so "DSS" stops meaning wildly different things.</li>
+      </ul>
+      <div class="res"><b>Comparative findings:</b> type predicts the <em>users</em> (data/suggestion systems often run hands-on by line staff; analysis/model systems use a staff analyst as intermediary), the <em>key technical problem</em> (retrieval vs building the model), and the <em>implementation challenge</em>.</div>
+      <div class="callout"><strong>Connects to Ch.1:</strong> the foundational DSS definition &amp; the structured/unstructured decision distinction; DSS as an umbrella concept.</div>
+    </section>
+  </div>
+
+  <!-- ===================== R2 ===================== -->
+  <div class="panel" id="r2">
+    <h2 class="tabtitle"><span class="pill">R2</span> Business Intelligence &amp; its Pivotal Role in Organizational Performance</h2>
+    <p class="cite">Moussas, Hafiane &amp; Achaba · Journal of Autonomous Intelligence, 2024 — exhaustive literature review</p>
+    <section class="card">
+      <div class="facets">
+        <div class="facet problem"><h4>Background / question</h4><p>In a fast-changing, competitive environment, how does BI enhance organizational performance, and what is its multi-dimensional nature?</p></div>
+        <div class="facet method"><h4>Method</h4><p><b>Systematic literature review</b> of peer-reviewed articles, case studies &amp; seminal works; samples range from small focus groups to large organizational surveys.</p></div>
+        <div class="facet data"><h4>Focus themes</h4><p>BI <b>components</b>; role in <b>strategic decision-making</b>; <b>operational efficiency</b>; <b>metrics &amp; KPIs</b> influenced by BI, across sectors.</p></div>
+        <div class="facet findings"><h4>Key finding</h4><p>BI significantly improves strategic decisions &amp; efficiency and impacts KPIs, delivering <span class="red">competitive advantage</span>; "indispensable" for modern organizations.</p></div>
+      </div>
+      <h4>What the review synthesizes</h4>
+      <ul class="clean">
+        <li>BI is <b>multi-dimensional</b>: architectures, tools, processes — not a single technology.</li>
+        <li>Its value spans <b>strategic</b> (better decisions) and <b>operational</b> (efficiency) levels.</li>
+        <li>Impact shows up in <b>measurable KPIs</b> across many sectors → ties directly to Ch.4's performance-management layer.</li>
+      </ul>
+      <div class="lim"><b>Limitation:</b> as a literature review it synthesizes others' findings rather than testing new data; effect sizes vary widely by study and sector.</div>
+      <div class="callout"><strong>Connects to Ch.1 &amp; Ch.4:</strong> BI as an umbrella concept (Ch.1) and the BPM / Balanced-Scorecard / KPI layer (Ch.4).</div>
+    </section>
+  </div>
+
+  <!-- ===================== R3 ===================== -->
+  <div class="panel" id="r3">
+    <h2 class="tabtitle"><span class="pill">R3</span> Visualization of Data Inventory Using VDM &amp; EDA</h2>
+    <p class="cite">Yanto &amp; Handayani · Int. J. Informatics Visualization (JOIV), 2025</p>
+    <section class="card">
+      <div class="facets">
+        <div class="facet problem"><h4>Background / question</h4><p>A skincare clinic could not interpret its inventory data → stock accumulation, unguaranteed availability, lost sales turnover. (1) How to visualize it? (2) What insights result?</p></div>
+        <div class="facet method"><h4>Method</h4><p><b>Visual Data Mining (VDM)</b> + <b>Exploratory Data Analysis (EDA)</b> in <b>Tableau</b>.</p></div>
+        <div class="facet data"><h4>Data / domain</h4><p>Inventory records, <b>~95–98 products</b>, Jan 2019 – Dec 2020 (retail skincare clinic).</p></div>
+        <div class="facet findings"><h4>Key finding</h4><p><b>3 dashboards</b> built; most products stable, a handful inefficient; supports data-driven stock decisions.</p></div>
+      </div>
+      <h4>Method — three phases</h4>
+      <ol class="steps">
+        <li><b>Project planning</b> — justification, project plan, identify the top business question.</li>
+        <li><b>Data preparation</b> — choose, transform &amp; verify the dataset.</li>
+        <li><b>Data analysis</b> — choose visualization tool, analyze &amp; evaluate the visuals, verify against business objectives.</li>
+      </ol>
+      <div class="res"><b>Results &amp; metrics:</b> three dashboards (product pattern · sales turnover · sales efficiency). Of 95 products, <b>87 stable</b>, 8 high-fluctuation. <b>Efficient</b>: Ng-Neher Pagi, Ng Badan Pagi, Naavagreen Moist Aha Cream (e.g. 1,332 stock vs 637 sales → small gap). <b>Inefficient</b>: Ng Facial Wash, Ng Skin Toner, Ng Moisturizing Sunscreen (stock-sales imbalance). Highest turnover rise +12.86% (Jan 2020). Validated by the clinic's admin team.</div>
+      <div class="chips"><span>Tableau</span><span>VDM</span><span>EDA</span><span>Dashboards</span><span>Descriptive analytics</span></div>
+      <div class="callout"><strong>Connects to Ch.3:</strong> data visualization &amp; "insight, not pictures"; descriptive analytics turning raw data into actionable visuals.</div>
+    </section>
+  </div>
+
+  <!-- ===================== R4 ===================== -->
+  <div class="panel" id="r4">
+    <h2 class="tabtitle"><span class="pill">R4</span> Visual Analytic for Traffic Impact Assessment</h2>
+    <p class="cite">Chan, Fahad, Goh &amp; Tee · Int. J. Informatics Visualization (JOIV), 2024 · Multimedia University, Malaysia</p>
+    <section class="card">
+      <div class="facets">
+        <div class="facet problem"><h4>Background / question</h4><p>Rising vehicle ownership → congestion &amp; incidents. <b>Traffic Impact Assessment (TIA)</b> outputs are raw numbers users can't easily read. Can visual analytics make TIA actionable?</p></div>
+        <div class="facet method"><h4>Method</h4><p>Spatial + temporal <b>visual analytics</b> after data cleaning, integration &amp; transformation.</p></div>
+        <div class="facet data"><h4>Data / domain</h4><p>Traffic flow at <b>three major intersections</b> (lane counts, vehicle types, saturation flow, incidents).</p></div>
+        <div class="facet findings"><h4>Key finding</h4><p>Distinct peak/off-peak &amp; weekday/weekend patterns; congested junctions identified via <b>Level of Service</b>.</p></div>
+      </div>
+      <h4>Charts &amp; analysis used</h4>
+      <ul class="clean">
+        <li><b>Heat maps</b> — traffic volume by hour/day to expose peaks.</li>
+        <li><b>Parallel-coordinate charts</b> — multidimensional comparison across lanes/vehicle types.</li>
+        <li><b>Bar plots</b> — junction-by-junction volume comparison.</li>
+        <li><b>Level of Service (LOS)</b> derived from the <b>volume-to-capacity (V/C) ratio</b> to grade each junction.</li>
+      </ul>
+      <div class="res"><b>Results:</b> remarkable volume/pattern differences between peak and off-peak (weekday vs weekend); the V/C ratio flagged potential congested areas; incident analysis showed effects on flow → a scaffold for <em>predictive</em>, proactive traffic control.</div>
+      <div class="lim"><b>Limitation / future:</b> current work is descriptive visual analytics; the authors call for predictive models built on these findings for real-time decision-making &amp; sustainable traffic strategies.</div>
+      <div class="chips"><span>Heat maps</span><span>Parallel coordinates</span><span>Bar plots</span><span>V/C ratio → LOS</span><span>DSS</span></div>
+      <div class="callout"><strong>Connects to Ch.3:</strong> visual analytics = information visualization moving toward predictive analytics; supports the decision-making layer.</div>
+    </section>
+  </div>
+
+  <!-- ===================== R5 ===================== -->
+  <div class="panel" id="r5">
+    <h2 class="tabtitle"><span class="pill">R5</span> Data Warehouse and Data Mining for Business Intelligence</h2>
+    <p class="cite">Kumar, Gupta &amp; Saste · VIVA-Tech Int. Journal for Research &amp; Innovation, 2024</p>
+    <section class="card">
+      <div class="facets">
+        <div class="facet problem"><h4>Background / question</h4><p>How do data warehouse + data mining together strengthen business-intelligence capability for decision-making &amp; competitive advantage?</p></div>
+        <div class="facet method"><h4>Method</h4><p><b>Review / synthesis</b>: DW architecture (incl. star/snowflake) + DM techniques as <b>supervised / unsupervised / semi-supervised</b>.</p></div>
+        <div class="facet data"><h4>Data / domain</h4><p>Case studies across <b>retail, healthcare, financial services</b>.</p></div>
+        <div class="facet findings"><h4>Key finding</h4><p>Together they enable customer-behavior analysis, disease diagnosis &amp; fraud detection — but face real implementation challenges.</p></div>
+      </div>
+      <h4>DW architecture components</h4>
+      <p>Data sources → ETL → centralized warehouse (dimensional model: star/snowflake) → analysis/reporting; optimized for querying, not transactions.</p>
+      <h4>Challenges &amp; limitations (7)</h4>
+      <ul class="clean">
+        <li><b>Data quality &amp; consistency</b> (missing/inaccurate values) · <b>Scalability &amp; performance</b> (slow queries as volume grows)</li>
+        <li><b>Privacy &amp; security</b> (DWs are breach targets) · <b>Integration complexity</b> (heterogeneous/legacy sources)</li>
+        <li><b>Skilled-personnel shortage</b> · <b>Cost / resource constraints</b> · <b>Governance &amp; compliance</b> (GDPR, HIPAA)</li>
+      </ul>
+      <div class="res"><b>Future directions:</b> real-time data streams (IoT/sensors/social), big-data integration, and <b>machine-learning automation</b> of the analytics pipeline.</div>
+      <div class="chips"><span>Data warehouse</span><span>Star/Snowflake</span><span>Supervised/Unsupervised</span><span>Predictive analytics</span></div>
+      <div class="callout"><strong>Connects to Ch.4 &amp; Ch.5:</strong> the cleanest paper-to-lecture mapping — data warehousing (Ch.4) feeding data mining (Ch.5) for BI.</div>
+    </section>
+  </div>
+
+  <!-- ===================== R6 ===================== -->
+  <div class="panel" id="r6">
+    <h2 class="tabtitle"><span class="pill">R6</span> Using Data Mining to Predict Student Performance</h2>
+    <p class="cite">Zahruddin et al. · Int. J. Informatics Visualization (JOIV), 2023 — case study, UPNM Malaysia</p>
+    <section class="card">
+      <div class="facets">
+        <div class="facet problem"><h4>Background / question</h4><p>Can student performance be predicted from <b>socio-demographic</b> attributes, and which attributes matter most — so lecturers can intervene for the next batch?</p></div>
+        <div class="facet method"><h4>Method</h4><p><b>Classification</b> via the KDD process in <b>WEKA</b>: <b>Decision Tree, Neural Network, k-Nearest Neighbours</b>.</p></div>
+        <div class="facet data"><h4>Data / domain</h4><p>UPNM student demographics (gender, age, marital &amp; student status [civilian/cadet], rural/urban) + grades; education data mining.</p></div>
+        <div class="facet findings"><h4>Key finding</h4><p>Most influential attributes: <b>gender, age, student status</b>.</p></div>
+      </div>
+      <h4>Model comparison (by RMSE — lower = better)</h4>
+      <ul class="clean">
+        <li><b>Neural Network</b> — <span class="red">lowest RMSE = best</span>; captured most demographic variables influencing performance.</li>
+        <li><b>k-Nearest Neighbour</b> — middle; used 44 k-values; grouping method gave decent accuracy (correlation &lt; 1).</li>
+        <li><b>Decision Tree</b> — <b>highest RMSE = worst</b>; limited ability, classified only a few attributes at leaf nodes.</li>
+      </ul>
+      <div class="res"><b>Note:</b> the paper frames DT &amp; NN as supervised and kNN as its "unsupervised" comparator; RMSE &amp; correlation coefficient are the accuracy measures.</div>
+      <div class="chips"><span>Decision tree</span><span>Neural network</span><span>kNN</span><span>WEKA</span><span>RMSE</span><span>Classification</span></div>
+      <div class="callout"><strong>Connects to Ch.5:</strong> supervised classification, model comparison, and error-based accuracy measurement (RMSE).</div>
+    </section>
+  </div>
+
+  <!-- ===================== R7 ===================== -->
+  <div class="panel" id="r7">
+    <h2 class="tabtitle"><span class="pill">R7</span> Customer Segmentation using K-Means &amp; DBSCAN</h2>
+    <p class="cite">William &amp; Johan · Int. J. Informatics Visualization (JOIV), 2025 — fashion-industry transactions</p>
+    <section class="card">
+      <div class="facets">
+        <div class="facet problem"><h4>Background / question</h4><p>Online fashion retail is booming in Indonesia; how can "XYZ" segment customers to target marketing &amp; raise sales?</p></div>
+        <div class="facet method"><h4>Method</h4><p><b>Clustering</b> — <b>K-Means vs DBSCAN</b> — following <b>CRISP-DM</b>; preprocessing with Standard Scaler + PCA.</p></div>
+        <div class="facet data"><h4>Data / domain</h4><p>Purchase-transaction data, "XYZ" fashion seller (Shopee marketplace / Seller Center).</p></div>
+        <div class="facet findings"><h4>Key finding</h4><p><b>K-Means clearly beat DBSCAN</b>; optimal <code>k = 7</code>; deployed as a live dashboard.</p></div>
+      </div>
+      <h4>Evaluation metrics (clustering quality)</h4>
+      <table>
+        <tr><th>Metric</th><th>K-Means</th><th>DBSCAN</th><th>Better =</th></tr>
+        <tr><td>Silhouette Score</td><td><b>0.549</b></td><td>0.2906</td><td>higher</td></tr>
+        <tr><td>Davies-Bouldin Index</td><td><b>0.593</b></td><td>0.92</td><td>lower</td></tr>
+      </table>
+      <div class="res"><b>Deployment:</b> a website that auto-processes data &amp; generates clusters — <b>FastAPI</b> (Python back-end) + <b>React/TypeScript</b> front-end.</div>
+      <div class="lim"><b>Limitations / future:</b> use more recent datasets to improve accuracy; try alternative algorithms (e.g. <b>Gaussian Mixture Models</b>); build a more robust real-world deployment.</div>
+      <div class="chips"><span>K-Means</span><span>DBSCAN</span><span>CRISP-DM</span><span>PCA</span><span>Silhouette</span><span>Davies-Bouldin</span></div>
+      <div class="callout"><strong>Connects to Ch.5:</strong> unsupervised clustering = "segmentation"; CRISP-DM process; cluster-quality metrics (not accuracy).</div>
+    </section>
+  </div>
+
+  <!-- ===================== R8 ===================== -->
+  <div class="panel" id="r8">
+    <h2 class="tabtitle"><span class="pill">R8</span> Characterizing Patients at Higher Cardiovascular Risk for Prescribed Stimulants</h2>
+    <p class="cite">Yan, Chen, Nasir, Griffin, Bone &amp; Tuan · Computers in Biology and Medicine, 2025</p>
+    <section class="card">
+      <div class="facets">
+        <div class="facet problem"><h4>Background / question</h4><p>Stimulant prescriptions rose sharply (dosage +250% over a decade). Quantify the <b>added cardiovascular risk</b> and identify who is adversely affected.</p></div>
+        <div class="facet method"><h4>Method</h4><p>Compared several <b>ML models</b> (incl. tree-based <b>gradient boosting &amp; random forest</b>) to predict 1-year CV risk + <b>association rule mining (ARM)</b>.</p></div>
+        <div class="facet data"><h4>Data / domain</h4><p><b>EHR</b> (TriNetX), <b>219,965 adults</b> with ADHD — 102,138 (46.4%) on stimulants — 2010–2020, split into <b>4 age groups</b>.</p></div>
+        <div class="facet findings"><h4>Key finding</h4><p>Strong prediction + an actionable comorbidity "watch list" per age group.</p></div>
+      </div>
+      <h4>Why ML over classical models</h4>
+      <p>Prior studies used linear models (Poisson, logistic, Cox) and reached <em>inconsistent</em> conclusions; ML (tree-based) captures <b>non-linear interactions</b> and individualized effects rather than a population average.</p>
+      <div class="res"><b>Results &amp; metrics:</b> all models reached <b>AUC 0.77–0.84</b> across age groups. For the top-25%-added-risk patients, ARM surfaced critical features: known CV risk factors, <b>prior CV events</b>, <b>substance-use disorders</b>, <b>psychological disorders</b>. A validated comorbidity <b>watch list</b> covers up to ~20% of the population.</div>
+      <div class="lim"><b>Limitation / future:</b> identified features need <b>external validation</b> before guiding safer prescribing.</div>
+      <div class="chips"><span>Gradient boosting</span><span>Random forest</span><span>Association rule mining</span><span>AUC/ROC</span><span>EHR</span></div>
+      <div class="callout"><strong>Connects to Ch.5:</strong> combines <em>prediction</em> (supervised ML, AUC) with <em>association rules</em> — both core Ch.5 methods — on real structured health data.</div>
+    </section>
+  </div>
+
+  <!-- ===================== R9 ===================== -->
+  <div class="panel" id="r9">
+    <h2 class="tabtitle"><span class="pill">R9</span> Integrated DSS for Evaluating Data-Mining Tools in an Economic Intelligence System</h2>
+    <p class="cite">Salah, Ahmed &amp; Layeb · Int. J. Informatics Visualization (JOIV), 2025</p>
+    <section class="card">
+      <div class="facets">
+        <div class="facet problem"><h4>Background / question</h4><p>Economic decisions need fast, accurate retrieval of valuable knowledge. Build a scalable DSS for <b>economic/financial intelligence</b>.</p></div>
+        <div class="facet method"><h4>Method</h4><p>An <b>integrated DSS</b> using DM — <b>association rules + forecasting</b>; benchmarks <b>Naïve Bayes, Logistic Regression, incremental C4.5 decision tree</b>.</p></div>
+        <div class="facet data"><h4>Data / domain</h4><p>Economic/financial intelligence dataset (e.g. retail purchase patterns — orange juice &amp; soda affinities).</p></div>
+        <div class="facet findings"><h4>Key finding</h4><p>The <b>incremental C4.5</b> classifier wins on accuracy (rules are also interpretable).</p></div>
+      </div>
+      <h4>Results &amp; metrics</h4>
+      <ul class="clean">
+        <li>C4.5 classification accuracy is <b>+2.76%</b> over Logistic Regression (headline), reported up to <b>+3.84%</b> vs LR and <b>+7.87%</b> vs Naïve Bayes in the body.</li>
+        <li>Trade-off: incremental C4.5 needs <b>longer training time</b>, but supports incremental learning.</li>
+        <li>Outputs are <b>association rules</b> → high interpretability (decision rules) for analysts.</li>
+      </ul>
+      <div class="lim"><b>Limitation / future:</b> authors recommend <b>cross-validation</b> &amp; formal <b>significance testing</b> to strengthen the accuracy claims.</div>
+      <div class="chips"><span>DSS</span><span>Naïve Bayes</span><span>Logistic Regression</span><span>C4.5 (incremental)</span><span>Association rules</span></div>
+      <div class="callout"><strong>Connects to Ch.1 &amp; Ch.5:</strong> a decision-support system (Ch.1) built from data-mining classifiers + association rules (Ch.5) for economic/competitive intelligence.</div>
+    </section>
+  </div>
+
+  <!-- ===================== R10 ===================== -->
+  <div class="panel" id="r10">
+    <h2 class="tabtitle"><span class="pill">R10</span> Text-Based Content Analysis on Social Media using Topic Modelling</h2>
+    <p class="cite">Buana, Tyasnurita, Puspita, Vinarti &amp; Mahananto · Int. J. Informatics Visualization (JOIV), 2024</p>
+    <section class="card">
+      <div class="facets">
+        <div class="facet problem"><h4>Background / question</h4><p>Marketers need topic ideas for <b>text-based Instagram</b> posts, but no SMA tool reads the <em>text inside content images</em>.</p></div>
+        <div class="facet method"><h4>Method</h4><p>A Social Media Analytics tool in <b>Python</b> using <b>OCR</b> (extract text from images) + <b>Topic Modelling via LDA</b>.</p></div>
+        <div class="facet data"><h4>Data / domain</h4><p>Instagram content (image text, captions, likes, comments, upload time, category) collected via <b>Instascrapper</b>.</p></div>
+        <div class="facet findings"><h4>Key finding</h4><p>The tool surfaces dominant topics; usable but UX needs work.</p></div>
+      </div>
+      <h4>Pipeline (3 Python classes)</h4>
+      <ol class="steps">
+        <li><b>InstaScrapper</b> — gather content &amp; metadata.</li>
+        <li><b>Clean</b> — OCR the image text + preprocess (the OCR sometimes misrecognizes characters).</li>
+        <li><b>TopicModelling</b> — LDA finds the most dominant topic → recommendations.</li>
+      </ol>
+      <div class="res"><b>Results &amp; metrics:</b> <b>OCR performance = 82.3%</b>; usability test on 3 experts → <b>93%</b> could find topic references, <b>85%</b> still usable despite some difficulty.</div>
+      <div class="lim"><b>Limitation / future:</b> improve user experience &amp; acceptance; target Data/BI Analysts to support marketing decisions.</div>
+      <div class="chips"><span>LDA</span><span>Topic modeling</span><span>OCR</span><span>Python</span><span>Social media analytics</span></div>
+      <div class="callout"><strong>Connects to Ch.6:</strong> text mining + <strong>topic modeling (LDA)</strong> on unstructured social-media content; web/social analytics.</div>
+    </section>
+  </div>
+
+  <!-- ===================== R11 ===================== -->
+  <div class="panel" id="r11">
+    <h2 class="tabtitle"><span class="pill">R11</span> Social Intelligence and Web Mining for Renewable Energy Insights</h2>
+    <p class="cite">Mwafaq, Mool, Mahmoud, Jawad &amp; Sharad · Int. J. Informatics Visualization (JOIV), 2025</p>
+    <section class="card">
+      <div class="facets">
+        <div class="facet problem"><h4>Background / question</h4><p>Public acceptance drives renewable-energy adoption. Mine unstructured online discourse to gauge opinion &amp; predict regional adoption.</p></div>
+        <div class="facet method"><h4>Method</h4><p>A pipeline of <b>web mining + NLP + sentiment classification + topic modeling + regression-based forecasting</b>.</p></div>
+        <div class="facet data"><h4>Data / domain</h4><p><b>12 months</b> of social media, forums &amp; web news on renewable energy (multi-region).</p></div>
+        <div class="facet findings"><h4>Key finding</h4><p>Public discourse structure is strongly linked to regional readiness &amp; adoption.</p></div>
+      </div>
+      <h4>Analytic framework</h4>
+      <ul class="clean">
+        <li><b>Web mining</b> gathers unstructured text from multiple sources.</li>
+        <li><b>Sentiment analysis</b> estimates polarity; <b>topic modeling</b> finds dominant themes.</li>
+        <li><b>Multivariate regression</b> relates digital sentiment + thematic emphasis to predicted adoption rates, fitted on real regional data.</li>
+      </ul>
+      <div class="res"><b>Results:</b> sentiment is largely <b>positive</b>, especially among European &amp; North American stakeholders; dominant themes = <b>economic benefit</b> &amp; <b>technological advances</b>; positive/benefit-focused discourse correlates with high projected adoption → digital cues predict energy demand.</div>
+      <div class="lim"><b>Limitations / future:</b> <b>linguistic diversity</b> (English-dominated) &amp; model <b>transferability</b>; future = multilingual models, multimodal (visual/acoustic) signals, dynamic sentiment over time around policy events.</div>
+      <div class="chips"><span>Sentiment analysis</span><span>Web mining</span><span>NLP</span><span>Topic model</span><span>Regression forecasting</span></div>
+      <div class="callout"><strong>Connects to Ch.6:</strong> sentiment analysis + web mining of unstructured text, then turning sentiment into a predictive (forecasting) signal.</div>
+    </section>
+  </div>
+
+  <!-- ===================== R12 ===================== -->
+  <div class="panel" id="r12">
+    <h2 class="tabtitle"><span class="pill">R12</span> Sentiment Analysis &amp; CEEMDAN to Learn Consumer-Group Preferences</h2>
+    <p class="cite">Wang, Gong, Wei, Martínez &amp; Herrera-Viedma · Applied Soft Computing, 2026 — online hotel reviews</p>
+    <section class="card">
+      <div class="facets">
+        <div class="facet problem"><h4>Background / question</h4><p>Learn &amp; interpret consumer-group preferences from online reviews that are unstructured, time-varying &amp; ambiguous.</p></div>
+        <div class="facet method"><h4>Method</h4><p>A 3-stage data-driven model: <b>BERT</b> → <b>CEEMDAN</b> → <b>UTA</b>.</p></div>
+        <div class="facet data"><h4>Data / domain</h4><p>Real-world <b>hotel-industry online reviews</b>; consumer-preference / MCDM modeling.</p></div>
+        <div class="facet findings"><h4>Key finding</h4><p>Interpretable group preferences + the group's classification value system.</p></div>
+      </div>
+      <h4>The three stages</h4>
+      <ol class="steps">
+        <li><b>BERT</b> (deep learning) — fine-grained, criteria-level sentiment quantified from reviews.</li>
+        <li><b>CEEMDAN</b> — decompose the sentiment series; the residual-trend mean ≈ <b>group-consistent sentiment</b> (handles the time-dependence other methods ignore).</li>
+        <li><b>UTA (UTilités Additives)</b> — preference-disaggregation model → infers the group's value system &amp; core priorities.</li>
+      </ol>
+      <div class="res"><b>Why it's novel:</b> fixes three gaps — (1) discrete sentiment classes lose emotional continuity; (2) classic MCDM relies on explicit/fixed preferences; (3) prior work ignores time-dependence. Validated on hotel reviews with strong <b>interpretability</b>.</div>
+      <div class="chips"><span>BERT</span><span>Fine-grained sentiment</span><span>CEEMDAN</span><span>UTA</span><span>Deep learning</span><span>MCDM</span></div>
+      <div class="callout"><strong>Connects to Ch.6:</strong> the most advanced text-analytics paper — deep-learning (BERT) sentiment analysis feeding a preference-decision model.</div>
+    </section>
+  </div>
+
+</div>
+
+<footer>
+  Detailed overview of <strong>AT82.04 assigned readings R1–R12</strong>. Each summary derives from the paper's abstract, methodology, results &amp; conclusion sections. Generated for study purposes.
+</footer>
+
+<script>
+  (function () {
+    var bar = document.getElementById('tabbar');
+    var btns = Array.prototype.slice.call(bar.querySelectorAll('button'));
+    var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
+    function show(id) {
+      panels.forEach(function (p) { p.classList.toggle('active', p.id === id); });
+      btns.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-tab') === id); });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (history.replaceState) history.replaceState(null, '', '#' + id);
+    }
+    bar.addEventListener('click', function (e) {
+      var btn = e.target.closest('button'); if (!btn) return;
+      show(btn.getAttribute('data-tab'));
+    });
+    var h = (location.hash || '').replace('#', '');
+    if (h && document.getElementById(h)) show(h);
+  })();
+</script>
+
+</body>
+</html>

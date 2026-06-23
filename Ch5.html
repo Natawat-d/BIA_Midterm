@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.5 — Data Mining: Process, Methods & Algorithms · Full Detail</title>
+<style>
+  :root{--teal:#1a7a96;--teal-dark:#0f5a70;--red:#c0392b;--orange:#c0622b;--green:#2e8b57;--purple:#7a5ca8;--bg:#f7f9fa;--card:#fff;--ink:#1f2d33;--muted:#5c6b72;--border:#d9e2e6;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;}
+  a{color:var(--teal-dark);}
+  header.hero{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:34px 26px 26px;}
+  header.hero .home{font-size:.82rem;color:#d7eef4;text-decoration:none;}
+  header.hero .chip{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 10px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin:10px 0 8px;}
+  header.hero h1{margin:0;font-size:1.7rem;line-height:1.25;max-width:900px;}
+  header.hero .cite{margin-top:10px;font-size:.9rem;opacity:.92;max-width:900px;}
+  .layout{display:flex;max-width:1140px;margin:0 auto;gap:28px;padding:26px 22px 48px;align-items:flex-start;}
+  nav.toc{position:sticky;top:16px;flex:0 0 215px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:.84rem;max-height:calc(100vh - 32px);overflow-y:auto;}
+  nav.toc h2{font-size:.7rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:0 0 8px;}
+  nav.toc a{display:block;color:var(--teal-dark);text-decoration:none;padding:3px 0;}
+  nav.toc a:hover{text-decoration:underline;}
+  main{flex:1 1 auto;min-width:0;}
+  section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  section.card>h2{color:var(--teal);margin-top:0;border-bottom:3px solid var(--teal);padding-bottom:8px;font-size:1.3rem;}
+  h3{color:var(--teal-dark);font-size:1.07rem;margin:20px 0 6px;border-left:4px solid var(--teal);padding-left:9px;}
+  h4{color:var(--teal-dark);margin:14px 0 4px;font-size:.98rem;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef4f6;color:var(--teal-dark);}
+  code{background:#eef4f6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  .idea{background:#fdf3ea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .idea b{color:var(--red);}
+  .ex{background:#eef7fa;border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.95rem;}
+  .ex b{color:var(--teal-dark);}
+  .exam{background:#fbf4ec;border-left:4px solid var(--orange);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .exam b{color:var(--orange);}
+  .spectrum{display:flex;flex-wrap:wrap;align-items:center;gap:7px;background:#eef4f6;border-radius:10px;padding:12px;margin:12px 0;font-weight:600;color:var(--teal-dark);font-size:.85rem;}
+  .spectrum .step{background:#fff;border:1px solid var(--border);border-radius:8px;padding:5px 9px;text-align:center;}
+  .spectrum .arrow{color:var(--teal);}
+  .red{color:var(--red);font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:22px;border-top:1px solid var(--border);}
+  @media(max-width:860px){.layout{flex-direction:column;}nav.toc{position:static;width:100%;max-height:none;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="home" href="index.html">← Midterm Prep Hub</a>
+  <div class="chip">CHAPTER 5 · FULL DETAIL · PREDICTIVE ANALYTICS I</div>
+  <h1>Data Mining: Process, Methods &amp; Algorithms</h1>
+  <div class="cite">Sharda, Delen &amp; Turban — Chapter 5. The first predictive-analytics chapter: CRISP-DM, classification, clustering &amp; association rules on structured data.</div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>On this page</h2>
+    <a href="#glance">Key idea</a>
+    <a href="#what">What is data mining?</a>
+    <a href="#taxonomy">Taxonomy of tasks</a>
+    <a href="#crisp">CRISP-DM</a>
+    <a href="#classify">Classification methods</a>
+    <a href="#evaluate">Evaluation</a>
+    <a href="#trees">Decision trees &amp; ensembles</a>
+    <a href="#cluster">Clustering</a>
+    <a href="#assoc">Association rules</a>
+    <a href="#overfit">Overfitting</a>
+    <a href="#cases">Application cases</a>
+    <a href="#exam">Exam focus</a>
+  </nav>
+  <main>
+
+  <section class="card" id="glance">
+    <h2>Key idea</h2>
+    <div class="idea"><b>Core message:</b> Data mining is a <b>disciplined, multi-step process</b> (CRISP-DM) — not a crystal ball — for discovering valid, useful patterns in <b>structured</b> data. Its two great families: <b>prediction</b> (classification, regression) and <b>discovery/grouping</b> (clustering, association).</div>
+  </section>
+
+  <section class="card" id="what">
+    <h2>What is data mining?</h2>
+    <p><b>Definition (Fayyad, 1996):</b> "the nontrivial process of identifying <b>valid, novel, potentially useful, and ultimately understandable patterns</b> in data." A.k.a. knowledge discovery, pattern analysis, information harvesting. It is a <b>blend of disciplines</b> (statistics, ML, AI, databases, visualization). Source is often a data warehouse (not always). <span class="red">DM ≠ statistics</span>: DM discovers patterns in large data, often run by an end user.</p>
+    <p><b>Pattern types:</b> association · prediction · cluster (segmentation) · sequential/time-series.</p>
+  </section>
+
+  <section class="card" id="taxonomy">
+    <h2>Taxonomy of data-mining tasks</h2>
+    <table>
+      <tr><th>Task</th><th>Method</th><th>Typical algorithms</th><th>Learning</th></tr>
+      <tr><td rowspan="3">Prediction</td><td>Classification</td><td>Decision trees, ANN, SVM, kNN, Naïve Bayes</td><td>Supervised</td></tr>
+      <tr><td>Regression</td><td>Linear/nonlinear regression, regression trees, ANN, SVM</td><td>Supervised</td></tr>
+      <tr><td>Time series</td><td>Exponential smoothing, ARIMA, autoregressive</td><td>Supervised</td></tr>
+      <tr><td rowspan="2">Association</td><td>Market-basket</td><td>Apriori, Eclat, FP-Growth</td><td>Unsupervised</td></tr>
+      <tr><td>Link / sequence</td><td>Apriori, graph-based matching</td><td>Unsupervised</td></tr>
+      <tr><td rowspan="2">Segmentation</td><td>Clustering</td><td>K-means, Expectation-Maximization</td><td>Unsupervised</td></tr>
+      <tr><td>Outlier analysis</td><td>K-means, EM, statistical</td><td>Unsupervised</td></tr>
+    </table>
+    <div class="ex"><b>Two key contrasts:</b> <b>classification vs regression</b> → categorical vs numeric output. <b>Classification vs clustering</b> → supervised (labelled target) vs unsupervised (no target).</div>
+  </section>
+
+  <section class="card" id="crisp">
+    <h2>CRISP-DM — the standard process</h2>
+    <div class="spectrum"><span class="step">1 Business Understanding</span><span class="arrow">→</span><span class="step">2 Data Understanding</span><span class="arrow">→</span><span class="step">3 Data Preparation</span><span class="arrow">→</span><span class="step">4 Model Building</span><span class="arrow">→</span><span class="step">5 Testing &amp; Evaluation</span><span class="arrow">→</span><span class="step">6 Deployment</span></div>
+    <table>
+      <tr><th>Phase</th><th>Key tasks</th></tr>
+      <tr><td>1 Business Understanding</td><td>Define objectives &amp; success criteria; translate to a DM goal.</td></tr>
+      <tr><td>2 Data Understanding</td><td>Collect, describe, explore (EDA), assess quality.</td></tr>
+      <tr><td>3 Data Preparation</td><td>Select, clean, construct, integrate, format — the "85% of time" step (with #2).</td></tr>
+      <tr><td>4 Model Building</td><td>Pick technique(s), design train/test, build &amp; tune.</td></tr>
+      <tr><td>5 Testing &amp; Evaluation</td><td>Assess against the <em>business</em> objective; go/no-go.</td></tr>
+      <tr><td>6 Deployment</td><td>Put to use; monitor &amp; maintain; loop back.</td></tr>
+    </table>
+    <p>Highly iterative. Alternatives: <b>SEMMA</b> (SAS: Sample-Explore-Modify-Model-Assess) and <b>KDD</b>.</p>
+  </section>
+
+  <section class="card" id="classify">
+    <h2>Classification — methods</h2>
+    <p>The most-used DM method: <b>supervised</b>, learns from past labelled data, output is <b>categorical</b>.</p>
+    <table>
+      <tr><th>Algorithm</th><th>Idea</th><th>Watch-out</th></tr>
+      <tr><td>Decision tree</td><td>Recursively split on the best-separating attribute</td><td>Interpretable; overfits without pruning</td></tr>
+      <tr><td>Naïve Bayes</td><td>Bayes' theorem + feature-independence assumption</td><td>Fast; "naïve" independence</td></tr>
+      <tr><td>k-NN</td><td>Majority vote of k nearest neighbours</td><td>"Lazy"; sensitive to k, scaling</td></tr>
+      <tr><td>SVM</td><td>Maximum-margin hyperplane (kernels)</td><td>Strong; less interpretable</td></tr>
+      <tr><td>ANN</td><td>Weighted neuron layers (backpropagation)</td><td>Flexible; "black box," data-hungry</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="evaluate">
+    <h2>Evaluation — confusion matrix &amp; beyond</h2>
+    <table>
+      <tr><th></th><th>Actual Positive</th><th>Actual Negative</th></tr>
+      <tr><td><b>Predicted Positive</b></td><td>TP</td><td>FP</td></tr>
+      <tr><td><b>Predicted Negative</b></td><td>FN</td><td>TN</td></tr>
+    </table>
+    <ul>
+      <li><b>Accuracy</b> = (TP+TN)/all · <b>Precision</b> = TP/(TP+FP) · <b>Recall/TPR</b> = TP/(TP+FN) · <b>F1</b> = 2·P·R/(P+R) (best for imbalance).</li>
+      <li><b>ROC/AUC</b> — TPR vs FPR across thresholds; AUC 0.5 = chance, 1.0 = perfect; robust to class imbalance.</li>
+    </ul>
+    <div class="ex"><b>Worked example:</b> TP=80, FP=20, FN=10, TN=90. Accuracy=170/200=<b>85%</b>; Precision=80/100=<b>80%</b>; Recall=80/90≈<b>89%</b>. With imbalanced classes, high accuracy can hide poor precision.</div>
+    <h4>Estimation methodologies</h4>
+    <p><b>Holdout</b> (train ⅔ / test ⅓; NN 60/20/20); <b>k-fold cross-validation</b> (rotate k test folds); leave-one-out; bootstrap (sample with replacement).</p>
+  </section>
+
+  <section class="card" id="trees">
+    <h2>Decision trees &amp; ensembles</h2>
+    <p><b>Divide-and-conquer:</b> create a root, pick the best splitting attribute, branch, repeat until each leaf is one class. Three design choices: <b>splitting</b>, <b>stopping</b>, <b>pruning</b> (pre- vs post-, to avoid overfitting).</p>
+    <ul>
+      <li><b>Split criteria:</b> information gain / entropy <code>−Σ pᵢ log₂ pᵢ</code> (ID3, C4.5/C5); Gini impurity <code>1 − Σ pᵢ²</code> (CART); χ² (CHAID).</li>
+      <li><b>Ensembles:</b> <b>bagging</b> (→ random forest; reduces variance), <b>boosting</b> (AdaBoost/Gradient Boosting/XGBoost; reduces bias), stacking / information fusion.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="cluster">
+    <h2>Clustering (unsupervised)</h2>
+    <p>Finds <b>natural groupings</b>; no target variable; in marketing = <b>segmentation</b>. Methods: k-means / k-modes, SOM &amp; ART (neural), fuzzy c-means, EM, DBSCAN.</p>
+    <p><b>k-Means:</b> (0) choose k → (1) randomly place k centroids → (2) assign each point to nearest centroid → (3) recompute centroids → repeat 2–3 until stable. <b>Distance:</b> Euclidean (default), Manhattan, cosine. <b>Choosing k:</b> the <b>elbow method</b> (SSE vs k) or <b>silhouette score</b>. Always standardise features first.</p>
+  </section>
+
+  <section class="card" id="assoc">
+    <h2>Association rule mining (market-basket)</h2>
+    <p>Finds affinities — the famous "<em>diapers &amp; beer</em>." A rule <code>X → Y</code>:</p>
+    <ul>
+      <li><b>Support</b> = P(X∩Y) — how often X and Y occur together.</li>
+      <li><b>Confidence</b> = P(Y|X) — how often Y occurs given X.</li>
+      <li><b>Lift</b> = Confidence / P(Y); &gt;1 positive, =1 independent, &lt;1 negative (fixes confidence's blind spot).</li>
+    </ul>
+    <div class="ex"><b>Example:</b> {Laptop, Antivirus} → {Extended Service Plan} <b>[30%, 70%]</b> means the trio appears in 30% of baskets, and 70% of laptop+antivirus buyers also buy the plan.</div>
+    <p><b>Apriori</b> (bottom-up frequent-itemset search; anti-monotone pruning below min-support), Eclat, <b>FP-Growth</b> (FP-tree, no candidate generation).</p>
+  </section>
+
+  <section class="card" id="overfit">
+    <h2>Overfitting &amp; the bias–variance trade-off</h2>
+    <ul>
+      <li><b>Overfitting</b> — memorises noise; great on training, poor on test (high variance). Fix: more data, pruning/regularisation, cross-validation, simpler model.</li>
+      <li><b>Underfitting</b> — too simple (high bias). Fix: richer model/features.</li>
+      <li>Goal = <b>generalisation</b>: low error on unseen data — hence holdout/CV.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="cases">
+    <h2>Application cases</h2>
+    <p><b>Visa</b> — predictive + <b>in-memory analytics</b> to cut fraud while improving service; <b>cancer research</b> — ANN vs Logistic Regression vs Random Forest (+ variable importance); <b>predicting movie financial success</b> — a 9-class classification in IBM SPSS Modeler; <b>Miami-Dade Police</b> — predictive policing.</p>
+  </section>
+
+  <section class="card" id="exam">
+    <h2>Exam focus</h2>
+    <div class="exam"><b>Most-tested:</b> CRISP-DM 6 phases (+ "85% in first three"); classification vs regression vs clustering; confusion matrix (compute accuracy/precision/recall/F1); k-means steps; support &amp; confidence &amp; lift + Apriori; decision-tree splitting/stopping/pruning + algorithm names; supervised vs unsupervised mapping of every task; AUC for imbalance.</div>
+    <p><b>↔ Readings:</b> <a href="R6.html">R6</a> (student perf — NN/DT/kNN, RMSE), <a href="R7.html">R7</a> (K-Means vs DBSCAN), <a href="R8.html">R8</a> (prediction + association rules), <a href="R5.html">R5</a> &amp; <a href="R9.html">R9</a> (DM techniques).</p>
+  </section>
+
+  </main>
+</div>
+<footer>Ch.5 · Data Mining: Process, Methods &amp; Algorithms · BIA midterm full-detail page · <a href="index.html">back to hub</a></footer>
+</body>
+</html>

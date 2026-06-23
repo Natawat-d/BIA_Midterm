@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch.4 — Data Warehousing & Business Performance Management · Full Detail</title>
+<style>
+  :root{--teal:#1a7a96;--teal-dark:#0f5a70;--red:#c0392b;--orange:#c0622b;--green:#2e8b57;--purple:#7a5ca8;--bg:#f7f9fa;--card:#fff;--ink:#1f2d33;--muted:#5c6b72;--border:#d9e2e6;}
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.62;}
+  a{color:var(--teal-dark);}
+  header.hero{background:linear-gradient(135deg,var(--teal),var(--teal-dark));color:#fff;padding:34px 26px 26px;}
+  header.hero .home{font-size:.82rem;color:#d7eef4;text-decoration:none;}
+  header.hero .chip{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:6px;padding:2px 10px;font-size:.72rem;font-weight:700;letter-spacing:1px;margin:10px 0 8px;}
+  header.hero h1{margin:0;font-size:1.7rem;line-height:1.25;max-width:900px;}
+  header.hero .cite{margin-top:10px;font-size:.9rem;opacity:.92;max-width:900px;}
+  .layout{display:flex;max-width:1140px;margin:0 auto;gap:28px;padding:26px 22px 48px;align-items:flex-start;}
+  nav.toc{position:sticky;top:16px;flex:0 0 215px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 16px;font-size:.84rem;max-height:calc(100vh - 32px);overflow-y:auto;}
+  nav.toc h2{font-size:.7rem;text-transform:uppercase;letter-spacing:1.3px;color:var(--muted);margin:0 0 8px;}
+  nav.toc a{display:block;color:var(--teal-dark);text-decoration:none;padding:3px 0;}
+  nav.toc a:hover{text-decoration:underline;}
+  main{flex:1 1 auto;min-width:0;}
+  section.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.04);scroll-margin-top:14px;}
+  section.card>h2{color:var(--teal);margin-top:0;border-bottom:3px solid var(--teal);padding-bottom:8px;font-size:1.3rem;}
+  h3{color:var(--teal-dark);font-size:1.07rem;margin:20px 0 6px;border-left:4px solid var(--teal);padding-left:9px;}
+  h4{color:var(--teal-dark);margin:14px 0 4px;font-size:.98rem;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.9rem;}
+  th,td{border:1px solid var(--border);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef4f6;color:var(--teal-dark);}
+  code{background:#eef4f6;padding:1px 6px;border-radius:5px;font-size:.9em;}
+  .idea{background:#fdf3ea;border-left:4px solid var(--red);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .idea b{color:var(--red);}
+  .ex{background:#eef7fa;border-left:4px solid var(--teal);padding:10px 14px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.95rem;}
+  .ex b{color:var(--teal-dark);}
+  .exam{background:#fbf4ec;border-left:4px solid var(--orange);padding:11px 15px;border-radius:0 8px 8px 0;margin:10px 0;}
+  .exam b{color:var(--orange);}
+  .spectrum{display:flex;flex-wrap:wrap;align-items:center;gap:7px;background:#eef4f6;border-radius:10px;padding:12px;margin:12px 0;font-weight:600;color:var(--teal-dark);font-size:.9rem;}
+  .spectrum .step{background:#fff;border:1px solid var(--border);border-radius:8px;padding:5px 11px;text-align:center;}
+  .spectrum .arrow{color:var(--teal);}
+  .red{color:var(--red);font-weight:600;}
+  footer{text-align:center;color:var(--muted);font-size:.82rem;padding:22px;border-top:1px solid var(--border);}
+  @media(max-width:860px){.layout{flex-direction:column;}nav.toc{position:static;width:100%;max-height:none;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <a class="home" href="index.html">← Midterm Prep Hub</a>
+  <div class="chip">CHAPTER 4 · FULL DETAIL · DESCRIPTIVE ANALYTICS II</div>
+  <h1>Data Warehousing &amp; Business Performance Management</h1>
+  <div class="cite">Sharda, Delen &amp; Turban — Chapter 4. The data backbone of BI + the performance-management layer (BPM, KPIs, BSC, Six Sigma).</div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h2>On this page</h2>
+    <a href="#glance">Key idea</a>
+    <a href="#dw">Data warehouse &amp; marts</a>
+    <a href="#chars">DW characteristics</a>
+    <a href="#arch">Architectures (Inmon/Kimball)</a>
+    <a href="#etl">ETL</a>
+    <a href="#schema">Schemas &amp; OLAP</a>
+    <a href="#lake">DW vs data lake</a>
+    <a href="#bpm">BPM &amp; KPIs</a>
+    <a href="#bsc">Balanced Scorecard</a>
+    <a href="#sixsigma">Six Sigma</a>
+    <a href="#cases">Application cases</a>
+    <a href="#exam">Exam focus</a>
+  </nav>
+  <main>
+
+  <section class="card" id="glance">
+    <h2>Key idea</h2>
+    <div class="idea"><b>Core message:</b> The <b>data warehouse</b> is BI's cleansed, integrated, historical backbone. ETL feeds it, dimensional modelling + OLAP make analysis fast, and a performance-management layer (BPM, KPIs, scorecards, Six Sigma) turns analysis into <b>managed action</b>.</div>
+  </section>
+
+  <section class="card" id="dw">
+    <h2>Data warehouse &amp; data marts</h2>
+    <div class="idea" style="background:#eef7fa;border-left-color:var(--teal)"><b>Data Warehouse (DW):</b> a collection of <b>integrated, subject-oriented</b> databases supporting DSS, where each unit is <b>non-volatile</b> and tied to a <b>moment in time</b> — a repository of cleansed, standardized relational data (Inmon).</div>
+    <table>
+      <tr><th>Component</th><th>Meaning / usage</th></tr>
+      <tr><td>Dependent data mart</td><td>Subset created directly from the DW.</td></tr>
+      <tr><td>Independent data mart</td><td>Small standalone DW for one unit/department.</td></tr>
+      <tr><td>ODS (operational data store)</td><td>Interim staging area for the DW.</td></tr>
+      <tr><td>EDW</td><td>Enterprise DW — for the whole organisation.</td></tr>
+      <tr><td>Metadata</td><td>"Data about data" — describes DW contents &amp; use.</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="chars">
+    <h2>DW characteristics (each explained)</h2>
+    <table>
+      <tr><th>Characteristic</th><th>Meaning</th></tr>
+      <tr><td><b>Subject-oriented</b></td><td>Organised around business subjects (customer, product, sales) — not applications.</td></tr>
+      <tr><td><b>Integrated</b></td><td>Consistent naming, formats, units across all sources (the hard part of ETL).</td></tr>
+      <tr><td><b>Time-variant</b></td><td>Stores history — every record tied to a moment in time (enables trends).</td></tr>
+      <tr><td><b>Nonvolatile</b></td><td>Read-only for users; loaded then not updated/deleted in place.</td></tr>
+      <tr><td><b>Summarized / <span class="red">not normalized</span></b></td><td>Pre-aggregated, denormalized for <em>query speed</em> (vs OLTP's normalized efficiency).</td></tr>
+      <tr><td><b>Metadata-rich</b></td><td>Describes source, meaning, lineage, usage.</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="arch">
+    <h2>Architectures &amp; development models</h2>
+    <p><b>3-tier:</b> data-acquisition (back-end) → the data warehouse → client (front-end) for access &amp; analysis. Five alternatives: independent marts · data-mart bus (conformed dimensions) · hub-and-spoke (corporate information factory) · centralized · federated.</p>
+    <h4>Inmon vs Kimball</h4>
+    <table>
+      <tr><th>Effort</th><th>Kimball — Data Mart (bottom-up)</th><th>Inmon — EDW (top-down)</th></tr>
+      <tr><td>Scope</td><td>One subject area</td><td>Several subject areas</td></tr>
+      <tr><td>Time</td><td>Months</td><td>Years</td></tr>
+      <tr><td>Cost</td><td>$10K–$100K+</td><td>$1,000,000+</td></tr>
+      <tr><td>Size</td><td>MB–GB</td><td>GB–PB</td></tr>
+      <tr><td>Users</td><td>10s — area analysts</td><td>100s–1,000s — enterprise</td></tr>
+    </table>
+    <p>Third option: <b>hosted (cloud) data warehouses</b> — minimal infrastructure investment, frees capacity &amp; cash flow.</p>
+  </section>
+
+  <section class="card" id="etl">
+    <h2>ETL — the integration backbone</h2>
+    <ul>
+      <li><b>Extract</b> — pull from heterogeneous sources (OLTP DBs, files, APIs) into a <b>staging area / ODS</b>.</li>
+      <li><b>Transform</b> — clean, standardise, deduplicate, derive, conform dimensions, apply business rules (the bulk of the work).</li>
+      <li><b>Load</b> — write into the DW; full vs <b>incremental</b> loads (<b>CDC</b> = change data capture).</li>
+      <li>Variant <b>ELT</b> loads raw then transforms inside a powerful warehouse/lake. Related: <b>EAI</b> (push source data in), <b>EII</b> (real-time virtual integration).</li>
+    </ul>
+  </section>
+
+  <section class="card" id="schema">
+    <h2>Dimensional schemas &amp; OLAP</h2>
+    <p>A <b>fact table</b> holds numeric <em>measures</em> (revenue, qty) + foreign keys; <b>dimension tables</b> hold descriptive context (Product, Store, Date, Customer). The <b>grain</b> = the detail level of one fact row.</p>
+    <ul>
+      <li><b>Star schema</b> — single denormalized dimension tables; fewer joins → fastest; some redundancy.</li>
+      <li><b>Snowflake schema</b> — dimensions <b>normalized</b> into sub-tables; less redundancy, more joins → slower.</li>
+    </ul>
+    <h4>OLAP operations on the cube</h4>
+    <ul>
+      <li><b>Slice</b> — subset on one dimension · <b>Dice</b> — subset on multiple dimensions.</li>
+      <li><b>Drill down / up</b> — move between summarized &amp; detailed.</li>
+      <li><b>Roll up</b> — aggregate up a dimension · <b>Pivot</b> — rotate the report.</li>
+    </ul>
+    <table>
+      <tr><th>Type</th><th>Storage</th><th>Trade-off</th></tr>
+      <tr><td>MOLAP</td><td>Pre-computed cube</td><td>Fastest; storage-heavy</td></tr>
+      <tr><td>ROLAP</td><td>Relational (star)</td><td>Scales; slower</td></tr>
+      <tr><td>HOLAP</td><td>Hybrid</td><td>Balance</td></tr>
+    </table>
+    <table>
+      <tr><th>Criteria</th><th>OLTP</th><th>OLAP</th></tr>
+      <tr><td>Purpose</td><td>Day-to-day transactions</td><td>Decision support / management queries</td></tr>
+      <tr><td>Source</td><td>Transaction DB (normalized)</td><td>DW/mart (non-normalized)</td></tr>
+      <tr><td>Reporting</td><td>Routine, periodic, narrow</td><td>Ad-hoc, multidimensional, broad</td></tr>
+      <tr><td>Speed</td><td>Fast</td><td>Slow (large queries)</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="lake">
+    <h2>Data warehouse vs data lake</h2>
+    <table>
+      <tr><th>Dimension</th><th>Data Warehouse</th><th>Data Lake</th></tr>
+      <tr><td>Data</td><td>Structured, processed</td><td>Any data, raw/native</td></tr>
+      <tr><td>Processing</td><td>Schema-on-write (SQL)</td><td>Schema-on-read (NoSQL)</td></tr>
+      <tr><td>Speed</td><td>Very fast</td><td>Slow</td></tr>
+      <tr><td>Users</td><td>Business professionals</td><td>Data scientists</td></tr>
+    </table>
+  </section>
+
+  <section class="card" id="bpm">
+    <h2>Business Performance Management (BPM) &amp; KPIs</h2>
+    <p><b>BPM</b> (also CPM/EPM/SEM) alerts managers to opportunities/problems/threats and empowers response via models &amp; collaboration — a closed loop that fixes the strategy-to-execution gap:</p>
+    <div class="spectrum"><span class="step">1 Strategize</span><span class="arrow">→</span><span class="step">2 Plan</span><span class="arrow">→</span><span class="step">3 Monitor/Analyze</span><span class="arrow">→</span><span class="step">4 Act/Adjust</span></div>
+    <ul>
+      <li><b>KPI</b> = strategic objective + a metric measured against a goal.</li>
+      <li><b>Outcome KPIs</b> = lagging (e.g. revenue); <b>Driver KPIs</b> = leading (e.g. sales leads) — you need both.</li>
+      <li>Good KPIs are <b>SMART</b> (Specific, Measurable, Achievable, Relevant, Time-bound).</li>
+    </ul>
+  </section>
+
+  <section class="card" id="bsc">
+    <h2>Balanced Scorecard (Kaplan &amp; Norton, 1992)</h2>
+    <p>A strategic <b>management</b> system with four perspectives linked by a <b>strategy map</b> (cause &amp; effect): investment in Learning &amp; Growth → better Internal Processes → higher Customer satisfaction → stronger Financial results.</p>
+    <table>
+      <tr><th>Perspective</th><th>Strategic question</th></tr>
+      <tr><td>Financial</td><td>How do we look to shareholders?</td></tr>
+      <tr><td>Customer</td><td>How do customers see us?</td></tr>
+      <tr><td>Internal Business Process</td><td>What must we excel at?</td></tr>
+      <tr><td>Learning &amp; Growth</td><td>Can we keep improving &amp; creating value?</td></tr>
+    </table>
+    <div class="ex"><b>Dashboard vs scorecard:</b> a <b>dashboard</b> is operational/tactical (many real-time indicators, "how are we doing now?"); a <b>scorecard</b> is strategic (periodic objectives vs targets, "are we doing the right things?"). BSC is a scorecard methodology.</div>
+  </section>
+
+  <section class="card" id="sixsigma">
+    <h2>Six Sigma</h2>
+    <p>Reduce defects toward <b>3.4 DPMO</b> (defects per million opportunities ≈ 99.99966% good) via the <b>DMAIC</b> loop: <b>Define → Measure → Analyze → Improve → Control</b> (<b>DMADV</b> designs a new process). <code>DPMO = defects/(units × opportunities) × 1,000,000</code>.</p>
+    <p><em>Balanced Scorecard = strategic <b>management</b> system; Six Sigma = performance <b>measurement</b> system.</em> Often paired: BSC sets <em>what</em> to improve, Six Sigma <em>how</em>.</p>
+  </section>
+
+  <section class="card" id="cases">
+    <h2>Application cases</h2>
+    <p><b>Maryland</b> targets tax fraud with BI+DW; <b>TELCOs</b> use DW/analytics to stay competitive; <b>BP Lubricants</b> "BIGS" initiative; <b>AARP</b> BI transformation (347% ROI in 3 yrs); <b>Expedia</b> customer-satisfaction scorecard.</p>
+  </section>
+
+  <section class="card" id="exam">
+    <h2>Exam focus</h2>
+    <div class="exam"><b>Most-tested:</b> DW characteristics ("not normalized!"); Inmon vs Kimball; star vs snowflake; the 5 OLAP operations; OLTP vs OLAP; DW vs data lake; Balanced Scorecard's 4 perspectives + cause-effect; DMAIC &amp; DPMO; dashboard vs scorecard.</div>
+    <p><b>↔ Readings:</b> <a href="R5.html">R5</a> (DW + DM for BI), <a href="R2.html">R2</a> (BI components &amp; KPIs). <b>This chapter is the backbone of exam Q1 (dashboards + BSC for AIT).</b></p>
+  </section>
+
+  </main>
+</div>
+<footer>Ch.4 · Data Warehousing &amp; BPM · BIA midterm full-detail page · <a href="index.html">back to hub</a></footer>
+</body>
+</html>
