@@ -10,6 +10,7 @@
   body { margin:0; background:#8d9aa0; font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; color:var(--ink); overflow-wrap:break-word; }
   .sheet { width:100%; max-width:210mm; background:#fff; margin:14px auto; padding:6mm 6mm 5mm; box-shadow:0 2px 10px rgba(0,0,0,.3); }
   .cols { column-count:3; column-gap:4.5mm; }
+  .cols2 { column-count:2; column-gap:5mm; }
   h1 { font-size:8.3pt; color:var(--teal-dark); margin:0 0 1px; }
   h1 .sub { font-size:5pt; color:#5c6b72; font-weight:400; }
   h2 { font-size:6.2pt; text-transform:uppercase; letter-spacing:.3px; color:#fff; background:var(--teal); margin:3.5px 0 1.5px; padding:1.8px 5px; border-radius:2px; break-after:avoid; break-inside:avoid; }
@@ -29,10 +30,10 @@
   p.ex b { color:var(--teal-dark); }
   p.case { font-size:4.9pt; line-height:1.13; margin:0 0 1.3px; padding:2px 4px; background:#f1f6f1; border-left:2.5px solid var(--green); border-radius:0 3px 3px 0; break-inside:avoid; }
   p.case b { color:var(--green); }
-  p.rh { font-size:5.2pt; color:var(--red); margin:1.1px 0 0.3px; break-after:avoid; break-inside:avoid; }
-  p.rh .cr { color:#5c6b72; font-weight:400; float:right; font-size:4.8pt; }
-  ul.rl { margin:0 0 1.1px; padding:0; list-style:none; }
-  ul.rl > li { font-size:4.55pt; line-height:1.06; margin:0 0 0.3px; padding-left:5.5px; position:relative; break-inside:avoid; text-align:justify; }
+  p.rh { font-size:5.9pt; color:var(--red); margin:2.4px 0 0.7px; break-after:avoid; break-inside:avoid; }
+  p.rh .cr { color:#5c6b72; font-weight:400; float:right; font-size:5.2pt; }
+  ul.rl { margin:0 0 2.6px; padding:0; list-style:none; }
+  ul.rl > li { font-size:5.0pt; line-height:1.2; margin:0 0 1px; padding-left:7px; position:relative; break-inside:avoid; text-align:justify; }
   ul.rl > li::before { content:"›"; position:absolute; left:0.5px; color:var(--teal); font-weight:700; }
   ul.rl > li b { color:var(--teal-dark); }
   ul.rl > li.les { color:#37464c; }
@@ -43,9 +44,9 @@
   ul.rl > li.one::before { content:"★"; color:var(--red); }
   ul.rl > li .k { color:var(--red); font-weight:700; }
   table { width:100%; border-collapse:collapse; margin:1.3px 0 2.4px; font-size:4.85pt; break-inside:avoid; table-layout:fixed; }
-  th,td { border:1px solid var(--line); padding:1px 2.2px; text-align:left; vertical-align:top; line-height:1.08; overflow-wrap:break-word; word-break:break-word; }
+  th,td { border:1px solid var(--line); padding:1px 2.2px; text-align:left; vertical-align:top; line-height:1.08; overflow-wrap:break-word; word-break:normal; }
   th { background:var(--bg); color:var(--teal-dark); }
-  code { background:var(--bg); padding:0 2px; border-radius:3px; font-size:.96em; word-break:break-word; }
+  code { background:var(--bg); padding:0 2px; border-radius:3px; font-size:.96em; overflow-wrap:break-word; word-break:normal; }
   .span { column-span:all; }
   .banner { column-span:all; border:1.5px solid var(--teal); border-radius:4px; padding:4px 7px; margin:0 0 4px; background:linear-gradient(90deg,#eef7fa,#fff); }
   .banner h1 { display:inline-block; }
@@ -102,7 +103,7 @@
       <tr><td>Interval</td><td>✓</td><td>✓</td><td>✓</td><td>—</td></tr>
       <tr><td>Ratio</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
     </table>
-    <p class="ex"><b>Scale eg ·</b> jersey#=nominal; rank 1–5=ordinal; °C=interval (20°≠2×10°); kg=ratio (true 0 → 20kg=2×10kg).</p>
+    <p class="ex"><b>Scale eg ·</b> jersey number = nominal; rank 1–5 = ordinal; °C = interval (20° ≠ 2×10°); kg = ratio (true 0 → 20 kg = 2×10 kg).</p>
     <p class="t"><b>Preprocessing (4 tasks)</b> — <b>Consolidation</b> (access/select/integrate sources) → <b>Cleaning</b> (impute mean/median/mode, remove noise/outliers) → <b>Transformation</b> (normalize 0–1, binning, new attributes) → <b>Reduction</b> (PCA = Principal Component Analysis, correlation, sampling, balance skew via over/under-sampling).</p>
     <p class="t"><b>Statistics</b> — <b>Descriptive</b> (describe data) vs <b>Inferential</b> (infer population from sample). Central tendency: mean/median/mode. Dispersion: range (max−min), variance, standard deviation (<b>SD</b>), quartiles, box-plot. Shape: histogram, <b>skewness</b> (asymmetry), <b>kurtosis</b> (peak/tail).</p>
     <p class="t"><b>Regression</b> — model input x → output y; <code>y=β₀+β₁x</code>; fit by <b>OLS</b> (Ordinary Least Squares); for explanation + forecasting (part of inferential stats). Steps: assess → fit → evaluate → deploy. Quality: <b>R²</b> (variance explained), p-value, error MSE/MAD/RMSE. <b>5 assumptions:</b> <span class="k">linearity, independence, normality, constant variance, no multicollinearity</span>. <b>Correlation</b> = strength/direction only; regression also predicts + gives predictor impact. <b>Logistic regression</b> = classification via sigmoid → probability.</p>
@@ -159,11 +160,13 @@
     <h2 class="alt">Ch.6 · Predictive Analytics II — Text, Web &amp; Social Media</h2>
     <p class="idea"><b>Key idea ·</b> ~85–90% of corporate data is unstructured text; <b>impose structure</b> (term-document matrix) then mine it for topics, sentiment &amp; web/social patterns.</p>
     <p class="t"><b>Text analytics</b> = IR (Information Retrieval) + Information Extraction + DM + Web mining (≈ <b>IR + Text Mining</b>). <b>DM vs TM</b> (Text Mining) = structured data (databases) vs unstructured (Word/PDF/web/email); both are semi-automated pattern discovery, but TM must impose structure first. <b>TM applications:</b> information extraction, topic tracking, summarization, categorization, clustering, concept linking, question answering; spam filtering.</p>
-    <p class="t"><b>Terms</b> — corpus (document collection); <b>tokenizing</b> (split into words); <b>stop words</b> (remove the/is/and); <b>stemming</b> (running→run); <b>POS</b> (Part-Of-Speech) tagging; <b>TDM</b> (Term-Document Matrix). <b>NLP</b> (Natural Language Processing) = structure/"understand" text (AI + linguistics); challenges: word-sense disambiguation, syntactic ambiguity, text segmentation. Resource: <b>WordNet</b> (lexical database).</p>
-    <p class="t"><b>Text mining — 3 steps</b>: <b>1 Establish corpus</b> (collect/digitize) → <b>2 Create TDM</b> (cells = counts / binary / <b>TF-IDF</b> = Term Frequency–Inverse Document Frequency; reduce sparse matrix via <b>SVD</b> = Singular Value Decomposition ≈ PCA) → <b>3 Extract knowledge</b> (classify / cluster / associate / trend).</p>
+    <p class="t"><b>Text-mining terms</b> — <b>corpus</b> (document collection); <b>term</b> (word) → <b>concept</b> (related terms); <b>tokenizing</b> (split into words); <b>stop words</b> (remove the/is/and); <b>stemming</b> (crude chop: running→run) vs <b>lemmatization</b> (dictionary form: better→good); <b>n-grams</b> (multi-word terms); case-folding; <b>morphology</b>. <b>TDM</b> (Term-Document Matrix) = terms × documents; cell weighting = <b>binary</b> / <b>term frequency</b> / <b>TF-IDF</b>; the matrix is huge &amp; <span class="k">sparse</span> → shrink by removing rare words, domain-expert filtering, or <b>SVD/LSI</b>.</p>
+    <p class="t"><b>NLP</b> (Natural Language Processing) — AI + computational linguistics to <em>understand</em> language, going beyond <b>bag-of-words</b> to meaning. <b>Pipeline:</b> tokenize → <b>POS</b> (Part-Of-Speech) tag → parse (syntax) → <b>NER</b> (Named-Entity Recognition) → <b>word-sense disambiguation</b> → coreference. <b>Tasks:</b> machine translation, speech recognition, summarization, question answering, sentiment. <b>Challenges</b> — ambiguity at every level: lexical/word-sense, syntactic (parse), semantic, pragmatic/context; plus imperfect input &amp; segmentation. Resources: <b>WordNet</b>, <b>SentiWordNet</b>.</p>
+    <p class="t"><b>Text mining — 3 steps</b>: <b>1 Establish corpus</b> (collect relevant docs; digitize/<b>OCR</b>; clean &amp; normalize) → <b>2 Create TDM</b> (impose structure; weight cells counts/binary/<b>TF-IDF</b> = Term Frequency–Inverse Document Frequency; cut dimensionality by removing stop/rare words + <b>SVD</b> = Singular Value Decomposition ≈ PCA) → <b>3 Extract knowledge</b> (classify / cluster / associate / topic / trend).</p>
     <p class="t"><b>Topic modeling</b> — unsupervised theme discovery: word-frequency clustering, <b>LSI/LSA</b> (Latent Semantic Indexing/Analysis = TF-IDF + SVD), <b>LDA</b> (Latent Dirichlet Allocation — most popular: a document = mix of topics, a topic = word distribution).</p>
-    <p class="t"><b>Sentiment analysis</b> — "what do people feel?". <b>4 steps</b>: (1) <b>S–O</b> detection (objective fact vs opinion) → (2) <b>N–P</b> polarity (negative/positive) → (3) target identification → (4) aggregation (word→statement→doc). Apps: <b>VOC / VOM / VOE</b> (Voice of Customer / Market / Employee), brand, financial, politics, government intelligence.</p>
-    <p class="ex"><b>Eg ·</b> "screen gorgeous but battery terrible" → screen=Positive, battery=Negative (two targets).</p>
+    <p class="t"><b>Sentiment analysis</b> (opinion mining) — detect opinions/emotions/attitudes in text: "what do people feel?". <b>Levels:</b> document · sentence · <b>aspect/feature</b> (entity-level — most useful). <b>Output:</b> polarity (positive / negative / neutral) + optional strength &amp; emotion (joy/anger/fear…).</p>
+    <p class="t"><b>SA — 4 steps</b>: (1) <b>S–O</b> detection (objective fact vs subjective opinion) → (2) <b>N–P</b> polarity (negative/positive) → (3) target/aspect identification (what is the opinion about?) → (4) aggregation (word→sentence→document). <b>Approaches:</b> <b>lexicon-based</b> (sentiment dictionaries, e.g. SentiWordNet — sum polarity scores) vs <b>machine-learning</b> (supervised NB/SVM/logistic; deep learning RNN/LSTM/<b>BERT</b>) vs hybrid. <b>Challenges:</b> negation ("not good"), sarcasm/irony, comparatives, mixed sentiment, domain dependence. <b>Apps:</b> <b>VOC / VOM / VOE</b> (Voice of Customer / Market / Employee), brand monitoring, financial-market &amp; political sentiment, product reviews, government intelligence.</p>
+    <p class="ex"><b>Eg ·</b> "screen gorgeous but battery terrible" → screen = Positive, battery = Negative (two aspects, opposite polarity).</p>
     <table>
       <tr><th>Web mining</th><th>Source → technique</th></tr>
       <tr><td>Content</td><td>page text → search, sentiment</td></tr>
@@ -188,139 +191,156 @@
       <tr><td>SAS / IBM</td><td>P</td><td>C</td><td>L/S</td><td>V</td></tr>
     </table>
     <p class="t"><b>R</b> — statistics + graphics language via <b>CRAN</b> (Comprehensive R Archive Network; IDE RStudio). <b>Python</b> — general-purpose, full ML / DL (Deep Learning) (Anaconda / Jupyter / Colab / VS Code). <b>KNIME</b> (Konstanz Information Miner) — 2000+ nodes, free, expandable via Python/R/JavaScript; workflow: read → inspect → clean → split → train → evaluate. <b>Orange</b> (U. Ljubljana), <b>Weka</b> (Waikato Environment for Knowledge Analysis). <b>Commercial</b>: Alteryx, IBM SPSS Modeler + Watson, SAS Enterprise Miner + Viya, TIBCO Statistica, JMP, Teradata Vantage.</p>
+  </div><!-- /cols : templates + chapters -->
 
-    <!-- ===================== READINGS ===================== -->
-    <h2 class="red span">Readings R1–R12 · full detail — Argument · Problem · Method · Results · Lessons</h2>
-    <p class="idea span"><b>Use ·</b> Q2 = the instructor picks 4 of R1–R12; you answer ONE (never R2). For each below: state the <b>argument</b>, restate the <b>problem</b>, walk the <b>method</b> pipeline, give <b>key results with numbers</b>, then close with the <b>exam one-liner</b>. The <b>5 lessons</b> are ready-made discussion points.</p>
-
+  <!-- ===================== READINGS ===================== -->
+  <h2 class="red">Readings R1–R12 · full detail — background · problem · methodology · results · lessons</h2>
+  <p class="idea"><b>Use ·</b> Q2 = the instructor picks 4 of R1–R12; you answer ONE (never R2). For each: give the <b>background/story</b>, the <b>problem</b>, the <b>methodology</b> step-by-step, <b>results with numbers</b>, then the <b>lessons learned</b> + <b>exam one-liner</b>.</p>
+  <div class="cols2">
     <h3>DSS &amp; BI foundations</h3>
     <p class="rh"><span class="cr">↔Ch.1</span><b>R1 · A Taxonomy of Decision Support Systems</b> (Alter 1977)</p>
     <ul class="rl">
+      <li><b>Background:</b> in the early 1970s "DSS" was a buzzword pinned on wildly different systems; Alter studied real organisational systems to bring order and a shared vocabulary.</li>
       <li><b>Argument:</b> DSS is not homogeneous — systems differ widely in what they do and how directly they shape the decision.</li>
-      <li><b>Problem:</b> DSS were ad-hoc; no shared language to compare, design or communicate them.</li>
-      <li><b>Method:</b> studied <b>56 real systems</b> → ranked by <span class="k">degree of action implication</span> (output just informs vs directly determines the decision) → placed on a <b>data-oriented ↔ model-oriented</b> spectrum → named 7 types.</li>
-      <li><b>7 types:</b> <em>data-oriented</em> — File Drawer (direct data access), Data Analysis (ad-hoc manipulation), Analysis Information (decision DB + small models); <em>model-oriented</em> — Accounting (definitional calc, budgets), Representational (simulate/estimate, approximate models), Optimization (best solution under constraints), Suggestion (recommends a specific action).</li>
+      <li><b>Problem:</b> no common language to compare, design or communicate DSS — each was ad-hoc.</li>
+      <li><b>Methodology:</b> (1) collect <b>56 real DSS</b> across organisations → (2) describe what each does → (3) rank by <span class="k">degree of action implication</span> (output merely informs vs directly determines the decision) → (4) arrange on a <b>data-oriented ↔ model-oriented</b> spectrum → (5) name 7 types.</li>
+      <li><b>7 types:</b> <em>data-oriented</em> — File Drawer Systems (direct data access), Data Analysis Systems (ad-hoc manipulation), Analysis Information Systems (decision DB + small models); <em>model-oriented</em> — Accounting Models (definitional calc, budgets), Representational Models (simulate/estimate, approximate reality), Optimization Models (best solution under constraints), Suggestion Models (recommend a specific action).</li>
       <li><b>Compare:</b> data-oriented used hands-on by decision-makers; model-oriented often need staff intermediaries. Accounting models trusted (definitional); representational doubted (approximations).</li>
-      <li class="les"><b>5 lessons:</b> implementation challenge depends on type • user role shifts across the taxonomy • model credibility varies • taxonomy = design/communication tool • approaches can be combined.</li>
+      <li class="les"><b>Lessons learned:</b> implementation challenge depends on type • user's role shifts across the taxonomy • model credibility varies • a taxonomy is a design/communication tool • approaches can be combined.</li>
       <li class="one"><b>One-liner:</b> Alter's 7-type taxonomy (by action implication, data→model) gives a language to design, classify &amp; adopt DSS.</li>
     </ul>
     <p class="rh"><span class="cr">↔Ch.1/4</span><b>R2 · BI &amp; Its Pivotal Role in Organizational Performance</b> (Moussas 2024)</p>
     <ul class="rl">
       <li><span class="k">Excluded from Q2</span> (your presentation reading) — but the strongest backing for Q1.</li>
+      <li><b>Background:</b> BI is often sold as "just software"; Moussas et al. review the literature to show it is a managerial capability tied to organisational performance.</li>
       <li><b>Argument:</b> BI is both a <b>product AND a process</b> converting raw data → actionable knowledge → better decisions, efficiency, innovation &amp; competitive advantage.</li>
-      <li><b>Problem:</b> scattered evidence on BI's strategic value.</li>
-      <li><b>Method:</b> systematic literature review (14 sections, 64 refs); BI as <em>product</em> (dashboards, DW, software) vs <em>process</em> (collect→process→analyse→interpret→apply).</li>
+      <li><b>Problem:</b> scattered, inconsistent evidence on BI's strategic value.</li>
+      <li><b>Methodology:</b> systematic literature review — (1) define scope (14 sections) → (2) screen 64 references → (3) code recurring themes (components, decision-making, efficiency, KPIs) → (4) synthesise a BI→performance chain; frames BI as <em>product</em> (dashboards, DW, software) vs <em>process</em> (collect→process→analyse→interpret→apply).</li>
       <li><b>Related concepts:</b> DSS (decisions), EIS/ESS (executive insight), KM (Knowledge Management), BPM (performance), CI (Competitive Intelligence).</li>
       <li><b>Results:</b> ↑ decision quality, ↓ uncertainty; supports strategic/tactical/operational decisions; finds bottlenecks; better resource allocation, forecasting, agility; competitive advantage.</li>
-      <li class="les"><b>5 lessons:</b> needs tools + processes • turns data into useful info • efficiency via bottleneck ID • self-service BI speeds decisions • align with org goals (not an IT project) • needs training/leadership.</li>
+      <li class="les"><b>Lessons learned:</b> needs tools + processes • turns data into useful info • efficiency via bottleneck ID • self-service BI speeds decisions • align with org goals (not an IT project) • needs training/leadership.</li>
       <li class="one"><b>One-liner:</b> BI transforms raw data into actionable insight for better decisions, efficiency, innovation &amp; competitive advantage.</li>
     </ul>
     <p class="rh"><span class="cr">↔Ch.1/5</span><b>R9 · Integrated DSS for DM Tools in Economic Intelligence</b> (Salah 2025)</p>
     <ul class="rl">
+      <li><b>Background:</b> economic decision-makers (esp. SMEs) work in volatile environments and need fast, accurate intelligence; the authors build &amp; test a DSS on socio-economic data.</li>
       <li><b>Argument:</b> economic intelligence needs fast, accurate DM tools; an integrated DSS combines several.</li>
       <li><b>Problem:</b> complex socio-economic data; existing systems process it inaccurately/inefficiently.</li>
-      <li><b>Method:</b> build socio-economic intelligence database → DM (association rules + forecasting) → train &amp; compare <b>Naïve Bayes, Logistic Regression, incremental C4.5</b> decision tree + incremental learning.</li>
+      <li><b>Methodology:</b> (1) build a socio-economic intelligence database → (2) mine relationships with <b>association rules</b> → (3) add <b>forecasting</b> → (4) train &amp; compare <b>Naïve Bayes, Logistic Regression, incremental C4.5</b> decision tree → (5) use incremental learning to adapt as data changes.</li>
       <li><b>Results:</b> proposed approach <span class="k">+2.76%</span> accuracy over Logistic Regression; incremental C4.5 &gt; LR &amp; NB.</li>
       <li><b>Compare:</b> C4.5 wins on interpretable rules; incremental learning suits dynamic data. It is a model-/data-driven DSS (storage + analysis + prediction + decision support).</li>
-      <li class="les"><b>5 lessons:</b> DSS stronger with DM tools • needs fast pattern extraction • DT = interpretable rules • incremental learning fits changing data • DSS must support practical decisions.</li>
+      <li class="les"><b>Lessons learned:</b> DSS stronger with DM tools • needs fast pattern extraction • DT = interpretable rules • incremental learning fits changing data • DSS must support practical decisions.</li>
       <li class="one"><b>One-liner:</b> An integrated DSS (ARM + forecasting + incremental C4.5) beats Logistic Regression by 2.76% for economic intelligence.</li>
     </ul>
 
     <h3>Visualization &amp; visual analytics</h3>
     <p class="rh"><span class="cr">↔Ch.3</span><b>R3 · Visualization of Data Inventory using VDM &amp; EDA</b> (Yanto 2025)</p>
     <ul class="rl">
+      <li><b>Background:</b> a skincare retailer couldn't tell which products move and which tie up cash; the authors apply visual analytics to its 2019–20 inventory.</li>
       <li><b>Argument:</b> inventory data becomes useful as visual dashboards via Visual Data Mining (VDM) + Exploratory Data Analysis (EDA).</li>
       <li><b>Problem:</b> identify slow- vs fast-moving stock to cut holding cost.</li>
-      <li><b>Method:</b> 3 phases plan → prep → analysis; <b>98 skincare SKUs</b> (2019–20) in <b>Tableau</b>; EDA dashboards on turnover, sales &amp; stock-on-hand.</li>
+      <li><b>Methodology:</b> 3-phase VDM — (1) Planning (define questions/KPIs) → (2) Preparation (clean/integrate <b>98 skincare SKUs</b>, 2019–20) → (3) Analysis (EDA + <b>Tableau</b> dashboards on turnover, sales, stock-on-hand) → flag efficient vs inefficient items.</li>
       <li><b>Results:</b> <b>3 efficient / 3 inefficient</b> products; turnover peak <b>+12.86%</b> (Jan 2020); dashboards validated for restock/clearance.</li>
-      <li class="les"><b>5 lessons:</b> visualization beats raw numbers • EDA reveals turnover patterns • flag inefficient stock early • dashboards drive restock/clearance • VDM supports inventory mgmt.</li>
+      <li class="les"><b>Lessons learned:</b> visualization beats raw numbers • EDA reveals turnover patterns • flag inefficient stock early • dashboards drive restock/clearance • VDM supports inventory mgmt.</li>
       <li class="one"><b>One-liner:</b> VDM + EDA dashboards in Tableau turn inventory data into stock-efficiency insights for restock/clearance.</li>
     </ul>
     <p class="rh"><span class="cr">↔Ch.3</span><b>R4 · Visual Analytic for Traffic Impact Assessment</b> (Chan 2024)</p>
     <ul class="rl">
-      <li><b>Argument:</b> visual analytics improves Traffic Impact Assessment (TIA) by turning large traffic data into readable patterns.</li>
-      <li><b>Problem:</b> rising vehicle ownership/urbanization → congestion; numerical TIA results hard to interpret.</li>
+      <li><b>Background:</b> a growing city faces worsening congestion; planners find raw Traffic Impact Assessment (TIA) numbers hard to act on, so the authors visualise them.</li>
+      <li><b>Argument:</b> visual analytics improves TIA by turning large traffic data into readable patterns.</li>
+      <li><b>Problem:</b> rising vehicle ownership/urbanisation → congestion; numerical TIA results hard to interpret.</li>
       <li><b>Data:</b> 3 junctions — counts by lane, vehicle types, saturation flow, timestamps; <b>PCU</b> (Passenger Car Unit)-weighted.</li>
-      <li><b>Method:</b> clean/integrate/transform → heat maps + bar plots + parallel-coordinate + circular-stacked-bar charts + LOS tables.</li>
+      <li><b>Methodology:</b> (1) collect junction data → (2) convert to PCU → (3) clean/integrate/transform → (4) build heat maps + bar plots + parallel-coordinate + circular-stacked-bar charts + LOS tables → (5) compute volume-to-capacity ratio → grade <b>Level of Service (LOS) A→F</b>.</li>
       <li><b>Results:</b> peak vs off-peak &amp; weekday/weekend differences; cars + motorcycles dominate, heavy lorries least; <b>Level of Service (LOS) A→F</b> via volume-to-capacity ratio.</li>
-      <li class="les"><b>5 lessons:</b> visual analytics easier than raw numbers • heat maps reveal congestion • LOS flags junctions needing action • spatial+temporal viz aids planning/safety • predictive models can build on it.</li>
+      <li class="les"><b>Lessons learned:</b> visual analytics easier than raw numbers • heat maps reveal congestion • LOS flags junctions needing action • spatial+temporal viz aids planning/safety • predictive models can build on it.</li>
       <li class="one"><b>One-liner:</b> Visual analytics converts traffic counts, types &amp; saturation into LOS/congestion visuals for proactive management.</li>
     </ul>
 
     <h3>DW &amp; data mining (structured)</h3>
     <p class="rh"><span class="cr">↔Ch.4/5</span><b>R5 · Data Warehouse &amp; Data Mining for BI</b> (Kumar 2024)</p>
     <ul class="rl">
+      <li><b>Background:</b> organisations hoard data but BI value stays fragmented across separate warehousing and mining efforts; the review unifies them.</li>
       <li><b>Argument:</b> DW + DM together strengthen BI — centralize data, enable historical analysis, discover patterns, predict.</li>
       <li><b>Problem:</b> fragmented view of architecture vs techniques.</li>
+      <li><b>Methodology:</b> literature review — map the <b>DW side</b> and the <b>DM side</b> (below), then join into one BI pipeline (preprocess → train/evaluate → deploy to reports/dashboards/scorecards).</li>
       <li><b>DW role:</b> central repository — sources, ETL, storage, metadata, marts, security, governance, query/analysis.</li>
       <li><b>DM role:</b> supervised, unsupervised, semi-supervised, text mining, predictive modelling, pattern recognition, visualization.</li>
       <li><b>Results / apps:</b> segmentation, market-basket, fraud, predictive analytics, behaviour analysis, healthcare diagnosis, financial risk, operational optimization. <b>Challenges:</b> data quality, scalability, privacy, skilled staff, cost, governance, compliance.</li>
-      <li class="les"><b>5 lessons:</b> DW = trusted-BI foundation • DM = predictive/actionable insight • ETL + quality first • value rises via dashboards • privacy/governance/compliance major.</li>
+      <li class="les"><b>Lessons learned:</b> DW = trusted-BI foundation • DM = predictive/actionable insight • ETL + quality first • value rises via dashboards • privacy/governance/compliance major.</li>
       <li class="one"><b>One-liner:</b> DW provides trusted integrated data; DM extracts predictive patterns — together enabling BI &amp; advantage.</li>
     </ul>
     <p class="rh"><span class="cr">↔Ch.5</span><b>R6 · Using Data Mining to Predict Student Performance</b> (Zahruddin 2023)</p>
     <ul class="rl">
+      <li><b>Background:</b> at Malaysia's UPNM (national defence university), staff wanted to spot at-risk students early using data already collected at enrolment.</li>
       <li><b>Argument:</b> DM predicts student performance from demographic + academic data → find key factors, improve support.</li>
-      <li><b>Problem/Aim:</b> UPNM — which demographic factors influence performance, which algorithm predicts best.</li>
+      <li><b>Problem/Aim:</b> which demographic factors influence performance, and which algorithm predicts best?</li>
       <li><b>Data:</b> gender, age, race, marital status, student status, residential area, geographic location, study status, CGPA.</li>
-      <li><b>Method:</b> KDD process (select → prepare → clean → prior knowledge → model → interpret); <b>Neural Network, Decision Tree, k-NN</b> in <b>WEKA</b>.</li>
+      <li><b>Methodology:</b> <b>KDD</b> — (1) data selection → (2) preparation → (3) cleaning → (4) incorporate prior knowledge → (5) apply models (<b>Neural Network, Decision Tree, k-NN</b> in <b>WEKA</b>) → (6) interpret; compare by RMSE.</li>
       <li><b>Results:</b> most influential = gender, age, student status; RMSE — <b>NN 0.0006 (best)</b>, k-NN 0.0622, Decision Tree 5.1604 (worst).</li>
       <li><b>Compare:</b> NN = best accuracy, harder to explain; k-NN = 2nd, similarity grouping; DT = interpretable but least accurate. <span class="k">(paper wrongly calls k-NN "unsupervised" — it's supervised)</span></li>
-      <li class="les"><b>5 lessons:</b> educational DM → early prediction • demographic data reveals patterns • NN accurate but opaque • DT interpretable not always accurate • analytics → better support.</li>
+      <li class="les"><b>Lessons learned:</b> educational DM → early prediction • demographic data reveals patterns • NN accurate but opaque • DT interpretable not always accurate • analytics → better support strategies.</li>
       <li class="one"><b>One-liner:</b> KDD classification on demographic data predicts performance; Neural Networks most accurate (RMSE 0.0006) for early at-risk support.</li>
     </ul>
     <p class="rh"><span class="cr">↔Ch.5</span><b>R7 · Customer Segmentation using K-Means &amp; DBSCAN</b> (William 2025)</p>
     <ul class="rl">
+      <li><b>Background:</b> an online fashion store ("IXYZ") had piles of transactions but no customer segments to target marketing.</li>
       <li><b>Argument:</b> segmentation → fashion e-commerce understands buying behaviour for targeted marketing; K-Means beat DBSCAN.</li>
-      <li><b>Problem:</b> IXYZ fashion needed meaningful segments; raw transactions insufficient.</li>
-      <li><b>Method:</b> <b>CRISP-DM</b> → 10,845×49 data → clean + RFM features → StandardScaler + <b>PCA</b> → run K-Means (k swept) &amp; DBSCAN → evaluate <b>Silhouette ↑ / Davies-Bouldin ↓</b> → profile → deploy.</li>
+      <li><b>Problem:</b> turn raw transactions into meaningful, marketable customer groups.</li>
+      <li><b>Methodology:</b> <b>CRISP-DM</b> — (1) collect 10,845×49 transactions → (2) clean + build RFM features → (3) StandardScaler + <b>PCA</b> → (4) run K-Means (sweep k) &amp; DBSCAN → (5) evaluate <b>Silhouette ↑ / Davies-Bouldin ↓</b> → (6) profile segments → (7) deploy (FastAPI + React/TypeScript).</li>
       <li><b>Results:</b> K-Means best at <b>k=7</b> (Silhouette 0.549, DBI 0.593); DBSCAN worse (0.2906 / 0.92); deployed FastAPI + React/TypeScript.</li>
       <li><b>Compare:</b> K-Means suits centroid groups; DBSCAN good for outliers, not best here; PCA + scaling improve quality.</li>
-      <li class="les"><b>5 lessons:</b> segmentation reveals buying patterns • K-Means for centroid groups • DBSCAN for outliers • PCA + scaling improve clustering • dashboards → marketing decisions.</li>
+      <li class="les"><b>Lessons learned:</b> segmentation reveals buying patterns • K-Means for centroid groups • DBSCAN for outliers • PCA + scaling improve clustering • dashboards → marketing decisions.</li>
       <li class="one"><b>One-liner:</b> CRISP-DM clustering (K-Means k=7 &gt; DBSCAN) yields 7 actionable fashion segments, deployed as a dashboard.</li>
     </ul>
     <p class="rh"><span class="cr">↔Ch.5</span><b>R8 · Patients at Higher CV Risk for Prescribed Stimulants</b> (Yan 2025)</p>
     <ul class="rl">
+      <li><b>Background:</b> adult ADHD stimulant prescriptions are rising; clinicians worry about heart risk but prior evidence is mixed, so the authors mine health records to find who is actually at risk.</li>
       <li><b>Argument:</b> predictive analytics + DM find which patients face higher cardiovascular (CV) risk on stimulants — risk is patient-specific.</li>
-      <li><b>Problem:</b> rising stimulant use (ADHD adults), mixed CV-risk evidence — which subgroups are vulnerable?</li>
+      <li><b>Problem:</b> which patient subgroups face higher CV risk on stimulants?</li>
       <li><b>Data:</b> EHR (Electronic Health Records, TriNetX; ADHD adults 2010–20); cohort <b>219,965</b> (102,138 stimulant users), 4 age groups.</li>
-      <li><b>Method:</b> ML predicts 1-yr CV risk by age group → <b>Association Rule Mining (ARM)</b> on the highest-25% added-risk patients.</li>
+      <li><b>Methodology:</b> (1) build cohort from EHR → (2) split by age group → (3) train ML to predict 1-year CV risk → (4) take the highest-25% added-risk patients → (5) run <b>Association Rule Mining (ARM)</b> to find common comorbidity combinations.</li>
       <li><b>Results:</b> <b>AUROC 0.77–0.84</b>; risk categories = existing CV risk factors, prior CV events, substance-use disorders, psychological disorders → comorbidity <b>watch-list</b>.</li>
-      <li class="les"><b>5 lessons:</b> models reveal patient-specific (not avg) risk • EHR → safer medication decisions • ARM finds risky combos • risk → practical watch-list • DM strengthens healthcare DSS.</li>
+      <li class="les"><b>Lessons learned:</b> models reveal patient-specific (not avg) risk • EHR → safer medication decisions • ARM finds risky combos • risk → practical watch-list • DM strengthens healthcare DSS.</li>
       <li class="one"><b>One-liner:</b> ML + ARM on 219,965 EHRs (AUROC 0.77–0.84) builds a comorbidity watch-list for safer stimulant prescribing.</li>
     </ul>
 
     <h3>Text / web / social (unstructured)</h3>
     <p class="rh"><span class="cr">↔Ch.6</span><b>R10 · Text-Based Content Analysis on Social Media (Topic Modelling)</b> (Buana 2024)</p>
     <ul class="rl">
+      <li><b>Background:</b> Instagram marketing is image-heavy, but the useful text sits inside the images — invisible to normal analytics that only read likes/captions.</li>
       <li><b>Argument:</b> social media analytics (SMA) supports digital marketing by discovering topics from text inside Instagram posts.</li>
       <li><b>Problem:</b> marketers need topic ideas, but tools analyse metadata (likes/comments) and ignore image text.</li>
-      <li><b>Method:</b> SMA tool → <b>OCR</b> (Optical Character Recognition) extracts image text → <b>LDA</b> finds dominant topics; data = content text, captions, likes, comments, upload time, category.</li>
+      <li><b>Methodology:</b> (1) collect posts (content text, captions, likes, comments, upload time, category) → (2) <b>OCR</b> (Optical Character Recognition) extracts text from images → (3) clean text → (4) <b>LDA</b> finds dominant topics → (5) wrap as an SMA tool → (6) test with expert users.</li>
       <li><b>Results:</b> expert-tested — <b>93%</b> could find topic references, <b>85%</b> usable despite difficulty (UX needs work).</li>
-      <li class="les"><b>5 lessons:</b> SMA → content ideation • OCR makes image text readable • LDA finds hidden themes • metadata alone insufficient • UX matters for adoption.</li>
+      <li class="les"><b>Lessons learned:</b> SMA → content ideation • OCR makes image text readable • LDA finds hidden themes • metadata alone insufficient • UX matters for adoption.</li>
       <li class="one"><b>One-liner:</b> OCR + LDA turn Instagram image text into topic insights (93% usable) for content/marketing planning.</li>
     </ul>
     <p class="rh"><span class="cr">↔Ch.6</span><b>R11 · Social Intelligence &amp; Web Mining for Renewable-Energy Insights</b> (Mwafaq 2025)</p>
     <ul class="rl">
+      <li><b>Background:</b> renewable-energy policy depends on public opinion, which lives scattered across social media, forums &amp; news; the authors mine it at scale.</li>
       <li><b>Argument:</b> social intelligence + web mining analyse online opinion on renewable energy → policy-level insight.</li>
-      <li><b>Problem:</b> adoption depends on public opinion, awareness, trust &amp; regional readiness — not just technology.</li>
-      <li><b>Method:</b> crawl <b>1.5M → 900k</b> social/forum/news items (12 mo) → clean → <b>RoBERTa</b> sentiment + <b>LDA</b> themes → multivariate/ridge regression of sentiment → adoption.</li>
+      <li><b>Problem:</b> adoption depends on opinion, awareness, trust &amp; regional readiness — not just technology.</li>
+      <li><b>Methodology:</b> (1) crawl <b>1.5M → 900k</b> social/forum/news items over 12 months → (2) clean → (3) <b>RoBERTa</b> transformer sentiment + <b>LDA</b> themes → (4) multivariate/ridge regression of sentiment → adoption.</li>
       <li><b>Results:</b> <b>58% positive</b> (EU/N.America lead); top themes = economic benefit + technology advances; predicts regional adoption (Europe ≈15.5%).</li>
-      <li class="les"><b>5 lessons:</b> web mining scales opinion analysis • transformer sentiment (RoBERTa) &gt; lexicon • topic modelling surfaces themes • sentiment can predict adoption • regional differences matter for policy.</li>
+      <li class="les"><b>Lessons learned:</b> web mining scales opinion analysis • transformer sentiment (RoBERTa) &gt; lexicon • topic modelling surfaces themes • sentiment can predict adoption • regional differences matter for policy.</li>
       <li class="one"><b>One-liner:</b> RoBERTa sentiment + web mining + regression on ~900k posts → 58% positive opinion, predicting regional renewable adoption.</li>
     </ul>
     <p class="rh"><span class="cr">↔Ch.6</span><b>R12 · Sentiment Analysis &amp; CEEMDAN for Consumer-Group Preferences</b> (Wang 2026)</p>
     <ul class="rl">
+      <li><b>Background:</b> hotels get thousands of online reviews but can't easily turn emotional, ambiguous, time-varying text into stable consumer preferences.</li>
       <li><b>Argument:</b> reviews hide consumer preferences (unstructured, emotional, time-dependent); combine NLP + decision modelling to learn them.</li>
       <li><b>Problem:</b> hotel reviews are scattered, implicit, ambiguous &amp; change over time.</li>
-      <li><b>Method:</b> Ctrip <b>14,133 → 10,505</b> reviews → <b>BERT</b>-Base-Chinese fine-grained sentiment (F1 0.83) → <b>BERTopic</b> (20 topics) → <b>CEEMDAN</b> separates noise from trend → <b>UTA</b> preference model (criteria weights, thresholds, value systems) per group.</li>
+      <li><b>Methodology:</b> (1) collect Ctrip reviews <b>14,133 → 10,505</b> after cleaning → (2) <b>BERT</b>-Base-Chinese fine-grained (aspect) sentiment (F1 0.83) → (3) <b>BERTopic</b> extracts 20 topics → (4) <b>CEEMDAN</b> separates short-term noise from long-term trend → (5) <b>UTA</b> preference model derives criteria weights, thresholds &amp; value systems per consumer group.</li>
       <li><b>Results:</b> interpretable group preferences; identifies each group's priority factors; beats LSTM (0.761) &amp; RF (0.568); manager decision support.</li>
-      <li class="les"><b>5 lessons:</b> fine-grained sentiment &gt; pos/neg • preferences change over time • CEEMDAN separates trend from noise • NLP + decision modelling → interpretability • review mining → service/marketing/resource decisions.</li>
+      <li class="les"><b>Lessons learned:</b> fine-grained sentiment &gt; pos/neg • preferences change over time • CEEMDAN separates trend from noise • NLP + decision modelling → interpretability • review mining → service/marketing/resource decisions.</li>
       <li class="one"><b>One-liner:</b> BERT + CEEMDAN + UTA mine hotel reviews into stable, interpretable consumer-group preferences for evidence-based management.</li>
     </ul>
 
-    <!-- ===================== FORMULAS ===================== -->
-    <h2 class="span">Formulas, Metrics &amp; Quick-Pick</h2>
+  </div><!-- /cols2 : readings -->
+
+  <!-- ===================== FORMULAS ===================== -->
+  <h2>Formulas, Metrics &amp; Quick-Pick</h2>
+  <div class="cols">
     <p class="t"><b>Classification</b> — Accuracy=(TP+TN)/all; Precision=TP/(TP+FP); Recall/TPR=TP/(TP+FN); TNR=TN/(TN+FP); <b>F1</b>=2·P·R/(P+R) (best for imbalance); AUC 0.5=random, 1=perfect.</p>
     <p class="t"><b>Regression</b> — <code>y=β₀+β₁x</code>; fit=OLS; quality=R², p-value, RMSE/MAD/MSE. <b>Logistic</b> <code>1/(1+e^−(β₀+β₁x))</code> → P(class). Tree split = <b>Gini / info-gain(entropy)</b>; ensembles = bagging(→RF) / boosting.</p>
     <p class="t"><b>Association</b> — Support=P(X∩Y); Confidence=P(Y|X); <b>Lift</b>=Conf/P(Y) (&gt;1 positive, =1 independent, &lt;1 negative). <b>Clustering</b> — Silhouette ↑ better, Davies-Bouldin ↓ better.</p>
