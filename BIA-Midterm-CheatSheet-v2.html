@@ -17,7 +17,7 @@
   h2.red { background:var(--red); }
   h2.purple { background:var(--purple); }
   h3 { font-size:5.4pt; color:var(--teal-dark); margin:1.8px 0 0.8px; text-transform:uppercase; letter-spacing:.2px; break-after:avoid; }
-  p.t { font-size:5.0pt; line-height:1.14; margin:0 0 1.3px; break-inside:avoid; text-align:justify; }
+  p.t { font-size:4.85pt; line-height:1.12; margin:0 0 1.2px; break-inside:avoid; text-align:justify; }
   p.t b { color:var(--ink); }
   p.t .k { color:var(--red); font-weight:700; }
   p.t .ab { color:#5c6b72; font-style:italic; }
@@ -29,6 +29,19 @@
   p.ex b { color:var(--teal-dark); }
   p.case { font-size:4.9pt; line-height:1.13; margin:0 0 1.3px; padding:2px 4px; background:#f1f6f1; border-left:2.5px solid var(--green); border-radius:0 3px 3px 0; break-inside:avoid; }
   p.case b { color:var(--green); }
+  p.rh { font-size:5.2pt; color:var(--red); margin:1.1px 0 0.3px; break-after:avoid; break-inside:avoid; }
+  p.rh .cr { color:#5c6b72; font-weight:400; float:right; font-size:4.8pt; }
+  ul.rl { margin:0 0 1.1px; padding:0; list-style:none; }
+  ul.rl > li { font-size:4.55pt; line-height:1.06; margin:0 0 0.3px; padding-left:5.5px; position:relative; break-inside:avoid; text-align:justify; }
+  ul.rl > li::before { content:"›"; position:absolute; left:0.5px; color:var(--teal); font-weight:700; }
+  ul.rl > li b { color:var(--teal-dark); }
+  ul.rl > li.les { color:#37464c; }
+  ul.rl > li.les b { color:var(--green); }
+  ul.rl > li.les::before { content:"✎"; color:var(--green); }
+  ul.rl > li.one { color:var(--red); }
+  ul.rl > li.one b { color:var(--red); }
+  ul.rl > li.one::before { content:"★"; color:var(--red); }
+  ul.rl > li .k { color:var(--red); font-weight:700; }
   table { width:100%; border-collapse:collapse; margin:1.3px 0 2.4px; font-size:4.85pt; break-inside:avoid; table-layout:fixed; }
   th,td { border:1px solid var(--line); padding:1px 2.2px; text-align:left; vertical-align:top; line-height:1.08; overflow-wrap:break-word; word-break:break-word; }
   th { background:var(--bg); color:var(--teal-dark); }
@@ -181,36 +194,130 @@
     <p class="idea span"><b>Use ·</b> Q2 = the instructor picks 4 of R1–R12; you answer ONE (never R2). For each below: state the <b>argument</b>, restate the <b>problem</b>, walk the <b>method</b> pipeline, give <b>key results with numbers</b>, then close with the <b>exam one-liner</b>. The <b>5 lessons</b> are ready-made discussion points.</p>
 
     <h3>DSS &amp; BI foundations</h3>
-    <p class="t"><b>R1 · A Taxonomy of Decision Support Systems</b> (Alter 1977). <b>Argument:</b> DSS is not homogeneous — systems differ widely in what they do and how they support decisions. <b>Exam focus:</b> classify a DSS correctly + explain why classification matters for design/implementation/adoption. <b>Problem:</b> DSS were ad-hoc with no shared language to compare or design them. <b>Method:</b> empirically analysed <b>56 systems</b>; ranked by <span class="k">degree of action implication</span> (output just informs vs directly determines the decision); placed on a <b>data-oriented ↔ model-oriented</b> spectrum. <b>Key results — 7 types:</b> File Drawer · Data Analysis · Analysis Information (data-oriented) | Accounting · Representational · Optimization · Suggestion (model-oriented). <b>Comparison:</b> data-oriented = retrieve/analyse, used hands-on by decision-makers; model-oriented = simulate/optimize/recommend, often need staff intermediaries; accounting models trusted (definitional), representational models doubted (approximations).</p>
-    <p class="ex"><b>5 lessons ·</b> implementation challenges depend on system type • the user's role shifts across the taxonomy • model credibility varies • a taxonomy is a practical design/communication tool • approaches can be combined. &nbsp;<b>One-liner:</b> Alter's 7-type taxonomy (by degree of action implication, data→model) gives a language to design, classify and adopt DSS. <b>↔Ch.1</b></p>
-    <p class="t"><b>R2 · BI &amp; Its Pivotal Role in Organizational Performance</b> (Moussas 2024). <b>Argument:</b> BI is both a <b>product AND a process</b> that converts raw data into actionable knowledge for better decisions, efficiency, innovation &amp; competitive advantage. <b>Exam focus:</b> BI's role in performance, decision quality, efficiency, KPIs, strategic advantage. <b>Problem:</b> scattered evidence on BI's strategic value. <b>Method:</b> systematic literature review (14 sections, 64 refs); BI as product (dashboards, DW, software) vs process (collect→process→analyse→interpret→apply); links to DSS, EIS/ESS, KM, BPM, CI. <b>Key results:</b> BI improves decision quality, reduces uncertainty, supports strategic/tactical/operational decisions, finds bottlenecks, improves resource allocation/forecasting/agility, strengthens competitive advantage.</p>
-    <p class="ex"><b>5 lessons ·</b> success needs tools + business processes • turns data into useful information • efficiency via bottleneck ID • self-service BI speeds decisions • align BI with org goals (not an IT project) + training/leadership. &nbsp;<b>One-liner:</b> BI improves organizational performance by transforming raw data into actionable insights for better decisions, efficiency, innovation &amp; competitive advantage. <span class="k">(your presentation reading → excluded from Q2; strongest backing for Q1)</span> <b>↔Ch.1/4</b></p>
-    <p class="t"><b>R9 · Integrated DSS for Evaluation of DM Tools in Economic Intelligence</b> (Salah 2025). <b>Argument:</b> economic intelligence needs fast, accurate DM tools; an integrated DSS combines several. <b>Exam focus:</b> a model/data-driven DSS example; compare algorithm accuracy. <b>Problem:</b> complex economic data; existing systems fail to process socio-economic info accurately/efficiently. <b>Method:</b> built a socio-economic intelligence database; <b>association rules + forecasting + Naïve Bayes + Logistic Regression + incremental C4.5</b> decision tree + incremental learning. <b>Key results:</b> proposed approach <span class="k">+2.76%</span> accuracy over Logistic Regression; incremental C4.5 &gt; LR and NB. <b>Comparison:</b> C4.5 wins on interpretable rules; incremental learning suits dynamic economic data.</p>
-    <p class="ex"><b>5 lessons ·</b> DSS is stronger combined with DM tools • economic intelligence needs fast pattern extraction • decision trees give interpretable rules • incremental learning fits changing data • a good DSS supports practical decisions, not just analysis. &nbsp;<b>One-liner:</b> An integrated DSS using ARM, forecasting and incremental C4.5 beats Logistic Regression by 2.76% for economic intelligence. <b>↔Ch.1/5</b></p>
+    <p class="rh"><span class="cr">↔Ch.1</span><b>R1 · A Taxonomy of Decision Support Systems</b> (Alter 1977)</p>
+    <ul class="rl">
+      <li><b>Argument:</b> DSS is not homogeneous — systems differ widely in what they do and how directly they shape the decision.</li>
+      <li><b>Problem:</b> DSS were ad-hoc; no shared language to compare, design or communicate them.</li>
+      <li><b>Method:</b> studied <b>56 real systems</b> → ranked by <span class="k">degree of action implication</span> (output just informs vs directly determines the decision) → placed on a <b>data-oriented ↔ model-oriented</b> spectrum → named 7 types.</li>
+      <li><b>7 types:</b> <em>data-oriented</em> — File Drawer (direct data access), Data Analysis (ad-hoc manipulation), Analysis Information (decision DB + small models); <em>model-oriented</em> — Accounting (definitional calc, budgets), Representational (simulate/estimate, approximate models), Optimization (best solution under constraints), Suggestion (recommends a specific action).</li>
+      <li><b>Compare:</b> data-oriented used hands-on by decision-makers; model-oriented often need staff intermediaries. Accounting models trusted (definitional); representational doubted (approximations).</li>
+      <li class="les"><b>5 lessons:</b> implementation challenge depends on type • user role shifts across the taxonomy • model credibility varies • taxonomy = design/communication tool • approaches can be combined.</li>
+      <li class="one"><b>One-liner:</b> Alter's 7-type taxonomy (by action implication, data→model) gives a language to design, classify &amp; adopt DSS.</li>
+    </ul>
+    <p class="rh"><span class="cr">↔Ch.1/4</span><b>R2 · BI &amp; Its Pivotal Role in Organizational Performance</b> (Moussas 2024)</p>
+    <ul class="rl">
+      <li><span class="k">Excluded from Q2</span> (your presentation reading) — but the strongest backing for Q1.</li>
+      <li><b>Argument:</b> BI is both a <b>product AND a process</b> converting raw data → actionable knowledge → better decisions, efficiency, innovation &amp; competitive advantage.</li>
+      <li><b>Problem:</b> scattered evidence on BI's strategic value.</li>
+      <li><b>Method:</b> systematic literature review (14 sections, 64 refs); BI as <em>product</em> (dashboards, DW, software) vs <em>process</em> (collect→process→analyse→interpret→apply).</li>
+      <li><b>Related concepts:</b> DSS (decisions), EIS/ESS (executive insight), KM (Knowledge Management), BPM (performance), CI (Competitive Intelligence).</li>
+      <li><b>Results:</b> ↑ decision quality, ↓ uncertainty; supports strategic/tactical/operational decisions; finds bottlenecks; better resource allocation, forecasting, agility; competitive advantage.</li>
+      <li class="les"><b>5 lessons:</b> needs tools + processes • turns data into useful info • efficiency via bottleneck ID • self-service BI speeds decisions • align with org goals (not an IT project) • needs training/leadership.</li>
+      <li class="one"><b>One-liner:</b> BI transforms raw data into actionable insight for better decisions, efficiency, innovation &amp; competitive advantage.</li>
+    </ul>
+    <p class="rh"><span class="cr">↔Ch.1/5</span><b>R9 · Integrated DSS for DM Tools in Economic Intelligence</b> (Salah 2025)</p>
+    <ul class="rl">
+      <li><b>Argument:</b> economic intelligence needs fast, accurate DM tools; an integrated DSS combines several.</li>
+      <li><b>Problem:</b> complex socio-economic data; existing systems process it inaccurately/inefficiently.</li>
+      <li><b>Method:</b> build socio-economic intelligence database → DM (association rules + forecasting) → train &amp; compare <b>Naïve Bayes, Logistic Regression, incremental C4.5</b> decision tree + incremental learning.</li>
+      <li><b>Results:</b> proposed approach <span class="k">+2.76%</span> accuracy over Logistic Regression; incremental C4.5 &gt; LR &amp; NB.</li>
+      <li><b>Compare:</b> C4.5 wins on interpretable rules; incremental learning suits dynamic data. It is a model-/data-driven DSS (storage + analysis + prediction + decision support).</li>
+      <li class="les"><b>5 lessons:</b> DSS stronger with DM tools • needs fast pattern extraction • DT = interpretable rules • incremental learning fits changing data • DSS must support practical decisions.</li>
+      <li class="one"><b>One-liner:</b> An integrated DSS (ARM + forecasting + incremental C4.5) beats Logistic Regression by 2.76% for economic intelligence.</li>
+    </ul>
 
     <h3>Visualization &amp; visual analytics</h3>
-    <p class="t"><b>R3 · Visualization of Data Inventory using VDM &amp; EDA</b> (Yanto 2025). <b>Argument:</b> inventory data becomes useful when turned into visual dashboards via <b>Visual Data Mining + EDA</b>. <b>Exam focus:</b> how visualization supports inventory decisions and flags inefficient products. <b>Problem:</b> identify slow- vs fast-moving stock to cut holding cost. <b>Method:</b> 3 phases (plan→prep→analysis); <b>98 skincare SKUs</b> (2019–20) in <b>Tableau</b>; VDM + EDA dashboards on turnover, sales &amp; stock-on-hand. <b>Key results:</b> <b>3 efficient / 3 inefficient</b> products; turnover peak <b>+12.86%</b> (Jan 2020); dashboards validated for restock/clearance decisions.</p>
-    <p class="ex"><b>5 lessons ·</b> visualization beats raw numbers • EDA reveals turnover patterns • flag inefficient stock early • dashboards drive restock/clearance • VDM supports inventory management. &nbsp;<b>One-liner:</b> VDM + EDA dashboards in Tableau turn inventory data into stock-efficiency insights for restock/clearance decisions. <b>↔Ch.3</b></p>
-    <p class="t"><b>R4 · Visual Analytic for Traffic Impact Assessment</b> (Chan 2024). <b>Argument:</b> visual analytics improves TIA by converting large traffic datasets into understandable visual patterns. <b>Exam focus:</b> how spatial/temporal visualization supports traffic-planning decisions. <b>Problem:</b> rising vehicle ownership/urbanization → congestion; numerical TIA results are hard to interpret. <b>Method:</b> data from <b>3 junctions</b> (counts by lane, vehicle types, saturation flow, timestamps); cleaned/integrated/transformed; <b>heat maps, bar plots, parallel-coordinate &amp; circular-stacked-bar charts, LOS tables</b>; <b>PCU</b>-weighted volumes. <b>Key results:</b> peak vs off-peak &amp; weekday/weekend differences; cars + motorcycles dominate, heavy lorries least; <b>Level of Service A→F</b> via volume-to-capacity ratio.</p>
-    <p class="ex"><b>5 lessons ·</b> visual analytics is easier to read than raw numbers • heat maps reveal hourly/daily congestion • LOS flags junctions needing action • spatial+temporal viz aids planning/safety • predictive models can be built on it. &nbsp;<b>One-liner:</b> Visual analytics converts traffic counts, types &amp; saturation flow into LOS and congestion visuals for proactive traffic management. <b>↔Ch.3</b></p>
+    <p class="rh"><span class="cr">↔Ch.3</span><b>R3 · Visualization of Data Inventory using VDM &amp; EDA</b> (Yanto 2025)</p>
+    <ul class="rl">
+      <li><b>Argument:</b> inventory data becomes useful as visual dashboards via Visual Data Mining (VDM) + Exploratory Data Analysis (EDA).</li>
+      <li><b>Problem:</b> identify slow- vs fast-moving stock to cut holding cost.</li>
+      <li><b>Method:</b> 3 phases plan → prep → analysis; <b>98 skincare SKUs</b> (2019–20) in <b>Tableau</b>; EDA dashboards on turnover, sales &amp; stock-on-hand.</li>
+      <li><b>Results:</b> <b>3 efficient / 3 inefficient</b> products; turnover peak <b>+12.86%</b> (Jan 2020); dashboards validated for restock/clearance.</li>
+      <li class="les"><b>5 lessons:</b> visualization beats raw numbers • EDA reveals turnover patterns • flag inefficient stock early • dashboards drive restock/clearance • VDM supports inventory mgmt.</li>
+      <li class="one"><b>One-liner:</b> VDM + EDA dashboards in Tableau turn inventory data into stock-efficiency insights for restock/clearance.</li>
+    </ul>
+    <p class="rh"><span class="cr">↔Ch.3</span><b>R4 · Visual Analytic for Traffic Impact Assessment</b> (Chan 2024)</p>
+    <ul class="rl">
+      <li><b>Argument:</b> visual analytics improves Traffic Impact Assessment (TIA) by turning large traffic data into readable patterns.</li>
+      <li><b>Problem:</b> rising vehicle ownership/urbanization → congestion; numerical TIA results hard to interpret.</li>
+      <li><b>Data:</b> 3 junctions — counts by lane, vehicle types, saturation flow, timestamps; <b>PCU</b> (Passenger Car Unit)-weighted.</li>
+      <li><b>Method:</b> clean/integrate/transform → heat maps + bar plots + parallel-coordinate + circular-stacked-bar charts + LOS tables.</li>
+      <li><b>Results:</b> peak vs off-peak &amp; weekday/weekend differences; cars + motorcycles dominate, heavy lorries least; <b>Level of Service (LOS) A→F</b> via volume-to-capacity ratio.</li>
+      <li class="les"><b>5 lessons:</b> visual analytics easier than raw numbers • heat maps reveal congestion • LOS flags junctions needing action • spatial+temporal viz aids planning/safety • predictive models can build on it.</li>
+      <li class="one"><b>One-liner:</b> Visual analytics converts traffic counts, types &amp; saturation into LOS/congestion visuals for proactive management.</li>
+    </ul>
 
     <h3>DW &amp; data mining (structured)</h3>
-    <p class="t"><b>R5 · Data Warehouse &amp; Data Mining for BI</b> (Kumar 2024). <b>Argument:</b> DW and DM work together to strengthen BI — centralize data, support historical analysis, discover hidden patterns, enable prediction. <b>Exam focus:</b> how DW + DM combine for BI, prediction, segmentation &amp; advantage. <b>Problem:</b> fragmented view of architecture vs techniques. <b>Method:</b> review — <b>DW role</b> (central repository; sources, ETL, storage, metadata, marts, security, governance, query/analysis) + <b>DM role</b> (supervised/unsupervised/semi-supervised, text mining, predictive modelling, pattern recognition, visualization). <b>Key results — applications:</b> customer segmentation, market-basket, fraud detection, predictive analytics, behaviour analysis, healthcare diagnosis, financial risk, operational optimization.</p>
-    <p class="ex"><b>5 lessons ·</b> DW = foundation for trusted BI • DM turns stored data into predictive/actionable insight • ETL &amp; data quality critical first • BI value rises when shown via dashboards/reports • privacy, governance &amp; compliance are major concerns. &nbsp;<b>One-liner:</b> DW provides trusted integrated data and DM extracts predictive patterns — together enabling BI and competitive advantage. <b>↔Ch.4/5</b></p>
-    <p class="t"><b>R6 · Using Data Mining to Predict Student Performance</b> (Zahruddin 2023). <b>Argument:</b> data mining can predict student performance from demographic + academic data, helping universities find key factors and improve support. <b>Exam focus:</b> how classification/prediction supports educational decisions + compare algorithm performance. <b>Problem/Aim:</b> UPNM wanted to know which demographic factors influence performance and which algorithm predicts best; attributes = gender, age, race, marital status, student status, residential area, geographic location, study status, CGPA. <b>Method:</b> <b>KDD</b> process (selection → preparation → cleaning → prior knowledge → models → interpretation); <b>Neural Network, Decision Tree, k-NN</b> in <b>WEKA</b>. <b>Key results:</b> most influential = gender, age, student status; <b>NN best (RMSE 0.0006)</b>, k-NN 2nd (0.0622), Decision Tree worst (5.1604). <b>Comparison:</b> NN = best accuracy/pattern detection; k-NN = 2nd, similarity grouping; DT = most interpretable but least accurate here. <span class="k">(paper wrongly labels k-NN "unsupervised" — k-NN is supervised)</span></p>
-    <p class="ex"><b>5 lessons ·</b> educational DM supports early prediction • demographic data reveals performance patterns • NN accurate but harder to explain • DTs interpretable but not always most accurate • predictive analytics → better student-support strategies. &nbsp;<b>One-liner:</b> KDD classification on demographic data predicts student performance, with Neural Networks most accurate (RMSE 0.0006), enabling early at-risk support. <b>↔Ch.5</b></p>
-    <p class="t"><b>R7 · Customer Segmentation using K-Means &amp; DBSCAN</b> (William 2025). <b>Argument:</b> segmentation helps fashion e-commerce understand buying behaviour for better marketing; K-Means beat DBSCAN. <b>Exam focus:</b> how clustering supports segmentation; compare K-Means vs DBSCAN. <b>Problem:</b> IXYZ fashion needed meaningful segments — raw transactions weren't enough. <b>Method:</b> <b>CRISP-DM</b>; pre-process with <b>StandardScaler + PCA</b>; test <b>K-Means vs DBSCAN</b> on 10,845×49 data; evaluate <b>Silhouette ↑ / Davies-Bouldin ↓</b>. <b>Key results:</b> K-Means best at <b>k=7</b> (Silhouette 0.549, DBI 0.593); DBSCAN worse (0.2906 / 0.92); deployed as a website (FastAPI backend + React/TypeScript frontend). <b>Comparison:</b> K-Means suits centroid-structured groups; DBSCAN good for outliers but not best here; PCA + scaling improve quality.</p>
-    <p class="ex"><b>5 lessons ·</b> segmentation reveals different buying patterns • K-Means works on centroid-structured groups • DBSCAN detects outliers but isn't always best • PCA + scaling improve clustering • dashboards turn clusters into marketing decisions. &nbsp;<b>One-liner:</b> CRISP-DM clustering (K-Means k=7, outperforming DBSCAN) splits fashion customers into 7 actionable segments, deployed as a dashboard. <b>↔Ch.5</b></p>
-    <p class="t"><b>R8 · Characterizing Patients at Higher CV Risk for Prescribed Stimulants</b> (Yan 2025). <b>Argument:</b> predictive analytics + DM identify which patients face higher cardiovascular risk on stimulants — risk is patient-specific, not population-average. <b>Exam focus:</b> how ML + ARM use health records for personalized risk / healthcare DSS. <b>Problem:</b> rising stimulant use (ADHD adults), mixed evidence on CV risk — which subgroups are vulnerable? <b>Method:</b> EHR (TriNetX, ADHD adults 2010–20); cohort <b>219,965</b> (102,138 stimulant users); ML predicts 1-yr CV risk across age groups; <b>Association Rule Mining</b> on the highest-25% added-risk patients. <b>Key results:</b> <b>AUROC 0.77–0.84</b>; risk categories = existing CV risk factors, prior CV events, substance-use disorders, psychological disorders → a comorbidity <b>watch-list</b> for clinicians.</p>
-    <p class="ex"><b>5 lessons ·</b> predictive models reveal patient-specific (not average) risk • EHR supports safer medication decisions • ARM finds risky condition combinations • risk is most useful as a practical watch-list • DM strengthens healthcare DSS. &nbsp;<b>One-liner:</b> ML + association rule mining on 219,965 EHRs (AUROC 0.77–0.84) builds a comorbidity watch-list for safer stimulant prescribing. <b>↔Ch.5</b></p>
+    <p class="rh"><span class="cr">↔Ch.4/5</span><b>R5 · Data Warehouse &amp; Data Mining for BI</b> (Kumar 2024)</p>
+    <ul class="rl">
+      <li><b>Argument:</b> DW + DM together strengthen BI — centralize data, enable historical analysis, discover patterns, predict.</li>
+      <li><b>Problem:</b> fragmented view of architecture vs techniques.</li>
+      <li><b>DW role:</b> central repository — sources, ETL, storage, metadata, marts, security, governance, query/analysis.</li>
+      <li><b>DM role:</b> supervised, unsupervised, semi-supervised, text mining, predictive modelling, pattern recognition, visualization.</li>
+      <li><b>Results / apps:</b> segmentation, market-basket, fraud, predictive analytics, behaviour analysis, healthcare diagnosis, financial risk, operational optimization. <b>Challenges:</b> data quality, scalability, privacy, skilled staff, cost, governance, compliance.</li>
+      <li class="les"><b>5 lessons:</b> DW = trusted-BI foundation • DM = predictive/actionable insight • ETL + quality first • value rises via dashboards • privacy/governance/compliance major.</li>
+      <li class="one"><b>One-liner:</b> DW provides trusted integrated data; DM extracts predictive patterns — together enabling BI &amp; advantage.</li>
+    </ul>
+    <p class="rh"><span class="cr">↔Ch.5</span><b>R6 · Using Data Mining to Predict Student Performance</b> (Zahruddin 2023)</p>
+    <ul class="rl">
+      <li><b>Argument:</b> DM predicts student performance from demographic + academic data → find key factors, improve support.</li>
+      <li><b>Problem/Aim:</b> UPNM — which demographic factors influence performance, which algorithm predicts best.</li>
+      <li><b>Data:</b> gender, age, race, marital status, student status, residential area, geographic location, study status, CGPA.</li>
+      <li><b>Method:</b> KDD process (select → prepare → clean → prior knowledge → model → interpret); <b>Neural Network, Decision Tree, k-NN</b> in <b>WEKA</b>.</li>
+      <li><b>Results:</b> most influential = gender, age, student status; RMSE — <b>NN 0.0006 (best)</b>, k-NN 0.0622, Decision Tree 5.1604 (worst).</li>
+      <li><b>Compare:</b> NN = best accuracy, harder to explain; k-NN = 2nd, similarity grouping; DT = interpretable but least accurate. <span class="k">(paper wrongly calls k-NN "unsupervised" — it's supervised)</span></li>
+      <li class="les"><b>5 lessons:</b> educational DM → early prediction • demographic data reveals patterns • NN accurate but opaque • DT interpretable not always accurate • analytics → better support.</li>
+      <li class="one"><b>One-liner:</b> KDD classification on demographic data predicts performance; Neural Networks most accurate (RMSE 0.0006) for early at-risk support.</li>
+    </ul>
+    <p class="rh"><span class="cr">↔Ch.5</span><b>R7 · Customer Segmentation using K-Means &amp; DBSCAN</b> (William 2025)</p>
+    <ul class="rl">
+      <li><b>Argument:</b> segmentation → fashion e-commerce understands buying behaviour for targeted marketing; K-Means beat DBSCAN.</li>
+      <li><b>Problem:</b> IXYZ fashion needed meaningful segments; raw transactions insufficient.</li>
+      <li><b>Method:</b> <b>CRISP-DM</b> → 10,845×49 data → clean + RFM features → StandardScaler + <b>PCA</b> → run K-Means (k swept) &amp; DBSCAN → evaluate <b>Silhouette ↑ / Davies-Bouldin ↓</b> → profile → deploy.</li>
+      <li><b>Results:</b> K-Means best at <b>k=7</b> (Silhouette 0.549, DBI 0.593); DBSCAN worse (0.2906 / 0.92); deployed FastAPI + React/TypeScript.</li>
+      <li><b>Compare:</b> K-Means suits centroid groups; DBSCAN good for outliers, not best here; PCA + scaling improve quality.</li>
+      <li class="les"><b>5 lessons:</b> segmentation reveals buying patterns • K-Means for centroid groups • DBSCAN for outliers • PCA + scaling improve clustering • dashboards → marketing decisions.</li>
+      <li class="one"><b>One-liner:</b> CRISP-DM clustering (K-Means k=7 &gt; DBSCAN) yields 7 actionable fashion segments, deployed as a dashboard.</li>
+    </ul>
+    <p class="rh"><span class="cr">↔Ch.5</span><b>R8 · Patients at Higher CV Risk for Prescribed Stimulants</b> (Yan 2025)</p>
+    <ul class="rl">
+      <li><b>Argument:</b> predictive analytics + DM find which patients face higher cardiovascular (CV) risk on stimulants — risk is patient-specific.</li>
+      <li><b>Problem:</b> rising stimulant use (ADHD adults), mixed CV-risk evidence — which subgroups are vulnerable?</li>
+      <li><b>Data:</b> EHR (Electronic Health Records, TriNetX; ADHD adults 2010–20); cohort <b>219,965</b> (102,138 stimulant users), 4 age groups.</li>
+      <li><b>Method:</b> ML predicts 1-yr CV risk by age group → <b>Association Rule Mining (ARM)</b> on the highest-25% added-risk patients.</li>
+      <li><b>Results:</b> <b>AUROC 0.77–0.84</b>; risk categories = existing CV risk factors, prior CV events, substance-use disorders, psychological disorders → comorbidity <b>watch-list</b>.</li>
+      <li class="les"><b>5 lessons:</b> models reveal patient-specific (not avg) risk • EHR → safer medication decisions • ARM finds risky combos • risk → practical watch-list • DM strengthens healthcare DSS.</li>
+      <li class="one"><b>One-liner:</b> ML + ARM on 219,965 EHRs (AUROC 0.77–0.84) builds a comorbidity watch-list for safer stimulant prescribing.</li>
+    </ul>
 
     <h3>Text / web / social (unstructured)</h3>
-    <p class="t"><b>R10 · Text-Based Content Analysis on Social Media using Topic Modelling</b> (Buana 2024). <b>Argument:</b> social media analytics can support digital marketing by discovering topics from text-based Instagram posts. <b>Exam focus:</b> how OCR + topic modelling extract insight from image text. <b>Problem:</b> marketers need topic ideas, but existing tools analyse metadata (likes/comments) and ignore text embedded inside images. <b>Method:</b> built an SMA tool using <b>OCR</b> to extract image text + <b>LDA</b> to find dominant topics; data = content text, captions, likes, comments, upload time, category. <b>Key results:</b> expert-tested — <b>93%</b> could find topic references, <b>85%</b> still usable despite difficulty (UX needs work).</p>
-    <p class="ex"><b>5 lessons ·</b> SMA supports content ideation • OCR makes image text machine-readable • LDA discovers hidden themes • engagement metadata alone is insufficient • UX matters for tool adoption. &nbsp;<b>One-liner:</b> OCR + LDA topic modelling turns text inside Instagram images into topic insights (93% usable) for content/marketing planning. <b>↔Ch.6</b></p>
-    <p class="t"><b>R11 · Social Intelligence &amp; Web Mining for Renewable-Energy Insights</b> (Mwafaq 2025). <b>Argument:</b> social intelligence + web mining analyse online public opinion on renewable energy and convert discourse into policy-level insight. <b>Exam focus:</b> how sentiment + web mining + regression turn discourse into regional adoption insight. <b>Problem:</b> renewable adoption depends not only on technology but on public opinion, awareness, trust &amp; regional readiness. <b>Method:</b> crawl <b>1.5M → 900k</b> social/forum/news items (12 months) → clean → <b>RoBERTa</b> sentiment + <b>LDA</b> themes → <b>multivariate/ridge regression</b> of sentiment → adoption. <b>Key results:</b> <b>58% positive</b> (EU/N.America lead); top themes = economic benefit + technology advances; sentiment predicts regional adoption (Europe ≈15.5%).</p>
-    <p class="ex"><b>5 lessons ·</b> web mining scales public-opinion analysis • transformer sentiment (RoBERTa) beats lexicon methods • topic modelling surfaces discussion themes • sentiment can predict adoption • regional differences matter for policy. &nbsp;<b>One-liner:</b> RoBERTa sentiment + web mining + regression on ~900k posts show 58% positive renewable-energy opinion and predict regional adoption. <b>↔Ch.6</b></p>
-    <p class="t"><b>R12 · Sentiment Analysis &amp; CEEMDAN for Consumer-Group Preferences</b> (Wang 2026). <b>Argument:</b> online reviews hide consumer preferences that are unstructured, emotional &amp; time-dependent; combine NLP with decision modelling to learn them. <b>Exam focus:</b> combining NLP + decision modelling for interpretable preferences. <b>Problem:</b> hotel reviews are scattered, implicit, ambiguous &amp; change over time. <b>Method:</b> Ctrip <b>14,133 → 10,505</b> reviews → <b>BERT</b>-Base-Chinese fine-grained sentiment (F1 0.83) → <b>BERTopic</b> (20 topics) → <b>CEEMDAN</b> separates short-term noise from long-term trend → <b>UTA</b> preference model (criteria weights, thresholds, value systems) per group. <b>Key results:</b> improved interpretability of consumer-group preferences; identifies each group's priority factors; beats LSTM (0.761) &amp; RF (0.568); gives managers decision support.</p>
-    <p class="ex"><b>5 lessons ·</b> fine-grained sentiment beats simple pos/neg • preferences change over time, so temporal analysis matters • CEEMDAN separates long-term trend from short-term noise • NLP + decision modelling improves interpretability • review mining supports service/marketing/resource decisions. &nbsp;<b>One-liner:</b> BERT + CEEMDAN + UTA mine hotel reviews into stable, interpretable consumer-group preferences for evidence-based management. <b>↔Ch.6</b></p>
+    <p class="rh"><span class="cr">↔Ch.6</span><b>R10 · Text-Based Content Analysis on Social Media (Topic Modelling)</b> (Buana 2024)</p>
+    <ul class="rl">
+      <li><b>Argument:</b> social media analytics (SMA) supports digital marketing by discovering topics from text inside Instagram posts.</li>
+      <li><b>Problem:</b> marketers need topic ideas, but tools analyse metadata (likes/comments) and ignore image text.</li>
+      <li><b>Method:</b> SMA tool → <b>OCR</b> (Optical Character Recognition) extracts image text → <b>LDA</b> finds dominant topics; data = content text, captions, likes, comments, upload time, category.</li>
+      <li><b>Results:</b> expert-tested — <b>93%</b> could find topic references, <b>85%</b> usable despite difficulty (UX needs work).</li>
+      <li class="les"><b>5 lessons:</b> SMA → content ideation • OCR makes image text readable • LDA finds hidden themes • metadata alone insufficient • UX matters for adoption.</li>
+      <li class="one"><b>One-liner:</b> OCR + LDA turn Instagram image text into topic insights (93% usable) for content/marketing planning.</li>
+    </ul>
+    <p class="rh"><span class="cr">↔Ch.6</span><b>R11 · Social Intelligence &amp; Web Mining for Renewable-Energy Insights</b> (Mwafaq 2025)</p>
+    <ul class="rl">
+      <li><b>Argument:</b> social intelligence + web mining analyse online opinion on renewable energy → policy-level insight.</li>
+      <li><b>Problem:</b> adoption depends on public opinion, awareness, trust &amp; regional readiness — not just technology.</li>
+      <li><b>Method:</b> crawl <b>1.5M → 900k</b> social/forum/news items (12 mo) → clean → <b>RoBERTa</b> sentiment + <b>LDA</b> themes → multivariate/ridge regression of sentiment → adoption.</li>
+      <li><b>Results:</b> <b>58% positive</b> (EU/N.America lead); top themes = economic benefit + technology advances; predicts regional adoption (Europe ≈15.5%).</li>
+      <li class="les"><b>5 lessons:</b> web mining scales opinion analysis • transformer sentiment (RoBERTa) &gt; lexicon • topic modelling surfaces themes • sentiment can predict adoption • regional differences matter for policy.</li>
+      <li class="one"><b>One-liner:</b> RoBERTa sentiment + web mining + regression on ~900k posts → 58% positive opinion, predicting regional renewable adoption.</li>
+    </ul>
+    <p class="rh"><span class="cr">↔Ch.6</span><b>R12 · Sentiment Analysis &amp; CEEMDAN for Consumer-Group Preferences</b> (Wang 2026)</p>
+    <ul class="rl">
+      <li><b>Argument:</b> reviews hide consumer preferences (unstructured, emotional, time-dependent); combine NLP + decision modelling to learn them.</li>
+      <li><b>Problem:</b> hotel reviews are scattered, implicit, ambiguous &amp; change over time.</li>
+      <li><b>Method:</b> Ctrip <b>14,133 → 10,505</b> reviews → <b>BERT</b>-Base-Chinese fine-grained sentiment (F1 0.83) → <b>BERTopic</b> (20 topics) → <b>CEEMDAN</b> separates noise from trend → <b>UTA</b> preference model (criteria weights, thresholds, value systems) per group.</li>
+      <li><b>Results:</b> interpretable group preferences; identifies each group's priority factors; beats LSTM (0.761) &amp; RF (0.568); manager decision support.</li>
+      <li class="les"><b>5 lessons:</b> fine-grained sentiment &gt; pos/neg • preferences change over time • CEEMDAN separates trend from noise • NLP + decision modelling → interpretability • review mining → service/marketing/resource decisions.</li>
+      <li class="one"><b>One-liner:</b> BERT + CEEMDAN + UTA mine hotel reviews into stable, interpretable consumer-group preferences for evidence-based management.</li>
+    </ul>
 
     <!-- ===================== FORMULAS ===================== -->
     <h2 class="span">Formulas, Metrics &amp; Quick-Pick</h2>
