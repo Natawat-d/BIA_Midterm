@@ -17,6 +17,7 @@ Open **[`index.html`](index.html)** for the landing page that links to everythin
 | `BIA-Lectures-Comprehensive-Overview.html` | Lectures overview (Ch. 1·3·4·5·6·9) |
 | `BIA-Readings-Comprehensive-Overview.html` | Readings overview (R1–R12) |
 | `BIA-Midterm-CheatSheet-2page.html` | Printable 2-page cheat sheet |
+| `BIA-Midterm-CheatSheet-v2.html` | Dense v2 cheat sheet — adds exam answer templates + full-detail readings (2 A4 pages) |
 | `Chapter1-BIA-Summary.html` | Chapter 1 summary |
 | `R1-Taxonomy-of-DSS-Summary.html` | Reading 1 summary |
 | `R2-Business-Intelligence-Role-Summary.html` | Reading 2 summary |
